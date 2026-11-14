@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtuous Effect Hair Studio | Hair Salon in Huntsville, Alabama</title>
+<meta name="description" content="Virtuous Effect Hair Studio on Newby Rd in Huntsville, AL. Haircuts, color and highlights, relaxers, sew-ins, quick weaves and locs. Book on Booksy.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f2f5; --surface: #ffffff; --line: #e0d3dc;
+    --text: #26152b; --muted: #5c4960; --accent: #8a2766;
+    --btn-bg: #8a2766; --btn-ink: #ffffff; --btn-hover: #741f55;
+    --hero-bg: var(--bg); --hero-text: #26152b; --hero-muted: #5c4960; --hero-accent: #8a2766;
+    --font-head: "Bodoni Moda", Georgia, serif;
+    --font-body: "Jost", system-ui, sans-serif;
+    --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s6: 48px; --s8: 64px; --s12: 96px;
+    --r: 2px;
+    --shadow: 0 10px 30px rgba(38,21,43,.08);
+    --pad-x: clamp(20px, 5vw, 64px);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.6; overflow-x: hidden; }
+  a { color: inherit; }
+  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  h1, h2, h3 { font-family: var(--font-head); font-weight: 600; text-transform: none; letter-spacing: -.01em; margin: 0; line-height: 1.08; }
+  p { margin: 0; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--pad-x); }
+
+  .preview { background: #26152b; color: #e8dbe4; font-size: 13px; line-height: 1.4; text-align: center; padding: var(--s1) var(--pad-x); }
+
+  .hero { background: var(--hero-bg); color: var(--hero-text); border-bottom: 1px solid var(--line); }
+  .hero .wrap { display: grid; gap: var(--s4); padding-top: var(--s4); padding-bottom: var(--s6); }
+  .kicker { color: var(--hero-accent); font-weight: 600; font-size: 15px; letter-spacing: .02em; }
+  .hero h1 { font-size: var(--h1-m); margin-top: var(--s1); }
+  .hero h1 .sub { display: block; font-size: .5em; line-height: 1.15; margin-top: 6px; }
+  .hero .lede { color: var(--hero-muted); max-width: 32em; margin-top: var(--s2); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--s3); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 var(--s3); border-radius: var(--r); font: 600 16px/1.2 var(--font-body); text-decoration: none; white-space: nowrap; flex: 1 1 220px; transition: background-color .2s, color .2s, border-color .2s; }
+  .btn-primary { background: var(--btn-bg); color: var(--btn-ink); }
+  .btn-primary:hover { background: var(--btn-hover); }
+  .btn-ghost { border: 1px solid currentColor; color: var(--hero-text); }
+  .btn-ghost:hover { color: var(--hero-accent); }
+  section .btn-ghost { color: var(--text); border-color: var(--line); }
+  section .btn-ghost:hover { border-color: var(--accent); color: var(--text); }
+
+  /* hero side card */
+  .card { background: var(--surface); color: var(--text); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: var(--r); box-shadow: var(--shadow); padding: var(--s3); width: 100%; max-width: 420px; }
+  .card h2 { font-size: 26px; }
+  .card dl { margin: var(--s2) 0 0; display: grid; grid-template-columns: auto 1fr; }
+  .card dt, .card dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .card dd { text-align: right; font-variant-numeric: tabular-nums; padding-left: var(--s2); }
+  .card .dim { color: var(--muted); }
+  .card .foot { margin-top: var(--s2); color: var(--muted); font-size: 15px; }
+  .card .foot strong { color: var(--text); font-weight: 600; }
+
+  /* hero fact tiles */
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+  .fact { background: var(--surface); color: var(--text); padding: 14px var(--s2); min-width: 0; }
+  .fact.wide { grid-column: 1 / -1; }
+  .fact .lab { display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+  .fact .val { display: block; margin-top: 4px; font-size: 16px; line-height: 1.35; overflow-wrap: anywhere; }
+  .fact a { text-underline-offset: 3px; }
+
+  section { border-bottom: 1px solid var(--line); }
+  section .wrap { padding-top: var(--s8); padding-bottom: var(--s8); }
+  h2 { font-size: clamp(32px, 7vw, 50px); }
+  .note { color: var(--muted); margin-top: var(--s2); max-width: 30em; }
+
+  .services .wrap { display: grid; gap: var(--s4); }
+  .svc-groups { display: grid; gap: var(--s4); }
+  .svc-group h3 { font-family: var(--font-body); text-transform: none; letter-spacing: .02em; font-weight: 600; font-size: 15px; color: var(--accent); padding-bottom: var(--s1); border-bottom: 1px solid var(--line); }
+  .svc-group ul { list-style: none; margin: 0; padding: 0; }
+  .svc-group li { font-family: var(--font-head); font-size: clamp(22px, 5vw, 28px); line-height: 1.25; padding: var(--s2) 0; border-bottom: 1px solid var(--line); }
+  .tiles { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
+  .tiles li { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--r); padding: var(--s2) var(--s3); }
+  .tiles strong { display: block; font-family: var(--font-head); font-weight: 600; text-transform: none; font-size: 22px; line-height: 1.2; }
+  .tiles span { display: block; color: var(--muted); margin-top: 4px; font-size: 16px; }
+
+  .visit .wrap { display: grid; gap: var(--s6); }
+  .hours { width: 100%; border-collapse: collapse; margin-top: var(--s3); }
+  .hours th, .hours td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--line); font-weight: 400; }
+  .hours td { text-align: right; font-variant-numeric: tabular-nums; }
+  .hours .dim td, .hours .dim th { color: var(--muted); }
+  .checks { list-style: none; margin: var(--s3) 0 0; padding: 0; }
+  .checks li { padding: 12px 0 12px 28px; border-bottom: 1px solid var(--line); position: relative; }
+  .checks li::before { content: ""; position: absolute; left: 2px; top: 21px; width: 12px; height: 7px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+  .place-name { font-family: var(--font-head); font-weight: 600; font-size: clamp(28px, 6vw, 38px); line-height: 1.15; margin-top: var(--s3); }
+  .map-link { display: inline-block; margin-top: var(--s2); color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
+
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 40px 1fr; gap: var(--s2); padding: var(--s2) 0; border-bottom: 1px solid var(--line); }
+  .steps li::before { content: counter(step); font-family: var(--font-head); font-size: 24px; line-height: 1.2; color: var(--accent); }
+  .contact .wrap { display: grid; gap: var(--s4); }
+  .contact .actions { margin-top: var(--s3); }
+
+  footer .wrap { display: grid; gap: var(--s3); padding-top: var(--s6); padding-bottom: var(--s6); color: var(--muted); font-size: 15px; }
+  footer .brand { font-family: var(--font-head); font-weight: 600; text-transform: none; font-size: 24px; line-height: 1.2; color: var(--text); }
+  footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s1); }
+  footer a { text-underline-offset: 3px; overflow-wrap: anywhere; }
+  .credit { font-size: 13px; }
+
+  @media (min-width: 768px) {
+    .hero h1 { font-size: var(--h1-d); }
+    h2 { font-size: clamp(34px, 4.5vw, 50px); }
+    .btn { flex: 0 0 auto; }
+    .hero .wrap { padding-top: var(--s8); padding-bottom: var(--s8); }
+    .hero-card .wrap { grid-template-columns: 1.5fr 1fr; align-items: center; }
+    .hero-card .card { justify-self: end; }
+    .facts { grid-template-columns: repeat(4, 1fr); }
+    .fact.wide { grid-column: span 2; }
+    .fact { padding: var(--s3); }
+    .tiles { grid-template-columns: 1fr 1fr; }
+    .visit .wrap { grid-template-columns: 1fr 1fr; gap: var(--s8); }
+    .contact .wrap { grid-template-columns: 1fr 1.2fr; gap: var(--s8); align-items: start; }
+    footer .wrap { grid-template-columns: 1fr auto; align-items: end; }
+  }
+  @media (min-width: 1000px) {
+    .services .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
+  @media (min-width: 1100px) {
+    section .wrap { padding-top: var(--s12); padding-bottom: var(--s12); }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  .hero { --h1-m: clamp(42px, 12vw, 60px); --h1-d: min(clamp(56px, 7.5vw, 96px), 5.6vw, 72px); }
+</style>
+</head>
+<body>
+
+<p class="preview">Preview design made for Virtuous Effect Hair Studio by GO.DO Web Studio — not a live site</p>
+
+<header class="hero hero-card">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Hair studio on Newby Rd, Huntsville, Alabama</p>
+      <h1>Virtuous Effect<span class="sub">Hair Studio</span></h1>
+      <p class="lede">Color, cuts, relaxers, sew-ins and locs, done the way you asked for. Pick your service and time on Booksy.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://booksy.com/en-us/106065_virtuous-effect-hair-studio_hair-salon_13762_huntsville">Book on Booksy</a>
+        <a class="btn btn-ghost" href="tel:+12563236073">Call (256) 323-6073</a>
+      </div>
+    </div>
+    <aside class="card" aria-labelledby="card-h">
+      <h2 id="card-h">Open days</h2>
+      <dl>
+        <dt>Wed – Thu</dt><dd>11:00 am – 5:00 pm</dd>
+        <dt>Friday</dt><dd>11:00 am – 6:00 pm</dd>
+        <dt class="dim">Other days</dt><dd class="dim">See Booksy</dd>
+      </dl>
+      <p class="foot"><strong>5.0 average</strong> from 116 client reviews on Booksy</p>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section class="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <div>
+        <h2 id="services-h">Services</h2>
+        <p class="note">Prices and appointment lengths for each service are listed on Booksy.</p>
+      </div>
+      <div class="svc-groups">
+        <div class="svc-group">
+          <h3>Cut, color and style</h3>
+          <ul>
+            <li>Shampoo and style</li>
+            <li>Haircuts</li>
+            <li>Color and highlights</li>
+            <li>Relaxers</li>
+          </ul>
+        </div>
+        <div class="svc-group">
+          <h3>Extensions and natural hair</h3>
+          <ul>
+            <li>Sew-ins</li>
+            <li>Quick weaves</li>
+            <li>Locs</li>
+          </ul>
+        </div>
+        <div class="svc-group">
+          <h3>Hair health</h3>
+          <ul>
+            <li>Deep conditioning</li>
+            <li>Scalp treatments</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" aria-label="Hours and location">
+    <div class="wrap">
+      <div>
+        <h2>Hours</h2>
+        <table class="hours">
+          <caption class="sr-only">Hours</caption>
+          <tbody>
+            <tr><th scope="row">Wednesday</th><td>11:00 am – 5:00 pm</td></tr>
+            <tr><th scope="row">Thursday</th><td>11:00 am – 5:00 pm</td></tr>
+            <tr><th scope="row">Friday</th><td>11:00 am – 6:00 pm</td></tr>
+          </tbody>
+        </table>
+        <p class="note">These are the days listed on Booksy. Open slots for each day show up there in real time.</p>
+      </div>
+      <div class="place">
+        <h2>Where</h2>
+        <p class="place-name">2801 Newby Rd, Suite C<br>Huntsville, AL</p>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=2801+Newby+Rd+Suite+C+Huntsville+AL">Open in Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div>
+        <h2 id="contact-h">Booking</h2>
+        <p class="note">Booksy takes bookings around the clock, so you can grab a slot even when the studio is closed.</p>
+      </div>
+      <div>
+        <ol class="steps">
+          <li><span>Open Booksy and choose your service.</span></li>
+          <li><span>Pick a day and time that works for you.</span></li>
+          <li><span>Confirm, and you&#x27;re booked.</span></li>
+        </ol>
+        <p class="note">Clients keep saying they left with exactly the color and style they wanted. Yours is next.</p>
+        <div class="actions">
+        <a class="btn btn-primary" href="https://booksy.com/en-us/106065_virtuous-effect-hair-studio_hair-salon_13762_huntsville">Book on Booksy</a>
+        <a class="btn btn-ghost" href="tel:+12563236073">Call (256) 323-6073</a>
+      </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="brand">Virtuous Effect Hair Studio</p>
+      <p>2801 Newby Rd, Suite C, Huntsville, AL</p>
+    </div>
+    <ul>
+      <li><a href="tel:+12563236073">(256) 323-6073</a></li>
+      <li><a href="mailto:virtuouseffect@gmail.com">virtuouseffect@gmail.com</a></li>
+      <li><a href="https://www.instagram.com/thevirtuouseffect/">Instagram: @thevirtuouseffect</a></li>
+      <li class="credit">Preview by GO.DO Web Studio</li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

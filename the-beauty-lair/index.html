@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Beauty Lair | Hair &amp; Beauty Salon in Townsend, Montana</title>
+<meta name="description" content="The Beauty Lair is a hair and beauty salon in Townsend, Montana. Haircuts, color, highlights, balayage, nails, waxing and lash extensions. Book online or call (406) 980-0341.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* color */
+    --bg: #211b1f;
+    --surface: #2a2227;
+    --line: #47393f;
+    --text: #f1e9e4;
+    --muted: #c2b3ae;
+    --accent: #e3a68a;
+    --accent-ink: #211b1f;
+    /* type */
+    --font-head: "Gloock", Georgia, "Times New Roman", serif;
+    --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    /* spacing (8px scale) */
+    --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s6: 48px; --s8: 64px; --s12: 96px;
+    /* radius */
+    --r: 4px;
+    /* shadow */
+    --shadow: 0 8px 24px rgba(10, 6, 8, .35);
+    --pad-x: clamp(20px, 5vw, 64px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  a:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  h1, h2, h3 { font-family: var(--font-head); font-weight: 400; margin: 0; line-height: 1.1; }
+  p { margin: 0; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--pad-x); }
+
+  /* preview strip */
+  .preview {
+    background: #15111a;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+    padding: var(--s1) var(--pad-x);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* hero */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .hero .wrap {
+    position: relative;
+    display: grid;
+    gap: var(--s4);
+    padding-top: var(--s6);
+    padding-bottom: var(--s6);
+  }
+  .kicker { color: var(--accent); font-weight: 500; font-size: 15px; letter-spacing: .02em; }
+  .hero h1 { font-size: clamp(48px, 13vw, 104px); letter-spacing: -.01em; margin-top: var(--s1); }
+  .hero .lede { color: var(--muted); max-width: 30em; margin-top: var(--s2); }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 52px;
+    padding: 0 var(--s3);
+    border-radius: var(--r);
+    font: 600 16px/1.2 var(--font-body);
+    text-decoration: none;
+    white-space: nowrap;
+    flex: 1 1 220px;
+    transition: background-color .2s, color .2s, border-color .2s;
+  }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:hover { background: #ecb89f; }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); }
+
+  /* this-week card in hero */
+  .week {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    padding: var(--s3);
+    width: 100%;
+    max-width: 400px;
+  }
+  .week h2 { font-size: 28px; }
+  .week dl { margin: var(--s2) 0 0; display: grid; grid-template-columns: auto 1fr; }
+  .week dt, .week dd { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .week dd { text-align: right; font-variant-numeric: tabular-nums; }
+  .week .off { color: var(--muted); }
+  .week .fri { color: var(--accent); }
+  .week .addr { margin-top: var(--s2); color: var(--muted); font-size: 15px; }
+  .week .addr strong { color: var(--text); font-weight: 500; }
+
+  /* sections */
+  section { border-bottom: 1px solid var(--line); }
+  section .wrap { padding-top: var(--s8); padding-bottom: var(--s8); }
+  h2 { font-size: clamp(34px, 7vw, 52px); }
+  .note { color: var(--muted); margin-top: var(--s2); max-width: 28em; }
+
+  /* services */
+  .services .wrap { display: grid; gap: var(--s4); }
+  .svc-groups { display: grid; gap: var(--s4); }
+  .svc-group h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: .02em;
+    color: var(--accent);
+    padding-bottom: var(--s1);
+    border-bottom: 1px solid var(--line);
+  }
+  .svc-group ul { list-style: none; margin: 0; padding: 0; }
+  .svc-group li {
+    font-family: var(--font-head);
+    font-size: clamp(22px, 5vw, 28px);
+    line-height: 1.25;
+    padding: var(--s2) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* hours + place */
+  .visit .wrap { display: grid; gap: var(--s6); }
+  .hours { width: 100%; border-collapse: collapse; margin-top: var(--s3); }
+  .hours th, .hours td {
+    text-align: left;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-weight: 400;
+  }
+  .hours td { text-align: right; font-variant-numeric: tabular-nums; }
+  .hours .closed td { color: var(--muted); }
+  .place-name { font-family: var(--font-head); font-size: clamp(30px, 6vw, 40px); line-height: 1.15; margin-top: var(--s3); }
+  .place p + p { margin-top: var(--s2); }
+  .place .note a { color: var(--text); }
+  .map-link { display: inline-block; margin-top: var(--s2); color: var(--accent) !important; font-weight: 600; text-underline-offset: 3px; }
+
+  /* booking */
+  .book .wrap { display: grid; gap: var(--s4); }
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .steps li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: var(--s2);
+    padding: var(--s2) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .steps li::before {
+    content: counter(step);
+    font-family: var(--font-head);
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--accent);
+  }
+  .book .actions { margin-top: var(--s3); }
+
+  /* footer */
+  footer .wrap {
+    display: grid;
+    gap: var(--s3);
+    padding-top: var(--s6);
+    padding-bottom: var(--s6);
+    color: var(--muted);
+    font-size: 15px;
+  }
+  footer .brand { font-family: var(--font-head); font-size: 26px; color: var(--text); }
+  footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s1); }
+  footer a { text-decoration-color: var(--line); text-underline-offset: 3px; }
+  footer a:hover { text-decoration-color: var(--accent); }
+  .credit { font-size: 13px; }
+
+  @media (min-width: 768px) {
+    .hero h1 { font-size: clamp(56px, 8.5vw, 104px); }
+    h2 { font-size: clamp(36px, 4.5vw, 52px); }
+    .btn { flex: 0 0 auto; }
+    .hero .wrap { grid-template-columns: 1.6fr 1fr; align-items: center; padding-top: var(--s8); padding-bottom: var(--s8); }
+    .week { justify-self: end; }
+    .svc-groups { gap: var(--s6); }
+    .visit .wrap { grid-template-columns: 1fr 1fr; gap: var(--s8); }
+    .book .wrap { grid-template-columns: 1fr 1.2fr; gap: var(--s8); align-items: start; }
+    footer .wrap { grid-template-columns: 1fr auto; align-items: end; }
+  }
+  @media (min-width: 1000px) {
+    .services .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
+  @media (min-width: 1100px) {
+    section .wrap { padding-top: var(--s12); padding-bottom: var(--s12); }
+    .svc-groups { grid-template-columns: 1fr 1fr; column-gap: var(--s6); }
+    .svc-groups .svc-group:first-child { grid-row: span 2; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<p class="preview">Preview design made for The Beauty Lair by GO.DO Web Studio — not a live site</p>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Hair &amp; beauty salon on Front St, Townsend, Montana</p>
+      <h1>The Beauty Lair</h1>
+      <p class="lede">Cuts for women and men, color, nails, lashes and waxing, all in one spot in the middle of town. Book through Square any time, or give us a call.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://square.site/book/EX6W4FZYGVA1H/the-beauty-lair-townsend-mt">Book an appointment</a>
+        <a class="btn btn-ghost" href="tel:+14069800341">Call (406) 980-0341</a>
+      </div>
+    </div>
+    <aside class="week" aria-labelledby="week-h">
+      <h2 id="week-h">Weekly hours</h2>
+      <dl>
+        <dt>Mon – Wed</dt><dd>9:00 am – 5:00 pm</dd>
+        <dt>Thursday</dt><dd>9:30 am – 5:00 pm</dd>
+        <dt class="fri">Friday</dt><dd class="fri">9:00 am – noon</dd>
+        <dt class="off">Sat &amp; Sun</dt><dd class="off">Closed</dd>
+      </dl>
+      <p class="addr"><strong>308 N Front St</strong>, Townsend, MT</p>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section class="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <div>
+        <h2 id="services-h">What we do</h2>
+        <p class="note">Hair, nails, lashes and waxing under one roof, so one visit can cover more than a haircut. Prices and times for each service are on the Square booking page.</p>
+      </div>
+      <div class="svc-groups">
+        <div class="svc-group">
+          <h3>Hair</h3>
+          <ul>
+            <li>Women's haircuts</li>
+            <li>Men's haircuts</li>
+            <li>All-over color</li>
+            <li>Highlights</li>
+            <li>Balayage</li>
+            <li>Deep conditioning</li>
+          </ul>
+        </div>
+        <div class="svc-group">
+          <h3>Nails</h3>
+          <ul>
+            <li>Gel nails</li>
+            <li>Acrylic nails</li>
+          </ul>
+        </div>
+        <div class="svc-group">
+          <h3>Lashes and waxing</h3>
+          <ul>
+            <li>Lash extensions</li>
+            <li>Waxing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" aria-label="Hours and location">
+    <div class="wrap">
+      <div>
+        <h2>Hours</h2>
+        <table class="hours">
+          <caption class="sr-only">Weekly opening hours</caption>
+          <tbody>
+            <tr><th scope="row">Monday</th><td>9:00 am – 5:00 pm</td></tr>
+            <tr><th scope="row">Tuesday</th><td>9:00 am – 5:00 pm</td></tr>
+            <tr><th scope="row">Wednesday</th><td>9:00 am – 5:00 pm</td></tr>
+            <tr><th scope="row">Thursday</th><td>9:30 am – 5:00 pm</td></tr>
+            <tr><th scope="row">Friday</th><td>9:00 am – 12:00 pm</td></tr>
+            <tr class="closed"><th scope="row">Saturday</th><td>Closed</td></tr>
+            <tr class="closed"><th scope="row">Sunday</th><td>Closed</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Friday is mornings only, until noon. Square shows every open slot as it is right now.</p>
+      </div>
+      <div class="place">
+        <h2>Where</h2>
+        <p class="place-name">308 N Front St<br>Townsend, MT</p>
+        <p class="note">On Front St in the middle of Townsend, Broadwater County.</p>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=308+N+Front+St+Townsend+MT">Open in Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" aria-labelledby="book-h">
+    <div class="wrap">
+      <div>
+        <h2 id="book-h">Booking</h2>
+        <p class="note">Booking runs through Square and stays open around the clock, including evenings and weekends when the salon is closed.</p>
+      </div>
+      <div>
+        <ol class="steps">
+          <li><span>Open the booking page and choose your service.</span></li>
+          <li><span>Pick a day and time that works for you.</span></li>
+          <li><span>Add your name and contact info, and you're on the books.</span></li>
+        </ol>
+        <p class="note">Rather talk it through? Call during open hours.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://square.site/book/EX6W4FZYGVA1H/the-beauty-lair-townsend-mt">Book an appointment</a>
+          <a class="btn btn-ghost" href="tel:+14069800341">Call (406) 980-0341</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="brand">The Beauty Lair</p>
+      <p>308 N Front St, Townsend, MT</p>
+    </div>
+    <ul>
+      <li><a href="tel:+14069800341">(406) 980-0341</a></li>
+      <li><a href="mailto:scbeauty143@gmail.com">scbeauty143@gmail.com</a></li>
+      <li class="credit">Preview by GO.DO Web Studio</li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
