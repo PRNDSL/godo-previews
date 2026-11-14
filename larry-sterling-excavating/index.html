@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Larry Sterling Excavating Inc | Excavation &amp; Septic Installation, Black Hawk, CO</title>
-<meta name="description" content="Larry Sterling Excavating Inc, Black Hawk, CO. Excavation and septic (OWTS) system installation, out of Black Hawk. Call to talk through your job. Call (303) 582-5794.">
+<meta name="description" content="Larry Sterling Excavating Inc, Black Hawk, CO. Larry Sterling has run his excavating company from Trail Dust Road in Black Hawk since 1996, septic installs included. Call (303) 582-5794.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 800; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 800; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(38px, 10.5vw, 52px); --h1-d: clamp(52px, 6.5vw, 84px); }
 </style>
@@ -177,11 +197,11 @@
 
 <header class="hero hero-ledger">
   <div class="wrap">
-    <p class="record"><span class="rec-lab">On file</span><span class="rec-val">Jefferson County 2026 licensed OWTS contractor list</span></p>
+    <p class="record"><span class="rec-lab">In business since</span><span class="rec-val">1996, Black Hawk, Colorado</span></p>
     <div>
       <h1>Larry Sterling<span class="sub">Excavating Inc</span></h1>
       <p class="place-line">Black Hawk, CO</p>
-      <p class="lede">Excavation and septic (OWTS) system installation, out of Black Hawk. Call to talk through your job.</p>
+      <p class="lede">Larry Sterling has run his excavating company from Trail Dust Road in Black Hawk since 1996, septic installs included.</p>
       <div class="actions">
         <a class="btn btn-primary" href="tel:+13035825794">Call (303) 582-5794</a>
         <a class="btn btn-ghost" href="mailto:larryshomestead@gmail.com">Email us</a>
@@ -199,12 +219,29 @@
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">The dig and the septic system from one contractor.</p>
+        <p class="note">Excavation and septic installs, out of Trail Dust Road in Black Hawk.</p>
       </div>
       <ul class="tiles">
           <li><strong>Excavation</strong><span>Digging and ground work</span></li>
           <li><strong>Septic installation</strong><span>OWTS systems</span></li>
         </ul>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Since 1996</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>Larry Sterling Excavating was incorporated in April 1996 and is a licensed OWTS contractor with Jefferson County.</p>
+        </div>
+        <dl class="points">
+          <div><dt>Incorporated</dt><dd>1996</dd></div>
+          <div><dt>Licensed</dt><dd>Jefferson County OWTS contractor</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 

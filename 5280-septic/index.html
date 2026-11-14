@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>5280 Septic LLC | Septic Installation &amp; Repair, Pine, CO</title>
-<meta name="description" content="5280 Septic LLC, Pine, CO. Septic (OWTS) system installation and repair. Call to talk through your system. Call (303) 437-1027.">
+<meta name="description" content="5280 Septic LLC, Pine, CO. Septic installation and repair from Pine, in business since 2015 with an A+ BBB rating. Call (303) 437-1027.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 700; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 700; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(40px, 12.5vw, 62px); --h1-d: clamp(56px, 7vw, 96px); }
 </style>
@@ -178,14 +198,14 @@
 <header class="hero hero-split">
   <div class="top">
     <div class="wrap">
-      <p class="kicker">Septic installation and repair, Pine, Colorado</p>
+      <p class="kicker">Septic installation and repair on US 285, Pine, Colorado</p>
       <h1>5280 Septic LLC</h1>
     </div>
   </div>
   <div class="bottom">
     <div class="wrap">
       <div>
-        <p class="lede">Septic (OWTS) system installation and repair. Call to talk through your system.</p>
+        <p class="lede">Septic installation and repair from Pine, in business since 2015 with an A+ BBB rating.</p>
         <div class="actions">
         <a class="btn btn-primary" href="tel:+13034371027">Call (303) 437-1027</a>
         <a class="btn btn-ghost" href="mailto:5280septic@gmail.com">Email us</a>
@@ -204,7 +224,7 @@
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">New systems and repairs to the one you already have.</p>
+        <p class="note">New septic systems, and repairs to the one you already have, from Pine on US 285.</p>
       </div>
       <div class="svc-groups">
         <div class="svc-group">
@@ -213,6 +233,24 @@
             <li>Septic repair</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Since 2015</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>5280 Septic started in March 2015 on US Highway 285 in Pine.</p>
+        </div>
+        <dl class="points">
+          <div><dt>Started</dt><dd>2015</dd></div>
+          <div><dt>BBB</dt><dd>A+ rating</dd></div>
+          <div><dt>Licensed</dt><dd>Jefferson County OWTS contractor</dd></div>
+        </dl>
       </div>
     </div>
   </section>

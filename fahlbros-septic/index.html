@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fahlbros Septic | Septic Installation &amp; Service, Loveland, CO</title>
-<meta name="description" content="Fahlbros Septic Installation &amp; Services LLC, Loveland, CO. Septic system installation and service, from Loveland. Call to talk through your system. Call (720) 240-7990.">
+<meta name="description" content="Fahlbros Septic Installation &amp; Services LLC, Loveland, CO. Complete septic systems put in, tank, holding tank and leach field, and tanks replaced when they fail. Since 2018. Call (720) 240-7990.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 800; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 800; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(38px, 10.5vw, 52px); --h1-d: clamp(52px, 6.5vw, 84px); }
 </style>
@@ -177,34 +197,69 @@
 
 <header class="hero hero-ledger">
   <div class="wrap">
-    <p class="record"><span class="rec-lab">On file</span><span class="rec-val">Jefferson County 2026 licensed OWTS contractor list</span></p>
+    <p class="record"><span class="rec-lab">Licensed installer</span><span class="rec-val">Jefferson County and Boulder County lists</span></p>
     <div>
       <h1>Fahlbros Septic<span class="sub">Installation &amp; Services LLC</span></h1>
       <p class="place-line">Loveland, CO</p>
-      <p class="lede">Septic system installation and service, from Loveland. Call to talk through your system.</p>
+      <p class="lede">Complete septic systems put in, tank, holding tank and leach field, and tanks replaced when they fail. Since 2018.</p>
       <div class="actions">
         <a class="btn btn-primary" href="tel:+17202407990">Call (720) 240-7990</a>
         <a class="btn btn-ghost" href="mailto:fahlbrosseptic@hotmail.com">Email us</a>
       </div>
     </div>
     <ul class="hero-list" aria-label="Services">
-      <li>Septic installation</li>
-      <li>Septic service</li>
+      <li>Complete system installs</li>
+      <li>Septic tank replacement</li>
+      <li>New builds</li>
+      <li>Extra site work</li>
     </ul>
   </div>
 </header>
 
 <main>
+  <section class="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div>
+        <h2 id="reviews-h">Jared&#x27;s customers</h2>
+        <p class="rating"><span class="stars">5.0</span><span class="of">out of 5 from 3 Google reviews, checked November 2026</span></p>
+      </div>
+      <ul class="quotes">
+          <li><blockquote>“The whole experience was streamlined from conception to installation and the pricing was reasonable.”</blockquote><cite>Brandon O., Google</cite></li>
+          <li><blockquote>“When our septic tank collapsed unexpectedly, Jared came to the rescue”</blockquote><cite>thea s., Google</cite></li>
+          <li><blockquote>“Great to work with Jared on my 4 bed, 4 bath project.”</blockquote><cite>Joel W., Google</cite></li>
+        </ul>
+    </div>
+  </section>
+
   <section class="services" aria-labelledby="services-h">
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">Put the system in, then keep it working.</p>
+        <p class="note">Put the system in, and come back when it needs help.</p>
       </div>
       <ul class="tiles">
-          <li><strong>Septic installation</strong><span>New systems put in</span></li>
-          <li><strong>Septic service</strong><span>Service for existing systems</span></li>
+          <li><strong>Complete system installs</strong><span>Tank, holding tank and leach field</span></li>
+          <li><strong>Septic tank replacement</strong><span>Including when a tank collapses without warning</span></li>
+          <li><strong>New builds</strong><span>Systems for new homes, like a 4-bed, 4-bath project</span></li>
+          <li><strong>Extra site work</strong><span>Weed barrier and road base laid while the machine is there</span></li>
         </ul>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Since 2018</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>Fahlbros Septic Installation &amp; Services was formed in Loveland in 2018.</p>
+        </div>
+        <dl class="points">
+          <div><dt>Formed</dt><dd>2018</dd></div>
+          <div><dt>Licensed</dt><dd>Jefferson County and Boulder County installer lists</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -214,6 +269,7 @@
         <h2>On record</h2>
         <ul class="checks">
           <li>Listed on the Jefferson County 2026 licensed OWTS contractor list</li>
+          <li>Listed as an installer by Boulder County</li>
         </ul>
       </div>
       <div class="place">

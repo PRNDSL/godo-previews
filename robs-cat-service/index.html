@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rob&#x27;s Cat Service, LLC | Excavation &amp; Septic Installation, Conifer, CO</title>
-<meta name="description" content="Rob&#x27;s Cat Service, LLC, Conifer, CO. Excavation with Cat equipment, and septic system installation. Call to talk through your job. Call (970) 389-1382.">
+<title>Rob&#x27;s Cat Service | Driveways, Boulder Walls, Grading &amp; Septic, Conifer CO</title>
+<meta name="description" content="Rob&#x27;s Cat Service, LLC, Conifer, CO. Driveways, boulder retaining walls, grading and septic tank replacement around Conifer, since 2003. Rated 4.9 on Google. Call (970) 389-1382.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 700; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 700; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(40px, 12.5vw, 62px); --h1-d: clamp(56px, 7vw, 96px); }
 </style>
@@ -178,41 +198,79 @@
 <header class="hero hero-split">
   <div class="top">
     <div class="wrap">
-      <p class="kicker">Excavation and septic, Conifer, Colorado</p>
+      <p class="kicker">Grading, boulder walls and septic, Conifer, Colorado</p>
       <h1>Rob&#x27;s Cat Service, LLC</h1>
     </div>
   </div>
   <div class="bottom">
     <div class="wrap">
       <div>
-        <p class="lede">Excavation with Cat equipment, and septic system installation. Call to talk through your job.</p>
+        <p class="lede">Driveways, boulder retaining walls, grading and septic tank replacement around Conifer, since 2003. Rated 4.9 on Google.</p>
         <div class="actions">
         <a class="btn btn-primary" href="tel:+19703891382">Call (970) 389-1382</a>
         <a class="btn btn-ghost" href="mailto:robert.johns246@hotmail.com">Email us</a>
       </div>
       </div>
       <ul class="chips" aria-label="Services">
-        <li>Excavation</li>
-        <li>Septic installation</li>
+        <li>Driveways</li>
+        <li>Boulder retaining walls</li>
+        <li>Grading</li>
+        <li>Septic tank replacement</li>
       </ul>
     </div>
   </div>
 </header>
 
 <main>
+  <section class="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div>
+        <h2 id="reviews-h">Neighbors on Rob&#x27;s work</h2>
+        <p class="rating"><span class="stars">4.9</span><span class="of">out of 5 from 18 Google reviews, checked November 2026</span></p>
+      </div>
+      <ul class="quotes">
+          <li><blockquote>“Rob completed a large boulder retaining wall and parking space for us. It looks great!”</blockquote><cite>Ken H., Google</cite></li>
+          <li><blockquote>“Rob was very professional and experienced.”</blockquote><cite>Troy N., new garage and driveway, Google</cite></li>
+          <li><blockquote>“Rob was able to elevate our landscaping, leaving everything else properly maintained.”</blockquote><cite>Jessie A., Google</cite></li>
+        </ul>
+    </div>
+  </section>
+
   <section class="services" aria-labelledby="services-h">
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">The machine work and the septic system from one contractor.</p>
+        <p class="note">Most of our Google reviews are about driveways and boulder walls. Septic work too.</p>
       </div>
       <div class="svc-groups">
         <div class="svc-group">
           <ul>
-            <li>Excavation</li>
-            <li>Septic installation</li>
+            <li>Driveways</li>
+            <li>Boulder retaining walls</li>
+            <li>Grading and site prep</li>
+            <li>Septic tank replacement</li>
+            <li>Septic repairs</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Since 2003</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>Rob&#x27;s Cat Service has been doing machine work around Conifer since 2003.</p>
+          <p>Customers mention good communication about the schedule and a site left properly maintained.</p>
+        </div>
+        <dl class="points">
+          <div><dt>Started</dt><dd>2003 (BBB)</dd></div>
+          <div><dt>BBB</dt><dd>A+ rating</dd></div>
+          <div><dt>Septic</dt><dd>Licensed OWTS contractor, Jefferson County</dd></div>
+        </dl>
       </div>
     </div>
   </section>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ricci&#x27;s Bobcat and Septic Service | Septic &amp; Bobcat Work, DeLand, FL</title>
-<meta name="description" content="Ricci&#x27;s Bobcat and Septic Service, DeLand, FL. Septic system services and bobcat work. Call to talk through your job. Call (386) 804-9538.">
+<title>Ricci&#x27;s Bobcat &amp; Septic Service | Pumping, Drain Fields &amp; New Systems, DeLand FL</title>
+<meta name="description" content="Ricci&#x27;s Bobcat and Septic Service, DeLand, FL. Septic pumping, drain field repair and new systems for home builds, from a family business rated 5.0 on Google. Call (386) 804-9538.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 400; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 400; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(34px, 9.5vw, 46px); --h1-d: clamp(48px, 6vw, 76px); }
 </style>
@@ -178,33 +198,67 @@
 <header class="hero hero-facts">
   <div class="wrap">
     <div>
-      <p class="kicker">Bobcat work and septic, DeLand, Florida</p>
+      <p class="kicker">Family septic and bobcat service, DeLand, Florida</p>
       <h1>Ricci&#x27;s Bobcat<span class="sub">and Septic Service</span></h1>
-      <p class="lede">Septic system services and bobcat work. Call to talk through your job.</p>
+      <p class="lede">Septic pumping, drain field repair and new systems for home builds, from a family business rated 5.0 on Google.</p>
       <div class="actions">
         <a class="btn btn-primary" href="tel:+13868049538">Call (386) 804-9538</a>
         <a class="btn btn-ghost" href="mailto:jjriccibobcat@live.com">Email us</a>
       </div>
     </div>
     <div class="facts">
-      <div class="fact"><span class="lab">Septic services</span><span class="val">Call to talk about your system</span></div>
-      <div class="fact"><span class="lab">Bobcat work</span><span class="val">Small machine work on your property</span></div>
-      <div class="fact wide"><span class="lab">Listed on</span><span class="val">Volusia County Septic Upgrade Incentive Program contractor list</span></div>
+      <div class="fact"><span class="lab">Google rating</span><span class="val">5.0 from 13 reviews</span></div>
+      <div class="fact"><span class="lab">Based in</span><span class="val">DeLand</span></div>
+      <div class="fact wide"><span class="lab">Upgrade program</span><span class="val">Volusia County participating contractor</span></div>
     </div>
   </div>
 </header>
 
 <main>
+  <section class="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div>
+        <h2 id="reviews-h">What DeLand says</h2>
+        <p class="rating"><span class="stars">5.0</span><span class="of">out of 5 from 13 Google reviews, checked November 2026</span></p>
+      </div>
+      <ul class="quotes">
+          <li><blockquote>“He listened to what we imagined for our new home build septic and drain field and made it happen.”</blockquote><cite>Meghan C., Google</cite></li>
+          <li><blockquote>“He and his daughter were both so kind and helpful.”</blockquote><cite>Grace S., Google</cite></li>
+        </ul>
+    </div>
+  </section>
+
   <section class="services" aria-labelledby="services-h">
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">Septic work and the bobcat to go with it.</p>
+        <p class="note">Call with the problem. If it can be looked at sooner, someone comes out.</p>
       </div>
       <ul class="tiles">
-          <li><strong>Septic services</strong><span>Call to talk about your system</span></li>
+          <li><strong>Septic pumping</strong><span>Tanks pumped out</span></li>
+          <li><strong>Drain field repair</strong><span>Fixes for drain fields that have stopped working</span></li>
+          <li><strong>New systems for home builds</strong><span>Septic and drain field planned with you for a new house</span></li>
           <li><strong>Bobcat work</strong><span>Small machine work on your property</span></li>
+          <li><strong>Septic upgrades</strong><span>Volusia County&#x27;s septic upgrade program takes a county grant of $8,000 or $14,000 (depending on the system) off your invoice, and we handle the paperwork.</span></li>
         </ul>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">A family business</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>Jeff Ricci runs the business with his family. When a customer had a problem nobody else could look at for over a week, they sent someone out to see if it could be fixed sooner, and it could.</p>
+        </div>
+        <dl class="points">
+          <div><dt>Based in</dt><dd>DeLand, Volusia County</dd></div>
+          <div><dt>Program</dt><dd>Volusia County septic upgrade contractor</dd></div>
+          <div><dt>Google</dt><dd>5.0 from 13 reviews</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -217,9 +271,9 @@
         </ul>
       </div>
       <div class="place">
-        <h2>Based in</h2>
-        <p class="place-name">DeLand, FL</p>
-        <p class="note">Call to check whether your property is in range.</p>
+        <h2>Based at</h2>
+        <p class="place-name">1520 Andrews Ct<br>DeLand, FL</p>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=1520+Andrews+Ct+DeLand%2C+FL">Open in Google Maps</a>
       </div>
     </div>
   </section>
@@ -244,7 +298,7 @@
   <div class="wrap">
     <div>
       <p class="brand">Ricci&#x27;s Bobcat and Septic Service</p>
-      <p>DeLand, FL</p>
+      <p>1520 Andrews Ct, DeLand, FL</p>
     </div>
     <ul>
       <li><a href="tel:+13868049538">(386) 804-9538</a></li>

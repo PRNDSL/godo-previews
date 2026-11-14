@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elk Mountain Excavating LLC | Excavation &amp; Septic Installation, Littleton, CO</title>
-<meta name="description" content="Elk Mountain Excavating LLC, Littleton, CO. Excavation and septic (OWTS) system installation. Call to talk through your job. Call (303) 697-4865.">
+<title>Elk Mountain Excavating | Mountain Homesites, Driveways &amp; Septic, Littleton CO</title>
+<meta name="description" content="Elk Mountain Excavating LLC, Littleton, CO. Roads, homesites, foundations, septic and leach fields for mountain homes, then the dirt put back and the road fixed. Call (303) 697-4865.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 800; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 800; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(40px, 13vw, 64px); --h1-d: clamp(56px, 7vw, 100px); }
 </style>
@@ -178,32 +198,66 @@
 <header class="hero hero-band">
   <div class="wrap">
     <div>
-      <p class="kicker">Excavation and septic, Littleton, Colorado</p>
+      <p class="kicker">Mountain homesites, roads and septic, since 2000</p>
       <h1>Elk Mountain<span class="sub">Excavating LLC</span></h1>
-      <p class="lede">Excavation and septic (OWTS) system installation. Call to talk through your job.</p>
+      <p class="lede">Roads, homesites, foundations, septic and leach fields for mountain homes, then the dirt put back and the road fixed.</p>
     </div>
     <div>
       <a class="callbar" href="tel:+13036974865"><span class="cb-lab">Call</span><span class="cb-num">(303) 697-4865</span></a>
       <p class="alt">or email <a href="mailto:elkmtn20@gmail.com">elkmtn20@gmail.com</a></p>
-      <p class="cred">Listed on the Jefferson County 2026 licensed OWTS contractor list</p>
+      <p class="cred">5.0 stars from 14 Google reviews</p>
     </div>
   </div>
 </header>
 
 <main>
+  <section class="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div>
+        <h2 id="reviews-h">Repeat customers</h2>
+        <p class="rating"><span class="stars">5.0</span><span class="of">out of 5 from 14 Google reviews, checked November 2026</span></p>
+      </div>
+      <ul class="quotes">
+          <li><blockquote>“It takes vision to plan and construct roads and homesites in the mountains. Tim has vision.”</blockquote><cite>hpersyn, Google</cite></li>
+          <li><blockquote>“Tim did all of the excavating - from the foundation, to the septic &amp; leach field.”</blockquote><cite>Margy F., Google</cite></li>
+          <li><blockquote>“Due to the excellent work, great communication, honest reliable professional service we are repeat customers.”</blockquote><cite>Scott G., Google</cite></li>
+        </ul>
+    </div>
+  </section>
+
   <section class="services" aria-labelledby="services-h">
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">The dig and the septic system from one contractor.</p>
+        <p class="note">The whole dig for a mountain house, start to finish.</p>
       </div>
       <div class="svc-groups">
         <div class="svc-group">
           <ul>
-            <li>Excavation</li>
-            <li>Septic installation</li>
+            <li>Homesites and foundations</li>
+            <li>Roads and driveways</li>
+            <li>Septic and leach fields</li>
+            <li>Backfill and cleanup</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Since 2000</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>Elk Mountain Excavating has been a Colorado company since February 2000, working out of Maxwell Hill Road.</p>
+        </div>
+        <dl class="points">
+          <div><dt>Formed</dt><dd>2000</dd></div>
+          <div><dt>Septic</dt><dd>Licensed OWTS contractor, Jefferson County</dd></div>
+          <div><dt>Google</dt><dd>5.0 from 14 reviews</dd></div>
+        </dl>
       </div>
     </div>
   </section>

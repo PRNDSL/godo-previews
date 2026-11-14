@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Villines Excavation LLC | Excavation &amp; Septic Installation, Olympia, WA</title>
-<meta name="description" content="Villines Excavation LLC, Olympia, WA. Excavation, dirt work and septic system installation. Call to talk through your job. Call (360) 789-1365.">
+<meta name="description" content="Villines Excavation LLC, Olympia, WA. Excavation, dirt work and septic installs from Olympia, certified in Lewis County. Washington contractor since 2017. Call (360) 789-1365.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 400; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 400; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(38px, 10.5vw, 52px); --h1-d: clamp(52px, 6.5vw, 84px); }
 </style>
@@ -178,28 +198,45 @@
 <header class="hero hero-facts">
   <div class="wrap">
     <div>
-      <p class="kicker">Excavation and septic, Olympia, WA</p>
+      <p class="kicker">Excavation and septic, Olympia, since 2017</p>
       <h1>Villines<span class="sub">Excavation LLC</span></h1>
-      <p class="lede">Excavation, dirt work and septic system installation. Call to talk through your job.</p>
+      <p class="lede">Excavation, dirt work and septic installs from Olympia, certified in Lewis County. Washington contractor since 2017.</p>
       <div class="actions">
         <a class="btn btn-primary" href="tel:+13607891365">Call (360) 789-1365</a>
         <a class="btn btn-ghost" href="mailto:villinesdirtwork@gmail.com">Email us</a>
       </div>
     </div>
     <div class="facts">
-      <div class="fact"><span class="lab">Excavation</span><span class="val">Digging and ground work</span></div>
-      <div class="fact"><span class="lab">Dirt work</span><span class="val">Earthmoving for your property</span></div>
-      <div class="fact wide"><span class="lab">Listed on</span><span class="val">Lewis County 2025 licensed installer list</span></div>
+      <div class="fact"><span class="lab">WA contractor</span><span class="val">Since 2017</span></div>
+      <div class="fact"><span class="lab">Based in</span><span class="val">Olympia</span></div>
+      <div class="fact wide"><span class="lab">Lewis County</span><span class="val">Certified installer, 2022 / 2024 / 2025</span></div>
     </div>
   </div>
 </header>
 
 <main>
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Since 2017</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>Villines Excavation has been a Washington contractor since 2017 and is on Lewis County&#x27;s certified installer lists for 2022, 2024 and 2025.</p>
+        </div>
+        <dl class="points">
+          <div><dt>WA contractor</dt><dd>Since 2017</dd></div>
+          <div><dt>Lewis County</dt><dd>Certified installer, 2022 / 2024 / 2025</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
   <section class="services" aria-labelledby="services-h">
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">Dirt work and septic from one contractor.</p>
+        <p class="note">Dirt work and septic installs, from Olympia down into Lewis County.</p>
       </div>
       <ul class="tiles">
           <li><strong>Excavation</strong><span>Digging and ground work</span></li>
@@ -214,7 +251,8 @@
       <div>
         <h2>On record</h2>
         <ul class="checks">
-          <li>Listed on the Lewis County 2025 licensed installer list</li>
+          <li>Lewis County certified installer: 2022, 2024 and 2025 lists</li>
+          <li>Washington contractor license since 2017</li>
         </ul>
       </div>
       <div class="place">

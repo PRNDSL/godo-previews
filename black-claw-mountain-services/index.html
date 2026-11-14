@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Black Claw Mountain Services | Dirt Work, Welding &amp; Septic, Bailey, CO</title>
-<meta name="description" content="Black Claw Mountain Services, Bailey, CO. Dirt work for mountain properties, mobile welding and septic (OWTS) installation. Call (970) 333-6481.">
+<title>Black Claw Mountain Services | Lot Cleanup, Dirt Work, Welding &amp; Septic, Bailey CO</title>
+<meta name="description" content="Black Claw Mountain Services, Bailey, CO. Stump and slash cleanup, tree removal, dirt work, mobile welding and septic installs, small projects included. Call (970) 333-6481.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 800; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 800; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(40px, 13vw, 64px); --h1-d: clamp(56px, 7vw, 100px); }
 </style>
@@ -178,33 +198,66 @@
 <header class="hero hero-band">
   <div class="wrap">
     <div>
-      <p class="kicker">Dirt work, welding and septic, Bailey, Colorado</p>
+      <p class="kicker">Lot cleanup, dirt work, welding and septic, Bailey, Colorado</p>
       <h1>Black Claw<span class="sub">Mountain Services</span></h1>
-      <p class="lede">Dirt work for mountain properties, mobile welding and septic (OWTS) installation.</p>
+      <p class="lede">Stump and slash cleanup, tree removal, dirt work, mobile welding and septic installs, small projects included.</p>
     </div>
     <div>
       <a class="callbar" href="tel:+19703336481"><span class="cb-lab">Call</span><span class="cb-num">(970) 333-6481</span></a>
       <p class="alt">or email <a href="mailto:blackclawexc@gmail.com">blackclawexc@gmail.com</a></p>
-      <p class="cred">Listed on the Jefferson County 2026 licensed OWTS contractor list</p>
+      <p class="cred">Licensed septic installer in Jefferson, Park and Chaffee counties</p>
     </div>
   </div>
 </header>
 
 <main>
+  <section class="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div>
+        <h2 id="reviews-h">Five stars, five reviews</h2>
+        <p class="rating"><span class="stars">5.0</span><span class="of">out of 5 from 5 Google reviews, checked November 2026</span></p>
+      </div>
+      <ul class="quotes">
+          <li><blockquote>“Jacob has the equipment and know how to get the job done right.”</blockquote><cite>Mike, vacant lot cleanup in Alma, Google</cite></li>
+          <li><blockquote>“Willing to take on even my small projects!”</blockquote><cite>Laurie B., tree removal, Google</cite></li>
+        </ul>
+    </div>
+  </section>
+
   <section class="services" aria-labelledby="services-h">
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">Dirt work, welding and septic, for properties up in the mountains.</p>
+        <p class="note">Big jobs and small ones, on mountain property.</p>
       </div>
       <div class="svc-groups">
         <div class="svc-group">
           <ul>
+            <li>Lot cleanup</li>
+            <li>Tree removal</li>
             <li>Mountain dirt work</li>
-            <li>Mobile welding</li>
+            <li>Mobile welding and repair</li>
             <li>Septic installation</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Licensed in three counties</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>Septic installs are licensed with Jefferson County and Chaffee County, and Black Claw is on the Park County excavator list.</p>
+        </div>
+        <dl class="points">
+          <div><dt>Jefferson County</dt><dd>Licensed OWTS contractor</dd></div>
+          <div><dt>Chaffee County</dt><dd>Licensed installer (2026 list)</dd></div>
+          <div><dt>Park County</dt><dd>Excavator list</dd></div>
+        </dl>
       </div>
     </div>
   </section>
@@ -216,6 +269,7 @@
         <ul class="checks">
           <li>Listed on the Jefferson County 2026 licensed OWTS contractor list</li>
           <li>Listed on the Park County 2025 excavator list</li>
+          <li>Licensed installer, Chaffee County 2026 list</li>
         </ul>
       </div>
       <div class="place">
