@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peek-a-Boo 小千谷店|国産小麦100%の町の小さなパン屋さん</title>
+<meta name="description" content="新潟県小千谷市城内の町の小さなパン屋さん。国産小麦粉100%、無添加の生地、小さなオーブンでいつも焼きたて。10時〜18時、月曜定休。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdf8ef; --surface: #fbf5ea; --line: #efe2c9;
+    --text: #35240f; --muted: #665341; --accent: #8f5512;
+    --btn-bg: #35240f; --btn-ink: #ffffff; --btn-hover: #4f3720;
+    --hero-bg: #f2cf86; --hero-text: #35240f; --hero-muted: #4d3a22; --hero-accent: #8f3b12;
+    --rail: #35240f;
+    --font-head: "Mochiy Pop One", "Hiragino Sans", "Yu Gothic", sans-serif;
+    --font-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+    --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s6: 48px; --s8: 64px; --s12: 96px;
+    --r: 16px;
+    --shadow: none;
+    --pad-x: clamp(20px, 5vw, 64px);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.85; letter-spacing: .03em; overflow-x: hidden; overflow-wrap: anywhere; line-break: strict; }
+  a { color: inherit; text-underline-offset: 4px; }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  h1, h2, h3 { font-family: var(--font-head); font-weight: 400; letter-spacing: .02em; line-height: 1.3; margin: 0; font-feature-settings: "palt"; }
+  p { margin: 0; }
+  .nw { display: inline-block; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--pad-x); }
+
+  .preview { background: #35240f; color: #f1e6d2; font-size: 13px; line-height: 1.5; text-align: center; padding: var(--s1) var(--pad-x); }
+
+  /* hero 共通 */
+  .hero { background: var(--hero-bg); color: var(--hero-text); }
+  .hero .wrap { padding-top: var(--s4); padding-bottom: var(--s6); display: grid; gap: var(--s4); }
+  .kicker { font-weight: 700; font-size: 15px; color: var(--hero-accent); }
+  .hero h1 { font-size: var(--h1-m); line-height: 1.12; letter-spacing: .01em; margin-top: var(--s1); }
+  .hero h1 .sub { display: block; font-size: max(.36em, 18px); line-height: 1.4; letter-spacing: .04em; margin-top: var(--s2); }
+  .lede { color: var(--hero-muted); max-width: 30em; margin-top: var(--s3); font-size: 16px; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px var(--s3); margin-top: var(--s4); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 var(--s4); border-radius: var(--r); background: var(--btn-bg); color: var(--btn-ink); font: 700 16px/1.3 var(--font-body); letter-spacing: .04em; text-decoration: none; transition: background-color .2s; width: 100%; }
+  .btn:hover { background: var(--btn-hover); }
+  .btn:focus-visible { outline: 3px solid var(--btn-bg); outline-offset: 3px; }
+  .hero .btn:focus-visible, .hero .alt a:focus-visible { outline-color: var(--hero-text); }
+  .alt { font-size: 15px; }
+
+  /* band + rails(バスの帯) */
+  .hero.rails { border-bottom: 8px solid var(--rail); box-shadow: 0 8px 0 var(--hero-bg), 0 12px 0 var(--rail); margin-bottom: 12px; }
+  .hero-band:not(.rails) { border-bottom: 1px solid var(--line); }
+
+  /* split: 上が色の帯(店名)、下が地の色(説明とボタン) */
+  .hero-split { background: var(--bg); color: var(--text); border-bottom: 1px solid var(--line); }
+  .hero-split .top { background: var(--hero-bg); color: var(--hero-text); }
+  .hero-split .top .wrap { display: block; padding-top: var(--s4); padding-bottom: var(--s4); }
+  .hero-split .bottom .wrap { padding-top: var(--s3); padding-bottom: var(--s6); }
+  .hero-split .lede { color: var(--muted); margin-top: 0; }
+  .hero-split .btn:focus-visible, .hero-split .alt a:focus-visible { outline-color: var(--btn-bg); }
+
+  /* plain: 地の色のまま、見出しの下に主役色の線 */
+  .hero-plain { border-bottom: 1px solid var(--line); }
+  .hero-plain h1::after { content: ""; display: block; width: 64px; height: 6px; background: var(--accent); margin-top: var(--s3); border-radius: var(--r); }
+
+  /* 一番上の右側に置く事実カード(営業時間など) */
+  .facts { margin: 0; background: var(--surface); color: var(--text); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: var(--r); box-shadow: var(--shadow); padding: var(--s1) var(--s3); display: grid; grid-template-columns: auto 1fr; align-self: end; }
+  .facts dt, .facts dd { margin: 0; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .facts dt { color: var(--muted); padding-right: var(--s3); font-size: 15px; white-space: nowrap; }
+  .facts dd { font-variant-numeric: tabular-nums; }
+  .facts dt:last-of-type, .facts dd:last-of-type { border-bottom: 0; }
+
+  section { border-bottom: 1px solid var(--line); }
+  section .wrap { padding-top: var(--s8); padding-bottom: var(--s8); display: grid; gap: var(--s4); }
+  h2 { font-size: clamp(26px, 7vw, 40px); }
+  .note { color: var(--muted); margin-top: var(--s2); max-width: 26em; }
+
+  /* menu: 大きな文字の品書き。ひとことは右に小さく */
+  .menu-list { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--text); }
+  .menu-list li { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px var(--s2); padding: var(--s3) 0; border-bottom: 1px solid var(--line); }
+  .menu-list .item { font-family: var(--font-head); font-weight: 400; font-size: clamp(21px, 5.6vw, 30px); line-height: 1.4; letter-spacing: .02em; }
+  .menu-list .tag { font-size: 14px; font-weight: 700; color: var(--accent); border: 1px solid currentColor; border-radius: var(--r); padding: 0 10px; line-height: 1.9; }
+
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 48px 1fr; gap: var(--s2); align-items: baseline; padding: var(--s3) 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+  .steps li:first-child { border-top: 1px solid var(--line); }
+  .steps li::before { content: counter(step); font-family: var(--font-head); font-size: 28px; line-height: 1; color: var(--accent); }
+
+  .body p + p { margin-top: var(--s2); }
+  .body { max-width: 30em; font-size: 17px; }
+  .more { display: inline-block; margin-top: var(--s2); color: var(--accent); font-weight: 700; }
+
+  /* quote: 店が自分で書いた言葉をそのまま大きく */
+  .quote { margin: 0; border-left: 4px solid var(--accent); padding: var(--s1) 0 var(--s1) var(--s3); }
+  .quote p { font-family: var(--font-head); font-weight: 400; font-size: clamp(19px, 5vw, 26px); line-height: 1.7; }
+  .quote cite { display: block; margin-top: var(--s2); color: var(--muted); font-style: normal; font-size: 14px; }
+
+  .hours { width: 100%; border-collapse: collapse; }
+  .hours th, .hours td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--line); font-weight: 400; vertical-align: top; }
+  .hours th { padding-right: var(--s2); white-space: nowrap; }
+  .hours td { text-align: right; font-variant-numeric: tabular-nums; }
+  .hours .dim th, .hours .dim td { color: var(--muted); }
+  .place-name { font-family: var(--font-head); font-weight: 400; font-size: clamp(20px, 5vw, 28px); line-height: 1.6; }
+  .map-link { display: inline-block; margin-top: var(--s2); color: var(--accent); font-weight: 700; }
+
+  .contact { background: var(--surface); }
+  .contact .lines { margin: var(--s3) 0 0; display: grid; grid-template-columns: auto 1fr; border-top: 1px solid var(--line); }
+  .contact dt, .contact dd { margin: 0; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .contact dt { color: var(--muted); padding-right: var(--s3); }
+  .contact dd { font-variant-numeric: tabular-nums; }
+
+  footer .wrap { display: grid; gap: var(--s3); padding-top: var(--s6); padding-bottom: var(--s6); color: var(--muted); font-size: 15px; }
+  footer .brand { font-family: var(--font-head); font-weight: 400; font-size: 24px; line-height: 1.3; color: var(--text); }
+  footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s1); }
+  .credit { font-size: 13px; }
+
+  @media (min-width: 768px) {
+    .hero h1 { font-size: var(--h1-d); }
+    .hero .wrap { padding-top: var(--s8); padding-bottom: var(--s8); }
+    .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
+    .hero-split .bottom .wrap { padding-top: var(--s4); padding-bottom: var(--s8); }
+    .btn { width: auto; }
+    footer .wrap { grid-template-columns: 1fr auto; align-items: end; }
+  }
+  @media (min-width: 1000px) {
+    section .wrap { grid-template-columns: 1fr 1.4fr; gap: var(--s8); align-items: start; }
+    .hero .wrap.has-facts { grid-template-columns: 1.5fr 1fr; column-gap: var(--s8); }
+  }
+  @media (min-width: 1100px) {
+    section .wrap { padding-top: var(--s12); padding-bottom: var(--s12); }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  .hero { --h1-m: clamp(44px, 13vw, 64px); --h1-d: clamp(64px, 8vw, 112px); }
+</style>
+</head>
+<body>
+
+<p class="preview"><span class="nw">これは</span><span class="nw">Peek-a-Boo 小千谷店様向けの</span><span class="nw">見本です</span><span class="nw">(GO.DO ウェブ制作)</span></p>
+
+<header class="hero hero-band">
+  <div class="wrap has-facts">
+    <div>
+      <p class="kicker">「パンでみんなを笑顔に!!」</p>
+      <h1>Peek-a-Boo<span class="sub">小千谷店</span></h1>
+      <p class="lede">国産小麦粉100%、無添加の生地を、小さなオーブンで順番に焼いています。焼きたてが少しずつ並んでいきます。</p>
+      <div class="actions">
+        <a class="btn" href="tel:0258866806">電話をかける 0258-86-6806</a>
+        <p class="alt"><a href="https://www.facebook.com/Peek-a-Boo%E5%B0%8F%E5%8D%83%E8%B0%B7%E5%BA%97-100830941608698">今月のお知らせはFacebookで</a></p>
+      </div>
+    </div>
+    <dl class="facts" aria-label="基本の情報">
+      <dt>営業時間</dt><dd>10:00〜18:00</dd>
+      <dt>定休日</dt><dd>月曜日</dd>
+      <dt>駐車場</dt><dd>店の横(共用)</dd>
+    </dl>
+  </div>
+</header>
+
+<main>
+  <section aria-labelledby="sec-1">
+    <div class="wrap">
+      <div>
+        <h2 id="sec-1">よく選ばれるパン</h2>
+        <p class="note">その日のパンと値段は、お店でお確かめください。</p>
+      </div>
+      <ul class="menu-list">
+          <li><span class="item">牛肉カレーパン</span><span class="tag">大きな牛肉入り</span></li>
+          <li><span class="item">シュガードーナツ</span><span class="tag">小千谷店だけ</span></li>
+          <li><span class="item">おやき</span><span class="tag">きんぴら など</span></li>
+          <li><span class="item">メロンパン</span><span class="tag">ホイップ追加もできます</span></li>
+          <li><span class="item">パニーニ</span></li>
+          <li><span class="item">フランク</span></li>
+        </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="sec-2">
+    <div class="wrap">
+      <div>
+        <h2 id="sec-2">お客さまの声</h2>
+      </div>
+      <blockquote class="quote">
+          <p>「もちもちのパンが食べたくなると訪れます」</p>
+          <p>「明るい接客と美味しいパンのお店です。」</p>
+          <cite>Googleマップのクチコミより(4.6・66件、2026年11月確認)</cite>
+        </blockquote>
+    </div>
+  </section>
+
+  <section aria-labelledby="sec-3">
+    <div class="wrap">
+      <div>
+        <h2 id="sec-3">パンのこと</h2>
+      </div>
+      <div class="body">
+          <p>国産の小麦粉を100%使い、生地には添加物を入れていません。</p>
+          <p>小さなオーブンで焼くので、品数をしぼって、焼きたてを順番に並べています。</p>
+        </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="sec-4">
+    <div class="wrap">
+      <div>
+        <h2 id="sec-4">お店の場所</h2>
+      </div>
+      <div>
+          <p class="place-name">新潟県小千谷市城内<span class="nw">2-6-16</span></p>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%B0%E6%BD%9F%E7%9C%8C%E5%B0%8F%E5%8D%83%E8%B0%B7%E5%B8%82%E5%9F%8E%E5%86%852-6-16">Googleマップで開く</a>
+        </div>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div>
+        <h2 id="contact-h">お問い合わせ</h2>
+        <p class="note">パンのことや営業のことは、お電話かメールでどうぞ。</p>
+      </div>
+      <div>
+        <div class="actions"><a class="btn" href="tel:0258866806">電話をかける 0258-86-6806</a></div>
+        <dl class="lines">
+          <dt>電話</dt><dd><a href="tel:0258866806">0258-86-6806</a></dd>
+          <dt>メール</dt><dd><a href="mailto:jpmk.5574@gmail.com">jpmk.5574@gmail.com</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="brand">Peek-a-Boo 小千谷店</p>
+      <p>新潟県小千谷市城内</p>
+    </div>
+    <ul>
+      <li><a href="https://www.facebook.com/Peek-a-Boo%E5%B0%8F%E5%8D%83%E8%B0%B7%E5%BA%97-100830941608698">Facebook</a></li>
+      <li class="credit">見本制作 GO.DO ウェブ制作</li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
