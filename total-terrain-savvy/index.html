@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Total Terrain Savvy, Inc. | Septic (OWTS) Installation, North County San Diego, CA</title>
-<meta name="description" content="Total Terrain Savvy, Inc., North County San Diego, CA. Septic (OWTS) system installation and as-built drawings, from a C-42 sanitation contractor. Call (760) 533-1874.">
+<title>Total Terrain Savvy, Inc. | Septic (OWTS) Installation, Valley Center, CA</title>
+<meta name="description" content="Total Terrain Savvy, Inc., Valley Center, CA. Septic installs, leach lines, earthwork and as-built drawings, licensed C-42 and C-12 since 2008. Call (760) 533-1874.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 700; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 700; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(38px, 10.5vw, 52px); --h1-d: clamp(52px, 6.5vw, 84px); }
 </style>
@@ -178,33 +198,52 @@
 <header class="hero hero-facts">
   <div class="wrap">
     <div>
-      <p class="kicker">Septic contractor, North County San Diego</p>
+      <p class="kicker">Septic and earthwork, Valley Center, California</p>
       <h1>Total Terrain<span class="sub">Savvy, Inc.</span></h1>
-      <p class="lede">Septic (OWTS) system installation and as-built drawings, from a C-42 sanitation contractor.</p>
+      <p class="lede">Septic installs, leach lines, earthwork and as-built drawings, licensed C-42 and C-12 since 2008.</p>
       <div class="actions">
         <a class="btn btn-primary" href="tel:+17605331874">Call (760) 533-1874</a>
         <a class="btn btn-ghost" href="mailto:firedozer123@gmail.com">Email us</a>
       </div>
     </div>
     <div class="facts">
-      <div class="fact"><span class="lab">Septic</span><span class="val">OWTS installation</span></div>
-      <div class="fact"><span class="lab">License</span><span class="val">C-42 #916278</span></div>
-      <div class="fact wide"><span class="lab">Listed on</span><span class="val">San Diego County 2026 septic contractor list</span></div>
+      <div class="fact"><span class="lab">Licensed since</span><span class="val">2008</span></div>
+      <div class="fact"><span class="lab">CSLB</span><span class="val">C-42 septic, C-12 earthwork</span></div>
+      <div class="fact wide"><span class="lab">License status</span><span class="val">Current and active, workers&#x27; comp insured</span></div>
     </div>
   </div>
 </header>
 
 <main>
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Licensed since 2008</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>Total Terrain Savvy has held its California license since May 2008, with both the C-42 sanitation system and C-12 earthwork and paving classifications.</p>
+        </div>
+        <dl class="points">
+          <div><dt>CSLB</dt><dd>#916278, current and active</dd></div>
+          <div><dt>Classifications</dt><dd>C-42 sanitation, C-12 earthwork and paving</dd></div>
+          <div><dt>Insurance</dt><dd>Workers&#x27; compensation on file with CSLB</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
   <section class="services" aria-labelledby="services-h">
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">The install and the drawings the county asks for.</p>
+        <p class="note">Two state licenses: the septic system and the earthwork around it.</p>
       </div>
       <ul class="tiles">
-          <li><strong>Septic (OWTS) installation</strong><span>Onsite wastewater treatment systems</span></li>
-          <li><strong>As-built drawings</strong><span>Drawings of the finished system</span></li>
-          <li><strong>C-42 sanitation contractor</strong><span>License C-42 #916278, as shown on the county list</span></li>
+          <li><strong>Septic (OWTS) installation</strong><span>C-42 sanitation system contractor</span></li>
+          <li><strong>Leach lines</strong><span>Approved by San Diego County</span></li>
+          <li><strong>Earthwork and paving</strong><span>C-12 earthwork and paving contractor</span></li>
+          <li><strong>As-built drawings</strong><span>Drawings of the finished system for the county</span></li>
         </ul>
     </div>
   </section>
@@ -215,12 +254,13 @@
         <h2>On record</h2>
         <ul class="checks">
           <li>Listed on the San Diego County 2026 septic contractor list</li>
-          <li>C-42 sanitation contractor (license C-42 #916278, as shown on the county list)</li>
+          <li>CSLB #916278: C-42 and C-12, current and active</li>
+          <li>Workers&#x27; compensation insurance on file with CSLB</li>
         </ul>
       </div>
       <div class="place">
         <h2>Based in</h2>
-        <p class="place-name">North County San Diego, CA</p>
+        <p class="place-name">Valley Center, CA</p>
         <p class="note">Call to check whether your property is in range.</p>
       </div>
     </div>
@@ -246,7 +286,7 @@
   <div class="wrap">
     <div>
       <p class="brand">Total Terrain Savvy, Inc.</p>
-      <p>North County San Diego, CA</p>
+      <p>Valley Center, CA</p>
     </div>
     <ul>
       <li><a href="tel:+17605331874">(760) 533-1874</a></li>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KD Ramstetter Dirtworks LLC | Dirt Work &amp; Septic Installation, Golden, CO</title>
-<meta name="description" content="KD Ramstetter Dirtworks LLC, Golden, CO. Dirt work, excavation and septic (OWTS) installation. Call to talk through your job. Call (720) 569-9344.">
+<meta name="description" content="KD Ramstetter Dirtworks LLC, Golden, CO. Kirk and Deedee fix mountain driveways, do dirt work and put in septic systems around Golden Gate Canyon. Call (720) 569-9344.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 400; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 400; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(34px, 9.5vw, 46px); --h1-d: clamp(48px, 6vw, 76px); }
 </style>
@@ -178,34 +198,68 @@
 <header class="hero hero-facts">
   <div class="wrap">
     <div>
-      <p class="kicker">Dirt work and septic, Golden, Colorado</p>
+      <p class="kicker">Driveways and dirt work, Golden Gate Canyon</p>
       <h1>KD Ramstetter<span class="sub">Dirtworks LLC</span></h1>
-      <p class="lede">Dirt work, excavation and septic (OWTS) installation. Call to talk through your job.</p>
+      <p class="lede">Kirk and Deedee fix mountain driveways, do dirt work and put in septic systems around Golden Gate Canyon.</p>
       <div class="actions">
         <a class="btn btn-primary" href="tel:+17205699344">Call (720) 569-9344</a>
         <a class="btn btn-ghost" href="mailto:dkmhh1@gmail.com">Email us</a>
       </div>
     </div>
     <div class="facts">
-      <div class="fact"><span class="lab">Dirt work</span><span class="val">Earthmoving for your property</span></div>
-      <div class="fact"><span class="lab">Excavation</span><span class="val">Digging and ground work</span></div>
-      <div class="fact wide"><span class="lab">Listed on</span><span class="val">Jefferson County 2026 licensed OWTS contractor list</span></div>
+      <div class="fact"><span class="lab">Digging here</span><span class="val">50 years and counting</span></div>
+      <div class="fact"><span class="lab">Septic</span><span class="val">Licensed OWTS contractor</span></div>
+      <div class="fact wide"><span class="lab">Recommended in</span><span class="val">Golden Gate Canyon neighbor groups</span></div>
     </div>
   </div>
 </header>
 
 <main>
+  <section class="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div>
+        <h2 id="reviews-h">From the neighbors</h2>
+        <p class="note">Posts and comments in Golden Gate Canyon community groups on Facebook.</p>
+      </div>
+      <ul class="quotes">
+          <li><blockquote>“So Thankful for these 2, I wouldn&#x27;t trust Anybody else!”</blockquote><cite>Mary B., Golden Gate Canyon Neighbors and Friends</cite></li>
+          <li><blockquote>“They did a great job on my driveway as well.”</blockquote><cite>Jeff J., Golden Gate Canyon Neighbors and Friends</cite></li>
+          <li><blockquote>“You’d be hard pressed to find someone else that could operate that blade”</blockquote><cite>Ken A., Golden Gate&#x27;s Lower 48</cite></li>
+        </ul>
+    </div>
+  </section>
+
   <section class="services" aria-labelledby="services-h">
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">Dirt work and septic from one contractor.</p>
+        <p class="note">Driveways, dirt work and septic, around Golden Gate Canyon.</p>
       </div>
       <ul class="tiles">
+          <li><strong>Driveway repair</strong><span>Mountain driveways put back in shape after a hard year</span></li>
+          <li><strong>Road and driveway grading</strong><span>Blade work, left nicer than it was found</span></li>
           <li><strong>Dirt work</strong><span>Earthmoving for your property</span></li>
           <li><strong>Excavation</strong><span>Digging and ground work</span></li>
-          <li><strong>Septic installation</strong><span>OWTS systems</span></li>
+          <li><strong>Septic installation</strong><span>OWTS systems, licensed with Jefferson County</span></li>
         </ul>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Fifty years around Golden Gate</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>Kirk started digging for residents around Golden Gate at 14, and has been at it for 50 years and counting.</p>
+        </div>
+        <dl class="points">
+          <div><dt>Started</dt><dd>At 14, about 50 years ago</dd></div>
+          <div><dt>LLC formed</dt><dd>2022</dd></div>
+          <div><dt>Septic</dt><dd>Licensed OWTS contractor, Jefferson County</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 

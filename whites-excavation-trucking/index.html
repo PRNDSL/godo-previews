@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>White&#x27;s Excavation &amp; Trucking | Excavation, Trucking &amp; Septic, Kiowa, CO</title>
-<meta name="description" content="White&#x27;s Excavation &amp; Trucking, Kiowa, CO. Excavation, trucking and septic (OWTS) installation, out of Kiowa. Call to talk through your job. Call (970) 581-9199.">
+<meta name="description" content="White&#x27;s Excavation &amp; Trucking, Kiowa, CO. Foundation digs, water and sewer lines, septic systems, driveways, trucking, and spray foam insulation, out of Kiowa. Call (970) 581-9199.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +167,26 @@
     .hero-split .top .wrap { padding-top: var(--s8); padding-bottom: var(--s6); }
     .hero-split .bottom .wrap { grid-template-columns: 1.4fr 1fr; align-items: start; column-gap: var(--s8); padding-top: var(--s4); padding-bottom: var(--s8); }
   }
+
+  /* ---- batch 02 rework: reviews + about ---- */
+  .reviews .wrap { display: grid; gap: var(--s4); }
+  .rating { display: flex; align-items: baseline; gap: 10px; margin-top: var(--s2); }
+  .rating .stars { font-family: var(--font-head); font-weight: 800; font-size: clamp(44px, 11vw, 64px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rating .of { color: var(--muted); font-size: 16px; line-height: 1.35; }
+  .quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); }
+  .quotes li { margin: 0; padding: 0 0 0 var(--s3); border-left: 3px solid var(--accent); }
+  .quotes blockquote { margin: 0; font-family: var(--font-head); font-weight: 800; text-transform: none; letter-spacing: 0; font-size: clamp(21px, 5vw, 26px); line-height: 1.3; }
+  .quotes cite { display: block; margin-top: var(--s1); font-style: normal; color: var(--muted); font-size: 15px; }
+  .about .wrap { display: grid; gap: var(--s4); }
+  .about .paras p { max-width: 34em; margin-top: var(--s2); }
+  .about .paras p:first-child { margin-top: 0; }
+  .points { margin: 0; display: grid; grid-template-columns: 1fr; border-top: 2px solid var(--text); }
+  .points div { display: grid; grid-template-columns: minmax(7.5em, auto) 1fr; gap: var(--s2); padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .points dt { margin: 0; font-weight: 600; color: var(--accent); }
+  .points dd { margin: 0; }
+  @media (min-width: 1000px) {
+    .reviews .wrap, .about .wrap { grid-template-columns: 1fr 1.6fr; gap: var(--s8); align-items: start; }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .hero { --h1-m: clamp(38px, 10.5vw, 52px); --h1-d: clamp(52px, 6.5vw, 84px); }
 </style>
@@ -177,35 +197,56 @@
 
 <header class="hero hero-ledger">
   <div class="wrap">
-    <p class="record"><span class="rec-lab">On file</span><span class="rec-val">Jefferson County 2026 licensed OWTS contractor list</span></p>
+    <p class="record"><span class="rec-lab">Licensed septic installer</span><span class="rec-val">Jefferson County and Elbert County 2026 lists</span></p>
     <div>
       <h1>White&#x27;s<span class="sub">Excavation &amp; Trucking</span></h1>
       <p class="place-line">Kiowa, CO</p>
-      <p class="lede">Excavation, trucking and septic (OWTS) installation, out of Kiowa. Call to talk through your job.</p>
+      <p class="lede">Foundation digs, water and sewer lines, septic systems, driveways, trucking, and spray foam insulation, out of Kiowa.</p>
       <div class="actions">
         <a class="btn btn-primary" href="tel:+19705819199">Call (970) 581-9199</a>
         <a class="btn btn-ghost" href="mailto:whitesexc@gmail.com">Email us</a>
       </div>
     </div>
     <ul class="hero-list" aria-label="Services">
-      <li>Excavation</li>
+      <li>Foundation dig and backfill</li>
+      <li>Septic, water and sewer</li>
+      <li>Roads and driveways</li>
       <li>Trucking</li>
-      <li>Septic installation</li>
     </ul>
   </div>
 </header>
 
 <main>
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div>
+        <h2 id="about-h">Since 2015</h2>
+      </div>
+      <div>
+        <div class="paras">
+          <p>White&#x27;s Excavation &amp; Trucking was formed in 2015. Call John with the job.</p>
+        </div>
+        <dl class="points">
+          <div><dt>Formed</dt><dd>2015</dd></div>
+          <div><dt>Elbert County</dt><dd>Licensed OWTS installer, 2026 (#2026-006)</dd></div>
+          <div><dt>Jefferson County</dt><dd>Licensed OWTS contractor</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
   <section class="services" aria-labelledby="services-h">
     <div class="wrap">
       <div>
         <h2 id="services-h">What we do</h2>
-        <p class="note">Dig it, haul it and put the system in.</p>
+        <p class="note">Dig it, haul it, put the system in, and insulate the building too.</p>
       </div>
       <ul class="tiles">
-          <li><strong>Excavation</strong><span>Digging and ground work</span></li>
-          <li><strong>Trucking</strong><span>Hauling for your job</span></li>
-          <li><strong>Septic installation</strong><span>OWTS systems</span></li>
+          <li><strong>Foundation dig and backfill</strong><span>Basements dug out and backfilled</span></li>
+          <li><strong>Septic, water and sewer</strong><span>Septic installs, licensed in the tri-county area</span></li>
+          <li><strong>Roads and driveways</strong><span>Installed, with finish grading</span></li>
+          <li><strong>Trucking</strong><span>Dirt and gravel brought in; demolition, concrete and rubble hauled out</span></li>
+          <li><strong>Spray foam insulation</strong><span>Our own spray polyurethane foam machine</span></li>
         </ul>
     </div>
   </section>
@@ -216,6 +257,7 @@
         <h2>On record</h2>
         <ul class="checks">
           <li>Listed on the Jefferson County 2026 licensed OWTS contractor list</li>
+          <li>Elbert County 2026 licensed OWTS installer (#2026-006)</li>
         </ul>
       </div>
       <div class="place">
