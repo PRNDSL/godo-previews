@@ -1,0 +1,1055 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>アオバ塗装</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700;800&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+/* 方針: 福岡市 朝日台周辺の築10〜25年の戸建てに住む40〜70代向けの、外壁・屋根塗装店の看板ページ。
+   数字と図で中身が見える実直な手触り。参考は塗料の色見本帳と施工仕様書。 */
+:root{
+  --bg:#eef1f4; --surface:#ffffff; --surface-2:#e3e8ed; --fg:#1b2530; --muted:#4f5d6b; --line:#cfd7df;
+  --accent:#1f5f8b; --accent-fg:#ffffff; --pop:#e0b43a; --pop-fg:#1b2530; --focus:#1b2530;
+  --hero-bg:#1f5f8b; --hero-fg:#ffffff; --hero-focus:#ffffff;
+  --now:#b3412e; --soon:#8a5a00; --wait:#2f6f48; --badge-fg:#ffffff;
+  --ink:#1b2530; --glass:#d9e6ef; --plant:#5d7a55; --water:#3f8fc4;
+  --concrete:#b9b4aa; --old-film:#9aa6ae; --primer:#ece8de; --mid-coat:#9db0bd; --top-coat:#6f8796; --sealant:#e0b43a; --moss:#5f8a3e; --rule:#8a96a3;
+  /* 色見本(日塗工の色番号風) */
+  --w1:#e5e5e2; --w2:#e2d6c2; --w3:#c3b08d; --w4:#8a6a55; --w5:#929392; --w6:#8297a3; --w7:#8a9a7c; --w8:#3d3f41;
+  --r1:#2f3133; --r2:#4e3a30; --r3:#2f3e4c; --r4:#3b4a38;
+  --t1:#c9b79c; --t2:#7d8f9c; --t3:#3e5466; --t4:#2b2f33;
+  --display:"M PLUS 1p","Hiragino Sans","Yu Gothic",sans-serif;
+  --body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:72px;
+  --r:4px; --shadow:0 1px 2px rgba(27,37,48,.08),0 4px 16px rgba(27,37,48,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#11181f; --surface:#18222c; --surface-2:#202c38; --fg:#e4eaf0; --muted:#a3b2c1; --line:#2e3d4b;
+  --accent:#7bb8e3; --accent-fg:#0d1620; --pop:#e0b43a; --pop-fg:#1b2530; --focus:#ffd56b;
+  --hero-bg:#16384f; --hero-fg:#e9f0f6; --hero-focus:#ffd56b;
+  --now:#b3412e; --soon:#8a5a00; --wait:#2f6f48; --badge-fg:#ffffff;
+  --ink:#c9d4de; --glass:#2b4152; --plant:#6f9466; --water:#6fb3e0;
+  --concrete:#7d786f; --old-film:#5f6a72; --primer:#d8d3c8; --mid-coat:#9db0bd; --top-coat:#6f8796; --sealant:#e0b43a; --moss:#7aa457; --rule:#8a96a3;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11181f; --surface:#18222c; --surface-2:#202c38; --fg:#e4eaf0; --muted:#a3b2c1; --line:#2e3d4b;
+  --accent:#7bb8e3; --accent-fg:#0d1620; --pop:#e0b43a; --pop-fg:#1b2530; --focus:#ffd56b;
+  --hero-bg:#16384f; --hero-fg:#e9f0f6; --hero-focus:#ffd56b;
+  --now:#b3412e; --soon:#8a5a00; --wait:#2f6f48; --badge-fg:#ffffff;
+  --ink:#c9d4de; --glass:#2b4152; --plant:#6f9466; --water:#6fb3e0;
+  --concrete:#7d786f; --old-film:#5f6a72; --primer:#d8d3c8; --mid-coat:#9db0bd; --top-coat:#6f8796; --sealant:#e0b43a; --moss:#7aa457; --rule:#8a96a3;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.25); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.in{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:.02em;line-height:1.4;text-wrap:balance;margin:0}
+h3{font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.num{font-variant-numeric:tabular-nums}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sp{display:none}
+
+/* ヘッダー */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.site-head .in{display:flex;align-items:center;gap:var(--s3);padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:21px;color:var(--fg);text-decoration:none;flex:none}
+.logo i{display:inline-block;width:12px;height:26px;background:var(--accent);box-shadow:14px 0 0 var(--pop);margin-right:14px;border-radius:1px}
+.gnav{margin-left:auto}
+.gnav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+.gnav a{display:block;padding:8px 10px;color:var(--fg);text-decoration:none;font-size:14px;font-weight:700;border-radius:var(--r);transition:background-color .18s,color .18s}
+.gnav a:hover{background:var(--surface-2);color:var(--accent)}
+.head-tel{color:var(--fg);text-decoration:none;font-weight:700;font-size:19px;line-height:1.3;text-align:right;flex:none}
+.head-tel small{display:block;font-size:11px;font-weight:400;color:var(--muted)}
+.menu-btn{display:none;margin-left:auto;align-items:center;gap:8px;background:none;border:1px solid var(--line);color:var(--fg);font:inherit;font-size:14px;font-weight:700;padding:8px 12px;border-radius:var(--r);cursor:pointer;min-height:44px}
+.menu-btn .bars{width:18px;height:12px;position:relative;border-block:2px solid currentColor}
+.menu-btn .bars::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:2px solid currentColor}
+
+/* ファーストビュー */
+.hero{background:var(--hero-bg);color:var(--hero-fg);position:relative;overflow:hidden;--focus:var(--hero-focus)}
+.hero .in{padding-block:56px 64px;position:relative}
+.hero .kicker{display:inline-block;background:var(--pop);color:var(--pop-fg);font-weight:700;font-size:14px;padding:4px 10px;margin-bottom:var(--s2);border-radius:var(--r)}
+.hero h1{font-size:clamp(22px,5.4vw,50px);max-width:15em}
+.hero .lead{margin-top:var(--s2);max-width:30em;opacity:.94}
+.fan{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:40px;bottom:-24px;width:min(30%,300px);display:flex;gap:6px;transform:rotate(8deg);transform-origin:bottom right}
+.fan span{flex:1;border-radius:var(--r) var(--r) 0 0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.btn{display:inline-block;background:var(--pop);color:var(--pop-fg);font:inherit;font-weight:700;text-decoration:none;padding:14px 28px;border:0;border-radius:var(--r);cursor:pointer;transition:transform .18s,box-shadow .18s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.hero .btn{margin-top:var(--s3)}
+
+/* セクション共通 */
+section{padding-block:var(--s6);scroll-margin-top:72px}
+section.alt{background:var(--surface)}
+.sec-h{font-size:clamp(23px,3vw,34px);margin-bottom:var(--s1);display:flex;align-items:center;gap:12px}
+.sec-h::before{content:"";flex:none;width:8px;height:1.1em;background:var(--pop);border-radius:1px}
+.sub{color:var(--muted);margin-bottom:var(--s4);max-width:40em}
+.note{font-size:13px;color:var(--muted);margin-top:var(--s2);max-width:46em;line-height:1.7}
+.box-scroll{border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.alt .box-scroll{background:var(--bg)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:14px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{font-size:13px;color:var(--muted);font-weight:700;background:var(--surface-2);white-space:nowrap}
+tbody tr:last-child>*{border-bottom:0}
+td.r,th.r{text-align:right;white-space:nowrap}
+
+/* シミュレーター */
+.sim{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:var(--s4);align-items:start}
+.sim-in{display:grid;gap:var(--s3)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend,.lg{font-weight:700;margin-bottom:var(--s1);padding:0}
+.range-row{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s2)}
+.range-row output{font-size:28px;font-weight:700;font-family:var(--display)}
+.range-row output small{font-size:14px;font-family:var(--body);color:var(--muted);font-weight:400;margin-left:4px}
+input[type=range]{width:100%;accent-color:var(--accent);height:44px;margin:0;cursor:pointer}
+.scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:-6px}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.seg label{position:relative;display:block;text-align:center;padding:12px 8px;cursor:pointer;font-weight:700;background:var(--surface);transition:background-color .18s,color .18s}
+.seg label+label{border-left:1px solid var(--line)}
+.seg input,.paints input,.swatches input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg label:has(input:checked){background:var(--accent);color:var(--accent-fg)}
+.seg label:has(input:focus-visible),.paints label:has(input:focus-visible),.swatches label:has(input:focus-visible){outline:3px solid var(--focus);outline-offset:2px;z-index:1}
+.paints{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s1)}
+.paints label{position:relative;display:grid;grid-template-columns:20px 1fr;gap:4px 10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);cursor:pointer;transition:border-color .18s,background-color .18s}
+.paints label:hover{border-color:var(--accent)}
+.paints label:has(input:checked){border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.paints .chip{grid-row:span 2}
+.paints b{font-size:15px;line-height:1.4}
+.paints span.y{grid-column:2;font-size:13px;color:var(--muted)}
+.chip{display:inline-block;width:20px;height:20px;border-radius:2px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--fg) 28%,transparent);flex:none}
+.sim-out{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--accent);border-radius:var(--r);padding:var(--s3);box-shadow:var(--shadow)}
+.sim-out .cost-label{font-size:14px;color:var(--muted)}
+.sim-out .cost{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.4vw,44px);line-height:1.2;font-variant-numeric:tabular-nums}
+.sim-out .cost small{font-size:.45em;margin-left:4px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin:var(--s2) 0 0;border-top:1px solid var(--line)}
+.facts div{padding:12px 0;border-bottom:1px solid var(--line)}
+.facts div:nth-child(odd){padding-right:12px}
+.facts div:nth-child(even){padding-left:12px;border-left:1px solid var(--line)}
+.facts dt{font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+.facts dd small{font-weight:400;font-size:13px;color:var(--muted)}
+.cmp{margin-top:var(--s3)}
+.cmp h3{font-size:15px;margin-bottom:var(--s1)}
+.cmp ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cmp li{display:grid;grid-template-columns:7.5em 1fr;gap:4px 10px;align-items:center;font-size:13px}
+.cmp .track{height:12px;background:var(--surface-2);border-radius:2px;position:relative;overflow:hidden}
+.cmp .lo,.cmp .hi{position:absolute;left:0;top:0;bottom:0;border-radius:2px}
+.cmp .hi{background:color-mix(in srgb,var(--rule) 45%,transparent)}
+.cmp .lo{background:var(--rule)}
+.cmp li.on .lo{background:var(--accent)}
+.cmp li.on .hi{background:color-mix(in srgb,var(--accent) 40%,transparent)}
+.cmp li.on{font-weight:700}
+.cmp .v{grid-column:2;font-variant-numeric:tabular-nums;color:var(--muted);margin-top:-4px}
+.sim-sync{margin-top:var(--s2);font-size:13px;color:var(--muted)}
+.formula{margin-top:var(--s4);font-size:13px;color:var(--muted);line-height:1.8;border-left:3px solid var(--line);padding-left:var(--s2);max-width:52em}
+.formula b{color:var(--fg)}
+
+/* 色見本 */
+.colors{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:var(--s5);align-items:center}
+.house{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:var(--s2)}
+.house svg{display:block;width:100%;height:auto}
+#house{--wall:var(--w6);--roof:var(--r1)}
+#house path,#house rect,#house polygon,#house circle,#house line{transition:fill .25s}
+.now-color{font-size:14px;margin-top:var(--s1);font-variant-numeric:tabular-nums}
+.swatches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s1)}
+.swatches.roof{grid-template-columns:repeat(4,minmax(0,1fr))}
+.swatches label{position:relative;display:block;border:1px solid var(--line);border-radius:var(--r);padding:6px;background:var(--surface);cursor:pointer;font-size:12px;line-height:1.4;transition:border-color .18s,transform .18s}
+.swatches label:hover{transform:translateY(-2px);border-color:var(--accent)}
+.swatches label:has(input:checked){border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+.swatches .sw{display:block;height:36px;border-radius:2px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--fg) 28%,transparent);margin-bottom:4px}
+.swatches .code{display:block;font-weight:700;font-variant-numeric:tabular-nums}
+.swatches .nm{color:var(--muted);display:block}
+.colors fieldset+fieldset{margin-top:var(--s3)}
+
+/* 劣化のサイン */
+.signs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s2)}
+.signs li{display:grid;grid-template-columns:88px 1fr;gap:var(--s2);padding:var(--s2);background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.signs li:last-child{grid-column:1/-1}
+.signs svg{width:88px;height:88px;border-radius:var(--r);background:var(--surface-2)}
+.signs h3{font-size:18px}
+.signs p{font-size:15px;color:var(--muted);margin-top:4px}
+.badge{display:inline-block;font-size:13px;font-weight:700;color:var(--badge-fg);padding:2px 10px;border-radius:var(--r);margin-top:var(--s1);font-family:var(--body)}
+.b-now{background:var(--now)}.b-soon{background:var(--soon)}.b-wait{background:var(--wait)}
+.legend{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);margin-bottom:var(--s3);font-size:14px;color:var(--muted)}
+.legend .badge{margin:0 6px 0 0}
+
+/* 工程 */
+.gantt{display:grid;grid-template-columns:minmax(0,11em) repeat(14,minmax(0,1fr));font-size:13px}
+.gantt>*{border-bottom:1px solid var(--line);padding:8px 4px;min-height:40px;min-width:0}
+.gantt .hd{font-weight:700;color:var(--muted);text-align:center;background:var(--surface-2);font-variant-numeric:tabular-nums}
+.gantt .hd.rs{background:repeating-linear-gradient(135deg,var(--surface-2) 0 6px,var(--line) 6px 8px)}
+.gantt .task{font-weight:700;color:var(--fg)}
+.gantt .bar{display:flex;align-items:center;padding:8px 2px}
+.gantt .bar i{display:block;height:16px;width:100%;background:var(--accent);border-radius:2px}
+.gantt .bar.paint i{background:var(--pop)}
+.gantt .spare{background:repeating-linear-gradient(135deg,transparent 0 6px,color-mix(in srgb,var(--line) 70%,transparent) 6px 8px)}
+/* 日程の一覧: PCでは読み上げ用(画面には出さない)、スマホでは表の代わりに出す */
+.gantt-list{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);list-style:none;margin:0;padding:0}
+.gantt-list li{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:12px var(--s2);border-bottom:1px solid var(--line);font-size:15px}
+.gantt-list li:last-child{border-bottom:0}
+.gantt-list i{display:block;width:20px;height:10px;border-radius:2px;background:var(--accent)}
+.gantt-list .paint i{background:var(--pop)}
+.gantt-list .spare i{background:repeating-linear-gradient(135deg,transparent 0 3px,var(--line) 3px 5px);outline:1px solid var(--line)}
+.gantt-list span{font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap}
+.gantt-key{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);font-size:13px;color:var(--muted);margin-top:var(--s1)}
+.gantt-key i{display:inline-block;width:20px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.rain{margin-top:var(--s3);display:grid;grid-template-columns:auto 1fr;gap:var(--s2);align-items:start;background:var(--surface-2);border-radius:var(--r);padding:var(--s2) var(--s3)}
+.rain svg{width:40px;height:40px}
+.rain p{max-width:42em}
+.process{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s3);margin-top:var(--s5)}
+.proc-big{grid-row:span 3;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3)}
+.proc-big svg{width:100%;height:auto;display:block;margin-block:var(--s2)}
+.proc{display:grid;grid-template-columns:160px 1fr;gap:var(--s2);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s2)}
+.proc svg{width:160px;height:auto;display:block}
+.proc h3,.proc-big h3{font-size:18px}
+.proc p,.proc-big p{font-size:15px;color:var(--muted);margin-top:4px}
+.layers{list-style:none;margin:var(--s2) 0 0;padding:0;display:grid;gap:var(--s1)}
+.layers li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15px;align-items:start}
+.layers li .chip{margin-top:4px}
+
+/* 保証とあいさつ */
+.care{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--s5)}
+.care h3{font-size:20px;margin-bottom:var(--s1)}
+.visits{list-style:none;margin:var(--s2) 0 0;padding:0;position:relative}
+.visits li{position:relative;padding:0 0 var(--s2) 28px;font-size:15px}
+.visits li::before{content:"";position:absolute;left:5px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.visits li::after{content:"";position:absolute;left:9px;top:20px;bottom:0;border-left:2px solid var(--line)}
+.visits li:last-child::after{display:none}
+.visits b{display:block;font-variant-numeric:tabular-nums}
+.visits span{color:var(--muted)}
+
+/* 実績・声 */
+.works td:first-child{font-weight:700;white-space:nowrap}
+.nw{white-space:nowrap}
+.works .cc{display:inline-flex;gap:4px;vertical-align:middle;margin-right:6px}
+.works .cc .chip{width:14px;height:14px}
+.voices{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--s3);margin-top:var(--s3);align-items:start}
+.voices figure{margin:0;background:var(--bg);border-left:4px solid var(--pop);padding:var(--s3);border-radius:0 var(--r) var(--r) 0}
+.voices figure.big{grid-row:span 2}
+.voices figure.big blockquote{font-size:19px;line-height:1.9}
+.voices blockquote{margin:0;max-width:40em}
+.voices figcaption{margin-top:var(--s2);font-size:13px;color:var(--muted)}
+.voices-h{font-size:22px;margin-top:var(--s6)}
+
+/* FAQ */
+.faq{max-width:820px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-weight:700;position:relative;transition:color .18s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:8px;top:50%;width:10px;height:10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq summary:hover{color:var(--accent)}
+.faq details p{padding:0 0 18px;color:var(--muted);max-width:40em}
+
+/* 会社 */
+.company{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:var(--s5)}
+.company h3{font-size:20px;margin-bottom:var(--s2)}
+.lic{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.lic li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;font-size:15px}
+.lic svg{width:28px;height:28px;flex:none}
+.lic small{display:block;color:var(--muted);font-size:13px}
+dl.prof{margin:0;display:grid;grid-template-columns:8em 1fr;border-top:1px solid var(--line)}
+dl.prof dt,dl.prof dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+dl.prof dt{color:var(--muted)}
+dl.prof dd{font-variant-numeric:tabular-nums}
+
+/* フォーム */
+.contact{border-top:6px solid var(--accent)}
+.contact .lead2{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s3);align-items:end;margin-bottom:var(--s4)}
+.contact .lead2 .sub{margin-bottom:0}
+.tel-big{text-decoration:none;color:var(--fg);font-weight:700;font-size:26px;font-family:var(--display);line-height:1.2;text-align:right}
+.tel-big small{display:block;font-size:12px;font-family:var(--body);font-weight:400;color:var(--muted)}
+#f{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);max-width:820px}
+.full{grid-column:1/-1}
+label.f{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+label.f .req{font-size:12px;color:var(--now);margin-left:6px}
+label.f .opt{font-size:12px;color:var(--muted);font-weight:400;margin-left:6px}
+input[type=text],input[type=tel],select,textarea{width:100%;padding:12px;font:inherit;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:var(--r);min-height:48px;transition:border-color .18s}
+input:hover,select:hover,textarea:hover{border-color:var(--muted)}
+textarea{min-height:96px;resize:vertical}
+textarea[readonly]{background:var(--surface-2);font-size:14px;min-height:96px}
+[aria-invalid=true]{border-color:var(--now)!important;box-shadow:inset 0 0 0 1px var(--now)}
+.err{color:var(--now);font-size:13px;font-weight:700;margin-top:4px}
+.hint{font-size:13px;color:var(--muted);margin-top:4px}
+.check{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:var(--s1);cursor:pointer}
+.check input{width:20px;height:20px;accent-color:var(--accent);margin:0}
+#done{margin-top:var(--s2);font-weight:700;padding:12px var(--s2);border-left:4px solid var(--accent);background:var(--surface-2);border-radius:0 var(--r) var(--r) 0}
+
+footer{padding-block:var(--s4);font-size:13px;color:var(--muted);border-top:1px solid var(--line);background:var(--surface)}
+footer .in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s1) var(--s3)}
+
+/* スマホの下バー */
+.dock{display:none}
+
+@media (max-width:1100px){
+  .gnav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow);margin:0}
+  .site-head.open .gnav{display:block}
+  .gnav ul{flex-direction:column;gap:0;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+  .gnav a{padding:12px 8px;font-size:16px;border-bottom:1px solid var(--line);border-radius:0}
+  .menu-btn{display:inline-flex}
+  .head-tel{margin-left:0}
+}
+@media (max-width:900px){
+  .sim,.colors,.care,.company{grid-template-columns:minmax(0,1fr)}
+  .process{grid-template-columns:minmax(0,1fr)}
+  .proc-big{grid-row:auto}
+  .voices{grid-template-columns:minmax(0,1fr)}
+  .voices figure.big{grid-row:auto}
+  .fan{width:22%;opacity:.55}
+}
+@media (max-width:760px){
+  section{padding-block:56px}
+  .head-tel{display:none}
+  .fan{display:none}
+  .hero .in{padding-block:40px 48px}
+  .signs{grid-template-columns:minmax(0,1fr)}
+  .signs li{grid-template-columns:64px 1fr;gap:12px}
+  .signs svg{width:64px;height:64px}
+  .proc{grid-template-columns:minmax(0,1fr)}
+  .proc svg{width:100%;max-width:200px}
+  #f{grid-template-columns:minmax(0,1fr)}
+  .contact .lead2{grid-template-columns:minmax(0,1fr)}
+  .tel-big{text-align:left}
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .facts div:nth-child(n){padding-inline:0;border-left:0}
+  .swatches{grid-template-columns:repeat(4,minmax(0,1fr))}
+  dl.prof{grid-template-columns:6.5em 1fr}
+  .sp{display:inline}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  .dock{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -2px 12px rgba(0,0,0,.12);padding:8px max(12px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));gap:8px}
+  .dock a{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:48px;border-radius:var(--r);text-decoration:none;font-weight:700;line-height:1.25;font-size:15px}
+  .dock .d-tel{background:var(--accent);color:var(--accent-fg)}
+  .dock .d-tel small{font-size:12px;font-weight:400;font-variant-numeric:tabular-nums}
+  .dock .d-est{background:var(--pop);color:var(--pop-fg)}
+}
+@media (max-width:760px){
+  .gantt-box{display:none}
+  .proc-big{padding:var(--s2)}
+  .proc-big svg text{font-size:18.5px}
+  .proc-big svg .lc-up{transform:translateY(-3px)}
+  .proc-big svg .lc-dn{transform:translateY(4px)}
+  .signs svg text{font-size:16px}
+  .gantt-list{position:static;width:auto;height:auto;overflow:visible;clip:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+  .gantt-key{display:none}
+}
+@media (max-width:960px){
+  /* 表: 1行=1枚。見出しは data-label で各値の前に出す(8列の表は768幅でも収まらないので960以下で切り替え) */
+  .box-scroll:has(table){border:0;background:none}
+  .box-scroll thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .box-scroll table,.box-scroll tbody,.box-scroll tr{display:block}
+  .box-scroll tr{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s1) var(--s2)}
+  .alt .box-scroll tr{background:var(--bg)}
+  .box-scroll tr+tr{margin-top:var(--s1)}
+  .box-scroll td{display:block;position:relative;padding:6px 0 6px 7rem;border-bottom:0;text-align:left;font-size:15px}
+  .box-scroll td.r{text-align:left;white-space:normal}
+  .box-scroll td::before{content:attr(data-label);position:absolute;left:0;top:8px;width:6.5rem;color:var(--muted);font-size:13px;line-height:1.6}
+  .box-scroll tbody th{display:block;font-size:17px;padding:8px 0;border-bottom:1px solid var(--line);margin-bottom:4px}
+  .box-scroll tbody tr:last-child th{border-bottom:1px solid var(--line)}
+}
+@media (max-width:420px){
+  .paints{grid-template-columns:minmax(0,1fr)}
+  .seg label{padding:12px 4px}
+}
+/* 実在の店と取り違えないための表示(文字はmutedで4.5:1以上) */
+.mihon{margin:0;padding:2px 16px;background:var(--surface-2);color:var(--muted);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.12em;text-align:center}
+section{scroll-margin-top:92px}
+/* ページ切り替え(JSが付ける js-pages の時だけ、1ページ分を出す) */
+html.js-pages{scroll-behavior:auto}
+.js-pages [data-pg]:not(.on){display:none}
+.js-pages .seam{border-top:1px solid var(--line)}
+[data-pg] :is(h1,h2)[tabindex="-1"]:focus{outline:none}
+.gnav a[aria-current="page"]{background:var(--surface-2);color:var(--accent)}
+.js-pages section.pg-head{padding-top:var(--s5)}
+.js-pages .hero .in{padding-bottom:40px}
+/* トップの入口 */
+.entry{padding-block:var(--s4)}
+.entry h2{font-size:clamp(19px,2.2vw,22px);margin-bottom:var(--s2)}
+.entry ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s4);border-top:1px solid var(--line)}
+.entry li{border-bottom:1px solid var(--line)}
+.entry li:last-child:nth-child(odd){grid-column:1/-1}
+.entry a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s2);align-items:center;padding-block:14px;color:var(--fg);text-decoration:none}
+.entry b{font-family:var(--display);font-size:19px;font-weight:700;line-height:1.4}
+.entry span{grid-column:1;color:var(--muted);font-size:14px;line-height:1.6}
+.entry a::after{content:"→";grid-column:2;grid-row:1/3;color:var(--accent);font-size:18px}
+.entry a:hover b{color:var(--accent)}
+@media (max-width:759px){.entry ul{grid-template-columns:minmax(0,1fr)}}
+/* 各ページの一番下 */
+.pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2);margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--line)}
+.pager a{text-decoration:none;min-height:48px;display:flex;flex-direction:column;justify-content:center}
+.pager-top{color:var(--fg);font-size:15px;text-decoration:underline!important;text-underline-offset:3px}
+.pager-next{margin-left:auto;text-align:right;color:var(--fg)}
+.pager-next small{font-size:13px;color:var(--muted);line-height:1.4}
+.pager-next span{font-family:var(--display);font-size:20px;font-weight:700;line-height:1.4;color:var(--accent)}
+.pager-next span::after{content:" →"}
+.pager-next:hover span{text-decoration:underline;text-underline-offset:4px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important}
+  .btn:hover,.swatches label:hover{transform:none}
+}
+/* 写真(写真入り版) */
+img{display:block;max-width:100%;height:auto}
+.pic{margin:0}
+.pic img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r);background:var(--surface-2)}
+.pic figcaption,.pic-note{font-size:12px;color:var(--muted);margin-top:var(--s1);line-height:1.6}
+.hero .in{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:var(--s4);align-items:center}
+.hero .pic img{aspect-ratio:4/3;background:var(--hero-bg);box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.hero .pic figcaption{color:var(--hero-fg);text-align:right}
+@media (min-width:901px){.hero h1{font-size:clamp(30px,3.5vw,44px)}}
+@media (max-width:900px){.hero .in{grid-template-columns:minmax(0,1fr)}}
+.flow-pics{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:var(--s3);margin-top:var(--s4);align-items:start}
+.flow-pics figcaption{font-size:14px;color:var(--fg)}
+.flow-pics .pic+.pic img{aspect-ratio:3/2}
+@media (max-width:760px){.flow-pics .pic+.pic img{aspect-ratio:16/9}}
+.flow-pics figcaption small{display:block;font-size:12px;color:var(--muted)}
+.voices figure .v-pic{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r);margin-bottom:var(--s1)}
+.voices .pic-note{margin:0 0 var(--s2)}
+@media (max-width:760px){.flow-pics{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js-pages")</script>
+
+<header class="site-head" id="top"><p class="mihon">制作見本</p><div class="in">
+  <a class="logo" href="#top"><i aria-hidden="true"></i>アオバ塗装</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span class="bars" aria-hidden="true"></span>メニュー</button>
+  <nav class="gnav" id="gnav" aria-label="ページの案内">
+    <ul>
+      <li><a href="#sim">費用の目安</a></li>
+      <li><a href="#colors">色見本</a></li>
+      <li><a href="#signs">劣化のサイン</a></li>
+      <li><a href="#flow">工事の流れ</a></li>
+      <li><a href="#works">施工実績</a></li>
+      <li><a href="#company">会社と質問</a></li>
+      <li><a href="#contact">見積り依頼</a></li>
+    </ul>
+  </nav>
+  <a class="head-tel num" href="tel:0920000000"><small>見積り受付 9:00〜19:00 年中無休</small>092-000-0000</a>
+</div></header>
+
+<main>
+<div class="hero" data-pg="top">
+  <div class="in">
+    <div>
+    <span class="kicker">福岡市 朝日台で創業24年の塗装店</span>
+    <h1>外壁と屋根の塗り替え、<br>下請けに出さない塗装店です。</h1>
+    <p class="lead">見積りに来た職人が、そのまま足場に上がって塗ります。30坪の家で工期はおよそ12日。費用の目安は、坪数と塗料を選ぶだけで出ます。</p>
+    <a class="btn" href="#contact">無料で見積りを頼む</a>
+    </div>
+    <figure class="pic">
+      <img src="img/after-1600.jpg" srcset="img/after-800.jpg 800w, img/after-1600.jpg 1600w" sizes="(max-width:900px) calc(100vw - 32px), 400px" width="1600" height="914" alt="塗り替えを終えた、青みがかった灰色の外壁の2階建て" fetchpriority="high">
+      <figcaption>写真はイメージです</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section class="entry" data-pg="top" aria-labelledby="entry-h"><div class="in">
+  <h2 id="entry-h">見たいところから</h2>
+  <ul>
+    <li><a href="#sim"><b>費用の目安</b><span>坪数と塗料を選ぶと、今回の費用と30年の総額が出ます</span></a></li>
+    <li><a href="#colors"><b>色見本</b><span>壁と屋根の色を、家の図に当てて見比べる</span></a></li>
+    <li><a href="#signs"><b>劣化のサイン</b><span>ひび割れやチョーキングなど、塗り替えどきの見分け方</span></a></li>
+    <li><a href="#flow"><b>工事の流れ</b><span>足場から片付けまでの12日間と、保証と点検</span></a></li>
+    <li><a href="#works"><b>施工実績</b><span>2026年に塗らせていただいた家から8件</span></a></li>
+    <li><a href="#company"><b>会社と質問</b><span>職人7人の塗装店の資格と、よくある質問</span></a></li>
+    <li><a href="#contact"><b>見積り依頼</b><span>無料の見積りを頼む。2日以内にお電話で日程を決めます</span></a></li>
+  </ul>
+</div></section>
+
+<section id="sim" data-pg="sim"><div class="in">
+  <h2 class="sec-h">費用と持ちの目安を出す</h2>
+  <p class="sub">家の広さと塗料を選ぶと、今回の費用と、これから30年で何回塗ることになるかが出ます。現地を見る前の大まかな数字です。</p>
+  <div class="sim">
+    <form class="sim-in" id="simf" onsubmit="return false" aria-label="概算シミュレーター">
+      <div>
+        <div class="range-row">
+          <label for="tsubo" class="lg">延床の広さ</label>
+          <output id="tsuboOut" for="tsubo" class="num">30<small>坪(約99㎡)</small></output>
+        </div>
+        <input type="range" id="tsubo" min="20" max="60" step="1" value="30" aria-describedby="tsuboHint">
+        <div class="scale num" aria-hidden="true"><span>20坪</span><span>40坪</span><span>60坪</span></div>
+        <p class="hint" id="tsuboHint">固定資産税の通知書や登記に書いてある「床面積」の合計です。</p>
+      </div>
+      <fieldset>
+        <legend>塗る場所</legend>
+        <div class="seg">
+          <label><input type="radio" name="place" value="wall" checked>外壁</label>
+          <label><input type="radio" name="place" value="roof">屋根</label>
+          <label><input type="radio" name="place" value="both">外壁と屋根</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>塗料</legend>
+        <div class="paints">
+          <label><input type="radio" name="paint" value="si"><span class="chip" style="background:var(--t1)"></span><b>アクリルシリコン</b><span class="y num">10〜12年</span></label>
+          <label><input type="radio" name="paint" value="ra" checked><span class="chip" style="background:var(--t2)"></span><b>ラジカル制御形</b><span class="y num">12〜15年</span></label>
+          <label><input type="radio" name="paint" value="fu"><span class="chip" style="background:var(--t3)"></span><b>フッ素</b><span class="y num">15〜18年</span></label>
+          <label><input type="radio" name="paint" value="mu"><span class="chip" style="background:var(--t4)"></span><b>無機</b><span class="y num">18〜22年</span></label>
+        </div>
+      </fieldset>
+    </form>
+
+    <div class="sim-out" aria-live="polite">
+      <p class="cost-label" id="costLabel">今回の費用(外壁、ラジカル制御形)</p>
+      <p class="cost"><span id="cost">79〜96</span><small>万円</small></p>
+      <dl class="facts">
+        <div><dt>塗る面積の目安</dt><dd id="area">外壁 119㎡</dd></div>
+        <div><dt>持つ年数の目安</dt><dd id="years">12〜15年</dd></div>
+        <div><dt>30年で塗る回数</dt><dd id="times">3回 <small>今回を含む</small></dd></div>
+        <div><dt>30年の総額</dt><dd id="total">237〜288万円</dd></div>
+      </dl>
+      <div class="cmp">
+        <h3>同じ条件で、30年の総額を塗料ごとに比べると</h3>
+        <ul id="cmp"></ul>
+      </div>
+      <p class="sim-sync">この条件は、見積りのページの「概算の条件」欄に自動で写ります。<a href="#contact">この条件で見積りを頼む</a></p>
+    </div>
+  </div>
+  <p class="formula"><b>計算のしかた</b>　外壁の面積＝延床坪×3.3×1.2、屋根の面積＝延床坪×3.3×0.6。<br>
+  費用＝足場(外壁の面積×1.4×1,100円)＋洗浄と養生(塗る面積×400円)＋外壁の付帯部とコーキング(外壁の面積×1,800〜2,600円)＋屋根の縁切り(屋根の面積×500〜700円)＋塗る面積×塗料の㎡単価。<br>
+  30年で塗る回数＝30÷持つ年数の真ん中を切り上げ。30年の総額は今の値段のまま掛けています。金額は税込、1万円未満は下を切り捨て、上を切り上げ。</p>
+</div></section>
+
+<section class="alt" id="paints" data-pg="sim"><div class="in">
+  <h2 class="sec-h">塗料ごとの違い</h2>
+  <p class="sub">延床30坪(外壁の面積およそ119㎡)の2階建てで、足場から3回塗りまで含めた費用です。上のシミュレーターと同じ計算です。</p>
+  <div class="box-scroll" role="region" aria-label="塗料の比較表">
+    <table>
+      <thead><tr><th scope="col">塗料</th><th scope="col">持つ年数</th><th scope="col" class="r">外壁30坪</th><th scope="col" class="r">外壁の㎡単価</th><th scope="col" class="r">屋根の㎡単価</th><th scope="col">汚れにくさ</th><th scope="col">保証</th><th scope="col">向いている家</th></tr></thead>
+      <tbody>
+        <tr><th data-label="塗料" scope="row"><span class="chip" style="background:var(--t1);vertical-align:-4px;margin-right:8px"></span>アクリルシリコン</th><td data-label="持つ年数">10〜12年</td><td data-label="外壁30坪" class="r">75〜91万円</td><td data-label="外壁の㎡単価" class="r">2,600〜3,100円</td><td data-label="屋根の㎡単価" class="r">2,900〜3,400円</td><td data-label="汚れにくさ">ふつう</td><td data-label="保証">5年</td><td data-label="向いている家">10年以内に売る、建て替える予定がある</td></tr>
+        <tr><th data-label="塗料" scope="row"><span class="chip" style="background:var(--t2);vertical-align:-4px;margin-right:8px"></span>ラジカル制御形</th><td data-label="持つ年数">12〜15年</td><td data-label="外壁30坪" class="r">79〜96万円</td><td data-label="外壁の㎡単価" class="r">2,900〜3,500円</td><td data-label="屋根の㎡単価" class="r">3,200〜3,800円</td><td data-label="汚れにくさ">やや強い</td><td data-label="保証">7年</td><td data-label="向いている家">費用と持ちのつり合いを取りたい。相談がいちばん多い塗料です</td></tr>
+        <tr><th data-label="塗料" scope="row"><span class="chip" style="background:var(--t3);vertical-align:-4px;margin-right:8px"></span>フッ素</th><td data-label="持つ年数">15〜18年</td><td data-label="外壁30坪" class="r">90〜109万円</td><td data-label="外壁の㎡単価" class="r">3,900〜4,600円</td><td data-label="屋根の㎡単価" class="r">4,300〜5,000円</td><td data-label="汚れにくさ">強い</td><td data-label="保証">8年</td><td data-label="向いている家">日当たりが強い南面が広い、潮風を受ける</td></tr>
+        <tr><th data-label="塗料" scope="row"><span class="chip" style="background:var(--t4);vertical-align:-4px;margin-right:8px"></span>無機</th><td data-label="持つ年数">18〜22年</td><td data-label="外壁30坪" class="r">99〜119万円</td><td data-label="外壁の㎡単価" class="r">4,600〜5,400円</td><td data-label="屋根の㎡単価" class="r">5,000〜5,900円</td><td data-label="汚れにくさ">とても強い</td><td data-label="保証">10年</td><td data-label="向いている家">次の塗り替えをできるだけ先にしたい</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">屋根を一緒に塗ると、足場代(30坪で約18万円)が1回で済みます。ひび割れやコーキングの傷みが多いと、補修の分だけ上がります。窯業系サイディングの継ぎ目は、塗料の年数に合わせて打ち替え用の材料を選びます。</p>
+</div></section>
+
+<section id="colors" data-pg="colors"><div class="in">
+  <h2 class="sec-h">色見本で家に当ててみる</h2>
+  <p class="sub">色を押すと、絵の家の壁と屋根の色が変わります。帯と玄関ドアは屋根と同じ色です。</p>
+  <div class="colors">
+    <div>
+      <div class="house">
+        <svg id="house" viewBox="0 0 480 330" role="img" aria-labelledby="houseCap">
+          <title id="houseCap">2階建ての家の正面図。選んだ色で壁と屋根を塗り分けた見本</title>
+          <line x1="16" y1="300" x2="464" y2="300" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="64" y="124" width="352" height="176" style="fill:var(--wall)" stroke="var(--ink)" stroke-width="2"/>
+          <polygon points="34,130 240,34 446,130" style="fill:var(--roof)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="34" y1="133" x2="446" y2="133" style="stroke:var(--roof)" stroke-width="6"/>
+          <circle cx="240" cy="96" r="11" fill="var(--glass)" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="70" y="136" width="6" height="164" style="fill:var(--roof)"/>
+          <rect x="64" y="206" width="352" height="7" style="fill:var(--roof)"/>
+          <g fill="var(--glass)" stroke="var(--ink)" stroke-width="2">
+            <rect x="104" y="148" width="76" height="44"/><rect x="300" y="148" width="76" height="44"/><rect x="212" y="152" width="56" height="36"/>
+            <rect x="100" y="230" width="104" height="54"/>
+          </g>
+          <g stroke="var(--ink)" stroke-width="1.5">
+            <line x1="142" y1="148" x2="142" y2="192"/><line x1="338" y1="148" x2="338" y2="192"/><line x1="152" y1="230" x2="152" y2="284"/>
+          </g>
+          <rect x="96" y="224" width="112" height="6" fill="var(--ink)"/>
+          <rect x="288" y="214" width="72" height="6" style="fill:var(--roof)" stroke="var(--ink)" stroke-width="1"/>
+          <rect x="296" y="222" width="56" height="78" style="fill:var(--roof)" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="342" cy="262" r="3" fill="var(--pop)"/>
+          <path d="M392 300c-6-26 10-40 22-34 12-12 34-2 30 16 8 4 6 18-2 18z" fill="var(--plant)"/>
+          <path d="M28 300c-4-18 8-28 18-22 10-6 22 4 18 22z" fill="var(--plant)"/>
+        </svg>
+      </div>
+      <p class="now-color" id="nowColor">壁 72-60D 青みのグレー／屋根 N-20 黒</p>
+    </div>
+    <div>
+      <fieldset>
+        <legend>外壁の色</legend>
+        <div class="swatches" id="wallSw">
+          <label><input type="radio" name="wall" value="w1" data-code="N-90" data-name="白"><span class="sw" style="background:var(--w1)"></span><span class="code">N-90</span><span class="nm">白</span></label>
+          <label><input type="radio" name="wall" value="w2" data-code="22-85B" data-name="明るいベージュ"><span class="sw" style="background:var(--w2)"></span><span class="code">22-85B</span><span class="nm">明るいベージュ</span></label>
+          <label><input type="radio" name="wall" value="w3" data-code="25-70D" data-name="砂色"><span class="sw" style="background:var(--w3)"></span><span class="code">25-70D</span><span class="nm">砂色</span></label>
+          <label><input type="radio" name="wall" value="w4" data-code="15-40D" data-name="赤茶"><span class="sw" style="background:var(--w4)"></span><span class="code">15-40D</span><span class="nm">赤茶</span></label>
+          <label><input type="radio" name="wall" value="w5" data-code="N-60" data-name="中間のグレー"><span class="sw" style="background:var(--w5)"></span><span class="code">N-60</span><span class="nm">中間のグレー</span></label>
+          <label><input type="radio" name="wall" value="w6" data-code="72-60D" data-name="青みのグレー" checked><span class="sw" style="background:var(--w6)"></span><span class="code">72-60D</span><span class="nm">青みのグレー</span></label>
+          <label><input type="radio" name="wall" value="w7" data-code="45-60D" data-name="くすんだ緑"><span class="sw" style="background:var(--w7)"></span><span class="code">45-60D</span><span class="nm">くすんだ緑</span></label>
+          <label><input type="radio" name="wall" value="w8" data-code="N-25" data-name="濃いグレー"><span class="sw" style="background:var(--w8)"></span><span class="code">N-25</span><span class="nm">濃いグレー</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>屋根の色</legend>
+        <div class="swatches roof" id="roofSw">
+          <label><input type="radio" name="roof" value="r1" data-code="N-20" data-name="黒" checked><span class="sw" style="background:var(--r1)"></span><span class="code">N-20</span><span class="nm">黒</span></label>
+          <label><input type="radio" name="roof" value="r2" data-code="15-30D" data-name="こげ茶"><span class="sw" style="background:var(--r2)"></span><span class="code">15-30D</span><span class="nm">こげ茶</span></label>
+          <label><input type="radio" name="roof" value="r3" data-code="75-30D" data-name="紺鼠"><span class="sw" style="background:var(--r3)"></span><span class="code">75-30D</span><span class="nm">紺鼠</span></label>
+          <label><input type="radio" name="roof" value="r4" data-code="45-30H" data-name="深緑"><span class="sw" style="background:var(--r4)"></span><span class="code">45-30H</span><span class="nm">深緑</span></label>
+        </div>
+      </fieldset>
+      <p class="note">画面の色と塗った壁の色は同じに見えません。広い面に塗ると、小さな見本より明るく鮮やかに見えます。決めるときはA4の見本板を実際の壁に当て、晴れの日と曇りの日の両方で見ていただきます。</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="alt" id="signs" data-pg="signs"><div class="in">
+  <h2 class="sec-h">塗り替えどきのサイン</h2>
+  <p class="sub">家のまわりを一周して、北側と日当たりの強い南側を見てください。いちばん急ぐものに合わせて時期を決めます。</p>
+  <p class="legend"><span><span class="badge b-now">すぐ</span>雨水が入り始めている</span><span><span class="badge b-soon">1〜2年内</span>塗膜の守りが切れかけ</span><span><span class="badge b-wait">様子見</span>次の点検で見ればよい</span></p>
+  <ul class="signs">
+    <li>
+      <svg viewBox="0 0 88 88" aria-hidden="true">
+        <rect x="8" y="8" width="72" height="72" rx="2" fill="var(--w6)"/>
+        <path d="M20 66 C34 50 46 40 64 22" stroke="var(--w1)" stroke-width="10" stroke-linecap="round" fill="none" opacity=".75"/>
+        <g fill="#fff" stroke="var(--rule)" stroke-width=".6"><circle cx="66" cy="18" r="2.4"/><circle cx="72" cy="24" r="1.8"/><circle cx="60" cy="14" r="1.6"/><circle cx="70" cy="14" r="1.2"/></g>
+      </svg>
+      <div><h3>手に白い粉がつく(チョーキング)</h3><p>壁を指でこすると白や壁の色の粉がつきます。塗料の樹脂が日光で分解されて、色の粉だけが残った状態です。</p><span class="badge b-soon">1〜2年内</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 88 88" aria-hidden="true">
+        <rect x="8" y="8" width="72" height="72" rx="2" fill="var(--w3)"/>
+        <path d="M22 14 L30 30 L26 40 L38 54 L34 64 L44 78" stroke="var(--ink)" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+        <rect x="46" y="44" width="38" height="18" fill="var(--surface)" stroke="var(--ink)" stroke-width="1"/>
+        <text x="65" y="57.5" text-anchor="middle" font-size="13" font-weight="700" fill="var(--fg)">0.3</text>
+      </svg>
+      <div><h3>幅0.3mm以上のひび割れ</h3><p>名刺の角が差し込めるくらいの幅なら0.3mmを超えています。ひびから雨水が入り、壁の中の木や鉄を傷めます。髪の毛ほどの細いひびなら塗装で埋まります。</p><span class="badge b-now">すぐ</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 88 88" aria-hidden="true">
+        <rect x="8" y="8" width="34" height="72" fill="var(--w2)" stroke="var(--ink)" stroke-width="1"/>
+        <rect x="46" y="8" width="34" height="72" fill="var(--w2)" stroke="var(--ink)" stroke-width="1"/>
+        <rect x="42" y="8" width="4" height="72" fill="var(--rule)"/>
+        <path d="M42 30 L44 36 L42 42 M46 52 L44 58 L46 64" stroke="var(--ink)" stroke-width="1.6" fill="none"/>
+        <rect x="42.6" y="36" width="2.8" height="16" fill="var(--surface-2)"/>
+      </svg>
+      <div><h3>継ぎ目のコーキングの割れ</h3><p>外壁の板と板の間のゴムのような部分です。細かく割れたり、壁からはがれて隙間が見えたりしたら、そこから水が入ります。</p><span class="badge b-now">すぐ</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 88 88" aria-hidden="true">
+        <rect x="8" y="8" width="72" height="72" rx="2" fill="var(--w1)"/>
+        <g fill="var(--moss)"><ellipse cx="22" cy="72" rx="14" ry="8"/><ellipse cx="44" cy="76" rx="12" ry="5"/><ellipse cx="66" cy="70" rx="12" ry="9"/><ellipse cx="30" cy="60" rx="6" ry="4" opacity=".7"/><ellipse cx="62" cy="56" rx="5" ry="3" opacity=".6"/></g>
+        <g fill="var(--rule)" opacity=".7"><circle cx="20" cy="40" r="2"/><circle cx="26" cy="46" r="1.5"/><circle cx="16" cy="48" r="1.2"/></g>
+      </svg>
+      <div><h3>北側の緑のコケ、黒いカビ</h3><p>日の当たらない面と地面に近い所に出ます。表面だけなら洗えば落ちますが、塗膜が水をはじかなくなってきた合図でもあります。広がってきたら1〜2年内に。</p><span class="badge b-wait">様子見</span></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 88 88" aria-hidden="true">
+        <rect x="8" y="56" width="72" height="24" fill="var(--concrete)"/>
+        <path d="M8 56 H28 C32 34 56 34 60 56 H80" stroke="var(--top-coat)" stroke-width="5" fill="none"/>
+        <path d="M30 54 C34 42 54 42 58 54 Z" fill="var(--water)" opacity=".55"/>
+        <path d="M44 20 v10 M40 26 l4 4 4-4" stroke="var(--ink)" stroke-width="1.6" fill="none"/>
+      </svg>
+      <div><h3>塗膜のふくれ、はがれ</h3><p>塗った膜が風船のようにふくらんでいる所は、裏に水か湿気が回っています。押すとぶよっとします。一部でも見つけたら、ほかの面も見ておきます。</p><span class="badge b-soon">1〜2年内</span></div>
+    </li>
+  </ul>
+</div></section>
+
+<section id="flow" data-pg="flow"><div class="in">
+  <h2 class="sec-h">工事の12日間</h2>
+  <p class="sub">延床30坪で外壁を塗る場合の、晴れが続いたときの日程です。屋根も一緒なら2〜3日増えます。</p>
+  <div class="box-scroll gantt-box" aria-hidden="true">
+    <div class="gantt">
+      <div class="hd" style="text-align:left">工程</div>
+      <div class="hd">1</div><div class="hd">2</div><div class="hd">3</div><div class="hd">4</div><div class="hd">5</div><div class="hd">6</div><div class="hd">7</div><div class="hd">8</div><div class="hd">9</div><div class="hd">10</div><div class="hd">11</div><div class="hd">12</div><div class="hd rs">予備</div><div class="hd rs">予備</div>
+      <div class="task">足場とメッシュシート</div><div class="bar"><i></i></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="spare"></div><div class="spare"></div>
+      <div class="task">高圧洗浄</div><div></div><div class="bar"><i></i></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="spare"></div><div class="spare"></div>
+      <div class="task">下地補修とコーキング</div><div></div><div></div><div class="bar" style="grid-column:span 2"><i></i></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="spare"></div><div class="spare"></div>
+      <div class="task">養生(窓や車を覆う)</div><div></div><div></div><div></div><div></div><div class="bar"><i></i></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="spare"></div><div class="spare"></div>
+      <div class="task">下塗り</div><div></div><div></div><div></div><div></div><div></div><div class="bar paint"><i></i></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="spare"></div><div class="spare"></div>
+      <div class="task">中塗り</div><div></div><div></div><div></div><div></div><div></div><div></div><div class="bar paint"><i></i></div><div></div><div></div><div></div><div></div><div></div><div class="spare"></div><div class="spare"></div>
+      <div class="task">上塗り</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="bar paint"><i></i></div><div></div><div></div><div></div><div></div><div class="spare"></div><div class="spare"></div>
+      <div class="task">付帯部(雨樋や破風)</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="bar paint" style="grid-column:span 2"><i></i></div><div></div><div></div><div class="spare"></div><div class="spare"></div>
+      <div class="task">一緒に一周して確認</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="bar"><i></i></div><div></div><div class="spare"></div><div class="spare"></div>
+      <div class="task">足場を外して片付け</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="bar"><i></i></div><div class="spare"></div><div class="spare"></div>
+    </div>
+  </div>
+  <ol class="gantt-list" aria-label="工事の日程">
+    <li><i></i><b>足場とメッシュシート</b><span>1日目</span></li>
+    <li><i></i><b>高圧洗浄</b><span>2日目</span></li>
+    <li><i></i><b>下地補修とコーキング</b><span>3〜4日目</span></li>
+    <li><i></i><b>養生(窓や車を覆う)</b><span>5日目</span></li>
+    <li class="paint"><i></i><b>下塗り</b><span>6日目</span></li>
+    <li class="paint"><i></i><b>中塗り</b><span>7日目</span></li>
+    <li class="paint"><i></i><b>上塗り</b><span>8日目</span></li>
+    <li class="paint"><i></i><b>付帯部(雨樋や破風)</b><span>9〜10日目</span></li>
+    <li><i></i><b>一緒に一周して確認</b><span>11日目</span></li>
+    <li><i></i><b>足場を外して片付け</b><span>12日目</span></li>
+    <li class="spare"><i></i><b>雨の日のための予備</b><span>13〜14日目</span></li>
+  </ol>
+  <p class="gantt-key"><span><i style="background:var(--accent)"></i>準備と片付け</span><span><i style="background:var(--pop)"></i>塗る工程</span><span><i style="background:repeating-linear-gradient(135deg,transparent 0 3px,var(--line) 3px 5px);outline:1px solid var(--line)"></i>雨の日のための予備</span></p>
+  <div class="rain">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 20a14 12 0 0 1 28 0z" fill="var(--accent)"/><path d="M20 20v12a3 3 0 0 1-6 0" stroke="var(--ink)" stroke-width="2" fill="none"/><path d="M8 28l-2 4M30 28l-2 4M24 34l-1 3" stroke="var(--water)" stroke-width="2" stroke-linecap="round"/></svg>
+    <p><b>雨の日は塗りません。</b>雨の日と、湿度が85%を超える日は塗料が乾かず、あとでふくれの原因になります。その日から後ろの工程を1日ずつずらし、12日の後ろに予備を2日とってあります。日数が延びても足場代は変わりません。順延はその日の朝7時までにお電話します。</p>
+  </div>
+  <div class="flow-pics">
+    <figure class="pic"><img src="img/scaffold-1600.jpg" srcset="img/scaffold-800.jpg 800w, img/scaffold-1600.jpg 1600w" sizes="(max-width:760px) calc(100vw - 32px), 580px" width="1600" height="914" alt="2階建ての家の外壁に沿って組んだ足場" loading="lazy" decoding="async"><figcaption>1日目に組む足場。<small>写真はイメージです</small></figcaption></figure>
+    <figure class="pic"><img src="img/roller-1600.jpg" srcset="img/roller-800.jpg 800w, img/roller-1600.jpg 1600w" sizes="(max-width:760px) calc(100vw - 32px), 480px" width="1600" height="914" alt="ローラーで外壁に青い塗料を塗っている職人の手元" loading="lazy" decoding="async"><figcaption>ローラーで重ねて塗るところ。<small>写真はイメージです</small></figcaption></figure>
+  </div>
+
+  <div class="process">
+    <div class="proc-big">
+      <h3>3回塗りの断面</h3>
+      <p>同じ壁に3回、乾く時間をあけて重ねます。厚みが揃って初めて、塗料の年数どおりに持ちます。</p>
+      <svg viewBox="0 0 420 220" role="img" aria-labelledby="layerCap">
+        <title id="layerCap">外壁の断面図。下から外壁材、下塗り、中塗り、上塗りの順に層が重なる</title>
+        <rect x="20" y="150" width="250" height="56" fill="var(--concrete)"/>
+        <g stroke="var(--ink)" stroke-width=".8" opacity=".35"><line x1="40" y1="170" x2="70" y2="190"/><line x1="110" y1="160" x2="140" y2="196"/><line x1="190" y1="166" x2="220" y2="198"/></g>
+        <path d="M20 150 H270 V136 H20 Z" fill="var(--primer)"/>
+        <path d="M20 136 H270 V112 H20 Z" fill="var(--mid-coat)"/>
+        <path d="M20 112 H270 V86 H20 Z" fill="var(--top-coat)"/>
+        <rect x="20" y="86" width="250" height="120" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+        <g stroke="var(--ink)" stroke-width="1"><line x1="20" y1="136" x2="270" y2="136"/><line x1="20" y1="112" x2="270" y2="112"/><line x1="20" y1="150" x2="270" y2="150"/></g>
+        <g stroke="var(--rule)" stroke-width="1.2" fill="none"><path d="M270 99 H300"/><path d="M270 124 H300"/><path d="M270 143 H300"/><path d="M270 178 H300"/></g>
+        <g font-size="13" fill="var(--fg)" font-weight="700">
+          <text x="306" y="103">上塗り</text><text class="lc-up" x="306" y="128">中塗り</text><text class="lc-dn" x="306" y="147">下塗り</text><text x="306" y="182">外壁材</text>
+        </g>
+        <g fill="var(--water)"><path d="M70 30 l6 12a6 6 0 1 1-12 0z"/><path d="M130 50 l6 12a6 6 0 1 1-12 0z"/></g>
+        <g stroke="var(--pop)" stroke-width="3" stroke-linecap="round"><line x1="200" y1="22" x2="218" y2="62"/><line x1="236" y1="18" x2="240" y2="62"/><line x1="176" y1="30" x2="200" y2="66"/></g>
+        <text x="20" y="18" font-size="12" fill="var(--muted)">雨と日光</text>
+      </svg>
+      <ul class="layers">
+        <li><span class="chip" style="background:var(--primer)"></span><span><b>下塗り</b>　壁に吸い込ませて、上の層をくっつける接着の層。傷んだ壁ほど多めに吸います。</span></li>
+        <li><span class="chip" style="background:var(--mid-coat)"></span><span><b>中塗り</b>　厚みをつける層。上塗りと少しだけ色を変えて、塗り残しを見分けます。</span></li>
+        <li><span class="chip" style="background:var(--top-coat)"></span><span><b>上塗り</b>　雨と紫外線を受け止める表面の層。仕上がりの色になります。</span></li>
+      </ul>
+    </div>
+    <div class="proc">
+      <svg viewBox="0 0 160 110" role="img" aria-labelledby="scafCap"><title id="scafCap">家の壁に沿って足場を組み、メッシュシートで覆った図</title>
+        <rect x="10" y="10" width="50" height="94" fill="var(--w6)" stroke="var(--ink)" stroke-width="1.2"/>
+        <g stroke="var(--ink)" stroke-width="2"><line x1="74" y1="6" x2="74" y2="104"/><line x1="104" y1="6" x2="104" y2="104"/></g>
+        <g stroke="var(--rule)" stroke-width="2"><line x1="74" y1="34" x2="104" y2="34"/><line x1="74" y1="64" x2="104" y2="64"/><line x1="74" y1="94" x2="104" y2="94"/></g>
+        <rect x="108" y="6" width="22" height="98" fill="var(--accent)" opacity=".28"/>
+        <g stroke="var(--accent)" stroke-width=".8" opacity=".7"><line x1="108" y1="20" x2="130" y2="6"/><line x1="108" y1="44" x2="130" y2="30"/><line x1="108" y1="68" x2="130" y2="54"/><line x1="108" y1="92" x2="130" y2="78"/></g>
+        <line x1="4" y1="104" x2="156" y2="104" stroke="var(--ink)" stroke-width="1.5"/>
+      </svg>
+      <div><h3>足場とメッシュシート</h3><p>1日目に組みます。塗料や洗浄の水がお隣へ飛ばないよう、外側を網で覆います。</p></div>
+    </div>
+    <div class="proc">
+      <svg viewBox="0 0 160 110" role="img" aria-labelledby="washCap"><title id="washCap">古い塗膜と汚れを高圧の水で落としている断面図</title>
+        <rect x="10" y="60" width="140" height="40" fill="var(--concrete)"/>
+        <path d="M10 60 H40 V54 H62 V60 H86 V52 H118 V60 H150" fill="var(--old-film)" stroke="var(--old-film)" stroke-width="2"/>
+        <g fill="var(--moss)"><circle cx="100" cy="50" r="3"/><circle cx="108" cy="49" r="2.4"/></g>
+        <rect x="18" y="10" width="40" height="10" rx="2" fill="var(--ink)"/>
+        <g stroke="var(--water)" stroke-width="2" stroke-linecap="round"><line x1="58" y1="16" x2="74" y2="50"/><line x1="58" y1="16" x2="66" y2="52"/><line x1="58" y1="16" x2="82" y2="48"/></g>
+      </svg>
+      <div><h3>高圧洗浄</h3><p>2日目。古い塗膜の粉とコケを水で落とし、丸1日乾かします。ここを急ぐと、新しい塗料がはがれます。</p></div>
+    </div>
+    <div class="proc">
+      <svg viewBox="0 0 160 110" role="img" aria-labelledby="repCap"><title id="repCap">ひび割れをV字に削って補修材で埋め、継ぎ目のコーキングを打ち替える断面図</title>
+        <rect x="10" y="40" width="64" height="60" fill="var(--concrete)" stroke="var(--ink)" stroke-width="1"/>
+        <path d="M34 40 L42 66 L50 40 Z" fill="var(--sealant)" stroke="var(--ink)" stroke-width="1"/>
+        <rect x="86" y="40" width="28" height="60" fill="var(--w2)" stroke="var(--ink)" stroke-width="1"/>
+        <rect x="122" y="40" width="28" height="60" fill="var(--w2)" stroke="var(--ink)" stroke-width="1"/>
+        <rect x="114" y="40" width="8" height="22" fill="var(--sealant)" stroke="var(--ink)" stroke-width="1"/>
+        <rect x="114" y="62" width="8" height="6" fill="var(--rule)"/>
+        <text x="42" y="30" font-size="11" text-anchor="middle" fill="var(--muted)">ひび</text><text x="118" y="30" font-size="11" text-anchor="middle" fill="var(--muted)">継ぎ目</text>
+      </svg>
+      <div><h3>下地補修とコーキング</h3><p>3〜4日目。ひびはV字に削って埋め、継ぎ目のコーキングは古いものを抜いて新しく打ち直します。</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="alt" id="care" data-pg="flow"><div class="in">
+  <h2 class="sec-h">保証と点検、ご近所へのあいさつ</h2>
+  <p class="sub">塗り終わってからの年数と、工事の前後にすることです。</p>
+  <div class="care">
+    <div>
+      <h3>保証の年数と点検の日</h3>
+      <div class="box-scroll" role="region" aria-label="保証の年数の表">
+        <table>
+          <thead><tr><th scope="col">塗料</th><th scope="col" class="r">外壁の保証</th><th scope="col" class="r">屋根の保証</th></tr></thead>
+          <tbody>
+            <tr><th data-label="塗料" scope="row">アクリルシリコン</th><td data-label="外壁の保証" class="r">5年</td><td data-label="屋根の保証" class="r">3年</td></tr>
+            <tr><th data-label="塗料" scope="row">ラジカル制御形</th><td data-label="外壁の保証" class="r">7年</td><td data-label="屋根の保証" class="r">5年</td></tr>
+            <tr><th data-label="塗料" scope="row">フッ素</th><td data-label="外壁の保証" class="r">8年</td><td data-label="屋根の保証" class="r">6年</td></tr>
+            <tr><th data-label="塗料" scope="row">無機</th><td data-label="外壁の保証" class="r">10年</td><td data-label="屋根の保証" class="r">7年</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">はがれ、ふくれ、色の大きなむらが保証の対象です。地震や台風で割れた所、あとから付けた物の穴は対象外になります。</p>
+      <ul class="visits">
+        <li><b>引き渡しの日</b><span>保証書と、工程ごとの写真をまとめた冊子をお渡しします。</span></li>
+        <li><b>1年目と3年目</b><span>無料で点検に伺います。こちらから日程のお電話をします。</span></li>
+        <li><b>そのあと保証が切れる年まで2年おき</b><span>気になる所があれば、点検の日を待たずに呼んでください。</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>ご近所へのあいさつ</h3>
+      <p style="color:var(--muted);max-width:40em">足場の音と、洗浄の水しぶき、塗料のにおいが出る工事です。あいさつは営業ではなく、現場に立つ職人が伺います。</p>
+      <ul class="visits">
+        <li><b>着工の7日前</b><span>両隣とお向かい、裏の家へ。工程表とタオルを持って伺います。留守なら手紙を入れます。</span></li>
+        <li><b>洗浄の前日</b><span>水しぶきが飛ぶ側のお宅に、洗濯物と車のことをお声がけします。</span></li>
+        <li><b>工事中</b><span>職人の車は近くの駐車場に停めます。前の道に置きっぱなしにしません。</span></li>
+        <li><b>足場を外した日</b><span>同じお宅へ、終わりのごあいさつに伺います。</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="works" data-pg="works"><div class="in">
+  <h2 class="sec-h">施工実績</h2>
+  <p class="sub">2026年に塗らせていただいた家から8件です。工期は足場を組んだ日から外した日まで。</p>
+  <div class="box-scroll works" role="region" aria-label="施工実績の表">
+    <table>
+      <thead><tr><th scope="col">地区</th><th scope="col" class="r">築年数</th><th scope="col" class="r">延床</th><th scope="col">塗った場所</th><th scope="col">塗料</th><th scope="col">色(壁／屋根)</th><th scope="col" class="r">工期</th><th scope="col" class="r">費用(税込)</th></tr></thead>
+      <tbody>
+        <tr><th data-label="地区" scope="row">朝日台</th><td data-label="築年数" class="r">21年</td><td data-label="延床" class="r">32坪</td><td data-label="塗った場所">外壁と屋根</td><td data-label="塗料">ラジカル制御形</td><td data-label="色(壁／屋根)"><span class="cc"><span class="chip" style="background:var(--w6)"></span><span class="chip" style="background:var(--r1)"></span></span><span class="nw">72-60D／</span><span class="nw">N-20</span></td><td data-label="工期" class="r">15日<br><small>雨で1日延長</small></td><td data-label="費用(税込)" class="r">118万円</td></tr>
+        <tr><th data-label="地区" scope="row">川添町</th><td data-label="築年数" class="r">13年</td><td data-label="延床" class="r">28坪</td><td data-label="塗った場所">外壁</td><td data-label="塗料">アクリルシリコン</td><td data-label="色(壁／屋根)"><span class="cc"><span class="chip" style="background:var(--w2)"></span></span><span class="nw">22-85B</span></td><td data-label="工期" class="r">11日</td><td data-label="費用(税込)" class="r">77万円</td></tr>
+        <tr><th data-label="地区" scope="row">桜木原</th><td data-label="築年数" class="r">18年</td><td data-label="延床" class="r">36坪</td><td data-label="塗った場所">外壁と屋根</td><td data-label="塗料">フッ素</td><td data-label="色(壁／屋根)"><span class="cc"><span class="chip" style="background:var(--w5)"></span><span class="chip" style="background:var(--r3)"></span></span><span class="nw">N-60／</span><span class="nw">75-30D</span></td><td data-label="工期" class="r">15日</td><td data-label="費用(税込)" class="r">158万円</td></tr>
+        <tr><th data-label="地区" scope="row">白鷺町</th><td data-label="築年数" class="r">24年</td><td data-label="延床" class="r">41坪</td><td data-label="塗った場所">外壁</td><td data-label="塗料">無機</td><td data-label="色(壁／屋根)"><span class="cc"><span class="chip" style="background:var(--w8)"></span></span><span class="nw">N-25</span></td><td data-label="工期" class="r">13日</td><td data-label="費用(税込)" class="r">149万円</td></tr>
+        <tr><th data-label="地区" scope="row">椿ヶ丘</th><td data-label="築年数" class="r">27年</td><td data-label="延床" class="r">30坪</td><td data-label="塗った場所">屋根</td><td data-label="塗料">ラジカル制御形</td><td data-label="色(壁／屋根)"><span class="cc"><span class="chip" style="background:var(--r1)"></span></span><span class="nw">—／</span><span class="nw">N-20</span></td><td data-label="工期" class="r">6日</td><td data-label="費用(税込)" class="r">45万円</td></tr>
+        <tr><th data-label="地区" scope="row">松葉台</th><td data-label="築年数" class="r">16年</td><td data-label="延床" class="r">34坪</td><td data-label="塗った場所">外壁と屋根</td><td data-label="塗料">ラジカル制御形</td><td data-label="色(壁／屋根)"><span class="cc"><span class="chip" style="background:var(--w3)"></span><span class="chip" style="background:var(--r2)"></span></span><span class="nw">25-70D／</span><span class="nw">15-30D</span></td><td data-label="工期" class="r">16日<br><small>雨で2日延長</small></td><td data-label="費用(税込)" class="r">131万円</td></tr>
+        <tr><th data-label="地区" scope="row">奥田原</th><td data-label="築年数" class="r">11年</td><td data-label="延床" class="r">26坪</td><td data-label="塗った場所">外壁</td><td data-label="塗料">アクリルシリコン</td><td data-label="色(壁／屋根)"><span class="cc"><span class="chip" style="background:var(--w1)"></span></span><span class="nw">N-90</span></td><td data-label="工期" class="r">10日</td><td data-label="費用(税込)" class="r">71万円</td></tr>
+        <tr><th data-label="地区" scope="row">柚木町</th><td data-label="築年数" class="r">20年</td><td data-label="延床" class="r">38坪</td><td data-label="塗った場所">外壁と屋根</td><td data-label="塗料">フッ素</td><td data-label="色(壁／屋根)"><span class="cc"><span class="chip" style="background:var(--w7)"></span><span class="chip" style="background:var(--r4)"></span></span><span class="nw">45-60D／</span><span class="nw">45-30H</span></td><td data-label="工期" class="r">16日</td><td data-label="費用(税込)" class="r">167万円</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="voices-h">塗り終わったお客様から</h3>
+  <div class="voices">
+    <figure class="big">
+      <img class="v-pic" src="img/after-1600.jpg" srcset="img/after-800.jpg 800w, img/after-1600.jpg 1600w" sizes="(max-width:900px) calc(100vw - 72px), 560px" width="1600" height="914" alt="塗り替えを終えた、青みがかった灰色の外壁の2階建て" loading="lazy" decoding="async"><p class="pic-note">写真はイメージです</p>
+      <blockquote><p>見積りに来た人が、本当にそのまま塗りに来ました。毎日夕方に、その日やった所を写真つきで知らせてくれたので、仕事で留守がちでも不安はありませんでした。下塗りの白い壁の写真まで残っているのは、ここだけだと思います。</p></blockquote>
+      <figcaption>朝日台　築21年　K様</figcaption>
+    </figure>
+    <figure>
+      <blockquote><p>色はA4の板を壁に当てて、晴れの日と曇りの日に見せてもらいました。画面より明るく見えると言われて一段暗い色にしたのが正解でした。</p></blockquote>
+      <figcaption>松葉台　築16年　T様</figcaption>
+    </figure>
+    <figure>
+      <img class="v-pic" src="img/roof-1600.jpg" srcset="img/roof-800.jpg 800w, img/roof-1600.jpg 1600w" sizes="(max-width:900px) calc(100vw - 72px), 400px" width="1600" height="914" alt="瓦が並ぶ屋根の近景" loading="lazy" decoding="async"><p class="pic-note">写真はイメージです</p>
+      <blockquote><p>よそでは屋根の葺き替えを勧められましたが、割れは3枚だけなので差し替えと塗装で足りると言われ、40万円ほど安く済みました。</p></blockquote>
+      <figcaption>椿ヶ丘　築27年　M様</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section class="alt" id="company" data-pg="company"><div class="in">
+  <h2 class="sec-h">資格と会社のこと</h2>
+  <p class="sub">職人7人の塗装店です。営業だけの社員はいません。</p>
+  <div class="company">
+    <div>
+      <h3>資格と許可</h3>
+      <ul class="lic">
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="12" r="9" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M9 20l-2 7 7-3 7 3-2-7" fill="var(--accent)"/></svg><span>一級塗装技能士　3人<small>国家資格。実技と学科の試験に受かった職人です</small></span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="12" r="9" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M9 20l-2 7 7-3 7 3-2-7" fill="var(--accent)"/></svg><span>二級塗装技能士　2人</span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="5" y="4" width="18" height="22" rx="2" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M9 11h10M9 16h10M9 21h6" stroke="var(--accent)" stroke-width="2"/></svg><span>建設業許可　福岡県知事許可(般-04)第000000号<small>塗装工事業</small></span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="5" y="4" width="18" height="22" rx="2" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M9 11h10M9 16h10M9 21h6" stroke="var(--accent)" stroke-width="2"/></svg><span>足場の組立て等作業主任者　2人<small>有機溶剤作業主任者　2人</small></span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3l9 4v7c0 6-4 10-9 12-5-2-9-6-9-12V7z" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M10 14l3 3 5-6" fill="none" stroke="var(--accent)" stroke-width="2.4"/></svg><span>工事中の事故に備える賠償責任保険に加入<small>朝日台塗装業協議会　会員</small></span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>会社概要</h3>
+      <dl class="prof">
+        <dt>屋号</dt><dd>アオバ塗装</dd>
+        <dt>代表</dt><dd>青葉 恒一(一級塗装技能士)</dd>
+        <dt>所在地</dt><dd>福岡市 朝日台(作業場と資材置き場)</dd>
+        <dt>創業</dt><dd>2002年</dd>
+        <dt>人数</dt><dd>職人7人、事務1人</dd>
+        <dt>施工</dt><dd>1,380棟あまり(2026年10月まで)</dd>
+        <dt>電話</dt><dd><a href="tel:0920000000">092-000-0000</a>　9:00〜19:00 年中無休</dd>
+        <dt>対応地域</dt><dd>福岡市 朝日台・川添町・桜木原・白鷺町<br>椿ヶ丘・松葉台・奥田原・柚木町 ほか</dd>
+      </dl>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq" data-pg="company"><div class="in">
+  <h2 class="sec-h">よくある質問</h2>
+  <p class="sub">見積りの場でよく聞かれることです。</p>
+  <div class="faq">
+    <details><summary>見積りのあとに断っても大丈夫ですか</summary><p>大丈夫です。見積りは無料で、断られても理由をお聞きすることはありません。ほかの店の見積りと並べて比べていただくのも歓迎です。</p></details>
+    <details><summary>工事のあいだ、家にいないといけませんか</summary><p>いなくても進められます。窓を閉めていただく日が2〜3日あるので、その日は前日にお知らせします。毎日の作業は夕方に写真で報告します。</p></details>
+    <details><summary>雨が続いたら、工期はどうなりますか</summary><p>雨の日と湿度の高い日は塗らずに後ろへずらします。予備を2日とってあり、それを超えても追加の費用はかかりません。梅雨の6〜7月は日数に余裕を見て日程を組みます。</p></details>
+    <details><summary>色見本と仕上がりが違って見えることはありますか</summary><p>あります。広い面に塗ると、小さな見本より明るく鮮やかに見えます。迷ったときは、壁の目立たない所に1㎡ほど試し塗りをしてから決められます。</p></details>
+    <details><summary>屋根だけ、一部の面だけでも頼めますか</summary><p>頼めます。ただし2階の高さは足場が要るので、足場代はかかります。数年以内に外壁も塗る予定なら、まとめた方が足場1回分安くなります。</p></details>
+    <details><summary>支払いはいつですか</summary><p>工事が終わって、一緒に家を一周して確認した後に一括でお願いしています。着手金はいただいていません。分割を希望される方には、リフォームローンの窓口をご案内します。</p></details>
+    <details><summary>火災保険で無料になると言われたのですが</summary><p>台風や雹で壊れた所は保険の対象になる場合がありますが、年数による傷みは対象外です。「保険で無料で塗れる」と訪ねてくる業者とのトラブルが増えているので、契約の前にご相談ください。</p></details>
+  </div>
+</div></section>
+
+<section class="alt contact" id="contact" data-pg="contact"><div class="in">
+  <div class="lead2">
+    <div>
+      <h2 class="sec-h">無料で見積りを頼む</h2>
+      <p class="sub">壁と屋根を見て、その場で劣化の具合をお伝えします。見積りのあと断られても大丈夫です。2日以内にお電話で日程を決めます。</p>
+    </div>
+    <a class="tel-big num" href="tel:0920000000"><small>電話なら 9:00〜19:00 年中無休</small>092-000-0000</a>
+  </div>
+  <form id="f" novalidate>
+    <div>
+      <label class="f" for="nm">お名前<span class="req">必須</span></label>
+      <input type="text" id="nm" name="name" autocomplete="name" required aria-describedby="nm-err">
+      <p class="err" id="nm-err" hidden></p>
+    </div>
+    <div>
+      <label class="f" for="ph">電話番号<span class="req">必須</span></label>
+      <input type="tel" id="ph" name="tel" autocomplete="tel" inputmode="tel" required aria-describedby="ph-hint ph-err" placeholder="例 090-0000-0000">
+      <p class="hint" id="ph-hint">ハイフンは無くても大丈夫です。</p>
+      <p class="err" id="ph-err" hidden></p>
+    </div>
+    <div class="full">
+      <label class="f" for="addr">お住まいの地区<span class="opt">町名まででかまいません</span></label>
+      <input type="text" id="addr" name="addr" autocomplete="address-level2" placeholder="例 朝日台">
+    </div>
+    <div>
+      <label class="f" for="where">塗りたいところ</label>
+      <select id="where" name="where"><option value="wall">外壁</option><option value="roof">屋根</option><option value="both">外壁と屋根</option><option value="undecided">まだ決めていない</option></select>
+    </div>
+    <div>
+      <label class="f" for="age">建ててから(前回の塗装から)<span class="req">必須</span></label>
+      <select id="age" name="age" required aria-describedby="age-err"><option value="">選んでください</option><option>10年未満</option><option>10〜15年</option><option>15〜20年</option><option>20年以上</option><option>わからない</option></select>
+      <p class="err" id="age-err" hidden></p>
+    </div>
+    <div class="full">
+      <label class="f" for="simText">概算の条件<span class="opt">「費用の目安」のシミュレーターから自動で入ります</span></label>
+      <textarea id="simText" name="sim" readonly></textarea>
+      <label class="check"><input type="checkbox" id="useSim" checked>この概算を見積りの参考に添える</label>
+    </div>
+    <div>
+      <label class="f" for="time">電話してよい時間</label>
+      <select id="time" name="time"><option>いつでも</option><option>午前(9〜12時)</option><option>午後(12〜17時)</option><option>夕方以降(17〜19時)</option></select>
+    </div>
+    <div class="full">
+      <label class="f" for="msg">気になっていること<span class="opt">任意、400字まで</span></label>
+      <textarea id="msg" name="msg" maxlength="400" aria-describedby="msg-count"></textarea>
+      <p class="hint num" id="msg-count">0／400字</p>
+    </div>
+    <div class="full">
+      <button class="btn" type="submit">見積りを申し込む</button>
+      <p id="done" role="status" hidden>見本ページのため送信はされません。</p>
+    </div>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="in">
+  <span>© アオバ塗装　福岡市 朝日台</span>
+  <span>掲載の店名・番号・金額は見本です。写真はイメージです</span>
+</div></footer>
+
+<nav class="dock" aria-label="連絡">
+  <a class="d-tel" href="tel:0920000000">電話する<small>092-000-0000</small></a>
+  <a class="d-est" href="#contact">見積りを頼む</a>
+</nav>
+
+<script>
+(()=>{
+  const $=s=>document.querySelector(s);
+  /* メニュー */
+  const head=$('.site-head'),mb=$('.menu-btn');
+  const setMenu=o=>{head.classList.toggle('open',o);mb.setAttribute('aria-expanded',o)};
+  mb.addEventListener('click',()=>setMenu(!head.classList.contains('open')));
+  document.querySelectorAll('#gnav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&head.classList.contains('open')){setMenu(false);mb.focus()}});
+
+  /* シミュレーター */
+  const PAINTS={
+    si:{name:'アクリルシリコン',y:[10,12],wall:[2600,3100],roof:[2900,3400]},
+    ra:{name:'ラジカル制御形',y:[12,15],wall:[2900,3500],roof:[3200,3800]},
+    fu:{name:'フッ素',y:[15,18],wall:[3900,4600],roof:[4300,5000]},
+    mu:{name:'無機',y:[18,22],wall:[4600,5400],roof:[5000,5900]}
+  };
+  const PLACE={wall:'外壁',roof:'屋根',both:'外壁と屋根'};
+  function calc(tsubo,place,key){
+    const p=PAINTS[key],fl=tsubo*3.3,wall=Math.round(fl*1.2),roof=Math.round(fl*.6);
+    const W=place!=='roof',R=place!=='wall';
+    let lo=wall*1.4*1100,hi=lo;
+    const area=(W?wall:0)+(R?roof:0);lo+=area*400;hi+=area*400;
+    if(W){lo+=wall*1800+wall*p.wall[0];hi+=wall*2600+wall*p.wall[1]}
+    if(R){lo+=roof*500+roof*p.roof[0];hi+=roof*700+roof*p.roof[1]}
+    const n=Math.ceil(30/((p.y[0]+p.y[1])/2));
+    return{fl,wall,roof,W,R,lo:Math.floor(lo/1e4),hi:Math.ceil(hi/1e4),n,tlo:Math.floor(lo*n/1e4),thi:Math.ceil(hi*n/1e4)};
+  }
+  const fmt=n=>n.toLocaleString('ja-JP');
+  const ts=$('#tsubo'),simf=$('#simf'),where=$('#where');
+  let whereTouched=false;where.addEventListener('change',()=>whereTouched=true);
+  function render(){
+    const t=+ts.value,place=simf.place.value,key=simf.paint.value,r=calc(t,place,key),p=PAINTS[key];
+    $('#tsuboOut').innerHTML=t+'<small>坪(約'+Math.round(r.fl)+'㎡)</small>';
+    ts.setAttribute('aria-valuetext',t+'坪');
+    $('#costLabel').textContent='今回の費用('+PLACE[place]+'、'+p.name+')';
+    $('#cost').textContent=fmt(r.lo)+'〜'+fmt(r.hi);
+    $('#area').textContent=[r.W?'外壁 '+r.wall+'㎡':'',r.R?'屋根 '+r.roof+'㎡':''].filter(Boolean).join('／');
+    $('#years').textContent=p.y[0]+'〜'+p.y[1]+'年';
+    $('#times').innerHTML=r.n+'回 <small>今回を含む</small>';
+    $('#total').textContent=fmt(r.tlo)+'〜'+fmt(r.thi)+'万円';
+    const all=Object.keys(PAINTS).map(k=>[k,calc(t,place,k)]),max=Math.max(...all.map(a=>a[1].thi));
+    $('#cmp').innerHTML=all.map(([k,c])=>'<li'+(k===key?' class="on"':'')+'><span>'+PAINTS[k].name+'</span><span class="track" aria-hidden="true"><span class="hi" style="width:'+(c.thi/max*100).toFixed(1)+'%"></span><span class="lo" style="width:'+(c.tlo/max*100).toFixed(1)+'%"></span></span><span class="v">'+c.n+'回で '+fmt(c.tlo)+'〜'+fmt(c.thi)+'万円</span></li>').join('');
+    $('#simText').value='延床'+t+'坪／'+PLACE[place]+'／'+p.name+'\n概算 '+fmt(r.lo)+'〜'+fmt(r.hi)+'万円(30年で'+r.n+'回、総額'+fmt(r.tlo)+'〜'+fmt(r.thi)+'万円)';
+    if(!whereTouched)where.value=place;
+  }
+  ts.addEventListener('input',render);simf.addEventListener('change',render);render();
+
+  /* 色見本 */
+  const house=$('#house');
+  function paintHouse(){
+    const w=document.querySelector('input[name=wall]:checked'),r=document.querySelector('input[name=roof]:checked');
+    house.style.setProperty('--wall','var(--'+w.value+')');house.style.setProperty('--roof','var(--'+r.value+')');
+    $('#nowColor').textContent='壁 '+w.dataset.code+' '+w.dataset.name+'／屋根 '+r.dataset.code+' '+r.dataset.name;
+  }
+  document.querySelectorAll('.swatches input').forEach(i=>i.addEventListener('change',paintHouse));paintHouse();
+
+  /* 見積りフォーム */
+  const f=$('#f'),msg=$('#msg');
+  msg.addEventListener('input',()=>$('#msg-count').textContent=msg.value.length+'／400字');
+  function setErr(el,text){const e=$('#'+el.id+'-err');el.setAttribute('aria-invalid',text?'true':'false');e.textContent=text;e.hidden=!text;return !text}
+  const checks={
+    nm:v=>v.trim()?'':'お名前を入れてください。',
+    ph:v=>{const d=v.replace(/[\s\-ー－()（）]/g,'').replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248));if(!d)return '電話番号を入れてください。';return /^0\d{9,10}$/.test(d)?'':'0から始まる10桁か11桁の番号を入れてください。'},
+    age:v=>v?'':'近いものを選んでください。わからなければ「わからない」で大丈夫です。'
+  };
+  Object.keys(checks).forEach(id=>{const el=$('#'+id);el.addEventListener(id==='age'?'change':'blur',()=>setErr(el,checks[id](el.value)))});
+  f.addEventListener('submit',e=>{
+    e.preventDefault();let first=null;
+    Object.keys(checks).forEach(id=>{const el=$('#'+id);if(!setErr(el,checks[id](el.value))&&!first)first=el});
+    const done=$('#done');
+    if(first){done.hidden=true;first.focus();return}
+    done.hidden=false;
+  });
+})();
+</script>
+<script>
+/* ページ切り替え: URLの # で1ページ分だけ出す。JSが動かない時は全部縦に並ぶ */
+(()=>{
+  const de=document.documentElement, ALT='alt', NAV='#gnav';
+  const secs=[...document.querySelectorAll('[data-pg]')], order=[];
+  secs.forEach(s=>{if(!order.includes(s.dataset.pg))order.push(s.dataset.pg)});
+  const links=[...document.querySelectorAll(NAV+' a')];
+  const label=pg=>{const a=links.find(a=>a.getAttribute('href')==='#'+pg);return a?a.textContent.trim():pg};
+  /* 各ページの一番下に「トップへ」「次のページ」 */
+  order.forEach((pg,i)=>{
+    if(pg==='top')return;
+    const last=secs.filter(s=>s.dataset.pg===pg).pop(), box=last.querySelector('.wrap,.in')||last, nx=order[i+1];
+    const n=document.createElement('nav');n.className='pager';n.setAttribute('aria-label','ページ送り');
+    n.innerHTML='<a class="pager-top" href="#top">トップへ</a>'+(nx?'<a class="pager-next" href="#'+nx+'"><small>次のページ</small><span>'+label(nx)+'</span></a>':'');
+    box.appendChild(n);
+  });
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  let first=true;
+  function jump(fn){const b=de.style.scrollBehavior;de.style.scrollBehavior='auto';fn();de.style.scrollBehavior=b}
+  function show(){
+    let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch(e){}
+    const t=/^[\w-]+$/.test(id)&&document.getElementById(id), host=t&&t.closest('[data-pg]'), pg=host?host.dataset.pg:'top';
+    let prev=null;
+    secs.forEach(s=>{const on=s.dataset.pg===pg;s.classList.toggle('on',on);s.classList.remove('seam','pg-head');
+      if(on){if(prev&&prev.classList.contains(ALT)===s.classList.contains(ALT))s.classList.add('seam');prev=s}});
+    links.forEach(a=>{if(a.getAttribute('href')==='#'+pg)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    const head=secs.find(s=>s.dataset.pg===pg);head.classList.add('pg-head');
+    if(t&&host&&t!==head)jump(()=>t.scrollIntoView({block:'start'}));
+    else{
+      jump(()=>window.scrollTo(0,0));
+      if(!first){const h=head.querySelector('h1,h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}}
+    }
+    first=false;
+  }
+  addEventListener('hashchange',show);
+  /* 今と同じ # を押した時も、そのページの頭(または目当ての場所)へ */
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&location.hash&&a.getAttribute('href')===location.hash){e.preventDefault();show()}});
+  show();
+})();
+</script>
+
+</body>
+</html>
