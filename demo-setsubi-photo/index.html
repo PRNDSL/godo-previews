@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>ミズモト設備</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=IBM+Plex+Sans+JP:wght@400;600&display=swap">
+<style>
+/* 方針: 福岡市の戸建てと小さな店舗の持ち主向けの、設備工事店の看板ページ。
+   配管系統図と仕様表のような、線と数字で中身が見える技術屋の手触り。参考は施工図と器具の仕様表。
+   背景は白と薄い灰緑の交互、主役色は深い青緑1色。給水=青、給湯=銅色、排水=灰は図の中だけで使う。 */
+:root{
+  --bg:#ffffff; --surface:#eef2f1; --surface-2:#e1e8e6; --card:#ffffff; --fg:#14211f; --muted:#4a5a57; --line:#cdd7d4; --field-line:#7d8b88;
+  --accent:#0a6a60; --accent-hover:#08564e; --accent-fg:#ffffff; --focus:#14211f;
+  --cold:#2f7fc0; --hot:#b5622b; --drain:#7d8784; --steel:#9aa4a2; --rust:#9c4a1f; --soil:#d9d2c3; --water-soft:#cfe3f3; --wall:#f6f8f7; --ink:#14211f;
+  --now:#b3261e; --soon:#8a5a00; --wait:#2f6f48; --badge-fg:#ffffff;
+  --grid:rgba(10,106,96,.09);
+  --display:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --body:"IBM Plex Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:72px;
+  --r:6px; --shadow:0 1px 2px rgba(20,33,31,.08),0 6px 20px rgba(20,33,31,.06);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101816; --surface:#17211f; --surface-2:#1f2b29; --card:#1a2523; --fg:#e3ebe9; --muted:#a3b3af; --line:#2f3e3b; --field-line:#7a8a86;
+  --accent:#5cc2b4; --accent-hover:#7fd3c7; --accent-fg:#08201c; --focus:#ffd56b;
+  --cold:#6fb0e6; --hot:#df9156; --drain:#97a29f; --steel:#6f7a78; --rust:#b8602f; --soil:#4a4438; --water-soft:#24445c; --wall:#1d2826; --ink:#c9d6d3;
+  --now:#b3261e; --soon:#8a5a00; --wait:#2f6f48; --badge-fg:#ffffff;
+  --grid:rgba(92,194,180,.08);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101816; --surface:#17211f; --surface-2:#1f2b29; --card:#1a2523; --fg:#e3ebe9; --muted:#a3b3af; --line:#2f3e3b; --field-line:#7a8a86;
+  --accent:#5cc2b4; --accent-hover:#7fd3c7; --accent-fg:#08201c; --focus:#ffd56b;
+  --cold:#6fb0e6; --hot:#df9156; --drain:#97a29f; --steel:#6f7a78; --rust:#b8602f; --soil:#4a4438; --water-soft:#24445c; --wall:#1d2826; --ink:#c9d6d3;
+  --now:#b3261e; --soon:#8a5a00; --wait:#2f6f48; --badge-fg:#ffffff;
+  --grid:rgba(92,194,180,.08);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.25); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.in{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:900;letter-spacing:.02em;line-height:1.4;text-wrap:balance;margin:0}
+h3{font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.num{font-variant-numeric:tabular-nums}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ヘッダー */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.mihon{margin:0;padding:2px 16px;background:var(--surface-2);color:var(--fg);font-size:12px;line-height:16px;font-weight:600;letter-spacing:.08em;text-align:center}
+.site-head .in{display:flex;align-items:center;gap:var(--s3);padding-block:10px;position:relative}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:900;font-size:21px;color:var(--fg);text-decoration:none;flex:none;letter-spacing:.04em}
+.logo svg{width:30px;height:30px;flex:none}
+.gnav{margin-left:auto}
+.gnav ul{list-style:none;margin:0;padding:0;display:flex;gap:2px}
+.gnav a{display:block;padding:8px 10px;color:var(--fg);text-decoration:none;font-size:14px;font-weight:600;border-bottom:3px solid transparent;transition:color .18s,border-color .18s}
+.gnav a:hover{color:var(--accent);border-bottom-color:var(--line)}
+.gnav a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent)}
+.head-tel{color:var(--fg);text-decoration:none;font-weight:600;font-size:19px;line-height:1.3;text-align:right;flex:none}
+.head-tel small{display:block;font-size:11px;font-weight:400;color:var(--muted)}
+.menu-btn{display:none;margin-left:auto;align-items:center;gap:8px;background:none;border:1px solid var(--field-line);color:var(--fg);font:inherit;font-size:14px;font-weight:600;padding:8px 12px;border-radius:var(--r);cursor:pointer;min-height:44px;white-space:nowrap}
+.menu-btn .bars{width:18px;height:12px;position:relative;border-block:2px solid currentColor}
+.menu-btn .bars::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:2px solid currentColor}
+
+/* ファーストビュー */
+.hero{background:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;border-bottom:1px solid var(--line)}
+.hero .in{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:var(--s4);align-items:center;padding-block:48px 56px}
+.kicker{display:block;font-weight:600;font-size:15px;color:var(--muted);border-left:4px solid var(--hot);padding-left:12px;margin-bottom:var(--s2);line-height:1.5}
+.hero h1{font-size:clamp(20px,3.6vw,42px);text-wrap:wrap}
+.hero h1 .ib{display:inline-block}
+.hero .lead{margin-top:var(--s2);max-width:28em;font-size:17px}
+.hero-fig svg{display:block;width:100%;height:auto;max-width:440px;margin-left:auto}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-fg);font:inherit;font-weight:600;text-decoration:none;padding:14px 28px;border:0;border-radius:var(--r);cursor:pointer;transition:background-color .18s,transform .18s;white-space:nowrap}
+.btn:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.hero .btn{margin-top:var(--s3)}
+
+/* セクション共通 */
+section{padding-block:var(--s6)}
+[id]{scroll-margin-top:88px}
+section.alt{background:var(--surface)}
+.sec-h{font-size:clamp(23px,3vw,34px);margin-bottom:var(--s1);padding-bottom:var(--s1);border-bottom:2px solid var(--fg);display:inline-block}
+.sub{color:var(--muted);margin:var(--s1) 0 var(--s4);max-width:40em}
+.note{font-size:14px;color:var(--muted);margin-top:var(--s2);max-width:46em;line-height:1.7}
+.badge{display:inline-block;font-size:13px;font-weight:600;color:var(--badge-fg);padding:2px 10px;border-radius:var(--r);line-height:1.6;white-space:nowrap}
+.b-now{background:var(--now)}.b-soon{background:var(--soon)}.b-wait{background:var(--wait)}
+.chip{display:inline-block;width:20px;height:6px;border-radius:3px;vertical-align:middle;margin-right:8px}
+
+/* 表(PC)とカード(スマホ) */
+.tbl{border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:14px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{font-size:13px;color:var(--muted);font-weight:600;background:var(--surface-2);white-space:nowrap}
+tbody tr:last-child>*{border-bottom:0}
+td.r,th.r{text-align:right;white-space:nowrap}
+tbody th{font-weight:600}
+
+/* 診断 */
+.dx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4);align-items:start}
+.dx-in{display:grid;gap:var(--s3)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-weight:600;margin-bottom:var(--s1);padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:var(--s1)}
+.opts label{position:relative;display:block;padding:10px 14px;border:1px solid var(--field-line);border-radius:var(--r);background:var(--card);cursor:pointer;font-weight:600;font-size:15px;line-height:1.5;transition:background-color .18s,border-color .18s,color .18s}
+.opts label:hover{border-color:var(--accent)}
+.opts input,.syms input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opts label:has(input:checked){background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.opts label:has(input:focus-visible),.syms label:has(input:focus-visible){outline:3px solid var(--focus);outline-offset:2px}
+.syms{display:grid;gap:var(--s1)}
+.syms label{position:relative;display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);cursor:pointer;line-height:1.6;transition:border-color .18s,background-color .18s}
+.syms label::before{content:"";width:20px;height:20px;margin-top:2px;border:2px solid var(--field-line);border-radius:50%;box-sizing:border-box;transition:border-color .18s,border-width .18s}
+.syms label:hover{border-color:var(--accent)}
+.syms label:has(input:checked){border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.syms label:has(input:checked)::before{border:6px solid var(--accent)}
+.syms label[hidden]{display:none}
+.syms .pl{display:block;font-size:12px;color:var(--muted);font-weight:400}
+.dx-out{background:var(--card);border:1px solid var(--line);border-top:6px solid var(--accent);border-radius:var(--r);padding:var(--s3);box-shadow:var(--shadow)}
+.dx-out h3{font-size:20px}
+.dx-out .u{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:var(--s1);font-size:14px;color:var(--muted)}
+.dx-out h4{font-size:14px;color:var(--muted);font-weight:600;margin:var(--s3) 0 4px}
+.causes{margin:0;padding-left:1.4em}
+.causes li+li{margin-top:4px}
+.causes li::marker{color:var(--accent);font-weight:600}
+.cost{font-family:var(--display);font-weight:900;font-size:clamp(28px,4vw,40px);line-height:1.2;font-variant-numeric:tabular-nums}
+.cost small{font-size:.45em;margin-left:4px}
+.brk{margin:var(--s1) 0 0;display:grid;grid-template-columns:minmax(0,1fr) auto;border-top:1px solid var(--line);font-size:14px;font-variant-numeric:tabular-nums}
+.brk dt,.brk dd{margin:0;padding:6px 0;border-bottom:1px solid var(--line)}
+.brk dd{text-align:right;white-space:nowrap;padding-left:var(--s2)}
+.brk dt{color:var(--muted)}
+.facts2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s2);margin-top:var(--s2);font-size:14px}
+.facts2 dt{color:var(--muted)}
+.facts2 dd{margin:0;font-weight:600}
+.tip{margin-top:var(--s3);padding:12px var(--s2);background:var(--surface);border-left:4px solid var(--hot);border-radius:0 var(--r) var(--r) 0;font-size:15px}
+.tip b{display:block;font-size:13px;color:var(--muted)}
+.oldnote{margin-top:var(--s2);font-size:15px}
+.urgent{margin-top:var(--s2);padding:12px var(--s2);border:2px solid var(--now);border-radius:var(--r);font-size:15px}
+.urgent a{font-weight:600;font-size:18px;color:var(--fg)}
+.dx-link{margin-top:var(--s3);font-size:15px}
+.formula{margin-top:var(--s4);font-size:13px;color:var(--muted);line-height:1.8;border-left:3px solid var(--line);padding-left:var(--s2);max-width:52em}
+.formula b{color:var(--fg)}
+
+/* 緊急 */
+.sos{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--s5);align-items:start}
+.sos-nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--line);margin:0}
+.sos-nums div{padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.sos-nums div:nth-child(even){padding-left:var(--s2);border-left:1px solid var(--line)}
+.sos-nums dt{font-size:14px;color:var(--muted)}
+.sos-nums dd{margin:0;font-family:var(--display);font-weight:900;font-size:26px;line-height:1.3;font-variant-numeric:tabular-nums}
+.sos-nums dd small{font-family:var(--body);font-size:13px;font-weight:400;color:var(--muted);display:block}
+.valve{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3)}
+.valve svg{display:block;width:100%;max-width:280px;height:auto;margin:0 auto var(--s2)}
+.valve h3{font-size:18px;margin-bottom:4px}
+.valve p{font-size:15px;color:var(--muted)}
+
+/* 対応工事 */
+.works-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.works-list li{display:grid;grid-template-columns:56px minmax(0,1fr) minmax(0,15em) minmax(0,13em);gap:var(--s1) var(--s3);align-items:start;padding:var(--s3) 0;border-bottom:1px solid var(--line)}
+.works-list svg{width:56px;height:56px}
+.works-list h3{font-size:19px}
+.works-list p{font-size:15px;color:var(--muted);margin-top:4px}
+.works-list dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;font-size:14px;font-variant-numeric:tabular-nums}
+.works-list dt{color:var(--muted)}
+.works-list dd{margin:0;font-weight:600}
+.cnt{font-size:14px;font-variant-numeric:tabular-nums}
+.cnt b{font-family:var(--display);font-size:22px;font-weight:900;margin-right:4px}
+.cnt .bar{display:block;height:8px;background:var(--surface-2);border-radius:4px;margin-top:6px;overflow:hidden}
+.cnt .bar i{display:block;height:100%;background:var(--accent);border-radius:4px}
+.cnt small{display:block;color:var(--muted);font-size:12px}
+.kyuto-h{font-size:22px;margin-top:var(--s5);margin-bottom:4px}
+
+/* 配管の話 */
+.rust{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3)}
+.rust-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s2);margin-top:var(--s2)}
+.rust figure{margin:0;text-align:center}
+.rust svg{display:block;width:100%;max-width:150px;height:auto;margin:0 auto}
+.rust figcaption{font-size:14px;line-height:1.5;margin-top:var(--s1)}
+.rust figcaption b{display:block;font-family:var(--display);font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
+.rust figcaption span{color:var(--muted);font-size:13px}
+.rust h3{font-size:20px}
+.rust > p{color:var(--muted);font-size:15px;margin-top:4px;max-width:44em}
+.route{display:grid;grid-template-columns:minmax(0,460px) minmax(0,1fr);gap:var(--s5);align-items:start;margin-top:var(--s5)}
+.route-fig{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s2)}
+.route-fig svg{display:block;width:100%;height:auto}
+.route-fig svg text{font-family:var(--body);font-size:14px;fill:var(--fg);font-weight:600}
+.route h3{font-size:20px;margin-bottom:var(--s1)}
+.pipe-key{list-style:none;margin:var(--s2) 0 0;padding:0;display:grid;gap:var(--s2)}
+.pipe-key li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;font-size:15px}
+.pipe-key i{display:block;height:6px;border-radius:3px;margin-top:11px}
+.pipe-key b{display:block}
+.pipe-key span{color:var(--muted)}
+.mat-h{font-size:22px;margin-top:var(--s5);margin-bottom:4px}
+
+/* 工事の流れ */
+.flows{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:var(--s4);align-items:start}
+.flow{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3)}
+.flow h3{font-size:20px}
+.flow .eg{font-size:14px;color:var(--muted)}
+.steps{list-style:none;margin:var(--s2) 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px dashed var(--line);font-size:15px}
+.steps time,.steps .d{font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent)}
+.steps li.off{background:linear-gradient(90deg,color-mix(in srgb,var(--now) 10%,transparent),transparent)}
+.offbar{margin-top:var(--s2)}
+.offbar .lab{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.offbar .track{position:relative;height:14px;background:var(--surface-2);border-radius:3px;margin-top:4px}
+.offbar .track i{position:absolute;top:0;bottom:0;background:var(--now);border-radius:3px}
+.offbar p{font-size:14px;margin-top:6px}
+.offbar p b{color:var(--now)}
+.before{margin-top:var(--s5)}
+.before h3{font-size:22px;margin-bottom:var(--s2)}
+.before ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:3px solid var(--accent)}
+.before li{padding:var(--s2) var(--s2) var(--s2) 0;font-size:15px}
+.before li+li{padding-left:var(--s2);border-left:1px solid var(--line)}
+.before b{display:block;font-family:var(--display);font-size:18px}
+.before span{color:var(--muted)}
+
+/* 実績と声 */
+.voices{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--s3);margin-top:var(--s3);align-items:start}
+.voices figure{margin:0;background:var(--card);border-left:4px solid var(--accent);padding:var(--s3);border-radius:0 var(--r) var(--r) 0}
+.voices figure.big{grid-row:span 2}
+.voices figure.big blockquote{font-size:18px;line-height:1.9}
+.voices blockquote{margin:0;max-width:40em}
+.voices figcaption{margin-top:var(--s2);font-size:13px;color:var(--muted)}
+.voices-h{font-size:22px;margin-top:var(--s6)}
+
+/* 会社 */
+.company{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:var(--s5)}
+.company h3{font-size:20px;margin-bottom:var(--s2)}
+.lic{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.lic li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.lic b{display:block}
+.lic small{display:block;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+dl.prof{margin:0;display:grid;grid-template-columns:8em minmax(0,1fr);border-top:1px solid var(--line)}
+dl.prof dt,dl.prof dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+dl.prof dt{color:var(--muted)}
+dl.prof dd{font-variant-numeric:tabular-nums}
+.area-h{font-size:20px;margin:var(--s4) 0 var(--s1)}
+.area{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;border-top:1px solid var(--line)}
+.area dt,.area dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.area dd{text-align:right;font-weight:600;font-variant-numeric:tabular-nums;padding-left:var(--s2);white-space:nowrap}
+.faq-h{margin-top:var(--s6)}
+.faq{max-width:820px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-weight:600;position:relative;transition:color .18s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:8px;top:50%;width:10px;height:10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq summary:hover{color:var(--accent)}
+.faq details p{padding:0 0 18px;color:var(--muted);max-width:40em}
+
+/* フォーム */
+.contact .lead2{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s3);align-items:end;margin-bottom:var(--s4)}
+.contact .lead2 .sub{margin-bottom:0}
+.tel-big{text-decoration:none;color:var(--fg);font-weight:600;font-size:26px;line-height:1.2;text-align:right}
+.tel-big small{display:block;font-size:12px;font-weight:400;color:var(--muted)}
+#f{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);max-width:820px}
+.full{grid-column:1/-1}
+label.f{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+label.f .req{font-size:12px;color:var(--now);margin-left:6px}
+label.f .opt{font-size:12px;color:var(--muted);font-weight:400;margin-left:6px}
+input[type=text],input[type=tel],select,textarea{width:100%;padding:12px;font:inherit;border:1px solid var(--field-line);background:var(--card);color:var(--fg);border-radius:var(--r);min-height:48px;transition:border-color .18s}
+input:hover,select:hover,textarea:hover{border-color:var(--accent)}
+textarea{min-height:96px;resize:vertical}
+textarea[readonly]{background:var(--surface-2);font-size:14px;min-height:112px}
+[aria-invalid=true]{border-color:var(--now)!important;box-shadow:inset 0 0 0 1px var(--now)}
+.err{color:var(--now);font-size:13px;font-weight:600;margin-top:4px}
+.hint{font-size:13px;color:var(--muted);margin-top:4px}
+.check{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:var(--s1);cursor:pointer}
+.check input{width:20px;height:20px;accent-color:var(--accent);margin:0}
+#done{margin-top:var(--s2);font-weight:600;padding:12px var(--s2);border-left:4px solid var(--accent);background:var(--surface-2);border-radius:0 var(--r) var(--r) 0}
+
+footer{padding-block:var(--s4);font-size:13px;color:var(--muted);border-top:1px solid var(--line);background:var(--surface)}
+footer .in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s1) var(--s3)}
+.dock{display:none}
+
+@media (max-width:1120px){
+  .gnav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:var(--shadow);margin:0}
+  .site-head.open .gnav{display:block}
+  .gnav ul{flex-direction:column;gap:0;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+  .gnav a{padding:12px 8px;font-size:16px;border-bottom:1px solid var(--line);border-left:4px solid transparent}
+  .gnav a:hover{border-bottom-color:var(--line)}
+  .gnav a[aria-current="page"]{border-bottom-color:var(--line);border-left-color:var(--accent);background:var(--surface)}
+  .menu-btn{display:inline-flex}
+}
+@media (max-width:960px){
+  .works-list li{grid-template-columns:56px minmax(0,1fr) minmax(0,13em)}
+  .works-list li .cnt{grid-column:2/-1}
+  .tbl{border:0;background:none}
+  .tbl thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tbl table,.tbl tbody,.tbl tr{display:block}
+  .tbl tr{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s1) var(--s2)}
+  .tbl tr+tr{margin-top:var(--s1)}
+  .tbl td{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:12px;padding:6px 0;border-bottom:0;text-align:left;font-size:15px}
+  .tbl td.r{text-align:left;white-space:normal}
+  .tbl td::before{content:attr(data-label);color:var(--muted);font-size:13px;line-height:1.6;padding-top:2px}
+  .tbl tbody th{display:block;font-size:17px;padding:8px 0;border-bottom:1px solid var(--line);margin-bottom:4px}
+  .tbl tbody tr:last-child th{border-bottom:1px solid var(--line)}
+}
+@media (max-width:900px){
+  .dx,.sos,.company,.flows,.voices{grid-template-columns:minmax(0,1fr)}
+  .voices figure.big{grid-row:auto}
+  .route{grid-template-columns:minmax(0,1fr)}
+  .route-fig{max-width:520px}
+  .before ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .before li:nth-child(3){padding-left:0;border-left:0}
+  .before li:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:760px){
+  section{padding-block:56px}
+  .head-tel{display:none}
+  .hero .in{grid-template-columns:minmax(0,1fr);padding-block:32px 40px}
+  .hero-fig{display:none}
+  .hero .lead{font-size:16px}
+  .works-list li{grid-template-columns:44px minmax(0,1fr);gap:var(--s1) var(--s2)}
+  .works-list svg{width:44px;height:44px}
+  .works-list li dl,.works-list li .cnt{grid-column:2}
+  .route-fig svg text{font-size:16px}
+  @media (max-width:420px){.route-fig{padding:8px}.route-fig svg text{font-size:17.5px}}
+  .rust{padding:var(--s2)}
+  .rust figcaption b{font-size:19px}
+  #f{grid-template-columns:minmax(0,1fr)}
+  .contact .lead2{grid-template-columns:minmax(0,1fr)}
+  .tel-big{text-align:left}
+  dl.prof{grid-template-columns:6.5em minmax(0,1fr)}
+  .facts2{grid-template-columns:minmax(0,1fr)}
+  .sos-nums dd{font-size:22px}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  .dock{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--bg);border-top:1px solid var(--line);box-shadow:0 -2px 12px rgba(0,0,0,.12);padding:8px max(12px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));gap:8px}
+  .dock a{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:48px;border-radius:var(--r);text-decoration:none;font-weight:600;line-height:1.25;font-size:15px}
+  .dock .d-tel{background:var(--accent);color:var(--accent-fg)}
+  .dock .d-tel small{font-size:12px;font-weight:400;font-variant-numeric:tabular-nums}
+  .dock .d-ask{background:var(--bg);color:var(--fg);border:2px solid var(--accent)}
+}
+@media (max-width:420px){
+  .sos-nums{grid-template-columns:minmax(0,1fr)}
+  .sos-nums div:nth-child(even){padding-left:0;border-left:0}
+  .before ol{grid-template-columns:minmax(0,1fr)}
+  .before li+li{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .steps li{grid-template-columns:4.5em minmax(0,1fr)}
+  .tbl td{grid-template-columns:5.5rem minmax(0,1fr)}
+  .rust-row{gap:var(--s1)}
+}
+
+/* ページ切り替え(JSが付ける js-pages の時だけ、1ページ分を出す) */
+.js-pages [data-pg]:not(.on){display:none}
+.js-pages .seam{border-top:1px solid var(--line)}
+[data-pg] :is(h1,h2)[tabindex="-1"]:focus{outline:none}
+.js-pages section.pg-head{padding-top:var(--s5)}
+/* トップの入口 */
+.entry{padding-block:var(--s4) var(--s5)}
+.entry h2{font-size:clamp(19px,2.2vw,22px);margin-bottom:var(--s2)}
+.entry ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s4);border-top:1px solid var(--line)}
+.entry li{border-bottom:1px solid var(--line)}
+.entry li:last-child:nth-child(odd){grid-column:1/-1}
+.entry a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s2);align-items:center;padding-block:14px;color:var(--fg);text-decoration:none}
+.entry b{font-family:var(--display);font-size:19px;font-weight:700;line-height:1.4;transition:color .18s}
+.entry span{grid-column:1;color:var(--muted);font-size:14px;line-height:1.6}
+.entry a::after{content:"→";grid-column:2;grid-row:1/3;color:var(--accent);font-size:18px}
+.entry a:hover b{color:var(--accent)}
+@media (max-width:759px){.entry ul{grid-template-columns:minmax(0,1fr)}}
+/* 各ページの一番下 */
+.pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2);margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--line)}
+.pager a{text-decoration:none;min-height:48px;display:flex;flex-direction:column;justify-content:center}
+.pager-top{color:var(--fg);font-size:15px;text-decoration:underline!important;text-underline-offset:3px}
+.pager-next{margin-left:auto;text-align:right;color:var(--fg)}
+.pager-next small{font-size:13px;color:var(--muted);line-height:1.4}
+.pager-next span{font-family:var(--display);font-size:20px;font-weight:700;line-height:1.4;color:var(--accent)}
+.pager-next span::after{content:" →"}
+.pager-next:hover span{text-decoration:underline;text-underline-offset:4px}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important}
+  .btn:hover{transform:none}
+}
+/* 写真(写真入り版) */
+img{display:block;max-width:100%;height:auto}
+.pic{margin:0}
+.pic img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r);background:var(--surface-2)}
+.pic figcaption,.pic-note{font-size:12px;color:var(--muted);margin-top:var(--s1);line-height:1.6}
+.hero .pic img{aspect-ratio:4/3;background:var(--surface-2)}
+.hero .pic figcaption{text-align:right}
+.kyuto-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,280px);gap:var(--s2) var(--s4);align-items:end;margin-top:var(--s5);margin-bottom:var(--s3)}
+.kyuto-top .kyuto-h{margin-top:0}
+.kyuto-top .sub{margin-bottom:0}
+.heater-pic img{aspect-ratio:3/2}
+.route-pic{margin-top:var(--s4)}
+.flow-pic{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--s4);align-items:end;margin-top:var(--s5)}
+.flow-pic figcaption{font-size:15px;color:var(--fg);margin:0;max-width:28em;line-height:1.8}
+.flow-pic figcaption small{display:block;font-size:12px;color:var(--muted);margin-top:var(--s1)}
+.voices figure .v-pic{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r);margin-bottom:var(--s1)}
+.voices .pic-note{margin:0 0 var(--s2)}
+@media (max-width:760px){
+  .hero .pic{max-width:520px}
+  .kyuto-top,.flow-pic{grid-template-columns:minmax(0,1fr)}
+  .heater-pic{max-width:360px}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js-pages")</script>
+
+<header class="site-head" id="top">
+<p class="mihon">制作見本</p>
+<div class="in">
+  <a class="logo" href="#top"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M4 26V13a7 7 0 0 1 7-7h15" fill="none" stroke="var(--accent)" stroke-width="5"/><path d="M11 26v-7a2 2 0 0 1 2-2h13" fill="none" stroke="var(--hot)" stroke-width="5"/></svg>ミズモト設備</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span class="bars" aria-hidden="true"></span>メニュー</button>
+  <nav class="gnav" id="gnav" aria-label="ページの案内">
+    <ul>
+      <li><a href="#shindan">水まわり診断</a></li>
+      <li><a href="#kouji">対応工事</a></li>
+      <li><a href="#haikan">配管の話</a></li>
+      <li><a href="#flow">工事の流れ</a></li>
+      <li><a href="#works">施工実績</a></li>
+      <li><a href="#company">会社と質問</a></li>
+      <li><a href="#contact">相談する</a></li>
+    </ul>
+  </nav>
+  <a class="head-tel num" href="tel:0920000000"><small>水漏れ受付 7:00〜23:00 毎日</small>092-000-0000</a>
+</div></header>
+
+<main>
+<div class="hero" data-pg="top">
+  <div class="in">
+    <div>
+      <span class="kicker">福岡市 汐凪で創業1998年の設備工事店</span>
+      <h1><span class="ib">蛇口1つから</span><span class="ib">店舗の配管まで、</span><br><span class="ib">職人5人で直します。</span></h1>
+      <p class="lead">水漏れの電話から、汐凪のまわりならおよそ40分で着きます。下請けに出さず、見に来た職人がそのまま直します。</p>
+      <a class="btn" href="#shindan">症状を選んで診断する</a>
+    </div>
+    <figure class="pic">
+      <img src="img/kitchen-1600.jpg" srcset="img/kitchen-800.jpg 800w, img/kitchen-1600.jpg 1600w" sizes="(max-width:760px) calc(100vw - 32px), 440px" width="1600" height="914" alt="白いタイルの壁と、ステンレスの天板に付いた新しい水栓とシンク" fetchpriority="high">
+      <figcaption>写真はイメージです</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section class="entry" data-pg="top" aria-labelledby="entry-h"><div class="in">
+  <h2 id="entry-h">見たいところから</h2>
+  <ul>
+    <li><a href="#shindan"><b>水まわり診断</b><span>症状を選ぶと、原因と急ぎ度、作業時間と費用の目安が出ます</span></a></li>
+    <li><a href="#kouji"><b>対応工事</b><span>給湯器の入れ替えから店舗の厨房まで、費用と日数の目安</span></a></li>
+    <li><a href="#haikan"><b>配管の話</b><span>古い鉄管の中で起きていることと、家の中の管の通り道</span></a></li>
+    <li><a href="#flow"><b>工事の流れ</b><span>半日で終わる工事と数日かかる工事、水が止まる時間</span></a></li>
+    <li><a href="#works"><b>施工実績</b><span>汐凪を中心に、2026年の工事から8件</span></a></li>
+    <li><a href="#company"><b>会社と質問</b><span>資格と指定工事店の番号、対応地域、よくある質問</span></a></li>
+    <li><a href="#contact"><b>相談する</b><span>工事の相談と見積りの依頼。下見は無料です</span></a></li>
+  </ul>
+</div></section>
+
+<section id="shindan" data-pg="shindan"><div class="in">
+  <h2 class="sec-h">水まわりの困りごと診断</h2>
+  <p class="sub">場所と症状を選ぶと、考えられる原因と急ぎ度、作業の時間と費用の目安が出ます。電話の前に、何が起きていそうかの見当をつけるためのものです。</p>
+  <div class="dx">
+    <form class="dx-in" id="dxf" onsubmit="return false" aria-label="水まわりの困りごと診断">
+      <fieldset>
+        <legend>どこで起きていますか</legend>
+        <div class="opts" id="plOpts">
+          <label><input type="radio" name="pl" value="kitchen" checked>台所</label>
+          <label><input type="radio" name="pl" value="bath">浴室と洗面</label>
+          <label><input type="radio" name="pl" value="toilet">トイレ</label>
+          <label><input type="radio" name="pl" value="outside">メーターと屋外</label>
+          <label><input type="radio" name="pl" value="ac">エアコン</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>いちばん近い症状</legend>
+        <div class="syms" id="syms">
+          <label data-pl="kitchen"><input type="radio" name="sy" value="drip" checked><span>蛇口の先や根元からポタポタ止まらない<span class="pl">台所</span></span></label>
+          <label data-pl="kitchen"><input type="radio" name="sy" value="under"><span>シンクの下や足元の床が濡れている<span class="pl">台所</span></span></label>
+          <label data-pl="kitchen"><input type="radio" name="sy" value="slow"><span>水の流れが遅い、ゴボゴボ鳴る<span class="pl">台所</span></span></label>
+          <label data-pl="bath"><input type="radio" name="sy" value="nohot"><span>お湯がぬるい、出ない<span class="pl">浴室と洗面</span></span></label>
+          <label data-pl="bath"><input type="radio" name="sy" value="stain"><span>脱衣所の床がふかふかする、下の階に染みが出た<span class="pl">浴室と洗面</span></span></label>
+          <label data-pl="bath"><input type="radio" name="sy" value="smell"><span>排水口から下水のにおいがする<span class="pl">浴室と洗面</span></span></label>
+          <label data-pl="toilet"><input type="radio" name="sy" value="tank"><span>タンクの中で水がチョロチョロ止まらない<span class="pl">トイレ</span></span></label>
+          <label data-pl="toilet"><input type="radio" name="sy" value="clog"><span>詰まって流れない、水位が上がってくる<span class="pl">トイレ</span></span></label>
+          <label data-pl="outside"><input type="radio" name="sy" value="meter"><span>蛇口を全部閉めても、メーターの銀色のこまが回る<span class="pl">メーターと屋外</span></span></label>
+          <label data-pl="outside"><input type="radio" name="sy" value="red"><span>朝いちばんの水が赤茶色い<span class="pl">メーターと屋外</span></span></label>
+          <label data-pl="ac"><input type="radio" name="sy" value="ac"><span>室内機から水が垂れる<span class="pl">エアコン</span></span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>建ててからの年数</legend>
+        <div class="opts">
+          <label><input type="radio" name="age" value="0">15年未満</label>
+          <label><input type="radio" name="age" value="15" checked>15〜30年</label>
+          <label><input type="radio" name="age" value="30">30年以上</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>来てほしい時間帯</legend>
+        <div class="opts">
+          <label><input type="radio" name="band" value="day" checked>9〜18時</label>
+          <label><input type="radio" name="band" value="eve">18〜23時</label>
+          <label><input type="radio" name="band" value="early">7〜9時</label>
+        </div>
+      </fieldset>
+    </form>
+
+    <div class="dx-out" aria-live="polite">
+      <h3 id="dxName">蛇口の先や根元からポタポタ止まらない</h3>
+      <p class="u"><span id="dxBadge" class="badge b-soon">今週中</span><span id="dxUrg">今週中に直せば大丈夫です。水道代が少しずつ上がります。</span></p>
+      <h4>考えられる原因(多い順)</h4>
+      <ol class="causes" id="dxCauses"><li>水栓の中のパッキンかカートリッジのすり減り</li><li>レバーの付け根のOリングの傷み</li></ol>
+      <dl class="facts2">
+        <div><dt>作業の時間</dt><dd id="dxTime">30〜60分</dd></div>
+        <div><dt>水が止まる時間</dt><dd id="dxOff">作業中の15分ほど</dd></div>
+      </dl>
+      <h4>費用の目安(税込)</h4>
+      <p class="cost"><span id="dxCost">11,000〜20,900</span><small>円</small></p>
+      <dl class="brk" id="dxBrk"><dt>出張費</dt><dd>3,300円</dd><dt>作業費</dt><dd>6,600〜8,800円</dd><dt>部品代</dt><dd>1,100〜8,800円</dd><dt>時間帯の加算</dt><dd>0円</dd></dl>
+      <p class="tip" id="dxTip"><b>電話の前にできること</b><span>シンク下の止水栓をマイナスドライバーで右に回すと、その蛇口だけ水が止まります。</span></p>
+      <p class="oldnote" id="dxOld">水栓は10〜15年が入れ替えの目安です。本体ごと替える場合は、本体と工事で2.8万〜6.6万円ほどです。</p>
+      <p class="urgent" id="dxUrgent" hidden>急ぐ症状です。7:00〜23:00なら今から伺えます。<br><a class="num" href="tel:0920000000">092-000-0000</a></p>
+      <p class="dx-link">この診断の内容は、相談のページの「診断の結果」欄に写ります。<a href="#contact">この内容で相談する</a></p>
+    </div>
+  </div>
+  <p class="formula"><b>計算のしかた</b>　費用＝出張費3,300円＋作業費＋部品代＋時間帯の加算(9〜18時は0円、18〜23時と7〜9時は5,500円)。金額は税込です。<br>
+  下見だけで工事をしなかった場合は、出張費の3,300円だけいただきます。汐凪、鷺ノ浜、若潮台の下見は出張費もかかりません。</p>
+</div></section>
+
+<section class="alt" id="kyuu" data-pg="shindan"><div class="in">
+  <h2 class="sec-h">水漏れで急ぐとき</h2>
+  <p class="sub">電話をもらってから、事務所に戻らず一番近くにいる職人が向かいます。</p>
+  <div class="sos">
+    <div>
+      <dl class="sos-nums">
+        <div><dt>水漏れの受付</dt><dd>7:00〜23:00<small>毎日、年末年始も</small></dd></div>
+        <div><dt>汐凪のまわりに着くまで</dt><dd>40分前後<small>葦原と松凪台は60分前後</small></dd></div>
+        <div><dt>夜と早朝の加算</dt><dd>5,500円<small>18〜23時と7〜9時</small></dd></div>
+        <div><dt>2025年の緊急出動</dt><dd>412件<small>そのうち当日中に直ったもの 371件</small></dd></div>
+      </dl>
+      <p class="note">23時から翌7時までの電話は留守番電話で受け、7時に折り返します。水が噴き出している時は、先に元栓を閉めてください。</p>
+    </div>
+    <div class="valve">
+      <svg viewBox="0 0 280 170" role="img" aria-labelledby="valveCap">
+        <title id="valveCap">地面のメーターボックスを開けた図。水道メーターの横の元栓のハンドルを、右に回すと家全体の水が止まる</title>
+        <rect x="10" y="20" width="260" height="140" rx="6" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="2"/>
+        <path d="M10 96 H70 M210 96 H270" stroke="var(--cold)" stroke-width="12"/>
+        <rect x="100" y="70" width="80" height="52" rx="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+        <circle cx="140" cy="96" r="18" fill="var(--water-soft)" stroke="var(--ink)" stroke-width="1.5"/>
+        <path d="M140 96 l8 -10" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M70 96 H100 M180 96 H210" stroke="var(--cold)" stroke-width="12"/>
+        <rect x="72" y="84" width="18" height="24" fill="var(--steel)" stroke="var(--ink)" stroke-width="1.5"/>
+        <rect x="56" y="52" width="50" height="10" rx="5" fill="var(--hot)" stroke="var(--ink)" stroke-width="1.5"/>
+        <line x1="81" y1="62" x2="81" y2="84" stroke="var(--ink)" stroke-width="3"/>
+        <path d="M58 40 A28 12 0 0 1 112 40" fill="none" stroke="var(--now)" stroke-width="3"/>
+        <path d="M112 40 l-10 -6 m10 6 l-4 9" fill="none" stroke="var(--now)" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <h3>元栓は、メーターの横にあります</h3>
+      <p>家の前の地面にある「量水器」と書かれたふたを開けると、メーターの手前に元栓があります。ハンドルを右に回し切ると、家全体の水が止まります。</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="kouji" data-pg="kouji"><div class="in">
+  <h2 class="sec-h">対応できる工事</h2>
+  <p class="sub">金額は戸建てでよくある内容の目安です。件数は2025年の1年間に受けた工事の数です。</p>
+  <ul class="works-list">
+    <li>
+      <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M6 40 H22 V16 H50" fill="none" stroke="var(--cold)" stroke-width="6"/><path d="M6 50 H32 V28 H50" fill="none" stroke="var(--hot)" stroke-width="6"/><circle cx="22" cy="16" r="5" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/></svg>
+      <div><h3>水漏れと詰まりの修理</h3><p>蛇口、トイレのタンク、排水の詰まり、地中の漏水調査。多くはその日のうちに終わります。</p></div>
+      <dl><dt>費用</dt><dd>1万円前後から</dd><dt>日数</dt><dd>30分〜半日</dd></dl>
+      <p class="cnt"><b>1,186</b>件<span class="bar"><i style="width:100%"></i></span></p>
+    </li>
+    <li>
+      <svg viewBox="0 0 56 56" aria-hidden="true"><rect x="12" y="6" width="32" height="36" rx="3" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><rect x="20" y="14" width="16" height="8" rx="1" fill="var(--hot)"/><path d="M20 42 V52 M28 42 V52 M36 42 V52" stroke="var(--hot)" stroke-width="3"/></svg>
+      <div><h3>給湯器の入れ替え</h3><p>ガス給湯器とエコキュート。在庫のある機種なら、電話から2〜3日で付け替えます。号数ごとの費用は下の表です。</p></div>
+      <dl><dt>費用</dt><dd>13万〜56万円</dd><dt>日数</dt><dd>半日〜1日</dd></dl>
+      <p class="cnt"><b>164</b>件<span class="bar"><i style="width:13.8%"></i></span></p>
+    </li>
+    <li>
+      <svg viewBox="0 0 56 56" aria-hidden="true"><rect x="4" y="10" width="48" height="20" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><path d="M10 24 H46" stroke="var(--ink)" stroke-width="2"/><path d="M16 36 q4 6 0 12 M28 36 q4 6 0 12 M40 36 q4 6 0 12" fill="none" stroke="var(--cold)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <div><h3>エアコンと換気扇</h3><p>家庭用の取り付けと入れ替え、浴室乾燥機、台所のレンジフード。古い機器の引き取りもします。</p></div>
+      <dl><dt>費用</dt><dd>取付 1.6万円から</dd><dt>日数</dt><dd>2〜3時間</dd></dl>
+      <p class="cnt"><b>238</b>件<span class="bar"><i style="width:20.1%"></i></span></p>
+    </li>
+    <li>
+      <svg viewBox="0 0 56 56" aria-hidden="true"><rect x="30" y="6" width="18" height="20" rx="2" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><path d="M8 26 H48 V32 a16 14 0 0 1 -16 14 H24 a16 14 0 0 1 -16 -14 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><path d="M22 46 V52 H36 V46" fill="none" stroke="var(--ink)" stroke-width="2.5"/></svg>
+      <div><h3>トイレの入れ替え</h3><p>便器とタンクの交換、和式から洋式への変更。床の排水の位置が違っても、変換の部材で合わせます。</p></div>
+      <dl><dt>費用</dt><dd>15万〜35万円</dd><dt>日数</dt><dd>半日(和式からは2日)</dd></dl>
+      <p class="cnt"><b>96</b>件<span class="bar"><i style="width:8.1%"></i></span></p>
+    </li>
+    <li>
+      <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M4 28 H52 V36 a10 10 0 0 1 -10 10 H14 a10 10 0 0 1 -10 -10 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/><path d="M10 28 V12 a6 6 0 0 1 12 0" fill="none" stroke="var(--ink)" stroke-width="2.5"/><path d="M14 34 H42" stroke="var(--cold)" stroke-width="3"/><path d="M12 46 l-2 6 M44 46 l2 6" stroke="var(--ink)" stroke-width="2.5"/></svg>
+      <div><h3>浴室とキッチンの入れ替え</h3><p>在来工法のタイルの浴室からユニットバスへ。キッチンは配管の位置を動かす工事まで一緒に受けます。</p></div>
+      <dl><dt>浴室</dt><dd>90万〜180万円</dd><dt>キッチン</dt><dd>60万〜150万円</dd><dt>日数</dt><dd>3〜6日</dd></dl>
+      <p class="cnt"><b>39</b>件<span class="bar"><i style="width:3.3%"></i></span></p>
+    </li>
+    <li>
+      <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M6 14 H24 V44 H50" fill="none" stroke="var(--cold)" stroke-width="6"/><path d="M14 14 h4 M24 26 v4 M38 44 v-4" stroke="var(--bg)" stroke-width="3"/><path d="M6 14 H24 V44 H50" fill="none" stroke="var(--ink)" stroke-width="1" opacity=".5"/></svg>
+      <div><h3>給排水管の入れ替え</h3><p>古い鉄管を、さびない樹脂の管に通し直します。家全体でも、水が止まるのは切り替えの2〜3時間だけです。</p></div>
+      <dl><dt>費用</dt><dd>戸建て一棟 45万〜120万円</dd><dt>日数</dt><dd>2〜4日</dd></dl>
+      <p class="cnt"><b>38</b>件<span class="bar"><i style="width:3.2%"></i></span></p>
+    </li>
+    <li>
+      <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M6 50 V20 L18 12 V20 L30 12 V20 L42 12 V50 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/><rect x="44" y="6" width="6" height="44" fill="var(--ink)"/><rect x="14" y="32" width="10" height="10" fill="var(--hot)"/><rect x="28" y="32" width="10" height="10" fill="var(--cold)"/></svg>
+      <div><h3>店舗と事務所の設備</h3><p>飲食店のグリーストラップと厨房の給排水、業務用給湯器、事務所の給湯室。営業時間外や定休日に工事します。</p></div>
+      <dl><dt>費用</dt><dd>下見のうえ見積り</dd><dt>日数</dt><dd>夜間1回〜1週間</dd></dl>
+      <p class="cnt"><b>31</b>件<span class="bar"><i style="width:2.6%"></i></span></p>
+    </li>
+  </ul>
+
+  <div class="kyuto-top">
+    <div>
+      <h3 class="kyuto-h">給湯器を入れ替える費用</h3>
+      <p class="sub">本体、取り外しと処分、配管と配線のつなぎ直し、試運転まで含めた金額です。号数は、水より25℃高いお湯を1分間に何リットル出せるかの数字です。</p>
+    </div>
+    <figure class="pic heater-pic"><img src="img/heater-1600.jpg" srcset="img/heater-800.jpg 800w, img/heater-1600.jpg 1600w" sizes="(max-width:760px) calc(100vw - 32px), 280px" width="1600" height="914" alt="家の外壁に取り付けたガス給湯器と、下から出る銅の配管" loading="lazy" decoding="async"><figcaption>外壁に付けるガス給湯器の例。写真はイメージです</figcaption></figure>
+  </div>
+  <div class="tbl" role="region" aria-label="給湯器の入れ替え費用の表">
+    <table>
+      <thead><tr><th scope="col">種類</th><th scope="col">号数や容量</th><th scope="col">向いている人数</th><th scope="col">できること</th><th scope="col" class="r">本体と工事(税込)</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" data-label="種類">ガス オート</th><td data-label="号数や容量">16号</td><td data-label="向いている人数">1〜2人</td><td data-label="できること">湯はり、追い焚き、保温</td><td data-label="本体と工事(税込)" class="r">13万〜17万円</td></tr>
+        <tr><th scope="row" data-label="種類">ガス オート</th><td data-label="号数や容量">20号</td><td data-label="向いている人数">2〜3人</td><td data-label="できること">湯はり、追い焚き、保温</td><td data-label="本体と工事(税込)" class="r">15万〜20万円</td></tr>
+        <tr><th scope="row" data-label="種類">ガス オート</th><td data-label="号数や容量">24号</td><td data-label="向いている人数">3〜5人</td><td data-label="できること">台所とシャワーを同時に使っても温度が落ちにくい</td><td data-label="本体と工事(税込)" class="r">18万〜24万円</td></tr>
+        <tr><th scope="row" data-label="種類">ガス フルオート</th><td data-label="号数や容量">24号</td><td data-label="向いている人数">3〜5人</td><td data-label="できること">減った分の自動たし湯、配管の自動洗浄</td><td data-label="本体と工事(税込)" class="r">21万〜28万円</td></tr>
+        <tr><th scope="row" data-label="種類">エコキュート</th><td data-label="号数や容量">370L</td><td data-label="向いている人数">3〜4人</td><td data-label="できること">夜の電気でお湯をためる。ガス代がなくなる</td><td data-label="本体と工事(税込)" class="r">38万〜48万円</td></tr>
+        <tr><th scope="row" data-label="種類">エコキュート</th><td data-label="号数や容量">460L</td><td data-label="向いている人数">4〜6人</td><td data-label="できること">夜の電気でお湯をためる。ガス代がなくなる</td><td data-label="本体と工事(税込)" class="r">44万〜56万円</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">ガスからエコキュートへ替える時は、200Vの電気工事と基礎の打設が加わり、1日かかります。国や市の補助金の対象になる機種は、申請の書類までこちらで用意します。</p>
+</div></section>
+
+<section id="haikan" data-pg="haikan"><div class="in">
+  <h2 class="sec-h">古い配管の中で起きていること</h2>
+  <p class="sub">1990年ごろまでに建った家の給水管には、亜鉛めっき鋼管(鉄管)が多く使われています。外から見えないまま、内側が少しずつさびで埋まっていきます。</p>
+  <div class="rust">
+    <h3>20Aの鉄管の断面</h3>
+    <p>内径およそ22mmの管です。さびのこぶが内側に育つと、水の通り道が細くなり、2階のシャワーの勢いが落ちたり、朝の水が赤くなったりします。</p>
+    <div class="rust-row">
+      <figure>
+        <svg viewBox="0 0 120 120" role="img" aria-labelledby="r1c"><title id="r1c">新しい鉄管の断面。内側はなめらかで、水の通り道は広い</title>
+          <circle cx="60" cy="60" r="52" fill="var(--steel)" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="60" cy="60" r="40" fill="var(--water-soft)" stroke="var(--ink)" stroke-width="1.5"/>
+        </svg>
+        <figcaption><b>100%</b>新しい管<br><span>水の通る広さ</span></figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 120 120" role="img" aria-labelledby="r2c"><title id="r2c">築20年ごろの鉄管の断面。内側にさびのこぶが付き始めている</title>
+          <circle cx="60" cy="60" r="52" fill="var(--steel)" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="60" cy="60" r="40" fill="var(--rust)"/>
+          <path d="M60 27 C72 26 86 36 90 48 C95 62 90 78 80 86 C70 94 52 95 42 88 C30 80 25 64 29 50 C33 36 46 28 60 27 Z" fill="var(--water-soft)" stroke="var(--ink)" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="40" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+        </svg>
+        <figcaption><b>約70%</b>築20年ごろ<br><span>水の通る広さ</span></figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 120 120" role="img" aria-labelledby="r3c"><title id="r3c">築35年ごろの鉄管の断面。さびのこぶが育ち、水の通り道は細く片寄っている</title>
+          <circle cx="60" cy="60" r="52" fill="var(--steel)" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="60" cy="60" r="40" fill="var(--rust)"/>
+          <path d="M58 40 C68 38 78 46 79 56 C81 66 76 76 66 79 C56 82 46 76 43 67 C39 56 46 42 58 40 Z" fill="var(--water-soft)" stroke="var(--ink)" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="40" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+        </svg>
+        <figcaption><b>約35%</b>築35年ごろ<br><span>水の通る広さ</span></figcaption>
+      </figure>
+    </div>
+    <p class="note">ネジでつないだ部分は管が薄くなっているので、さびが一番早く進み、漏れもここから始まります。割合は、このあたりの家から取り外した管を切って見たおおよその値です。</p>
+  </div>
+
+  <div class="route">
+    <div class="route-fig">
+      <svg viewBox="0 0 400 440" role="img" aria-labelledby="routeCap">
+        <title id="routeCap">2階建ての家の断面図。道路の水道管からメーターを通って家に入る給水管、給湯器から台所と浴室へ向かう給湯管、各所から汚水ますへ流れる排水管の通り道</title>
+        <rect x="0" y="372" width="400" height="68" fill="var(--soil)"/>
+        <polygon points="24,124 162,40 300,124" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="36" y="124" width="252" height="248" fill="var(--wall)" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="36" y1="250" x2="288" y2="250" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="0" y1="372" x2="400" y2="372" stroke="var(--ink)" stroke-width="2"/>
+        <!-- 器具 -->
+        <path d="M54 318 H136 V352 a8 8 0 0 1 -8 8 H62 a8 8 0 0 1 -8 -8 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+        <rect x="200" y="314" width="70" height="46" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+        <path d="M206 314 h22 v10 h-22 z" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="1.5"/>
+        <rect x="144" y="190" width="20" height="24" rx="2" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+        <path d="M132 214 H176 V222 a14 12 0 0 1 -14 12 H146 a14 12 0 0 1 -14 -12 Z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+        <rect x="296" y="262" width="34" height="50" rx="3" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+        <rect x="303" y="270" width="20" height="10" rx="1" fill="var(--hot)"/>
+        <!-- 排水 -->
+        <g fill="none" stroke="var(--drain)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M100 360 V396 H330"/>
+          <path d="M236 360 V396"/>
+          <path d="M168 234 V244 H182 V396"/>
+          <path d="M330 396 H392"/>
+        </g>
+        <rect x="318" y="384" width="26" height="24" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+        <!-- 給水 -->
+        <g fill="none" stroke="var(--cold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M398 424 H366 V382 H200 V366"/>
+          <path d="M260 382 V366 M200 382 H80 V364"/>
+          <path d="M150 382 V250 H152 V214"/>
+          <path d="M366 382 H312 V312"/>
+        </g>
+        <!-- 給湯 -->
+        <g fill="none" stroke="var(--hot)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M320 312 V340 H220 V366"/>
+          <path d="M220 340 H108 V364"/>
+        </g>
+        <rect x="354" y="414" width="24" height="20" rx="2" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>
+        <circle cx="366" cy="424" r="5" fill="var(--water-soft)" stroke="var(--ink)" stroke-width="1"/>
+        <!-- さびやすい所 -->
+        <ellipse cx="300" cy="382" rx="58" ry="20" fill="none" stroke="var(--now)" stroke-width="2.5" stroke-dasharray="6 5"/>
+        <!-- 字 -->
+        <text x="296" y="254">給湯器</text>
+        <text x="60" y="308">浴室</text>
+        <text x="206" y="306">台所</text>
+        <text x="186" y="206">トイレ</text>
+        <text x="398" y="352" text-anchor="end">汚水ます</text>
+        <path d="M372 358 L344 386" stroke="var(--ink)" stroke-width="1.5"/>
+        <text x="236" y="436">水道メーター</text>
+        <text x="16" y="420">床下と地中</text>
+        <text x="184" y="148">鉄管が</text>
+        <text x="184" y="168">残りやすい所</text>
+        <path d="M232 174 C250 230 280 300 292 362" fill="none" stroke="var(--now)" stroke-width="2"/>
+      </svg>
+    </div>
+    <div>
+      <h3>家の中の管の通り道</h3>
+      <p style="color:var(--muted);max-width:40em">道路の下の水道管から、メーターを通って家の中へ入ります。給湯器でお湯になって台所と浴室へ、使った水は床下の排水管から汚水ますへ流れます。</p>
+      <ul class="pipe-key">
+        <li><i style="background:var(--cold)"></i><span><b>給水管(水)</b>メーターから家の中へ。地中の部分が古い鉄管のまま残っていることが多く、漏水調査の半分以上はここです。</span></li>
+        <li><i style="background:var(--hot)"></i><span><b>給湯管(お湯)</b>給湯器から台所と浴室へ。古い家では銅管で、ピンホールと呼ばれる小さな穴が開いて漏れることがあります。</span></li>
+        <li><i style="background:var(--drain)"></i><span><b>排水管</b>台所の油と、浴室の髪と石けんかすが詰まりの原因です。屋外の汚水ますを開ければ、流れ具合が見られます。</span></li>
+      </ul>
+      <p class="note">入れ替えの時は、床下に新しい管を先に全部通してから一気につなぎ替えるので、水が止まるのは2〜3時間です。工事の手順は「工事の流れ」のページにあります。</p>
+      <figure class="pic route-pic"><img src="img/pipes-1600.jpg" srcset="img/pipes-800.jpg 800w, img/pipes-1600.jpg 1600w" sizes="(max-width:900px) calc(100vw - 32px), 640px" width="1600" height="914" alt="板壁に沿って通した青い樹脂の管と、銅色の管" loading="lazy" decoding="async"><figcaption>青い樹脂の管と銅管を通した例。写真はイメージです</figcaption></figure>
+    </div>
+  </div>
+
+  <h3 class="mat-h">管の種類と、入れ替えどき</h3>
+  <p class="sub">点検口から管の色と継ぎ目を見れば、どの管か見分けがつきます。下見の時に写真を撮ってお見せします。</p>
+  <div class="tbl" role="region" aria-label="管の種類の表">
+    <table>
+      <thead><tr><th scope="col">管の種類</th><th scope="col">使われた時期</th><th scope="col">持つ年数</th><th scope="col">起きやすいこと</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" data-label="管の種類">亜鉛めっき鋼管(鉄管)</th><td data-label="使われた時期">1990年ごろまで</td><td data-label="持つ年数">20〜30年</td><td data-label="起きやすいこと">赤い水、水の勢いの低下、ネジの継ぎ目からの漏れ</td></tr>
+        <tr><th scope="row" data-label="管の種類">塩ビライニング鋼管</th><td data-label="使われた時期">1980〜2000年ごろ</td><td data-label="持つ年数">30〜40年</td><td data-label="起きやすいこと">管の端の継ぎ目だけさびる</td></tr>
+        <tr><th scope="row" data-label="管の種類">銅管(給湯)</th><td data-label="使われた時期">1970〜2000年ごろ</td><td data-label="持つ年数">20〜30年</td><td data-label="起きやすいこと">ピンホール漏れ、青い水あか</td></tr>
+        <tr><th scope="row" data-label="管の種類">架橋ポリエチレン管、ポリブテン管</th><td data-label="使われた時期">2000年ごろから</td><td data-label="持つ年数">40年以上</td><td data-label="起きやすいこと">さびない。いま入れ替えに使っている管です</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
+
+<section id="flow" data-pg="flow"><div class="in">
+  <h2 class="sec-h">工事の流れと、水が止まる時間</h2>
+  <p class="sub">設備の工事で一番困るのは、水やお湯が使えない時間です。どの工事でも、止まる時間を先にお伝えします。</p>
+  <div class="flows">
+    <div class="flow">
+      <h3>半日で終わる工事</h3>
+      <p class="eg">例: ガス給湯器の入れ替え</p>
+      <ol class="steps">
+        <li><time>9:00</time><span>到着。給湯器のまわりを養生して、ガスと水を止めます</span></li>
+        <li class="off"><time>9:20</time><span>古い給湯器を外します。ここからお湯が止まります</span></li>
+        <li class="off"><time>10:00</time><span>新しい給湯器を据えて、配管と配線をつなぎ直します</span></li>
+        <li class="off"><time>11:30</time><span>試運転。湯はり、追い焚き、台所の温度を確かめます</span></li>
+        <li><time>12:00</time><span>リモコンの使い方の説明。古い給湯器は持ち帰ります</span></li>
+      </ol>
+      <div class="offbar">
+        <div class="lab"><span>9:00</span><span>12:00</span></div>
+        <div class="track" aria-hidden="true"><i style="left:11%;right:16.7%"></i></div>
+        <p>お湯が止まるのは<b>およそ2時間10分</b>。水は使えます。</p>
+      </div>
+    </div>
+    <div class="flow">
+      <h3>数日かかる工事</h3>
+      <p class="eg">例: 戸建ての給水管の入れ替え(延床30坪、4日)</p>
+      <ol class="steps">
+        <li><span class="d">1日目</span><span>床下と壁の点検口を開けて、新しい管を通す道を決めます</span></li>
+        <li><span class="d">2日目</span><span>新しい管を床下に全部通します。古い管はまだそのまま使えます</span></li>
+        <li class="off"><span class="d">3日目 午前</span><span>古い管から新しい管へつなぎ替えます。ここで2〜3時間だけ水が止まります</span></li>
+        <li><span class="d">3日目 午後</span><span>水圧をかけて1時間置き、漏れがないか確かめます</span></li>
+        <li><span class="d">4日目</span><span>点検口と、掘った庭の土を元に戻して片付けます</span></li>
+      </ol>
+      <div class="offbar">
+        <div class="lab"><span>1日目</span><span>4日目</span></div>
+        <div class="track" aria-hidden="true"><i style="left:51%;right:46%"></i></div>
+        <p>4日間で水が止まるのは<b>3日目の2〜3時間だけ</b>です。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="before">
+    <h3>電話から工事の日まで</h3>
+    <ol>
+      <li><b>電話か相談のページ</b><span>症状と、建物の種類を聞きます。急ぎならその日に伺います</span></li>
+      <li><b>下見 30分ほど</b><span>管の種類と、点検口の場所を見ます。汐凪のまわりは無料です</span></li>
+      <li><b>見積り</b><span>2日以内に書面でお渡しします。部品の型番まで書きます</span></li>
+      <li><b>工事と支払い</b><span>終わったあと一緒に確かめてからお支払い。カードも使えます</span></li>
+    </ol>
+  </div>
+  <figure class="pic flow-pic"><img src="img/tools-1600.jpg" srcset="img/tools-800.jpg 800w, img/tools-1600.jpg 1600w" sizes="(max-width:760px) calc(100vw - 32px), 620px" width="1600" height="914" alt="作業台に置いたパイプレンチ、圧着工具、真ちゅうの継ぎ手" loading="lazy" decoding="async"><figcaption>下見の日から、管の太さに合う継ぎ手と工具を車に積んで伺います。部品が合えば、その場で直せる修理もあります。<small>写真はイメージです</small></figcaption></figure>
+</div></section>
+
+<section id="works" data-pg="works"><div class="in">
+  <h2 class="sec-h">施工実績</h2>
+  <p class="sub">2026年に受けた工事から8件です。日数は作業に入った日から片付けまでです。</p>
+  <div class="tbl" role="region" aria-label="施工実績の表">
+    <table>
+      <thead><tr><th scope="col">地区</th><th scope="col">建物</th><th scope="col">工事の内容</th><th scope="col" class="r">日数</th><th scope="col" class="r">費用(税込)</th></tr></thead>
+      <tbody>
+        <tr><th scope="row" data-label="地区">汐凪 若潮台駅東</th><td data-label="建物">戸建て 築34年</td><td data-label="工事の内容">給水管を鉄管から架橋ポリエチレン管へ全面入れ替え</td><td data-label="日数" class="r">3日</td><td data-label="費用(税込)" class="r">78万円</td></tr>
+        <tr><th scope="row" data-label="地区">鷺ノ浜</th><td data-label="建物">マンション 8階</td><td data-label="工事の内容">ガス給湯器 24号フルオートの入れ替え</td><td data-label="日数" class="r">半日</td><td data-label="費用(税込)" class="r">26万円</td></tr>
+        <tr><th scope="row" data-label="地区">汐凪三丁目</th><td data-label="建物">ラーメン店</td><td data-label="工事の内容">グリーストラップの入れ替えと、厨房の排水管の勾配の直し</td><td data-label="日数" class="r"><span>2日<br><small>定休日と夜間</small></span></td><td data-label="費用(税込)" class="r">64万円</td></tr>
+        <tr><th scope="row" data-label="地区">若潮台</th><td data-label="建物">戸建て 築22年</td><td data-label="工事の内容">タイルの浴室からユニットバス(1616)へ</td><td data-label="日数" class="r">5日</td><td data-label="費用(税込)" class="r">138万円</td></tr>
+        <tr><th scope="row" data-label="地区">鷺ノ浜二丁目</th><td data-label="建物">戸建て 築41年</td><td data-label="工事の内容">地中の給水管の漏水調査と、漏れた所の修理</td><td data-label="日数" class="r">当日</td><td data-label="費用(税込)" class="r">3.9万円</td></tr>
+        <tr><th scope="row" data-label="地区">葦原</th><td data-label="建物">事務所 3階</td><td data-label="工事の内容">業務用エアコン2台と換気扇の入れ替え</td><td data-label="日数" class="r"><span>2日<br><small>土日</small></span></td><td data-label="費用(税込)" class="r">112万円</td></tr>
+        <tr><th scope="row" data-label="地区">松凪台</th><td data-label="建物">戸建て 築18年</td><td data-label="工事の内容">ガス給湯器からエコキュート460Lへ</td><td data-label="日数" class="r">1日</td><td data-label="費用(税込)" class="r">52万円</td></tr>
+        <tr><th scope="row" data-label="地区">青砂</th><td data-label="建物">アパート 6戸</td><td data-label="工事の内容">各戸の和式トイレを洋式へ。床の排水の位置も変更</td><td data-label="日数" class="r">9日</td><td data-label="費用(税込)" class="r">186万円</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="voices-h">工事が終わったお客様から</h3>
+  <div class="voices">
+    <figure class="big">
+      <img class="v-pic" src="img/pipes-1600.jpg" srcset="img/pipes-800.jpg 800w, img/pipes-1600.jpg 1600w" sizes="(max-width:900px) calc(100vw - 72px), 600px" width="1600" height="914" alt="板壁に沿って通した青い樹脂の管と、銅色の管" loading="lazy" decoding="async"><p class="pic-note">管を入れ替えた例。写真はイメージです</p>
+      <blockquote><p>朝の水が赤いのが気になって電話したら、メーターの所で古い管を少し切って、中を見せてくれました。こんなに細くなっていたのかと驚きました。入れ替えの間も、水が止まったのは昼前の2時間くらいで、普段どおり暮らせました。</p></blockquote>
+      <figcaption>汐凪 若潮台駅東　築34年の戸建て　S様</figcaption>
+    </figure>
+    <figure>
+      <blockquote><p>店を閉めた夜10時から始めて、翌朝の仕込みに間に合わせてくれました。排水の流れが良くなって、においの苦情もなくなりました。</p></blockquote>
+      <figcaption>汐凪三丁目　ラーメン店　店主様</figcaption>
+    </figure>
+    <figure>
+      <blockquote><p>給湯器の型番を電話で伝えたら、2日後に付け替えに来てくれました。見積りの紙に部品の型番まで書いてあって安心できました。</p></blockquote>
+      <figcaption>鷺ノ浜　マンション　H様</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section class="alt" id="company" data-pg="company"><div class="in">
+  <h2 class="sec-h">資格と会社のこと</h2>
+  <p class="sub">職人5人の設備工事店です。電話を受けるのも、下見に行くのも、工事をするのも同じ5人です。</p>
+  <div class="company">
+    <div>
+      <h3>資格と指定</h3>
+      <ul class="lic">
+        <li><b>福岡市指定給水装置工事事業者</b><small>第0000号</small></li>
+        <li><b>福岡市排水設備指定工事店</b><small>第0000号</small></li>
+        <li><b>建設業許可 管工事業</b><small>福岡県知事許可(般-10)第000000号</small></li>
+        <li><b>給水装置工事主任技術者　3人</b><small>水道の管を道路の本管からつなぐ工事に要る国家資格</small></li>
+        <li><b>排水設備工事責任技術者　3人</b><small>下水道へつなぐ排水の工事に要る資格</small></li>
+        <li><b>1級管工事施工管理技士　1人</b><small>2級管工事施工管理技士　2人</small></li>
+        <li><b>第二種電気工事士　2人</b><small>エアコンと給湯器の電気工事まで自分たちでします</small></li>
+      </ul>
+    </div>
+    <div>
+      <h3>会社概要</h3>
+      <dl class="prof">
+        <dt>屋号</dt><dd>ミズモト設備</dd>
+        <dt>代表</dt><dd>水本 達郎(1級管工事施工管理技士)</dd>
+        <dt>所在地</dt><dd>福岡市 汐凪二丁目(事務所と資材置き場)</dd>
+        <dt>創業</dt><dd>1998年</dd>
+        <dt>人数</dt><dd>職人5人、事務1人</dd>
+        <dt>車両</dt><dd>工事車両4台(うち1台に高圧洗浄機)</dd>
+        <dt>電話</dt><dd><a href="tel:0920000000">092-000-0000</a><br>工事の相談 8:00〜19:00、水漏れ 7:00〜23:00</dd>
+        <dt>支払い</dt><dd>現金、振込、クレジットカード</dd>
+      </dl>
+      <h3 class="area-h">対応地域(福岡市内)と、着くまでの目安</h3>
+      <dl class="area">
+        <dt>汐凪、鷺ノ浜、若潮台</dt><dd>30〜40分</dd>
+        <dt>葦原、松凪台</dt><dd>40〜60分</dd>
+        <dt>青砂、礫ヶ丘</dt><dd>40〜60分</dd>
+        <dt>浜楓とその先</dt><dd>60分前後</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h2 class="sec-h faq-h" id="faq">よくある質問</h2>
+  <p class="sub">電話でよく聞かれることです。</p>
+  <div class="faq">
+    <details><summary>下見と見積りにお金はかかりますか</summary><p>汐凪、鷺ノ浜、若潮台の下見と見積りは無料です。ほかの地域は出張費3,300円をいただきますが、そのまま工事をお任せいただければ工事代に含めます。</p></details>
+    <details><summary>マンションや賃貸でも頼めますか</summary><p>頼めます。賃貸の場合は、費用を持つのが大家さんか入居者かで手順が変わるので、先に管理会社へ連絡してください。管理会社からのご依頼も受けています。</p></details>
+    <details><summary>地中で漏れていた分の水道代はどうなりますか</summary><p>地中や壁の中など、気づけない所の漏れを指定工事店が直した場合、水道料金の減額を申請できることがあります。修理の証明の書類はこちらで書きます。</p></details>
+    <details><summary>給湯器のメーカーや機種を選べますか</summary><p>選べます。今の機種の型番を伝えていただければ、同じ大きさで付け替えられる候補を3つほど、金額つきでお出しします。</p></details>
+    <details><summary>店の営業中に工事はできますか</summary><p>水やお湯を止める作業は、閉店後か定休日に行います。夜間の工事は、昼の作業と同じ金額です。</p></details>
+    <details><summary>工事のあとに不具合が出たら</summary><p>部品の交換と配管の工事は1年、給湯器はメーカー保証に加えて当店の工事保証を5年つけています。保証の間の呼び出しは出張費もいただきません。</p></details>
+  </div>
+</div></section>
+
+<section class="contact" id="contact" data-pg="contact"><div class="in">
+  <div class="lead2">
+    <div>
+      <h2 class="sec-h">工事の相談をする</h2>
+      <p class="sub">内容を送っていただければ、その日のうちにお電話します。下見は汐凪のまわりなら無料です。急ぐ水漏れは電話のほうが早く伺えます。</p>
+    </div>
+    <a class="tel-big num" href="tel:0920000000"><small>水漏れは 7:00〜23:00 毎日</small>092-000-0000</a>
+  </div>
+  <form id="f" novalidate>
+    <div>
+      <label class="f" for="nm">お名前<span class="req">必須</span></label>
+      <input type="text" id="nm" name="name" autocomplete="name" required aria-describedby="nm-err">
+      <p class="err" id="nm-err" hidden></p>
+    </div>
+    <div>
+      <label class="f" for="ph">電話番号<span class="req">必須</span></label>
+      <input type="tel" id="ph" name="tel" autocomplete="tel" inputmode="tel" required aria-describedby="ph-hint ph-err" placeholder="例 090-0000-0000">
+      <p class="hint" id="ph-hint">ハイフンは無くても大丈夫です。</p>
+      <p class="err" id="ph-err" hidden></p>
+    </div>
+    <div>
+      <label class="f" for="addr">地区<span class="opt">町名まででかまいません</span></label>
+      <input type="text" id="addr" name="addr" autocomplete="address-level2" placeholder="例 汐凪 三丁目">
+    </div>
+    <div>
+      <label class="f" for="bld">建物</label>
+      <select id="bld" name="bld"><option>戸建て</option><option>マンション、アパート</option><option>店舗、事務所</option></select>
+    </div>
+    <div class="full">
+      <label class="f" for="kind">相談したいこと<span class="req">必須</span></label>
+      <select id="kind" name="kind" required aria-describedby="kind-err">
+        <option value="">選んでください</option>
+        <option value="leak">水漏れ、詰まりの修理</option>
+        <option value="heater">給湯器の入れ替え</option>
+        <option value="ac">エアコン、換気扇</option>
+        <option value="remodel">トイレ、浴室、キッチンの入れ替え</option>
+        <option value="pipe">配管の入れ替え</option>
+        <option value="shop">店舗や事務所の設備</option>
+        <option value="other">そのほか</option>
+      </select>
+      <p class="err" id="kind-err" hidden></p>
+    </div>
+    <div class="full">
+      <label class="f" for="dxText">診断の結果<span class="opt">「水まわり診断」で選んだ内容が自動で入ります</span></label>
+      <textarea id="dxText" name="dx" readonly></textarea>
+      <label class="check"><input type="checkbox" id="useDx" checked>この診断の結果を相談に添える</label>
+    </div>
+    <div>
+      <label class="f" for="when">来てほしい日</label>
+      <select id="when" name="when"><option>できるだけ早く</option><option>今週中</option><option>来週以降</option><option>電話で相談して決めたい</option></select>
+    </div>
+    <div>
+      <label class="f" for="time">電話してよい時間</label>
+      <select id="time" name="time"><option>いつでも</option><option>午前(8〜12時)</option><option>午後(12〜17時)</option><option>夕方以降(17〜19時)</option></select>
+    </div>
+    <div class="full">
+      <label class="f" for="msg">くわしい様子<span class="opt">任意、400字まで</span></label>
+      <textarea id="msg" name="msg" maxlength="400" aria-describedby="msg-count" placeholder="例 給湯器のリモコンに「111」と出て、お湯が出ません"></textarea>
+      <p class="hint num" id="msg-count">0／400字</p>
+    </div>
+    <div class="full">
+      <button class="btn" type="submit">この内容で相談する</button>
+      <p id="done" role="status" hidden>見本ページのため送信はされません。</p>
+    </div>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="in">
+  <span>© ミズモト設備　福岡市 汐凪</span>
+  <span>掲載の店名・番号・金額は見本です。写真はイメージです</span>
+</div></footer>
+
+<nav class="dock" aria-label="連絡">
+  <a class="d-tel" href="tel:0920000000">電話する<small>092-000-0000</small></a>
+  <a class="d-ask" href="#contact">相談する</a>
+</nav>
+
+<script>
+(()=>{
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  /* メニュー */
+  const head=$('.site-head'),mb=$('.menu-btn');
+  const setMenu=o=>{head.classList.toggle('open',o);mb.setAttribute('aria-expanded',o)};
+  mb.addEventListener('click',()=>setMenu(!head.classList.contains('open')));
+  $$('#gnav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&head.classList.contains('open')){setMenu(false);mb.focus()}});
+
+  /* 診断 */
+  const S={
+    drip:{u:'soon',time:'30〜60分',off:'作業中の15分ほど',c:['水栓の中のパッキンかカートリッジのすり減り','レバーの付け根のOリングの傷み'],w:[6600,8800],p:[1100,8800],tip:'シンク下の止水栓をマイナスドライバーで右に回すと、その蛇口だけ水が止まります。',o:15,old:'水栓は10〜15年が入れ替えの目安です。本体ごと替える場合は、本体と工事で2.8万〜6.6万円ほどです。'},
+    under:{u:'now',time:'30〜90分',off:'30分ほど',c:['排水ホースの外れか、つなぎ目のひび','給水管と水栓をつなぐナットのゆるみ'],w:[6600,13200],p:[0,5500],tip:'シンク下の物を出して、濡れているのが水かお湯か、流した時だけ濡れるかを見ておくと、原因が早く絞れます。',o:30,old:'築30年を超えると、床下の排水管のつなぎ目から漏れていることもあります。'},
+    slow:{u:'soon',time:'30〜60分(高圧洗浄なら2時間)',off:'なし',c:['油や洗剤のかすが管の内側に固まった詰まり','屋外の排水ますの中の汚れ'],w:[8800,22000],p:[0,3300],tip:'熱湯は流さないでください。塩ビの排水管が傷みます。60℃くらいのお湯なら大丈夫です。',o:15,old:'築15年を過ぎた台所の排水は、管の中を高圧洗浄すると流れが戻ることが多いです。'},
+    nohot:{u:'now',time:'点検30分',off:'点検中はお湯だけ',c:['給湯器の故障(リモコンにエラー番号が出ていれば電話で伝えてください)','混合水栓の温度を調整する部品の傷み'],w:[8800,8800],p:[0,16500],tip:'リモコンの電源を切り、給湯器のコンセントを抜いて1分待つと、戻ることがあります。',o:15,old:'給湯器は10年を過ぎると部品が手に入りにくくなります。入れ替えの費用は「対応工事」のページに号数ごとの表があります。'},
+    stain:{u:'now',time:'調査1〜2時間',off:'調査中は浴室が使えない',c:['浴槽の排水口のつなぎ目からの漏れ','浴室と脱衣所の境目の防水の切れ'],w:[16500,33000],p:[0,11000],tip:'原因が分かるまでは、浴槽の湯を抜くのを控えてください。',o:30,old:'築30年以上のタイルの浴室なら、部分の補修よりユニットバスへの入れ替えの方が安く済む場合があります。'},
+    smell:{u:'wait',time:'30〜60分',off:'なし',c:['しばらく使わず、排水トラップの水が乾いた','排水トラップのパッキンの傷み'],w:[6600,11000],p:[0,4400],tip:'まずコップ2杯ほど水を流してみてください。トラップに水がたまって、においが止まることがあります。',o:30,old:'古い家で何か所もにおう時は、排水管の空気の抜け道が足りていないこともあります。'},
+    tank:{u:'soon',time:'30〜60分',off:'トイレだけ30分ほど',c:['タンクの中のゴム栓(フロートバルブ)のすり減り','水位を決める部品(ボールタップ)の傷み'],w:[6600,8800],p:[2200,6600],tip:'放っておくと、1か月の水道代が数千円上がることがあります。タンク横の止水栓を閉めておけば、使う時だけ開けられます。',o:15,old:'便器が20年を超えているなら、部品が廃番のこともあります。入れ替えも一緒に見積ります。'},
+    clog:{u:'now',time:'30〜90分',off:'トイレだけ',c:['紙の流しすぎ、おむつや掃除シートなどの異物','便器の奥や排水管の中にたまった尿石'],w:[8800,22000],p:[0,0],tip:'続けて流すとあふれます。止水栓を閉めて、水位が下がるのを待ってください。',o:30,old:'築30年を超える家で何度も詰まるなら、床下の排水管の傾きがずれていることがあります。'},
+    meter:{u:'now',time:'漏水調査1〜3時間',off:'調査中に何度か',c:['地中か壁の中の給水管の漏れ','トイレのタンクの中の見えない漏れ'],w:[16500,38500],p:[2200,11000],tip:'メーターの横の元栓を右に回すと、家全体の水が止まります。',o:30,old:'築30年以上で地中の管が鉄管なら、漏れた所だけ直しても別の所から漏れることがあります。「配管の話」のページをご覧ください。'},
+    red:{u:'soon',time:'調査30分',off:'なし',c:['古い鉄管(亜鉛めっき鋼管)の内側のさび','工事のあとの一時的な濁り'],w:[5500,8800],p:[0,0],tip:'赤い水は、透明になるまで10秒ほど流してから使ってください。',o:15,old:'さびが出ているなら、管の内側はかなり細くなっています。配管の入れ替えは戸建てで2〜4日です。'},
+    ac:{u:'soon',time:'30〜60分',off:'なし',c:['室外へ水を出すホース(ドレンホース)の詰まり','室内機の中の汚れで、水の受け皿からあふれている'],w:[6600,11000],p:[0,2200],tip:'運転を止めて、室内機の下にタオルを置いてください。',o:15,old:'15年を超えた機種は、修理より入れ替えの方が電気代まで含めて得になることが多いです。'}
+  };
+  const U={now:['すぐ','b-now','今日のうちに見たほうがよい症状です。床や壁の中に水が回ります。'],soon:['今週中','b-soon','今週中に直せば大丈夫です。放っておくと少しずつ悪くなります。'],wait:['様子見','b-wait','まず自分で試せることがあります。続くようなら呼んでください。']};
+  const BAND={day:[0,'9〜18時'],eve:[5500,'18〜23時'],early:[5500,'7〜9時']};
+  const TRIP=3300;
+  const fmt=n=>n.toLocaleString('ja-JP');
+  const rng=(a,b)=>a===b?fmt(a):fmt(a)+'〜'+fmt(b);
+  function calc(key,band){const s=S[key],add=BAND[band][0];return{lo:TRIP+s.w[0]+s.p[0]+add,hi:TRIP+s.w[1]+s.p[1]+add,add}}
+  window.__mzCalc=calc; /* 確認用 */
+  const dxf=$('#dxf'), symLabels=$$('#syms label');
+  function filter(){
+    const pl=dxf.pl.value;let cur=dxf.querySelector('input[name=sy]:checked');
+    symLabels.forEach(l=>l.hidden=l.dataset.pl!==pl);
+    if(!cur||cur.closest('label').hidden){const f=symLabels.find(l=>!l.hidden).querySelector('input');f.checked=true}
+  }
+  function render(){
+    const key=dxf.sy.value,band=dxf.band.value,age=+dxf.age.value,s=S[key],r=calc(key,band),u=U[s.u];
+    const name=dxf.querySelector('input[name=sy]:checked').nextElementSibling.firstChild.textContent.trim();
+    $('#dxName').textContent=name;
+    const b=$('#dxBadge');b.textContent=u[0];b.className='badge '+u[1];$('#dxUrg').textContent=u[2];
+    $('#dxCauses').innerHTML=s.c.map(c=>'<li>'+c+'</li>').join('');
+    $('#dxTime').textContent=s.time;$('#dxOff').textContent=s.off;
+    $('#dxCost').textContent=rng(r.lo,r.hi);
+    $('#dxBrk').innerHTML='<dt>出張費</dt><dd>'+fmt(TRIP)+'円</dd><dt>作業費</dt><dd>'+rng(s.w[0],s.w[1])+'円</dd><dt>部品代</dt><dd>'+rng(s.p[0],s.p[1])+'円</dd><dt>時間帯の加算('+BAND[band][1]+')</dt><dd>'+fmt(r.add)+'円</dd>';
+    $('#dxTip').lastElementChild.textContent=s.tip;
+    const old=$('#dxOld');old.hidden=age<s.o;old.textContent=s.old;
+    $('#dxUrgent').hidden=s.u!=='now';
+    $('#dxText').value=name+'\n急ぎ度 '+u[0]+'／建ててから'+(age===0?'15年未満':age===15?'15〜30年':'30年以上')+'／'+BAND[band][1]+'\n費用の目安 '+rng(r.lo,r.hi)+'円(作業 '+s.time+')';
+    if(!kindTouched)kind.value=key==='nohot'?'heater':key==='ac'?'ac':(key==='red'||key==='meter')&&age>=30?'pipe':'leak';
+  }
+  const kind=$('#kind');let kindTouched=false;kind.addEventListener('change',()=>kindTouched=true);
+  dxf.addEventListener('change',e=>{if(e.target.name==='pl')filter();render()});
+  filter();render();
+
+  /* 相談フォーム */
+  const f=$('#f'),msg=$('#msg');
+  msg.addEventListener('input',()=>$('#msg-count').textContent=msg.value.length+'／400字');
+  function setErr(el,text){const e=$('#'+el.id+'-err');el.setAttribute('aria-invalid',text?'true':'false');e.textContent=text;e.hidden=!text;return !text}
+  const checks={
+    nm:v=>v.trim()?'':'お名前を入れてください。',
+    ph:v=>{const d=v.replace(/[\s\-ー－()（）]/g,'').replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248));if(!d)return '電話番号を入れてください。';return /^0\d{9,10}$/.test(d)?'':'0から始まる10桁か11桁の番号を入れてください。'},
+    kind:v=>v?'':'いちばん近いものを選んでください。迷ったら「そのほか」で大丈夫です。'
+  };
+  Object.keys(checks).forEach(id=>{const el=$('#'+id);el.addEventListener(id==='kind'?'change':'blur',()=>setErr(el,checks[id](el.value)))});
+  f.addEventListener('submit',e=>{
+    e.preventDefault();let first=null;
+    Object.keys(checks).forEach(id=>{const el=$('#'+id);if(!setErr(el,checks[id](el.value))&&!first)first=el});
+    const done=$('#done');
+    if(first){done.hidden=true;first.focus();return}
+    done.hidden=false;
+  });
+})();
+</script>
+<script>
+/* ページ切り替え: URLの # で1ページ分だけ出す。JSが動かない時は全部縦に並ぶ */
+(()=>{
+  const de=document.documentElement, ALT='alt', NAV='#gnav';
+  const secs=[...document.querySelectorAll('[data-pg]')], order=[];
+  secs.forEach(s=>{if(!order.includes(s.dataset.pg))order.push(s.dataset.pg)});
+  const links=[...document.querySelectorAll(NAV+' a')];
+  const label=pg=>{const a=links.find(a=>a.getAttribute('href')==='#'+pg);return a?a.textContent.trim():pg};
+  order.forEach((pg,i)=>{
+    if(pg==='top')return;
+    const last=secs.filter(s=>s.dataset.pg===pg).pop(), box=last.querySelector('.in')||last, nx=order[i+1];
+    const n=document.createElement('nav');n.className='pager';n.setAttribute('aria-label','ページ送り');
+    n.innerHTML='<a class="pager-top" href="#top">トップへ</a>'+(nx?'<a class="pager-next" href="#'+nx+'"><small>次のページ</small><span>'+label(nx)+'</span></a>':'');
+    box.appendChild(n);
+  });
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  let first=true;
+  function show(){
+    let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch(e){}
+    const t=/^[A-Za-z0-9-]+$/.test(id)&&document.getElementById(id), host=t&&t.closest('[data-pg]'), pg=host?host.dataset.pg:'top';
+    let prev=null;
+    secs.forEach(s=>{const on=s.dataset.pg===pg;s.classList.toggle('on',on);s.classList.remove('seam','pg-head');
+      if(on){if(prev&&prev.classList.contains(ALT)===s.classList.contains(ALT))s.classList.add('seam');prev=s}});
+    links.forEach(a=>{if(a.getAttribute('href')==='#'+pg)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    const head=secs.find(s=>s.dataset.pg===pg);head.classList.add('pg-head');
+    if(t&&host&&t!==head)t.scrollIntoView({block:'start'});
+    else{
+      window.scrollTo(0,0);
+      if(!first){const h=head.querySelector('h1,h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}}
+    }
+    first=false;
+  }
+  addEventListener('hashchange',show);
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&location.hash&&a.getAttribute('href')===location.hash){e.preventDefault();show()}});
+  show();
+})();
+</script>
+
+</body>
+</html>
