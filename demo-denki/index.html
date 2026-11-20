@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>トモシビ電設</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<style>
+/* 方針: 福岡市の東の住宅地で戸建て、店舗、事務所を持つ人向けの、町の電気工事店の看板ページ。
+   電気設備図面と分電盤のラベルのような、実直で整った手触り。参考は設備図面の記号と分電盤の回路表示。 */
+:root{
+  --bg:#eceff0; --surface:#ffffff; --surface-2:#dfe4e6; --fg:#182024; --muted:#47545a; --line:#c6cfd3;
+  --accent:#0d5a63; --accent-fg:#ffffff; --copper:#b0601c; --focus:#182024;
+  --warn:#b3261e; --warn-text:#a3231c; --ok:#2f6b3c; --caution:#8a5a00; --badge-fg:#ffffff;
+  --ink:#182024; --panel:#d5dbde; --dev:#f6f7f7; --grid:rgba(13,90,99,.08); --test:#d8a21e;
+  --display:"IBM Plex Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:72px;
+  --r:2px; --shadow:0 1px 2px rgba(24,32,36,.08),0 4px 16px rgba(24,32,36,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#11171a; --surface:#182024; --surface-2:#212b30; --fg:#e2e9ec; --muted:#a2b1b8; --line:#303d43;
+  --accent:#62c0c9; --accent-fg:#0a1a1d; --copper:#d58a4b; --focus:#f2c14e;
+  --warn:#b3261e; --warn-text:#ff9b8f; --ok:#2f6b3c; --caution:#8a5a00; --badge-fg:#ffffff;
+  --ink:#c9d5da; --panel:#2a353a; --dev:#3a474d; --grid:rgba(98,192,201,.07); --test:#d8a21e;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11171a; --surface:#182024; --surface-2:#212b30; --fg:#e2e9ec; --muted:#a2b1b8; --line:#303d43;
+  --accent:#62c0c9; --accent-fg:#0a1a1d; --copper:#d58a4b; --focus:#f2c14e;
+  --warn:#b3261e; --warn-text:#ff9b8f; --ok:#2f6b3c; --caution:#8a5a00; --badge-fg:#ffffff;
+  --ink:#c9d5da; --panel:#2a353a; --dev:#3a474d; --grid:rgba(98,192,201,.07); --test:#d8a21e;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.25); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+.in{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:.02em;line-height:1.45;text-wrap:balance;margin:0}
+h3{font-weight:600}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.num{font-variant-numeric:tabular-nums}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ヘッダー(「制作見本」は常に一番上) */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.mihon{margin:0;padding:2px 16px;background:var(--surface-2);color:var(--fg);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.08em;text-align:center}
+.site-head .bar{display:flex;align-items:center;gap:var(--s3);padding-block:10px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:21px;color:var(--fg);text-decoration:none;flex:none}
+.logo svg{width:28px;height:28px;flex:none}
+.gnav{margin-left:auto}
+.gnav ul{list-style:none;margin:0;padding:0;display:flex;gap:2px}
+.gnav a{display:block;padding:8px 10px;color:var(--fg);text-decoration:none;font-size:14px;font-weight:700;border-radius:var(--r);transition:background-color .18s,color .18s}
+.gnav a:hover{background:var(--surface-2);color:var(--accent)}
+.gnav a[aria-current="page"]{color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+.head-tel{color:var(--fg);text-decoration:none;font-family:var(--display);font-weight:700;font-size:19px;line-height:1.3;text-align:right;flex:none}
+.head-tel small{display:block;font-family:var(--body);font-size:11px;font-weight:400;color:var(--muted)}
+.menu-btn{display:none;margin-left:auto;align-items:center;gap:8px;background:none;border:1px solid var(--line);color:var(--fg);font:inherit;font-size:14px;font-weight:700;padding:8px 12px;border-radius:var(--r);cursor:pointer;min-height:44px;white-space:nowrap;flex:none}
+.menu-btn .bars{width:18px;height:12px;position:relative;border-block:2px solid currentColor}
+.menu-btn .bars::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:2px solid currentColor}
+
+/* ファーストビュー(方眼紙の上に配線図) */
+.hero{background-color:var(--surface);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;border-bottom:1px solid var(--line)}
+.hero .in{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--s4);align-items:center;padding-block:48px 56px}
+.hero .kicker{font-weight:700;font-size:15px;color:var(--accent);margin-bottom:var(--s1)}
+.hero h1{font-size:clamp(20px,3.6vw,42px)}
+.hero .lead{margin-top:var(--s2);max-width:30em;color:var(--muted)}
+.hero svg{width:100%;height:auto;display:block}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-fg);font:inherit;font-weight:700;text-decoration:none;padding:14px 32px;border:0;border-radius:var(--r);cursor:pointer;transition:background-color .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{box-shadow:inset 0 -4px 0 rgba(0,0,0,.25)}
+.hero .btn{margin-top:var(--s3)}
+
+/* セクション共通 */
+section{padding-block:var(--s6);scroll-margin-top:96px}
+section.alt{background:var(--surface)}
+.sec-h{font-size:clamp(23px,3vw,34px);margin-bottom:var(--s1)}
+.sec-h::before{content:"";display:block;width:32px;height:4px;background:var(--copper);margin-bottom:12px}
+.sub{color:var(--muted);margin-bottom:var(--s4);max-width:40em}
+.note{font-size:13px;color:var(--muted);margin-top:var(--s2);max-width:46em;line-height:1.7}
+.tbl{border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.alt .tbl{background:var(--bg)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:14px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{font-size:13px;color:var(--muted);font-weight:700;background:var(--surface-2);white-space:nowrap}
+tbody tr:last-child>*{border-bottom:0}
+td.r,th.r{text-align:right;white-space:nowrap}
+.badge{display:inline-block;font-size:13px;font-weight:700;color:var(--badge-fg);padding:1px 8px;border-radius:var(--r);line-height:1.6;white-space:nowrap}
+.b-warn{background:var(--warn)}.b-ok{background:var(--ok)}.b-caution{background:var(--caution)}
+
+/* 診断 */
+.diag{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s4);align-items:start}
+.diag-in{display:grid;gap:var(--s3)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-weight:700;margin-bottom:var(--s1);padding:0}
+legend small{font-weight:400;color:var(--muted);font-size:13px;margin-left:6px}
+.seg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.seg label{position:relative;display:block;text-align:center;padding:12px 4px;cursor:pointer;font-weight:700;background:var(--surface);transition:background-color .18s,color .18s;font-variant-numeric:tabular-nums}
+.seg label+label{border-left:1px solid var(--line)}
+.seg input,.apps input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg label:has(input:checked){background:var(--accent);color:var(--accent-fg)}
+.seg label:has(input:focus-visible),.apps label:has(input:focus-visible){outline:3px solid var(--focus);outline-offset:2px;z-index:1}
+.apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s1)}
+.apps label{position:relative;display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);cursor:pointer;line-height:1.45;font-size:15px;transition:border-color .18s,background-color .18s}
+.apps label:hover{border-color:var(--accent)}
+.apps label::before{content:"";width:18px;height:18px;border:2px solid var(--muted);border-radius:var(--r)}
+.apps label:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,var(--surface))}
+.apps label:has(input:checked)::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--surface)}
+.apps .a{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.diag-out{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:var(--r);padding:var(--s3);box-shadow:var(--shadow)}
+.verdict{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.4vw,24px);line-height:1.5}
+.verdict.bad{color:var(--warn-text)}
+.gauge{margin-top:var(--s2)}
+.gauge .row{display:flex;justify-content:space-between;gap:var(--s2);font-size:14px;color:var(--muted)}
+.gauge .row b{font-family:var(--display);font-size:26px;color:var(--fg);font-variant-numeric:tabular-nums}
+.gauge .track{position:relative;height:16px;background:var(--surface-2);border-radius:var(--r);margin-top:4px}
+.gauge .fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:var(--r)}
+.gauge .fill.over{background:var(--warn)}
+.gauge .mark{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px dashed var(--fg)}
+.diag-out h3{font-size:16px;margin-top:var(--s3);margin-bottom:var(--s1)}
+.fixes{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:15px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:var(--s3) 0 0;border-top:1px solid var(--line)}
+.facts div{padding:10px 0;border-bottom:1px solid var(--line)}
+.facts div:nth-child(odd){padding-right:12px}
+.facts div:nth-child(even){padding-left:12px;border-left:1px solid var(--line)}
+.facts dt{font-size:13px;color:var(--muted)}
+.facts dd{margin:0;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;line-height:1.5}
+.sync{margin-top:var(--s2);font-size:14px;color:var(--muted)}
+.formula{margin-top:var(--s4);font-size:13px;color:var(--muted);line-height:1.8;border-left:3px solid var(--line);padding-left:var(--s2);max-width:54em}
+.formula b{color:var(--fg)}
+
+/* 分電盤 */
+.panel-fig{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4);align-items:start}
+.panel-fig svg{display:block;width:100%;max-width:480px;height:auto}
+#panel text{font-family:var(--display)}
+#panel .hdl{fill:var(--ink)}
+#panel .trip .hdl{fill:var(--warn);transform:translateY(var(--drop))}
+#panel .trip .body{stroke:var(--warn);stroke-width:3}
+.circuits{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.circuits li{display:grid;grid-template-columns:2em minmax(0,1fr) auto;gap:4px 10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.circuits .no{font-family:var(--display);font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.circuits .v{font-variant-numeric:tabular-nums;font-size:14px;white-space:nowrap}
+.circuits .t{grid-column:2/4;height:8px;background:var(--surface-2);border-radius:var(--r);position:relative;overflow:hidden}
+.circuits .t i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:var(--r)}
+.circuits li.over .t i{background:var(--warn)}
+.circuits li.over .v{color:var(--warn-text);font-weight:700}
+.parts{margin:var(--s3) 0 0;display:grid;gap:var(--s2)}
+.parts dt{font-weight:700}
+.parts dd{margin:2px 0 0;color:var(--muted);font-size:15px}
+
+/* 工事の種類 */
+.jobs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s2)}
+.jobs>li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:var(--s2);padding:var(--s3) var(--s2);background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.jobs>li.wide{grid-column:1/-1;grid-template-columns:72px minmax(0,1fr) minmax(0,1fr);column-gap:var(--s3)}
+.jobs svg{width:72px;height:72px}
+.jobs h3{font-size:19px}
+.jobs p{font-size:15px;color:var(--muted);margin-top:4px}
+.spec{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;margin:var(--s1) 0 0;font-size:14px}
+.spec dt{color:var(--muted)}
+.spec dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}
+.wide .more{border-left:1px solid var(--line);padding-left:var(--s3);font-size:15px;color:var(--muted)}
+.wide .more b{color:var(--fg)}
+.shop{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:var(--s5)}
+.shop dl{margin:0;border-top:1px solid var(--line)}
+.shop dt{font-weight:700;padding-top:14px}
+.shop dd{margin:0;padding:2px 0 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:15px}
+
+/* 停電と漏電 */
+.sos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4);align-items:start}
+.sos-box{border:2px solid var(--warn);border-radius:var(--r);padding:var(--s3);background:var(--surface)}
+.sos-box .tel{display:block;font-family:var(--display);font-weight:700;font-size:clamp(28px,4vw,36px);color:var(--fg);text-decoration:none;line-height:1.3;margin-top:var(--s1);font-variant-numeric:tabular-nums}
+.sos-box p{font-size:15px;color:var(--muted);margin-top:var(--s1)}
+.sos-box dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;margin:var(--s2) 0 0;font-size:15px}
+.sos-box dt{color:var(--muted)}
+.sos-box dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}
+.drive h3{font-size:17px;margin-bottom:var(--s1)}
+.drive ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.drive li{display:grid;grid-template-columns:7em minmax(0,1fr);gap:2px 12px;align-items:center;font-size:15px}
+.drive .t{height:12px;background:var(--surface-2);border-radius:var(--r);position:relative}
+.drive .t i{position:absolute;top:0;bottom:0;background:var(--accent);border-radius:var(--r)}
+.drive .v{grid-column:2;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:-4px}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:var(--s2);counter-reset:c}
+.checks>li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--s3);align-items:start;padding:var(--s3) var(--s2);background:var(--bg);border-radius:var(--r);border-left:4px solid var(--accent)}
+.checks svg{width:120px;height:auto;display:block}
+.checks h3{font-size:18px}
+.checks p{font-size:15px;color:var(--muted);margin-top:4px}
+.checks ol{margin:var(--s1) 0 0;padding-left:1.3em;font-size:15px;display:grid;gap:4px}
+.danger{margin-top:var(--s4);display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s2);align-items:start;border:2px solid var(--warn);border-radius:var(--r);padding:var(--s2) var(--s3)}
+.danger svg{width:40px;height:40px}
+.danger b{color:var(--warn-text)}
+
+/* 工事の流れ */
+.steps{list-style:none;margin:0;padding:0;max-width:860px}
+.steps li{display:grid;grid-template-columns:9em minmax(0,1fr);gap:var(--s3);position:relative;padding-bottom:var(--s3)}
+.steps .when{font-family:var(--display);font-weight:700;color:var(--accent);font-size:15px;padding-top:2px;text-align:right}
+.steps .what{position:relative;padding-left:var(--s3);border-left:2px solid var(--line)}
+.steps .what::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;background:var(--surface);border:2px solid var(--accent);border-radius:50%}
+.steps li:last-child .what{border-left-color:transparent}
+.steps h3{font-size:18px}
+.steps p{font-size:15px;color:var(--muted);margin-top:2px;max-width:40em}
+.day{list-style:none;margin:0;padding:0;display:flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.day li{flex:var(--m) 1 0;min-width:0;padding:12px 10px;border-left:1px solid var(--line);font-size:14px;line-height:1.5}
+.day li:first-child{border-left:0}
+.day b{display:block;font-family:var(--display);font-variant-numeric:tabular-nums;color:var(--accent);font-size:14px}
+.day li.off{background:repeating-linear-gradient(135deg,var(--surface) 0 8px,var(--surface-2) 8px 10px)}
+.day li.off b{color:var(--warn-text)}
+.day-key{font-size:13px;color:var(--muted);margin-top:var(--s1)}
+.day-key i{display:inline-block;width:20px;height:10px;margin-right:6px;vertical-align:middle;outline:1px solid var(--line);background:repeating-linear-gradient(135deg,var(--surface) 0 3px,var(--surface-2) 3px 5px)}
+.record{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:var(--s4);align-items:start}
+.record h3{font-size:18px;margin-bottom:var(--s1)}
+
+/* 実績と声 */
+.voices{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--s3);margin-top:var(--s3);align-items:start}
+.voices figure{margin:0;background:var(--bg);border-left:4px solid var(--copper);padding:var(--s3);border-radius:0 var(--r) var(--r) 0}
+.voices figure.big{grid-row:span 2}
+.voices figure.big blockquote{font-size:18px;line-height:1.9}
+.voices blockquote{margin:0;max-width:40em}
+.voices figcaption{margin-top:var(--s2);font-size:13px;color:var(--muted)}
+.voices-h{font-size:22px;margin-top:var(--s6)}
+.works th{white-space:nowrap}
+
+/* 会社と質問 */
+.company{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:var(--s5)}
+.company h3{font-size:20px;margin-bottom:var(--s2)}
+.lic{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.lic li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:start;font-size:15px}
+.lic svg{width:28px;height:28px}
+.lic small{display:block;color:var(--muted);font-size:13px}
+dl.prof{margin:0;display:grid;grid-template-columns:8em minmax(0,1fr);border-top:1px solid var(--line)}
+dl.prof dt,dl.prof dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+dl.prof dt{color:var(--muted)}
+dl.prof dd{font-variant-numeric:tabular-nums}
+.faq{max-width:820px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;font-weight:700;position:relative;transition:color .18s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:8px;top:50%;width:10px;height:10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq summary:hover{color:var(--accent)}
+.faq details p{padding:0 0 18px;color:var(--muted);max-width:40em}
+
+/* 相談フォーム */
+.contact{border-top:4px solid var(--accent)}
+.contact .lead2{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s3);align-items:end;margin-bottom:var(--s4)}
+.contact .lead2 .sub{margin-bottom:0}
+.tel-big{text-decoration:none;color:var(--fg);font-weight:700;font-size:26px;font-family:var(--display);line-height:1.2;text-align:right}
+.tel-big small{display:block;font-size:12px;font-family:var(--body);font-weight:400;color:var(--muted)}
+#f{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);max-width:820px}
+.full{grid-column:1/-1}
+label.f{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+label.f .req{font-size:12px;color:var(--warn-text);margin-left:6px}
+label.f .opt{font-size:12px;color:var(--muted);font-weight:400;margin-left:6px}
+input[type=text],input[type=tel],select,textarea{width:100%;padding:12px;font:inherit;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:var(--r);min-height:48px;transition:border-color .18s}
+input:hover,select:hover,textarea:hover{border-color:var(--muted)}
+textarea{min-height:96px;resize:vertical}
+textarea[readonly]{background:var(--surface-2);font-size:14px;min-height:112px}
+[aria-invalid=true]{border-color:var(--warn)!important;box-shadow:inset 0 0 0 1px var(--warn)}
+.err{color:var(--warn-text);font-size:13px;font-weight:700;margin-top:4px}
+.hint{font-size:13px;color:var(--muted);margin-top:4px}
+.urgent{font-size:14px;margin-top:6px;padding:8px 12px;border-left:4px solid var(--warn);background:var(--surface-2)}
+.check{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:var(--s1);cursor:pointer}
+.check input{width:20px;height:20px;accent-color:var(--accent);margin:0}
+#done{margin-top:var(--s2);font-weight:700;padding:12px var(--s2);border-left:4px solid var(--accent);background:var(--surface-2);border-radius:0 var(--r) var(--r) 0}
+
+footer{padding-block:var(--s4);font-size:13px;color:var(--muted);border-top:1px solid var(--line);background:var(--surface)}
+footer .in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s1) var(--s3)}
+.dock{display:none}
+
+/* トップの入口 */
+.entry{padding-block:var(--s4) var(--s5)}
+.entry h2{font-size:clamp(19px,2.2vw,22px);margin-bottom:var(--s2)}
+.entry ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s4);border-top:1px solid var(--line)}
+.entry li{border-bottom:1px solid var(--line)}
+.entry li:last-child:nth-child(odd){grid-column:1/-1}
+.entry a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s2);align-items:center;padding-block:14px;color:var(--fg);text-decoration:none}
+.entry b{font-family:var(--display);font-size:19px;font-weight:700;line-height:1.4;transition:color .18s}
+.entry span{grid-column:1;color:var(--muted);font-size:14px;line-height:1.6}
+.entry a::after{content:"→";grid-column:2;grid-row:1/3;color:var(--accent);font-size:18px}
+.entry a:hover b{color:var(--accent)}
+/* 各ページの一番下 */
+.pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2);margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--line)}
+.pager a{text-decoration:none;min-height:48px;display:flex;flex-direction:column;justify-content:center}
+.pager-top{color:var(--fg);font-size:15px;text-decoration:underline!important;text-underline-offset:3px}
+.pager-next{margin-left:auto;text-align:right;color:var(--fg)}
+.pager-next small{font-size:13px;color:var(--muted);line-height:1.4}
+.pager-next span{font-family:var(--display);font-size:20px;font-weight:700;line-height:1.4;color:var(--accent)}
+.pager-next span::after{content:" →"}
+.pager-next:hover span{text-decoration:underline;text-underline-offset:4px}
+/* ページ切り替え(JSが付ける js-pages の時だけ、1ページ分を出す) */
+.js-pages [data-pg]:not(.on){display:none}
+.js-pages .seam{border-top:1px solid var(--line)}
+[data-pg] :is(h1,h2)[tabindex="-1"]:focus{outline:none}
+.js-pages section.pg-head{padding-top:var(--s5)}
+
+@media (max-width:1100px){
+  .gnav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow);margin:0}
+  .site-head.open .gnav{display:block}
+  .gnav ul{flex-direction:column;gap:0;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+  .gnav a{padding:12px 8px;font-size:16px;border-bottom:1px solid var(--line);border-radius:0}
+  .gnav a[aria-current="page"]{box-shadow:inset 4px 0 0 var(--accent);padding-left:16px}
+  .menu-btn{display:inline-flex}
+}
+@media (max-width:960px){
+  /* 表: 1行=1枚。見出しは data-label で各値の前に出す */
+  .tbl:has(table){border:0;background:none}
+  .tbl thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tbl table,.tbl tbody,.tbl tr{display:block}
+  .tbl tr{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s1) var(--s2)}
+  .alt .tbl tr{background:var(--bg)}
+  .tbl tr+tr{margin-top:var(--s1)}
+  .tbl td{display:block;position:relative;padding:6px 0 6px 6.5rem;border-bottom:0;text-align:left;font-size:15px}
+  .tbl td.r{text-align:left;white-space:normal}
+  .tbl td::before{content:attr(data-label);position:absolute;left:0;top:8px;width:6rem;color:var(--muted);font-size:13px;line-height:1.6}
+  .tbl tbody th{display:block;font-size:17px;padding:8px 0;border-bottom:1px solid var(--line);margin-bottom:4px;white-space:normal}
+  .tbl tbody tr:last-child th{border-bottom:1px solid var(--line)}
+}
+@media (max-width:900px){
+  .hero .in{grid-template-columns:minmax(0,1fr)}
+  .hero .plan{display:none}
+  .diag,.panel-fig,.sos,.company,.record,.shop{grid-template-columns:minmax(0,1fr)}
+  .jobs>li.wide{grid-template-columns:72px minmax(0,1fr)}
+  .wide .more{grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:var(--s2)}
+  .voices{grid-template-columns:minmax(0,1fr)}
+  .voices figure.big{grid-row:auto}
+  /* 時間割は縦に */
+  .day{flex-direction:column}
+  .day li{border-left:0;border-top:1px solid var(--line);display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px}
+  .day li:first-child{border-top:0}
+}
+@media (max-width:760px){
+  section{padding-block:56px}
+  .head-tel{display:none}
+  .hero .in{padding-block:32px 40px}
+  .jobs{grid-template-columns:minmax(0,1fr)}
+  .jobs>li,.jobs>li.wide{grid-template-columns:56px minmax(0,1fr);gap:var(--s2)}
+  .jobs svg{width:56px;height:56px}
+  .checks>li{grid-template-columns:minmax(0,1fr);gap:var(--s2)}
+  .checks svg{width:120px}
+  .steps li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .steps .when{text-align:left;padding-left:var(--s3);border-left:2px solid var(--line)}
+  .steps li:last-child .when{border-left-color:var(--line)}
+  #f{grid-template-columns:minmax(0,1fr)}
+  .contact .lead2{grid-template-columns:minmax(0,1fr)}
+  .tel-big{text-align:left}
+  dl.prof{grid-template-columns:6.5em minmax(0,1fr)}
+  .entry ul{grid-template-columns:minmax(0,1fr)}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  .dock{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -2px 12px rgba(0,0,0,.12);padding:8px max(12px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));gap:8px}
+  .dock a{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:48px;border-radius:var(--r);text-decoration:none;font-weight:700;line-height:1.25;font-size:15px}
+  .dock .d-tel{background:var(--accent);color:var(--accent-fg)}
+  .dock .d-tel small{font-size:12px;font-weight:400;font-variant-numeric:tabular-nums}
+  .dock .d-ask{background:var(--surface);color:var(--fg);border:2px solid var(--accent)}
+}
+@media (max-width:440px){
+  .apps{grid-template-columns:minmax(0,1fr)}
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .facts div:nth-child(n){padding-inline:0;border-left:0}
+  .drive li{grid-template-columns:6em minmax(0,1fr)}
+  .day li{grid-template-columns:minmax(0,1fr);gap:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js-pages")</script>
+
+<header class="site-head" id="top">
+  <p class="mihon">制作見本</p>
+  <div class="in bar">
+    <a class="logo" href="#top"><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="2" width="24" height="24" rx="2" fill="var(--accent)"/><rect x="9" y="8" width="3" height="8" fill="var(--accent-fg)"/><rect x="16" y="8" width="3" height="8" fill="var(--accent-fg)"/><path d="M11 20h6" stroke="var(--copper)" stroke-width="3"/></svg>トモシビ電設</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span class="bars" aria-hidden="true"></span>メニュー</button>
+    <nav class="gnav" id="gnav" aria-label="ページの案内">
+      <ul>
+        <li><a href="#shindan">落ちる診断</a></li>
+        <li><a href="#koji">工事の種類</a></li>
+        <li><a href="#teiden">停電と漏電</a></li>
+        <li><a href="#nagare">工事の流れ</a></li>
+        <li><a href="#jisseki">施工実績</a></li>
+        <li><a href="#kaisha">会社と質問</a></li>
+        <li><a href="#soudan">相談する</a></li>
+      </ul>
+    </nav>
+    <a class="head-tel" href="tel:0920000000"><small>停電と漏電は24時間受付</small>092-000-0000</a>
+  </div>
+</header>
+
+<main>
+<div class="hero" data-pg="top"><div class="in">
+  <div>
+    <p class="kicker">福岡市 苅穂台で2006年から、電気工事士6人の工事店</p>
+    <h1>見積りに来た電気工事士が、<br>そのまま工事します。</h1>
+    <p class="lead">コンセント1か所から分電盤の交換まで、住宅と店舗、事務所の電気工事をしています。工事が終わったら、回路ごとに測った数字を紙でお渡しします。ブレーカーがよく落ちる家は、使う家電を選ぶだけで原因の目安が出ます。</p>
+    <a class="btn" href="#soudan">相談する</a>
+  </div>
+  <svg class="plan" viewBox="0 0 400 300" aria-hidden="true">
+    <g fill="none" stroke="var(--ink)" stroke-width="5" stroke-linecap="square">
+      <path d="M20 20 H380 V280 H20 Z"/><path d="M200 20 V130 M200 180 V280 M20 160 H120 M160 160 H200 M260 160 H380"/>
+    </g>
+    <g fill="var(--surface)" stroke="var(--ink)" stroke-width="2">
+      <rect x="28" y="34" width="22" height="40"/>
+    </g>
+    <g stroke="var(--ink)" stroke-width="1.5"><line x1="33" y1="42" x2="45" y2="42"/><line x1="33" y1="50" x2="45" y2="50"/><line x1="33" y1="58" x2="45" y2="58"/><line x1="33" y1="66" x2="45" y2="66"/></g>
+    <g fill="none" stroke="var(--copper)" stroke-width="2" stroke-dasharray="6 4">
+      <path d="M50 54 C90 54 100 90 110 90"/><path d="M110 90 C150 90 270 70 290 90"/><path d="M50 62 C80 120 90 230 70 260"/><path d="M50 70 C140 120 230 200 300 250"/><path d="M290 90 C330 90 350 120 360 130"/>
+    </g>
+    <g fill="var(--surface)" stroke="var(--ink)" stroke-width="2">
+      <circle cx="110" cy="90" r="12"/><circle cx="290" cy="90" r="12"/><circle cx="300" cy="250" r="12"/>
+    </g>
+    <g stroke="var(--ink)" stroke-width="2"><path d="M101 81l18 18M119 81l-18 18M281 81l18 18M299 81l-18 18M291 241l18 18M309 241l-18 18"/></g>
+    <g fill="var(--surface)" stroke="var(--ink)" stroke-width="2"><circle cx="70" cy="260" r="10"/><circle cx="360" cy="130" r="10"/></g>
+    <g stroke="var(--ink)" stroke-width="2"><path d="M66 254v12M74 254v12M356 124v12M364 124v12"/></g>
+    <g fill="var(--accent)"><circle cx="180" cy="148" r="5"/><circle cx="240" cy="172" r="5"/></g>
+    <rect x="300" y="196" width="60" height="22" fill="var(--accent)"/>
+    <path d="M300 207 H270" stroke="var(--copper)" stroke-width="2" stroke-dasharray="6 4"/>
+  </svg>
+</div></div>
+
+<section class="entry" data-pg="top" aria-labelledby="entry-h"><div class="in">
+  <h2 id="entry-h">見たいところから</h2>
+  <ul>
+    <li><a href="#shindan"><b>落ちる診断</b><span>同時に使う家電を選ぶと、どのブレーカーが落ちるかと直し方が出ます</span></a></li>
+    <li><a href="#koji"><b>工事の種類</b><span>コンセント増設からEV充電、店舗の照明まで。費用と時間の目安つき</span></a></li>
+    <li><a href="#teiden"><b>停電と漏電</b><span>24時間受付。電話の前に分電盤で確かめることと、駆けつけの目安</span></a></li>
+    <li><a href="#nagare"><b>工事の流れ</b><span>現地調査から測定の記録を渡すまで。分電盤を替える日の時間割</span></a></li>
+    <li><a href="#jisseki"><b>施工実績</b><span>2026年の工事から8件。地区、建物、日数、費用</span></a></li>
+    <li><a href="#kaisha"><b>会社と質問</b><span>資格と登録番号、対応地域、よくある質問</span></a></li>
+    <li><a href="#soudan"><b>相談する</b><span>現地調査と見積りは無料。2日以内にお電話します</span></a></li>
+  </ul>
+</div></section>
+
+<section id="shindan" data-pg="shindan"><div class="in">
+  <h2 class="sec-h">ブレーカーが落ちる診断</h2>
+  <p class="sub">夕方の台所のように、同時に使っている家電を選んでください。どのブレーカーが落ちるかと、回路の分け方、契約の見直し、分電盤の交換が要るかの目安が出ます。</p>
+  <div class="diag">
+    <form class="diag-in" id="df" onsubmit="return false" aria-label="ブレーカーの診断">
+      <fieldset>
+        <legend>いまの契約アンペア<small>電気料金の明細に書いてあります</small></legend>
+        <div class="seg">
+          <label><input type="radio" name="ct" value="30">30A</label>
+          <label><input type="radio" name="ct" value="40" checked>40A</label>
+          <label><input type="radio" name="ct" value="50">50A</label>
+          <label><input type="radio" name="ct" value="60">60A</label>
+        </div>
+      </fieldset>
+      <fieldset><legend>台所</legend><div class="apps" data-c="k"></div></fieldset>
+      <fieldset><legend>居間</legend><div class="apps" data-c="l"></div></fieldset>
+      <fieldset><legend>洗面所</legend><div class="apps" data-c="s"></div></fieldset>
+      <fieldset><legend>エアコンと照明</legend><div class="apps" data-c="a1 a2 li"></div></fieldset>
+      <fieldset><legend>200Vの機器<small>専用の回路が要ります</small></legend><div class="apps" data-c="new"></div></fieldset>
+    </form>
+
+    <div class="diag-out" aria-live="polite">
+      <p class="verdict" id="verdict">診断中</p>
+      <div class="gauge">
+        <div class="row"><span>同時に使う合計</span><span><b id="total">0</b> A</span></div>
+        <div class="track" aria-hidden="true"><span class="fill" id="gFill"></span><span class="mark" id="gMark"></span></div>
+        <div class="row"><span id="gNote">点線が契約アンペア</span></div>
+      </div>
+      <h3>直し方の目安</h3>
+      <ul class="fixes" id="fixes"></ul>
+      <dl class="facts">
+        <div><dt>合わせる契約</dt><dd id="fCt">40A</dd></div>
+        <div><dt>増やす専用回路</dt><dd id="fNew">0本</dd></div>
+        <div><dt>分電盤</dt><dd id="fPanel">今のまま</dd></div>
+        <div><dt>工事費の目安(税込)</dt><dd id="fCost">0円</dd></div>
+      </dl>
+      <p class="sync">この結果は、相談のページの「診断の結果」欄に自動で写ります。<a href="#soudan">この結果を添えて相談する</a></p>
+    </div>
+  </div>
+  <p class="formula"><b>計算のしかた</b>　家電の電流(A)＝消費電力(W)÷100V。200Vの機器も、契約と比べるときは同じく消費電力÷100で数えます。<br>
+  選んだ家電の合計が契約アンペアを超えると契約ブレーカーが、1つの回路の合計が20Aを超えると、その回路の分岐ブレーカーが落ちます。<br>
+  回路の分け方は、20Aを超えた回路から大きい家電を順に専用回路へ移した本数です。分電盤の空きは1つとして数え、足りなければ交換の目安にしています。<br>
+  工事費は、専用回路1本18,000〜28,000円(分電盤の交換と一緒なら12,000〜18,000円)、IHの回路35,000〜60,000円、EV充電コンセント90,000〜150,000円、分電盤の交換80,000〜140,000円の合計です。消費電力は家電によって違うので、目安としてご覧ください。</p>
+</div></section>
+
+<section class="alt" id="bunden" data-pg="shindan"><div class="in">
+  <h2 class="sec-h">分電盤で見ると</h2>
+  <p class="sub">上の診断の結果が、よくある7回路の分電盤に出ます。赤くなったブレーカーが落ちる所です。</p>
+  <div class="panel-fig">
+    <svg id="panel" viewBox="0 0 360 250" role="img" aria-labelledby="panelCap">
+      <title id="panelCap">分電盤の図。左上に契約ブレーカー、その右に漏電ブレーカー、下の段に1から7番の分岐ブレーカーが並ぶ</title>
+      <rect x="8" y="8" width="224" height="234" rx="4" fill="var(--panel)" stroke="var(--ink)" stroke-width="2"/>
+      <g id="bk-main" style="--drop:22px">
+        <rect class="body" x="24" y="30" width="60" height="84" rx="3" fill="var(--dev)" stroke="var(--ink)" stroke-width="1.5"/>
+        <rect class="hdl" x="44" y="42" width="20" height="26" rx="2"/>
+        <text id="mainA" x="54" y="104" font-size="16" font-weight="700" text-anchor="middle" fill="var(--ink)">40A</text>
+      </g>
+      <g id="bk-leak">
+        <rect class="body" x="98" y="30" width="118" height="84" rx="3" fill="var(--dev)" stroke="var(--ink)" stroke-width="1.5"/>
+        <rect class="hdl" x="118" y="42" width="24" height="26" rx="2"/>
+        <circle cx="186" cy="56" r="8" fill="var(--test)" stroke="var(--ink)" stroke-width="1.5"/>
+        <rect x="112" y="84" width="92" height="16" rx="2" fill="none" stroke="var(--ink)" stroke-width="1"/>
+      </g>
+      <rect x="24" y="126" width="192" height="6" fill="var(--copper)"/>
+      <g id="branches"></g>
+      <g fill="none" stroke="var(--ink)" stroke-width="1.2">
+        <path d="M54 30 V18 H238"/><path d="M216 72 H238"/><path d="M216 172 H238"/>
+      </g>
+      <g font-size="16" font-weight="700" fill="var(--fg)">
+        <text x="242" y="23">契約ブレーカー</text>
+        <text x="242" y="77">漏電ブレーカー</text>
+        <text x="242" y="177">分岐ブレーカー</text>
+      </g>
+    </svg>
+    <div>
+      <ol class="circuits" id="circuits" aria-label="回路ごとの合計"></ol>
+      <dl class="parts">
+        <div><dt>契約ブレーカー(アンペアブレーカー)</dt><dd>家全体で使える量の上限。契約アンペアを超えると落ちます。スマートメーターの家では、メーターの中で切れます。</dd></div>
+        <div><dt>漏電ブレーカー(主幹)</dt><dd>電気が線の外へ漏れたら落ちます。使いすぎでは落ちません。落ちていたら<a href="#teiden">停電と漏電のページ</a>の手順を。</dd></div>
+        <div><dt>分岐ブレーカー(安全ブレーカー)</dt><dd>部屋や家電ごとの回路に1つずつ。1回路20Aが多く、超えるとその回路だけ消えます。</dd></div>
+      </dl>
+    </div>
+  </div>
+</div></section>
+
+<section id="koji" data-pg="koji"><div class="in">
+  <h2 class="sec-h">できる工事と費用の目安</h2>
+  <p class="sub">金額は戸建ての標準的な条件で、材料と工事費を含めた税込です。壁の中を通せるか、分電盤からの距離で変わるので、現地を見てから確定します。</p>
+  <ul class="jobs">
+    <li class="wide">
+      <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="4" y="30" width="44" height="18" rx="4" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="2"/><path d="M10 30l6-10h20l6 10" fill="none" stroke="var(--ink)" stroke-width="2"/><circle cx="14" cy="50" r="5" fill="var(--ink)"/><circle cx="38" cy="50" r="5" fill="var(--ink)"/><rect x="56" y="18" width="12" height="20" rx="2" fill="var(--accent)"/><path d="M62 38 V52 C62 60 52 60 48 46" fill="none" stroke="var(--copper)" stroke-width="2.5"/></svg>
+      <div>
+        <h3>EV充電コンセント(200V)</h3>
+        <p>駐車場の壁か柱に、充電用の200Vコンセントを付けます。分電盤から専用の回路を引き、屋外は雨に強い配管で通します。</p>
+        <dl class="spec"><dt>費用</dt><dd>90,000〜150,000円</dd><dt>時間</dt><dd>半日〜1日</dd><dt>停電</dt><dd>30分ほど</dd></dl>
+      </div>
+      <p class="more"><b>見積りの前に確かめること</b><br>契約アンペアが足りるか(充電中は30A分を使います)、分電盤に空きがあるか、駐車場までの距離。分電盤から10mを超えると、1mごとに2,500円ほど上がります。夜に充電するなら、時間帯で安くなる料金プランも一緒にご説明します。</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="14" y="8" width="44" height="56" rx="4" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/><rect x="24" y="20" width="24" height="14" rx="3" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="1.5"/><path d="M31 24v6M41 24v6" stroke="var(--ink)" stroke-width="2"/><rect x="24" y="40" width="24" height="14" rx="3" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="1.5"/><path d="M31 44v6M41 44v6" stroke="var(--ink)" stroke-width="2"/></svg>
+      <div>
+        <h3>コンセントの増設</h3>
+        <p>近くのコンセントから分ける方法と、分電盤から新しく引く方法があります。延長コードのたこ足をなくしたい所に。</p>
+        <dl class="spec"><dt>費用</dt><dd>1か所 9,000〜16,000円</dd><dt>時間</dt><dd>1〜2時間</dd><dt>停電</dt><dd>なし〜15分</dd></dl>
+      </div>
+    </li>
+    <li>
+      <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="10" y="6" width="52" height="60" rx="3" fill="var(--panel)" stroke="var(--ink)" stroke-width="2"/><rect x="16" y="14" width="14" height="18" fill="var(--dev)" stroke="var(--ink)" stroke-width="1.2"/><rect x="34" y="14" width="22" height="18" fill="var(--dev)" stroke="var(--ink)" stroke-width="1.2"/><path d="M16 38h40" stroke="var(--copper)" stroke-width="3"/><g fill="var(--dev)" stroke="var(--ink)" stroke-width="1"><rect x="16" y="44" width="7" height="14"/><rect x="25" y="44" width="7" height="14"/><rect x="34" y="44" width="7" height="14"/><rect x="43" y="44" width="7" height="14"/></g></svg>
+      <div>
+        <h3>分電盤の交換</h3>
+        <p>築20年を超えた分電盤や、回路が足りない家に。漏電ブレーカーの付いた新しい盤に替え、回路を増やします。</p>
+        <dl class="spec"><dt>費用</dt><dd>80,000〜140,000円</dd><dt>時間</dt><dd>半日</dd><dt>停電</dt><dd>3時間ほど</dd></dl>
+      </div>
+    </li>
+    <li>
+      <svg viewBox="0 0 72 72" aria-hidden="true"><rect x="6" y="12" width="60" height="22" rx="3" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/><path d="M14 28h44" stroke="var(--ink)" stroke-width="1.5"/><path d="M58 34 V56 H40" fill="none" stroke="var(--copper)" stroke-width="2.5"/><rect x="28" y="50" width="12" height="12" rx="2" fill="var(--accent)"/></svg>
+      <div>
+        <h3>エアコンの専用回路</h3>
+        <p>エアコンを新しくする時に。ほかの家電と回路を分け、暖房の立ち上がりでブレーカーが落ちないようにします。</p>
+        <dl class="spec"><dt>費用</dt><dd>18,000〜28,000円</dd><dt>時間</dt><dd>2〜3時間</dd><dt>停電</dt><dd>15分ほど</dd></dl>
+      </div>
+    </li>
+    <li>
+      <svg viewBox="0 0 72 72" aria-hidden="true"><path d="M4 36 L22 14 H54 L36 36 Z" fill="var(--accent)" stroke="var(--ink)" stroke-width="2"/><path d="M13 25h32M29 14 L20 36M45 14 L36 36" stroke="var(--accent-fg)" stroke-width="1.2"/><rect x="44" y="44" width="22" height="22" rx="2" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="2"/><path d="M52 50 l-3 7 h5 l-3 6" fill="none" stroke="var(--ink)" stroke-width="1.6"/><path d="M20 36 V58 H44" fill="none" stroke="var(--copper)" stroke-width="2.5"/></svg>
+      <div>
+        <h3>太陽光と蓄電池の配線</h3>
+        <p>メーカーの施工店が付けたパネルや蓄電池と、家の分電盤をつなぐ配線を受け持ちます。停電時に使う回路の選び直しも。</p>
+        <dl class="spec"><dt>費用</dt><dd>配線分 60,000〜250,000円</dd><dt>時間</dt><dd>1〜2日</dd><dt>停電</dt><dd>2〜4時間</dd></dl>
+      </div>
+    </li>
+    <li>
+      <svg viewBox="0 0 72 72" aria-hidden="true"><path d="M4 12h64" stroke="var(--ink)" stroke-width="2"/><g fill="var(--surface)" stroke="var(--ink)" stroke-width="2"><path d="M8 12h14l-3 8h-8z"/><path d="M29 12h14l-3 8h-8z"/><path d="M50 12h14l-3 8h-8z"/></g><g fill="var(--accent)" opacity=".18"><path d="M11 20h8l8 44H3z"/><path d="M32 20h8l8 44H24z"/><path d="M53 20h8l8 44H45z"/></g><path d="M4 64h64" stroke="var(--ink)" stroke-width="2"/></svg>
+      <div>
+        <h3>店舗の照明</h3>
+        <p>蛍光灯からLEDへの付け替え、ダウンライトの増設、看板の照明とタイマー。定休日や閉店後にも工事します。</p>
+        <dl class="spec"><dt>費用</dt><dd>1台 6,000〜18,000円</dd><dt>時間</dt><dd>20台で1日</dd><dt>停電</dt><dd>その回路だけ</dd></dl>
+      </div>
+    </li>
+    <li>
+      <svg viewBox="0 0 72 72" aria-hidden="true"><path d="M10 10h20v8" fill="none" stroke="var(--ink)" stroke-width="2"/><rect x="14" y="18" width="34" height="18" rx="3" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/><circle cx="40" cy="27" r="5" fill="var(--accent)"/><rect x="18" y="48" width="40" height="16" rx="2" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="2"/><g fill="var(--ink)"><rect x="23" y="54" width="6" height="4"/><rect x="33" y="54" width="6" height="4"/><rect x="43" y="54" width="6" height="4"/></g><path d="M48 27 C62 27 62 48 54 48" fill="none" stroke="var(--copper)" stroke-width="2.5"/></svg>
+      <div>
+        <h3>LAN配線と防犯カメラ</h3>
+        <p>事務所の床下や天井裏にLANを通し、カメラは録画機まで配線します。無線が届かない部屋にも。</p>
+        <dl class="spec"><dt>費用</dt><dd>LAN 1か所 12,000円〜<br>カメラ 1台 35,000円〜</dd><dt>時間</dt><dd>1〜2日</dd><dt>停電</dt><dd>なし</dd></dl>
+      </div>
+    </li>
+  </ul>
+</div></section>
+
+<section class="alt" id="tenpo" data-pg="koji"><div class="in">
+  <h2 class="sec-h">店舗と事務所の工事</h2>
+  <div class="shop">
+    <p class="sub">営業を止めずに工事することを先に考えます。図面がない建物でも、現地で配線を追って図に起こしてから見積ります。</p>
+    <dl>
+      <dt>閉店後と定休日の工事</dt><dd>飲食店は22時から翌朝、事務所は土日に。停電する回路と時間を、前日までに紙でお知らせします。</dd>
+      <dt>開業前の電気工事一式</dt><dd>厨房機器の動力(三相200V)、レジとルーターのコンセント、看板の照明まで。内装の工事店と日程を合わせます。</dd>
+      <dt>退去の時の原状回復</dt><dd>増設したコンセントや照明を、入居時の図面どおりに戻します。管理会社への報告用の写真も撮ります。</dd>
+    </dl>
+  </div>
+</div></section>
+
+<section id="teiden" data-pg="teiden"><div class="in">
+  <h2 class="sec-h">停電と漏電は24時間受付</h2>
+  <p class="sub">夜中でも電話がつながります。家じゅうか一部か、ブレーカーのどれが落ちているかを教えていただくと、着いてからが早く済みます。</p>
+  <div class="sos">
+    <div class="sos-box">
+      <p style="margin:0;color:var(--fg);font-weight:700">停電と漏電の受付</p>
+      <a class="tel" href="tel:0920000000">092-000-0000</a>
+      <dl>
+        <dt>受付</dt><dd>24時間、日曜祝日も</dd>
+        <dt>出動の基本料</dt><dd>8,800円(20時〜翌8時は＋5,500円)</dd>
+        <dt>作業代</dt><dd>着いてから見て、始める前に金額をお伝えします</dd>
+      </dl>
+      <p>当日中に直らない時は、安全な回路だけ先に戻して、残りは翌日に伺います。</p>
+    </div>
+    <div class="drive">
+      <h3>福岡市内の駆けつけの目安(昼の場合)</h3>
+      <ul>
+        <li><span>苅穂台</span><span class="t" aria-hidden="true"><i style="left:0;width:35%"></i></span><span class="v">25〜35分</span></li>
+        <li><span>鶉野辺</span><span class="t" aria-hidden="true"><i style="left:0;width:45%"></i></span><span class="v">30〜45分</span></li>
+        <li><span>鴇ヶ丘</span><span class="t" aria-hidden="true"><i style="left:0;width:50%"></i></span><span class="v">35〜50分</span></li>
+        <li><span>柚葉坂</span><span class="t" aria-hidden="true"><i style="left:0;width:50%"></i></span><span class="v">35〜50分</span></li>
+        <li><span>栂ノ森</span><span class="t" aria-hidden="true"><i style="left:0;width:55%"></i></span><span class="v">40〜55分</span></li>
+        <li><span>蓼見台</span><span class="t" aria-hidden="true"><i style="left:0;width:60%"></i></span><span class="v">45〜60分</span></li>
+        <li><span>茅渚浜</span><span class="t" aria-hidden="true"><i style="left:0;width:65%"></i></span><span class="v">45〜65分</span></li>
+        <li><span>槙尾新町</span><span class="t" aria-hidden="true"><i style="left:0;width:75%"></i></span><span class="v">50〜75分</span></li>
+      </ul>
+      <p class="note">夜は電気工事士が自宅から向かうので、15分ほど長く見てください。</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="alt" id="kakunin" data-pg="teiden"><div class="in">
+  <h2 class="sec-h">電話の前に、分電盤で確かめること</h2>
+  <p class="sub">分電盤はふつう、玄関か洗面所、台所の上の方にあります。どのブレーカーが下がっているかで、原因の見当がつきます。</p>
+  <ul class="checks">
+    <li>
+      <svg viewBox="0 0 120 70" aria-hidden="true"><rect x="4" y="22" width="34" height="44" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="1.5"/><path d="M4 22l17-14 17 14" fill="none" stroke="var(--ink)" stroke-width="1.5"/><rect x="44" y="18" width="30" height="48" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="1.5"/><rect x="80" y="28" width="36" height="38" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="1.5"/><g fill="var(--ink)" opacity=".55"><rect x="12" y="34" width="8" height="8"/><rect x="52" y="28" width="8" height="8"/><rect x="88" y="38" width="8" height="8"/><rect x="100" y="38" width="8" height="8"/></g></svg>
+      <div><h3>ブレーカーはどれも上がったまま</h3><p>近所も消えていれば、電力会社の側の停電です。電力会社の停電情報で復旧の見込みを確かめてください。うちだけ消えている時は、引込線かメーターの不具合の疑いがあるのでお電話を。</p></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 120 70" aria-hidden="true"><rect x="4" y="4" width="112" height="62" rx="3" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.5"/><rect x="12" y="10" width="22" height="30" fill="var(--dev)" stroke="var(--warn)" stroke-width="2.5"/><rect x="18" y="26" width="10" height="10" fill="var(--warn)"/><rect x="40" y="10" width="40" height="30" fill="var(--dev)" stroke="var(--ink)" stroke-width="1"/><rect x="48" y="14" width="10" height="10" fill="var(--ink)"/><g fill="var(--dev)" stroke="var(--ink)" stroke-width="1"><rect x="12" y="46" width="10" height="14"/><rect x="26" y="46" width="10" height="14"/><rect x="40" y="46" width="10" height="14"/><rect x="54" y="46" width="10" height="14"/><rect x="68" y="46" width="10" height="14"/></g></svg>
+      <div><h3>左端の契約ブレーカーが下がった</h3><p>家全体で使いすぎています。電子レンジやドライヤーを止めてから上げてください。たびたび落ちるなら、<a href="#shindan">落ちる診断</a>で契約と回路の見直しの目安が出ます。</p></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 120 70" aria-hidden="true"><rect x="4" y="4" width="112" height="62" rx="3" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.5"/><rect x="12" y="10" width="22" height="30" fill="var(--dev)" stroke="var(--ink)" stroke-width="1"/><rect x="18" y="14" width="10" height="10" fill="var(--ink)"/><rect x="40" y="10" width="40" height="30" fill="var(--dev)" stroke="var(--warn)" stroke-width="2.5"/><rect x="48" y="26" width="10" height="10" fill="var(--warn)"/><circle cx="70" cy="20" r="4" fill="var(--test)"/><g fill="var(--dev)" stroke="var(--ink)" stroke-width="1"><rect x="12" y="46" width="10" height="14"/><rect x="26" y="46" width="10" height="14"/><rect x="40" y="46" width="10" height="14"/><rect x="54" y="46" width="10" height="14"/><rect x="68" y="46" width="10" height="14"/></g></svg>
+      <div><h3>真ん中の漏電ブレーカーが下がった</h3><p>どこかの回路で電気が漏れています。次の順で、漏れている回路を探せます。</p>
+        <ol><li>分岐ブレーカーを全部下げる</li><li>漏電ブレーカーを上げる</li><li>分岐ブレーカーを1つずつ上げる</li><li>上げた瞬間にまた漏電ブレーカーが落ちた回路が、漏れている所。その回路だけ下げたまま、ほかを上げてお電話を</li></ol></div>
+    </li>
+    <li>
+      <svg viewBox="0 0 120 70" aria-hidden="true"><rect x="4" y="4" width="112" height="62" rx="3" fill="var(--panel)" stroke="var(--ink)" stroke-width="1.5"/><rect x="12" y="10" width="22" height="30" fill="var(--dev)" stroke="var(--ink)" stroke-width="1"/><rect x="18" y="14" width="10" height="10" fill="var(--ink)"/><rect x="40" y="10" width="40" height="30" fill="var(--dev)" stroke="var(--ink)" stroke-width="1"/><rect x="48" y="14" width="10" height="10" fill="var(--ink)"/><g fill="var(--dev)" stroke="var(--ink)" stroke-width="1"><rect x="12" y="46" width="10" height="14"/><rect x="26" y="46" width="10" height="14"/><rect x="54" y="46" width="10" height="14"/><rect x="68" y="46" width="10" height="14"/></g><rect x="40" y="46" width="10" height="14" fill="var(--dev)" stroke="var(--warn)" stroke-width="2.5"/></svg>
+      <div><h3>分岐ブレーカーが1つだけ下がった</h3><p>その部屋の回路で使いすぎか、家電の故障です。その部屋の家電のプラグを抜いてから上げ、1台ずつ差し直してください。何も差していないのにまた落ちるなら、壁の中の配線を見に伺います。</p></div>
+    </li>
+  </ul>
+  <div class="danger">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L37 34 H3 Z" fill="none" stroke="var(--warn)" stroke-width="3" stroke-linejoin="round"/><path d="M20 15v9" stroke="var(--warn)" stroke-width="3"/><circle cx="20" cy="29" r="2" fill="var(--warn)"/></svg>
+    <p><b>こんな時はブレーカーを上げずにお電話を。</b>焦げたにおいがする、コンセントや分電盤が熱い、雨漏りや浸水で配線が濡れた。上げ直すと火が出ることがあります。濡れた手で分電盤に触らないでください。</p>
+  </div>
+</div></section>
+
+<section id="nagare" data-pg="nagare"><div class="in">
+  <h2 class="sec-h">相談から引き渡しまで</h2>
+  <p class="sub">戸建ての分電盤交換を例にした流れです。コンセント1か所なら、現地調査の日にそのまま工事できることもあります。</p>
+  <ol class="steps">
+    <li><span class="when">1日目</span><div class="what"><h3>電話かフォームで相談</h3><p>困っていることと、建物の種類を伺います。急ぎでなければ、現地調査の日をその場で決めます。</p></div></li>
+    <li><span class="when">3日以内</span><div class="what"><h3>現地調査(30〜60分、無料)</h3><p>分電盤の型と空き、契約アンペア、配線を通せる道を見ます。天井裏や床下に入ることもあるので、点検口の場所を教えてください。</p></div></li>
+    <li><span class="when">調査から2日以内</span><div class="what"><h3>見積り</h3><p>材料と工事を1行ずつ分けた見積書をお渡しします。断られても、理由はお聞きしません。</p></div></li>
+    <li><span class="when">工事の前日まで</span><div class="what"><h3>停電する時間のお知らせ</h3><p>冷蔵庫や録画、店舗ならレジの準備ができるよう、止める回路と時間を紙でお伝えします。</p></div></li>
+    <li><span class="when">工事の日</span><div class="what"><h3>工事と測定、引き渡し</h3><p>工事が終わったら回路ごとに絶縁抵抗を測り、数字を書いた記録をお渡しします。代金は引き渡しの後です。</p></div></li>
+  </ol>
+</div></section>
+
+<section class="alt" id="jikanwari" data-pg="nagare"><div class="in">
+  <h2 class="sec-h">分電盤を替える日の時間割</h2>
+  <p class="sub">停電は3時間ほどです。お昼を挟む日程にすると、冷蔵庫の中もほとんど困りません。</p>
+  <ol class="day">
+    <li style="--m:30"><b>9:00</b>到着、分電盤まわりの養生</li>
+    <li style="--m:30"><b>9:30</b>回路ごとに配線を確かめて札を付ける</li>
+    <li class="off" style="--m:150"><b>10:00〜12:30 停電</b>古い盤を外し、新しい盤を付けて配線を移す</li>
+    <li style="--m:30"><b>12:30</b>電気を戻し、回路を1つずつ点ける</li>
+    <li style="--m:30"><b>13:00</b>絶縁抵抗と接地抵抗を測る</li>
+    <li style="--m:30"><b>13:30</b>盤の札の説明と引き渡し</li>
+  </ol>
+  <p class="day-key"><i></i>家じゅうの電気が止まる時間</p>
+
+  <div class="record" style="margin-top:var(--s5)">
+    <div>
+      <h3>引き渡しでお渡しする測定の記録(見本)</h3>
+      <div class="tbl" role="region" aria-label="測定の記録の見本">
+        <table>
+          <thead><tr><th scope="col">回路</th><th scope="col" class="r">絶縁抵抗</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead>
+          <tbody>
+            <tr><th data-label="回路" scope="row">1 台所のコンセント</th><td data-label="絶縁抵抗" class="r">200MΩ以上</td><td data-label="基準">0.1MΩ以上</td><td data-label="結果"><span class="badge b-ok">良</span></td></tr>
+            <tr><th data-label="回路" scope="row">2 居間のコンセント</th><td data-label="絶縁抵抗" class="r">150MΩ</td><td data-label="基準">0.1MΩ以上</td><td data-label="結果"><span class="badge b-ok">良</span></td></tr>
+            <tr><th data-label="回路" scope="row">3 洗面所のコンセント</th><td data-label="絶縁抵抗" class="r">80MΩ</td><td data-label="基準">0.1MΩ以上</td><td data-label="結果"><span class="badge b-ok">良</span></td></tr>
+            <tr><th data-label="回路" scope="row">8 台所 電子レンジ専用</th><td data-label="絶縁抵抗" class="r">200MΩ以上</td><td data-label="基準">0.1MΩ以上</td><td data-label="結果"><span class="badge b-ok">良</span></td></tr>
+            <tr><th data-label="回路" scope="row">接地(アース)</th><td data-label="絶縁抵抗" class="r">接地抵抗 38Ω</td><td data-label="基準">100Ω以下</td><td data-label="結果"><span class="badge b-ok">良</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="note" style="margin-top:48px">絶縁抵抗は、電線の外へ電気が漏れにくいかを表す数字で、大きいほど安全です。家の100Vの回路の基準は0.1MΩ以上。工事前の数字も一緒に書くので、古い配線の傷み具合が分かります。記録は分電盤の扉の裏にも1枚貼っておきます。</p>
+  </div>
+</div></section>
+
+<section id="jisseki" data-pg="jisseki"><div class="in">
+  <h2 class="sec-h">施工実績</h2>
+  <p class="sub">2026年の工事から8件です。日数は工事の日だけで、現地調査は含みません。</p>
+  <div class="tbl works" role="region" aria-label="施工実績の表">
+    <table>
+      <thead><tr><th scope="col">地区</th><th scope="col">建物</th><th scope="col">工事</th><th scope="col" class="r">日数</th><th scope="col" class="r">費用(税込)</th></tr></thead>
+      <tbody>
+        <tr><th data-label="地区" scope="row">苅穂台</th><td data-label="建物">戸建て 築24年</td><td data-label="工事">分電盤の交換(8回路から14回路)、台所の専用回路2本</td><td data-label="日数" class="r">1日</td><td data-label="費用(税込)" class="r">168,000円</td></tr>
+        <tr><th data-label="地区" scope="row">鶉野辺</th><td data-label="建物">戸建て 築9年</td><td data-label="工事">EV充電コンセント(200V)、駐車場まで屋外配線12m</td><td data-label="日数" class="r">1日</td><td data-label="費用(税込)" class="r">121,000円</td></tr>
+        <tr><th data-label="地区" scope="row">鴇ヶ丘</th><td data-label="建物">飲食店 32席</td><td data-label="工事">店内照明のLED化46台、厨房の動力回路</td><td data-label="日数" class="r">2日<br><small>閉店後</small></td><td data-label="費用(税込)" class="r">584,000円</td></tr>
+        <tr><th data-label="地区" scope="row">柚葉坂</th><td data-label="建物">戸建て 築31年</td><td data-label="工事">夜の漏電の調査、屋外コンセントの交換</td><td data-label="日数" class="r">当日</td><td data-label="費用(税込)" class="r">24,200円</td></tr>
+        <tr><th data-label="地区" scope="row">栂ノ森</th><td data-label="建物">事務所 2階</td><td data-label="工事">LAN配線14か所、防犯カメラ4台と録画機</td><td data-label="日数" class="r">2日</td><td data-label="費用(税込)" class="r">412,000円</td></tr>
+        <tr><th data-label="地区" scope="row">蓼見台</th><td data-label="建物">戸建て 築17年</td><td data-label="工事">蓄電池の後付けに合わせた配線、停電時に使う回路の選び直し</td><td data-label="日数" class="r">2日</td><td data-label="費用(税込)" class="r">226,000円</td></tr>
+        <tr><th data-label="地区" scope="row">茅渚浜</th><td data-label="建物">美容室 開業前</td><td data-label="工事">電気工事一式(コンセント18か所、照明22台、看板)</td><td data-label="日数" class="r">4日</td><td data-label="費用(税込)" class="r">963,000円</td></tr>
+        <tr><th data-label="地区" scope="row">槙尾新町</th><td data-label="建物">戸建て 築12年</td><td data-label="工事">エアコン専用回路2本、コンセント増設3か所</td><td data-label="日数" class="r">半日</td><td data-label="費用(税込)" class="r">79,000円</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="voices-h">工事が終わったお客様から</h3>
+  <div class="voices">
+    <figure class="big">
+      <blockquote><p>冬になると夕方に必ずブレーカーが落ちていました。契約を上げるしかないと思っていたら、台所の回路に電子レンジとケトルが集まっているのが原因と言われ、専用回路を1本足しただけで落ちなくなりました。契約は40Aのままです。</p></blockquote>
+      <figcaption>苅穂台　戸建て　S様</figcaption>
+    </figure>
+    <figure>
+      <blockquote><p>夜の11時に漏電ブレーカーが落ちて、電話したら40分で来てくれました。原因は庭のコンセントに入った雨水でした。</p></blockquote>
+      <figcaption>柚葉坂　戸建て　O様</figcaption>
+    </figure>
+    <figure>
+      <blockquote><p>照明の付け替えを閉店後の2晩で終えてもらい、店を1日も閉めずに済みました。電気代の明細を見るのが楽しみです。</p></blockquote>
+      <figcaption>鴇ヶ丘　飲食店　店主様</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section class="alt" id="kaisha" data-pg="kaisha"><div class="in">
+  <h2 class="sec-h">資格と会社のこと</h2>
+  <p class="sub">6人全員が電気工事士の資格を持っています。見積りに来た者が、そのまま工事の日も伺います。</p>
+  <div class="company">
+    <div>
+      <h3>資格と登録</h3>
+      <ul class="lic">
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="12" r="9" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M9 20l-2 7 7-3 7 3-2-7" fill="var(--accent)"/></svg><span>第一種電気工事士　4人<small>店舗や事務所の高圧受電の設備まで扱える国家資格</small></span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="12" r="9" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M9 20l-2 7 7-3 7 3-2-7" fill="var(--accent)"/></svg><span>第二種電気工事士　2人</span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="12" r="9" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M9 20l-2 7 7-3 7 3-2-7" fill="var(--accent)"/></svg><span>1級電気工事施工管理技士　1人<small>工事の計画と安全の管理</small></span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="5" y="4" width="18" height="22" rx="2" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M9 11h10M9 16h10M9 21h6" stroke="var(--accent)" stroke-width="2"/></svg><span>登録電気工事業者　福岡県知事登録 第0000号</span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="5" y="4" width="18" height="22" rx="2" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M9 11h10M9 16h10M9 21h6" stroke="var(--accent)" stroke-width="2"/></svg><span>工事担任者(第二級デジタル通信)　2人<small>LANや電話回線の工事</small></span></li>
+        <li><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3l9 4v7c0 6-4 10-9 12-5-2-9-6-9-12V7z" fill="none" stroke="var(--accent)" stroke-width="2.4"/><path d="M10 14l3 3 5-6" fill="none" stroke="var(--accent)" stroke-width="2.4"/></svg><span>工事中の事故に備える賠償責任保険に加入</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>会社概要</h3>
+      <dl class="prof">
+        <dt>屋号</dt><dd>トモシビ電設</dd>
+        <dt>代表</dt><dd>友石 健吾(第一種電気工事士)</dd>
+        <dt>所在地</dt><dd>福岡市 苅穂台(事務所と資材倉庫)</dd>
+        <dt>創業</dt><dd>2006年</dd>
+        <dt>人数</dt><dd>電気工事士6人、事務1人</dd>
+        <dt>工事の件数</dt><dd>2025年はおよそ640件</dd>
+        <dt>電話</dt><dd><a href="tel:0920000000">092-000-0000</a></dd>
+        <dt>受付</dt><dd>工事の相談 8:30〜18:00(日曜休み)<br>停電と漏電 24時間</dd>
+        <dt>対応地域</dt><dd>福岡市の苅穂台、鶉野辺、鴇ヶ丘、柚葉坂<br>栂ノ森、蓼見台、茅渚浜、槙尾新町</dd>
+      </dl>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq" data-pg="kaisha"><div class="in">
+  <h2 class="sec-h">よくある質問</h2>
+  <p class="sub">現地調査の時によく聞かれることです。</p>
+  <div class="faq">
+    <details><summary>コンセント1か所だけでも来てもらえますか</summary><p>伺います。対応地域の中なら出張費はいただいていません。ほかに気になる所があれば、同じ日に見ておきます。</p></details>
+    <details><summary>契約アンペアを上げるのに工事は要りますか</summary><p>スマートメーターの家なら、電力会社への申し込みだけで変わることがほとんどです。分電盤の主幹が契約より小さい時は、分電盤の交換が要ります。現地調査の時に分電盤の表示を見てお伝えします。</p></details>
+    <details><summary>工事の日は家にいないといけませんか</summary><p>分電盤やコンセントは家の中なので、始めと終わりには立ち会ってください。途中は外出されてもかまいません。</p></details>
+    <details><summary>賃貸の家や店舗でも頼めますか</summary><p>頼めます。壁に穴を開ける工事は大家さんか管理会社の許可が要るので、許可を取る時に出す図面と見積書をこちらで用意します。</p></details>
+    <details><summary>エアコンの取り付けもしてもらえますか</summary><p>専用回路とコンセントまでが電気工事の受け持ちです。本体の取り付けは、提携しているエアコンの工事店と同じ日に合わせて手配できます。</p></details>
+    <details><summary>支払いはいつですか</summary><p>工事が終わって、測定の記録をお渡しした後です。現金か振込で、店舗や事務所は月末締めの請求書払いにもできます。</p></details>
+  </div>
+</div></section>
+
+<section class="alt contact" id="soudan" data-pg="soudan"><div class="in">
+  <div class="lead2">
+    <div>
+      <h2 class="sec-h">相談する</h2>
+      <p class="sub">現地調査と見積りは無料です。2日以内にお電話して、伺う日を決めます。いま停電や漏電で困っている時は、フォームではなく電話をください。</p>
+    </div>
+    <a class="tel-big" href="tel:0920000000"><small>工事の相談 8:30〜18:00(日曜休み)</small>092-000-0000</a>
+  </div>
+  <form id="f" novalidate>
+    <div>
+      <label class="f" for="nm">お名前<span class="req">必須</span></label>
+      <input type="text" id="nm" name="name" autocomplete="name" required aria-describedby="nm-err">
+      <p class="err" id="nm-err" hidden></p>
+    </div>
+    <div>
+      <label class="f" for="ph">電話番号<span class="req">必須</span></label>
+      <input type="tel" id="ph" name="tel" autocomplete="tel" inputmode="tel" required aria-describedby="ph-hint ph-err" placeholder="例 090-0000-0000">
+      <p class="hint" id="ph-hint">ハイフンは無くても大丈夫です。</p>
+      <p class="err" id="ph-err" hidden></p>
+    </div>
+    <div>
+      <label class="f" for="bld">建物<span class="req">必須</span></label>
+      <select id="bld" name="building" required aria-describedby="bld-err"><option value="">選んでください</option><option>戸建て</option><option>マンションやアパート</option><option>店舗</option><option>事務所</option><option>工場や倉庫</option></select>
+      <p class="err" id="bld-err" hidden></p>
+    </div>
+    <div>
+      <label class="f" for="addr">地区<span class="opt">町名まででかまいません</span></label>
+      <input type="text" id="addr" name="addr" autocomplete="address-level2" placeholder="例 苅穂台">
+    </div>
+    <div class="full">
+      <label class="f" for="kind">相談したいこと</label>
+      <select id="kind" name="kind" aria-describedby="kind-note">
+        <option value="breaker">ブレーカーがよく落ちる</option><option value="outlet">コンセントの増設</option><option value="panel">分電盤の交換</option><option value="ac">エアコンの専用回路</option><option value="ev">EV充電コンセント</option><option value="solar">太陽光や蓄電池の配線</option><option value="shop">店舗や事務所の照明</option><option value="lan">LANや防犯カメラ</option><option value="leak">停電や漏電</option><option value="other">そのほか</option>
+      </select>
+      <p class="urgent" id="kind-note" hidden>いま停電や漏電が起きている時は、24時間受付の <a href="tel:0920000000">092-000-0000</a> へお電話ください。フォームは2日以内の折り返しです。</p>
+    </div>
+    <div class="full">
+      <label class="f" for="diagText">診断の結果<span class="opt">「落ちる診断」から自動で入ります</span></label>
+      <textarea id="diagText" name="diag" readonly></textarea>
+      <label class="check"><input type="checkbox" id="useDiag" checked>この結果を相談に添える</label>
+    </div>
+    <div>
+      <label class="f" for="time">電話してよい時間</label>
+      <select id="time" name="time"><option>いつでも</option><option>午前(8:30〜12時)</option><option>午後(12〜17時)</option><option>夕方(17〜18時)</option></select>
+    </div>
+    <div class="full">
+      <label class="f" for="msg">詳しいこと<span class="opt">任意、400字まで</span></label>
+      <textarea id="msg" name="msg" maxlength="400" aria-describedby="msg-count"></textarea>
+      <p class="hint num" id="msg-count">0／400字</p>
+    </div>
+    <div class="full">
+      <button class="btn" type="submit">この内容で相談する</button>
+      <p id="done" role="status" hidden>見本ページのため送信はされません。</p>
+    </div>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="in">
+  <span>© トモシビ電設　福岡市</span>
+  <span>掲載の店名・番号・金額は見本です</span>
+</div></footer>
+
+<nav class="dock" aria-label="連絡">
+  <a class="d-tel" href="tel:0920000000">電話する<small>092-000-0000</small></a>
+  <a class="d-ask" href="#soudan">相談する</a>
+</nav>
+
+<script>
+(()=>{
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  /* メニュー */
+  const head=$('.site-head'),mb=$('.menu-btn');
+  const setMenu=o=>{head.classList.toggle('open',o);mb.setAttribute('aria-expanded',o)};
+  mb.addEventListener('click',()=>setMenu(!head.classList.contains('open')));
+  $$('#gnav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&head.classList.contains('open')){setMenu(false);mb.focus()}});
+
+  /* 落ちる診断。w=消費電力、c=つながる回路 */
+  const AP=[
+    {id:'mw',n:'電子レンジ',w:1500,c:'k',on:1},{id:'kt',n:'電気ケトル',w:1300,c:'k',on:1},{id:'rc',n:'炊飯器(炊いている間)',w:1300,c:'k'},
+    {id:'dw',n:'食器洗い乾燥機',w:1200,c:'k'},{id:'fr',n:'冷蔵庫',w:250,c:'k',on:1},
+    {id:'tv',n:'テレビ',w:200,c:'l',on:1},{id:'ht',n:'電気ヒーター',w:1000,c:'l'},{id:'cp',n:'ホットカーペット',w:800,c:'l'},{id:'vc',n:'掃除機',w:1000,c:'l'},
+    {id:'dr',n:'ドライヤー',w:1200,c:'s'},{id:'wd',n:'洗濯乾燥機(乾燥中)',w:1300,c:'s'},
+    {id:'ac1',n:'居間のエアコン(暖房)',w:1400,c:'a1',on:1},{id:'ac2',n:'寝室のエアコン',w:800,c:'a2'},{id:'lt',n:'照明(家じゅう)',w:300,c:'li',on:1},
+    {id:'ih',n:'IHクッキングヒーター',w:3000,c:'new',cost:[35000,60000]},{id:'ev',n:'EVの充電',w:3000,c:'new',cost:[90000,150000]}
+  ];
+  const CIR=[{k:'k',n:'台所のコンセント'},{k:'l',n:'居間のコンセント'},{k:'s',n:'洗面所のコンセント'},{k:'li',n:'照明'},{k:'a1',n:'居間のエアコン'},{k:'a2',n:'寝室のエアコン'},{k:'free',n:'空き'}];
+  const LIMIT=20, FREE=1, A=a=>a.w/100, r1=x=>Math.round(x*10)/10, fa=x=>String(r1(x)), yen=n=>n.toLocaleString('ja-JP')+'円';
+  $$('.apps').forEach(box=>{const cs=box.dataset.c.split(' ');
+    box.innerHTML=AP.filter(a=>cs.includes(a.c)).map(a=>'<label><input type="checkbox" name="ap" value="'+a.id+'"'+(a.on?' checked':'')+'><span>'+a.n+'</span><span class="a">'+fa(A(a))+'A</span></label>').join('')});
+  /* 分電盤の分岐ブレーカー7つ */
+  $('#branches').innerHTML=CIR.map((c,i)=>{const x=24+i*28;return '<g id="bk-'+c.k+'" style="--drop:16px"><rect class="body" x="'+x+'" y="142" width="24" height="58" rx="2" fill="var(--dev)" stroke="var(--ink)" stroke-width="1.2"/><rect class="hdl" x="'+(x+5)+'" y="150" width="14" height="18" rx="1"/><text x="'+(x+12)+'" y="226" font-size="16" font-weight="700" text-anchor="middle" fill="var(--fg)">'+(i+1)+'</text></g>'}).join('');
+
+  function diag(sel,ct){
+    const total=r1(sel.reduce((s,a)=>s+A(a),0));
+    const cir=CIR.map(c=>{const items=sel.filter(a=>a.c===c.k),s=r1(items.reduce((t,a)=>t+A(a),0));return{...c,items,s,over:s>LIMIT}});
+    const moves=[];
+    cir.forEach(c=>{if(!c.over)return;let s=c.s;const it=[...c.items].sort((a,b)=>b.w-a.w);while(s>LIMIT&&it.length>1){const m=it.shift();s=r1(s-A(m));moves.push({a:m,from:c})}});
+    const hv=sel.filter(a=>a.c==='new'), need=moves.length+hv.length, swap=need>FREE, mainTrip=total>ct;
+    const rec=[30,40,50,60].find(x=>x>=total)||0;
+    let lo=0,hi=0;
+    moves.forEach(()=>{lo+=swap?12000:18000;hi+=swap?18000:28000});
+    hv.forEach(a=>{lo+=a.cost[0];hi+=a.cost[1]});
+    if(swap){lo+=80000;hi+=140000}
+    return{total,cir,moves,hv,need,swap,mainTrip,rec,lo,hi};
+  }
+  const df=$('#df'), kind=$('#kind'); let kindTouched=false;
+  kind.addEventListener('change',()=>{kindTouched=true;$('#kind-note').hidden=kind.value!=='leak'});
+  function render(){
+    const ct=+df.ct.value, sel=$$('input[name=ap]:checked').map(i=>AP.find(a=>a.id===i.value)), d=diag(sel,ct);
+    const trips=[]; if(d.mainTrip)trips.push('契約ブレーカー');
+    d.cir.forEach((c,i)=>{if(c.over)trips.push('分岐ブレーカー'+(i+1)+'('+c.n.replace('のコンセント','')+')')});
+    const v=$('#verdict'); v.classList.toggle('bad',trips.length>0);
+    v.textContent=trips.length?trips.join('と')+'が落ちます':'この使い方なら、どのブレーカーも落ちません';
+    /* 合計の棒 */
+    const max=Math.max(d.total,ct)*1.15;
+    $('#total').textContent=fa(d.total);
+    const fill=$('#gFill');fill.style.width=(d.total/max*100).toFixed(1)+'%';fill.classList.toggle('over',d.mainTrip);
+    $('#gMark').style.left=(ct/max*100).toFixed(1)+'%';
+    $('#gNote').textContent='点線が契約の'+ct+'A。'+(d.mainTrip?fa(d.total-ct)+'A超えています':'あと'+fa(ct-d.total)+'A');
+    /* 直し方 */
+    const fx=[];
+    d.moves.forEach(m=>fx.push(m.a.n+'を'+m.from.n.replace('のコンセント','')+'の回路から外し、専用回路を1本増やす'));
+    d.hv.forEach(a=>fx.push(a.n+'に200Vの専用回路を1本引く'));
+    if(d.mainTrip)fx.push(d.rec?'契約を'+ct+'Aから'+d.rec+'Aに上げる。電力会社への申し込みで、多くは工事なしで変わります':'合計が60Aを超えます。主開閉器契約への切り替えか、同時に使う家電の組み合わせを、分電盤を見てご提案します');
+    else if(ct>30&&d.total<=(ct-10)*.8)fx.push('契約を'+(ct-10)+'Aに下げても2割の余裕があります。基本料金が下がります');
+    else if(d.total>ct*.8)fx.push('契約まであと'+fa(ct-d.total)+'A。冬の暖房を足すと超えやすい状態です');
+    if(d.swap)fx.push('増やす専用回路が'+d.need+'本、分電盤の空きは1つ。回路の多い分電盤への交換が目安です(半日、停電3時間ほど)');
+    else if(d.need)fx.push('分電盤の空き(7番)で足ります');
+    if(!fx.length)fx.push('回路も契約も今のままで足ります。それでも落ちる時は、家電の故障か漏電を疑います');
+    $('#fixes').innerHTML=fx.map(t=>'<li>'+t+'</li>').join('');
+    $('#fCt').textContent=d.mainTrip?(d.rec?d.rec+'A':'60A超'):ct+'Aのまま';
+    $('#fNew').textContent=d.need+'本';
+    $('#fPanel').textContent=d.swap?'交換':(d.need?'空きを使う':'今のまま');
+    $('#fCost').textContent=d.hi?yen(d.lo)+'〜'+yen(d.hi):(d.mainTrip?'0円(申し込みのみ)':'0円');
+    /* 分電盤の図と回路の一覧 */
+    $('#mainA').textContent=ct+'A';
+    $('#bk-main').classList.toggle('trip',d.mainTrip);
+    d.cir.forEach(c=>$('#bk-'+c.k).classList.toggle('trip',c.over));
+    $('#circuits').innerHTML=d.cir.map((c,i)=>'<li'+(c.over?' class="over"':'')+'><span class="no">'+(i+1)+'</span><span>'+c.n+(c.over?' <span class="badge b-warn">落ちる</span>':'')+'</span><span class="v">'+(c.k==='free'?'空き':fa(c.s)+'A／20A')+'</span><span class="t" aria-hidden="true"><i style="width:'+Math.min(100,c.s/LIMIT*100).toFixed(1)+'%"></i></span></li>').join('');
+    /* 相談フォームへ */
+    $('#diagText').value='契約'+ct+'A／同時に使う家電: '+(sel.map(a=>a.n).join('、')||'なし')+'\n合計'+fa(d.total)+'A。'+(trips.length?trips.join('、')+'が落ちる見込み':'落ちない見込み')+'\n目安: 専用回路'+d.need+'本、契約'+(d.mainTrip?(d.rec?d.rec+'A':'60A超'):ct+'Aのまま')+(d.swap?'、分電盤の交換':'')+(d.hi?'、'+yen(d.lo)+'〜'+yen(d.hi):'');
+    if(!kindTouched)kind.value='breaker';
+  }
+  df.addEventListener('change',render);render();
+
+  /* 相談フォーム */
+  const f=$('#f'),msg=$('#msg');
+  msg.addEventListener('input',()=>$('#msg-count').textContent=msg.value.length+'／400字');
+  function setErr(el,text){const e=$('#'+el.id+'-err');el.setAttribute('aria-invalid',text?'true':'false');e.textContent=text;e.hidden=!text;return !text}
+  const checks={
+    nm:v=>v.trim()?'':'お名前を入れてください。',
+    ph:v=>{const d=v.replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248)).replace(/[\s\-ー－()（）]/g,'');if(!d)return '電話番号を入れてください。';return /^0\d{9,10}$/.test(d)?'':'0から始まる10桁か11桁の番号を入れてください。'},
+    bld:v=>v?'':'建物の種類を選んでください。'
+  };
+  Object.keys(checks).forEach(id=>{const el=$('#'+id);el.addEventListener(id==='bld'?'change':'blur',()=>setErr(el,checks[id](el.value)))});
+  f.addEventListener('submit',e=>{
+    e.preventDefault();let first=null;
+    Object.keys(checks).forEach(id=>{const el=$('#'+id);if(!setErr(el,checks[id](el.value))&&!first)first=el});
+    const done=$('#done');
+    if(first){done.hidden=true;first.focus();return}
+    done.hidden=false;
+  });
+})();
+</script>
+<script>
+/* ページ切り替え: URLの # で1ページ分だけ出す。JSが動かない時は全部縦に並ぶ */
+(()=>{
+  const de=document.documentElement, ALT='alt', NAV='#gnav';
+  const secs=[...document.querySelectorAll('[data-pg]')], order=[];
+  secs.forEach(s=>{if(!order.includes(s.dataset.pg))order.push(s.dataset.pg)});
+  const links=[...document.querySelectorAll(NAV+' a')];
+  const label=pg=>{const a=links.find(a=>a.getAttribute('href')==='#'+pg);return a?a.textContent.trim():pg};
+  /* 各ページの一番下に「トップへ」「次のページ」 */
+  order.forEach((pg,i)=>{
+    if(pg==='top')return;
+    const last=secs.filter(s=>s.dataset.pg===pg).pop(), box=last.querySelector('.in')||last, nx=order[i+1];
+    const n=document.createElement('nav');n.className='pager';n.setAttribute('aria-label','ページ送り');
+    n.innerHTML='<a class="pager-top" href="#top">トップへ</a>'+(nx?'<a class="pager-next" href="#'+nx+'"><small>次のページ</small><span>'+label(nx)+'</span></a>':'');
+    box.appendChild(n);
+  });
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  let first=true;
+  function show(){
+    let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch(e){}
+    const t=/^[\w-]+$/.test(id)&&document.getElementById(id), host=t&&t.closest('[data-pg]'), pg=host?host.dataset.pg:'top';
+    let prev=null;
+    secs.forEach(s=>{const on=s.dataset.pg===pg;s.classList.toggle('on',on);s.classList.remove('seam','pg-head');
+      if(on){if(prev&&prev.classList.contains(ALT)===s.classList.contains(ALT))s.classList.add('seam');prev=s}});
+    links.forEach(a=>{if(a.getAttribute('href')==='#'+pg)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    const head=secs.find(s=>s.dataset.pg===pg);head.classList.add('pg-head');
+    if(t&&host&&t!==head)t.scrollIntoView({block:'start'});
+    else{
+      window.scrollTo(0,0);
+      if(!first){const h=head.querySelector('h1,h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}}
+    }
+    first=false;
+  }
+  addEventListener('hashchange',show);
+  /* 今と同じ # を押した時も、そのページの頭(または目当ての場所)へ */
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&location.hash&&a.getAttribute('href')===location.hash){e.preventDefault();show()}});
+  show();
+})();
+</script>
+
+</body>
+</html>
