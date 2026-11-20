@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>ゆるり整体院</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap">
+<style>
+/* 方針: デスクワークで首腰が固まった30〜40代向けの個人整体院。くすんだ緑の静かな面、明朝の見出し+丸ゴシックの本文 */
+:root{
+  --bg:#e8eee9; --surface:#f6f9f6; --surface-2:#d9e3dc; --fg:#1d2822; --muted:#4c5a52; --line:#bfccc3;
+  --accent:#2c6250; --accent-fg:#ffffff; --accent-soft:#b7d1c3; --body-fill:#f6f9f6; --error:#a3352a;
+  --shadow:0 1px 2px rgb(29 40 34 / .06),0 6px 20px rgb(29 40 34 / .07);
+  --font-display:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --font-body:"Zen Maru Gothic","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+  --r:8px; --r-sm:4px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#131916; --surface:#1a221d; --surface-2:#243029; --fg:#e3ebe5; --muted:#a8b6ad; --line:#36463c;
+  --accent:#8fc8aa; --accent-fg:#0f1f18; --accent-soft:#2e4b3e; --body-fill:#24302a; --error:#f0a397;
+  --shadow:0 1px 2px rgb(0 0 0 / .3),0 6px 20px rgb(0 0 0 / .25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#131916; --surface:#1a221d; --surface-2:#243029; --fg:#e3ebe5; --muted:#a8b6ad; --line:#36463c;
+  --accent:#8fc8aa; --accent-fg:#0f1f18; --accent-soft:#2e4b3e; --body-fill:#24302a; --error:#f0a397;
+  --shadow:0 1px 2px rgb(0 0 0 / .3),0 6px 20px rgb(0 0 0 / .25); color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.85;overflow-wrap:anywhere}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;letter-spacing:.02em;line-height:1.45;margin:0;text-wrap:balance}
+p,ul,ol,dl,dd,figure{margin:0}
+a{color:var(--accent)}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.in{max-width:1080px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.prose{max-width:40em}
+.ph{display:inline-block}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+section{scroll-margin-top:72px}
+section>.in{padding-block:var(--s7)}
+section h2{font-size:clamp(22px,2.8vw,30px)}
+.sub{margin-top:var(--s2);color:var(--muted);max-width:40em}
+.band{background:var(--surface)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:48px;padding:12px 28px;border:0;border-radius:var(--r);background:var(--accent);color:var(--accent-fg);font:inherit;font-weight:700;text-decoration:none;cursor:pointer;white-space:nowrap;transition:filter .2s,transform .2s}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:translateY(1px)}
+
+/* ヘッダー */
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.hd .in{display:flex;align-items:center;gap:var(--s4);min-height:64px}
+.logo{font-family:var(--font-display);font-size:21px;letter-spacing:.08em;text-decoration:none;color:var(--fg);line-height:1.2;margin-right:auto}
+.logo small{display:block;font-family:var(--font-body);font-size:11px;letter-spacing:.04em;color:var(--muted)}
+.nav ul{list-style:none;padding:0;display:flex;gap:var(--s4)}
+.nav a{color:var(--fg);text-decoration:none;font-size:15px;padding-block:var(--s1);border-bottom:2px solid transparent;transition:border-color .2s}
+.nav a:hover{border-color:var(--accent)}
+.hd-tel{color:var(--fg);text-decoration:none;font-weight:700;font-size:18px;line-height:1.2;text-align:right}
+.hd-tel small{display:block;font-weight:400;font-size:11px;color:var(--muted)}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:var(--fg);cursor:pointer;padding:0;place-items:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:2px;background:currentColor;position:relative;transition:transform .2s,background .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-btn[aria-expanded="true"] span{background:transparent}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* ファーストビュー */
+.hero .in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--s6);align-items:center;padding-block:var(--s6) var(--s7)}
+.eyebrow{font-size:14px;color:var(--muted);margin-bottom:var(--s3)}
+.hero h1{font-size:clamp(25px,3.9vw,42px)}
+.lead{margin-top:var(--s4);max-width:30em}
+.hero-act{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3) var(--s4);margin-top:var(--s5)}
+.hero-tel{color:var(--fg);font-weight:700;font-size:20px;text-decoration:none}
+.hero-tel small{font-weight:400;font-size:13px;color:var(--muted);margin-right:var(--s2)}
+.hero-fig{width:100%;max-width:400px;height:auto;justify-self:center}
+
+/* 体の図 */
+.map{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:var(--s5);margin-top:var(--s5);align-items:start}
+.figs{display:flex;justify-content:center;gap:var(--s4)}
+.figs figure{flex:0 1 170px;text-align:center}
+.figs svg{width:100%;height:auto;display:block;cursor:pointer}
+.figs figcaption{font-size:14px;color:var(--muted)}
+.sil-o{fill:none;stroke:var(--line);stroke-linecap:round;stroke-linejoin:round}
+.sil-f{fill:none;stroke:var(--body-fill);stroke-linecap:round;stroke-linejoin:round}
+.trunk{fill:var(--body-fill);stroke:var(--line);stroke-width:1.5}
+.guide{fill:none;stroke:var(--line);stroke-width:1.5;stroke-linecap:round}
+.hs{fill:var(--accent);fill-opacity:0;stroke:var(--accent);stroke-opacity:0;stroke-width:2;transition:fill-opacity .2s,stroke-opacity .2s}
+.hs:hover{fill-opacity:.22}
+.hs.on{fill-opacity:.5;stroke-opacity:1}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4);justify-content:center}
+.chip{min-height:44px;min-width:64px;padding:8px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:var(--fg);font:inherit;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);font-weight:700}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s5);box-shadow:var(--shadow)}
+.panel h3{font-size:24px;display:flex;align-items:baseline;gap:var(--s3)}
+.panel h3 small{font-family:var(--font-body);font-size:13px;font-weight:400;color:var(--muted)}
+.panel dl{margin-top:var(--s3)}
+.panel dt{font-weight:700;font-size:14px;color:var(--accent);margin-top:var(--s4)}
+.panel dd{margin-top:var(--s1);max-width:40em}
+.ex{margin-top:var(--s2);padding:var(--s3);background:var(--bg);border-radius:var(--r-sm)}
+.ex b{display:block}
+.ex ol{padding-left:1.4em;margin-top:var(--s1)}
+
+/* 1回の流れ */
+.flow{margin-top:var(--s5);display:grid;gap:var(--s4)}
+.flow-row{display:grid;grid-template-columns:7em minmax(0,1fr);gap:var(--s3);align-items:center}
+.flow-row>b{font-size:15px}
+.bar{display:grid;height:52px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.bar span{display:flex;align-items:center;padding-inline:var(--s3);font-size:14px;white-space:nowrap;overflow:hidden}
+.seg-talk{background:var(--surface-2)}
+.seg-work{background:var(--accent);color:var(--accent-fg);font-weight:700}
+.seg-ex{background:var(--accent-soft)}
+.ticks{display:grid;font-size:12px;color:var(--muted);margin-top:var(--s1)}
+.ticks span:last-child{text-align:right}
+.flow-steps{list-style:none;padding:0;margin-top:var(--s5);display:grid;gap:var(--s4);max-width:44em}
+.flow-steps li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:var(--s3)}
+.flow-steps li::before{content:"";width:16px;height:16px;border-radius:var(--r-sm);margin-top:6px;border:1px solid var(--line)}
+.flow-steps li:nth-child(1)::before{background:var(--surface-2)}
+.flow-steps li:nth-child(2)::before{background:var(--accent)}
+.flow-steps li:nth-child(3)::before{background:var(--accent-soft)}
+.flow-steps b{display:block}
+
+/* 院長と院内 */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s6);margin-top:var(--s5);align-items:start}
+.about h3{font-size:20px;margin-bottom:var(--s3)}
+.career{list-style:none;padding:0;margin-top:var(--s4);border-top:1px solid var(--line)}
+.career li{display:grid;grid-template-columns:5em minmax(0,1fr);gap:var(--s3);padding-block:var(--s2);border-bottom:1px solid var(--line);font-size:15px}
+.career time{color:var(--muted)}
+.why{margin-top:var(--s5)}
+.why p+p{margin-top:var(--s3)}
+.plan-fig{background:var(--bg);border-radius:var(--r);padding:var(--s4)}
+.plan-fig svg{width:100%;height:auto;display:block}
+.plan-fig figcaption{font-size:14px;color:var(--muted);margin-top:var(--s3)}
+.fp-wall{fill:none;stroke:var(--fg);stroke-width:3;stroke-linecap:square}
+.fp-room{fill:var(--surface)}
+.fp-room2{fill:var(--surface-2)}
+.fp-thing{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+.fp-dash{fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:5 4}
+.fp-t{fill:var(--fg);font-family:var(--font-body);font-size:14px}
+.fp-s{fill:var(--muted);font-family:var(--font-body);font-size:12px}
+
+/* 声 */
+.voices{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--s4);margin-top:var(--s5)}
+.voice{background:var(--surface);border-radius:var(--r);padding:var(--s4) var(--s5);border-left:4px solid var(--accent)}
+.voice.big{grid-row:span 2;padding:var(--s5)}
+.voice.big blockquote{font-family:var(--font-display);font-size:18px;line-height:2}
+.voice blockquote{margin:0}
+.voice figcaption{margin-top:var(--s3);font-size:14px;color:var(--muted)}
+.voices-note{margin-top:var(--s3);font-size:13px;color:var(--muted)}
+
+/* 料金 */
+.fees{margin-top:var(--s5);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s6);align-items:start}
+.fee-list{border-top:2px solid var(--fg)}
+.fee{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s1) var(--s3);padding-block:var(--s4);border-bottom:1px solid var(--line);align-items:baseline}
+.fee h3{font-size:18px}
+.fee .yen{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;line-height:1.2}
+.fee .yen small{font-size:14px;font-weight:400;color:var(--muted)}
+.fee p:not(.yen){grid-column:1/-1;font-size:14px;color:var(--muted)}
+.fee.main .yen{color:var(--accent)}
+.fee-note{margin-top:var(--s3);font-size:14px;color:var(--muted)}
+.interval h3{font-size:20px}
+.weeks{margin-top:var(--s4);display:grid;grid-template-columns:repeat(15,minmax(0,1fr));align-items:end}
+.wk{height:36px;border-bottom:2px solid var(--line);position:relative}
+.wk::after{content:"";position:absolute;left:0;bottom:-6px;width:1px;height:10px;background:var(--line)}
+.wk.v::before{content:"";position:absolute;z-index:1;left:-7px;bottom:-9px;width:16px;height:16px;border-radius:50%;background:var(--accent);border:3px solid var(--surface)}
+.wk-lab{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));margin-top:var(--s3);font-size:13px;color:var(--muted)}
+.wk-lab span:first-child{grid-column:1/5;border-top:3px solid var(--accent);padding-top:var(--s1);margin-right:var(--s1)}
+.wk-lab span:last-child{grid-column:5/16;border-top:3px solid var(--accent-soft);padding-top:var(--s1)}
+.interval p{margin-top:var(--s4);font-size:15px}
+
+/* よくある質問 */
+.faq{margin-top:var(--s5);max-width:48em;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:var(--s3) 40px var(--s3) 0;position:relative;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:12px;top:50%;width:10px;height:10px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq details p{padding-bottom:var(--s4);max-width:40em}
+
+/* 空き表 */
+.tabs{display:flex;gap:var(--s2);margin-top:var(--s5);flex-wrap:wrap}
+.tab{min-height:44px;padding:8px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:var(--fg);font:inherit;cursor:pointer;transition:background .2s,color .2s}
+.tab[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:700}
+.tbl{margin-top:var(--s3);border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.tbl table{border-collapse:collapse;table-layout:fixed;width:100%;text-align:center;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{padding:4px 3px;border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+.tbl tr>:first-child{border-left:0}
+.tbl tbody tr:last-child>*{border-bottom:0}
+.tbl thead th{font-weight:500;font-size:14px;line-height:1.3;padding-block:var(--s2);background:var(--surface-2)}
+.tbl thead th small{display:block;font-size:12px;color:var(--muted)}
+.tbl thead th.sat{color:var(--accent)}
+.tbl tbody th{font-weight:500;font-size:14px;white-space:nowrap;padding-inline:var(--s1)}
+.tbl thead th:first-child{width:4.2em}
+.slot{width:100%;min-height:40px;border:1px solid transparent;border-radius:var(--r-sm);background:transparent;color:var(--accent);font:inherit;font-weight:700;font-size:18px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.slot.tri{color:var(--fg);font-weight:500}
+.slot:hover{border-color:var(--accent)}
+.slot[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg)}
+.full{color:var(--muted)}
+.off{color:var(--muted);background:var(--bg);font-size:13px}
+/* 日ごとの一覧(スマホ用)。PCでは表を出す */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.days{display:none}
+.day{padding:var(--s3);border-bottom:1px solid var(--line)}
+.day:last-child{border-bottom:0}
+.day-h{font-size:16px;font-weight:700;font-family:var(--font-body);margin:0 0 var(--s2)}
+.day-h.sat{color:var(--accent)}
+.day-slots{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(5.5em,1fr));gap:var(--s2)}
+.day-slots .slot,.day-slots .x{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;font-size:15px;border-radius:var(--r-sm)}
+.day-slots .slot{border-color:var(--line)}
+.day-slots .slot b{font-size:18px}
+.day-slots .x{color:var(--muted);background:var(--bg)}
+.day-off{color:var(--muted);font-size:14px}
+.legend{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s4);margin-top:var(--s3);font-size:14px;color:var(--muted)}
+.legend b{color:var(--accent);margin-right:var(--s1)}
+.picked{margin-top:var(--s3);min-height:1.85em;font-weight:500}
+
+/* 予約フォーム */
+.reserve-box{margin-top:var(--s6);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s5)}
+.reserve-box h3{font-size:22px}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4) var(--s4);margin-top:var(--s4)}
+.f-wide{grid-column:1/-1}
+.f label,.f legend{display:block;font-size:14px;font-weight:700;margin-bottom:var(--s1);padding:0}
+.req,.opt{font-size:12px;font-weight:400;margin-left:var(--s2);color:var(--muted)}
+.req{color:var(--error)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+input[type=text],input[type=tel],input[type=email],select,textarea{width:100%;min-height:48px;padding:10px 12px;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:var(--r-sm);transition:border-color .2s}
+textarea{min-height:110px;resize:vertical}
+input:hover,select:hover,textarea:hover{border-color:var(--muted)}
+[aria-invalid="true"]{border-color:var(--error)!important;border-width:2px!important}
+.opts{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4)}
+.opts label{display:inline-flex;align-items:center;gap:var(--s2);font-weight:400;font-size:15px;margin:0;min-height:40px;cursor:pointer}
+.opts input{width:20px;height:20px;accent-color:var(--accent);margin:0}
+.hint{font-size:13px;color:var(--muted);margin-top:var(--s1)}
+.err{font-size:14px;color:var(--error);margin-top:var(--s1);font-weight:500}
+.err:empty{display:none}
+.submit-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3) var(--s4)}
+.done{padding:var(--s3);border-radius:var(--r-sm);background:var(--accent-soft);color:var(--fg);font-weight:700}
+
+/* 場所 */
+.access{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:var(--s6);margin-top:var(--s5);align-items:start}
+.route{background:var(--surface);border-radius:var(--r);padding:var(--s3)}
+.route svg{width:100%;height:auto;display:block}
+.rt-road{fill:none;stroke:var(--surface-2);stroke-width:22;stroke-linecap:square}
+.rt-road2{fill:none;stroke:var(--surface-2);stroke-width:12}
+.rt-path{fill:none;stroke:var(--accent);stroke-width:4;stroke-dasharray:9 6;stroke-linecap:round;stroke-linejoin:round}
+.rt-blk{fill:var(--bg);stroke:var(--line);stroke-width:1.5}
+.rt-st{fill:var(--fg)}
+.rt-st-t{fill:var(--bg);font-family:var(--font-body);font-size:14px;font-weight:700}
+.rt-goal{fill:var(--accent)}
+.rt-goal-t{fill:var(--accent-fg);font-family:var(--font-body);font-size:13px;font-weight:700}
+.rt-mk{fill:var(--surface);stroke:var(--accent);stroke-width:2.5}
+.rt-mk-t{fill:var(--accent);font-family:var(--font-body);font-size:13px;font-weight:700}
+.rt-t{fill:var(--fg);font-family:var(--font-body);font-size:13px}
+.rt-s{fill:var(--muted);font-family:var(--font-body);font-size:12px}
+.steps{padding-left:1.4em;margin-top:var(--s4);display:grid;gap:var(--s2)}
+.info{display:grid;grid-template-columns:6em minmax(0,1fr);border-top:1px solid var(--line)}
+.info dt,.info dd{padding-block:var(--s3);border-bottom:1px solid var(--line)}
+.info dt{color:var(--muted);font-size:14px}
+
+/* フッター・スマホ下部バー */
+.ft{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.ft .in{padding-block:var(--s5);display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2) var(--s4)}
+.ft b{font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--fg)}
+.sp-bar{display:none}
+
+@media (max-width:900px){
+  .menu-btn{display:grid}
+  .hd-tel{display:none}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column;gap:0;padding:var(--s2) max(16px,env(safe-area-inset-right,0px)) var(--s3) max(16px,env(safe-area-inset-left,0px))}
+  .nav a{display:block;padding-block:12px;border-bottom:1px solid var(--line);font-size:16px}
+  .nav li:last-child a{border-bottom:0}
+  .map,.about,.fees,.access{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  section>.in{padding-block:var(--s6)}
+  .hero .in{grid-template-columns:minmax(0,1fr);gap:var(--s4);padding-block:var(--s5) var(--s6)}
+  .hero-fig{max-width:300px}
+  .lead{margin-top:var(--s3)}
+  .hero-act{margin-top:var(--s4)}
+  .figs figure{flex-basis:140px}
+  .panel{padding:var(--s4)}
+  .flow-row{grid-template-columns:minmax(0,1fr);gap:var(--s1)}
+  .bar span{padding-inline:var(--s2);font-size:13px}
+  .voices{grid-template-columns:minmax(0,1fr)}
+  .voice.big{grid-row:auto}
+  .voice,.voice.big{padding:var(--s4)}
+  .reserve-box{padding:var(--s4) var(--s3)}
+  form{grid-template-columns:minmax(0,1fr)}
+  /* 見取り図: 幅に縮むぶん図の中の字を大きく */
+  .plan-fig,.route{margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));border-radius:0}
+  .plan-fig{padding:var(--s3) 0}
+  .plan-fig figcaption{padding-inline:var(--s3)}
+  .fp-t{font-size:18px}
+  .fp-s{font-size:15px}
+  .fp-dn{transform:translateY(10px)}
+  .route{padding:var(--s2) 0}
+  .rt-s,.rt-t,.rt-mk-t,.rt-goal-t,.rt-st-t{font-size:15px}
+  .route text[style]{font-size:15px!important}
+  .tbl table{display:none}
+  .days{display:block}
+  .sp-bar{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s2);position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--bg);border-top:1px solid var(--line);padding:var(--s2) max(12px,env(safe-area-inset-right,0px)) calc(var(--s2) + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+  .sp-bar a{min-height:52px;line-height:1.25;flex-direction:column;gap:0;padding:6px 8px;font-size:15px}
+  .sp-bar a small{font-weight:400;font-size:12px}
+  .sp-bar .ghost{background:var(--surface);color:var(--accent);border:1px solid var(--accent)}
+  .ft .in{padding-bottom:calc(var(--s5) + 76px + env(safe-area-inset-bottom,0px))}
+}
+/* 実在の店と取り違えないための表示(文字はmutedで4.5:1以上) */
+.mihon{margin:0;padding:2px 16px;background:var(--surface-2);color:var(--muted);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.12em;text-align:center}
+html{scroll-padding-top:100px}
+/* ページ切り替え(JSが付ける js-pages の時だけ、1ページ分を出す) */
+html.js-pages{scroll-behavior:auto}
+.js-pages [data-pg]:not(.on){display:none}
+.js-pages .seam{border-top:1px solid var(--line)}
+[data-pg] :is(h1,h2)[tabindex="-1"]:focus{outline:none}
+.nav a[aria-current="page"]{border-color:var(--accent);font-weight:700}
+@media (max-width:900px){.nav a[aria-current="page"]{color:var(--accent);border-color:var(--line)}}
+.js-pages section.pg-head>.in{padding-top:var(--s6)}
+.js-pages .hero .in{padding-bottom:var(--s5)}
+.entry>.in{padding-block:0}
+/* トップの入口 */
+.entry{padding-block:var(--s5)}
+.entry h2{font-size:clamp(19px,2.2vw,22px);margin-bottom:var(--s3)}
+.entry ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s5);border-top:1px solid var(--line)}
+.entry li{border-bottom:1px solid var(--line)}
+.entry li:last-child:nth-child(odd){grid-column:1/-1}
+.entry a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s3);align-items:center;padding-block:14px;color:var(--fg);text-decoration:none}
+.entry b{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.4}
+.entry span{grid-column:1;color:var(--muted);font-size:14px;line-height:1.6}
+.entry a::after{content:"→";grid-column:2;grid-row:1/3;color:var(--accent);font-size:18px}
+.entry a:hover b{color:var(--accent)}
+@media (max-width:759px){.entry ul{grid-template-columns:minmax(0,1fr)}}
+/* 各ページの一番下 */
+.pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3);margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--line)}
+.pager a{text-decoration:none;min-height:48px;display:flex;flex-direction:column;justify-content:center}
+.pager-top{color:var(--fg);font-size:15px;text-decoration:underline!important;text-underline-offset:3px}
+.pager-next{margin-left:auto;text-align:right;color:var(--fg)}
+.pager-next small{font-size:13px;color:var(--muted);line-height:1.4}
+.pager-next span{font-family:var(--font-display);font-size:20px;font-weight:700;line-height:1.4;color:var(--accent)}
+.pager-next span::after{content:" →"}
+.pager-next:hover span{text-decoration:underline;text-underline-offset:4px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js-pages")</script>
+
+<header class="hd"><p class="mihon">制作見本</p><div class="in">
+  <a class="logo" href="#top">ゆるり整体院<small>福岡市 楓町</small></a>
+  <nav class="nav" id="nav" aria-label="ページの案内">
+    <ul>
+      <li><a href="#karada">つらい場所</a></li>
+      <li><a href="#inchou">院長と院内</a></li>
+      <li><a href="#ryoukin">料金</a></li>
+      <li><a href="#aki">空きと予約</a></li>
+      <li><a href="#basho">場所</a></li>
+    </ul>
+  </nav>
+  <a class="hd-tel num" href="tel:0920000000"><small>完全予約制 お電話でも</small>092-000-0000</a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="メニューを開く"><span></span></button>
+</div></header>
+
+<main id="top">
+<div class="hero" data-pg="top"><div class="in">
+  <div>
+    <p class="eyebrow">楓町駅から歩いて4分 / 完全予約制</p>
+    <h1>座りっぱなしの首と腰を、<br>60分かけてほどきます。</h1>
+    <p class="lead">ボキッと鳴らすやり方はしません。デスクワークで固まった背中まわりを、手で押さえながらゆっくり動かします。平日は20時の枠まで受け付けています。</p>
+    <div class="hero-act">
+      <a class="btn" href="#aki">空きを見る</a>
+      <a class="hero-tel num" href="tel:0920000000"><small>電話</small>092-000-0000</a>
+    </div>
+  </div>
+  <svg class="hero-fig" viewBox="0 0 320 250" role="img" aria-label="机に向かって前かがみに座り、首と肩が前に出ている人の線画">
+    <circle cx="150" cy="128" r="104" fill="var(--surface)"/>
+    <circle cx="121" cy="92" r="22" fill="var(--accent)" fill-opacity=".22"/>
+    <g fill="none" stroke="var(--muted)" stroke-width="4" stroke-linecap="round">
+      <path d="M36 236H296"/>
+      <path d="M44 96V182M44 178H118M56 182L50 234M108 182L114 234"/>
+      <path d="M176 142H300M286 146V234"/>
+    </g>
+    <g fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M200 140H262M258 140L276 92"/>
+    </g>
+    <g fill="none" stroke="var(--fg)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M92 168Q74 132 112 100L128 90"/>
+      <path d="M92 170H150V230L170 232"/>
+      <path d="M114 104L142 140L206 136"/>
+    </g>
+    <circle cx="142" cy="74" r="18" fill="var(--surface)" stroke="var(--fg)" stroke-width="5"/>
+  </svg>
+</div></div>
+
+<section class="entry band" data-pg="top" aria-labelledby="entry-h"><div class="in">
+  <h2 id="entry-h">見たいところから</h2>
+  <ul>
+    <li><a href="#karada"><b>つらい場所</b><span>体の図でつらい場所を押すと、施術と家でできる体操が出ます。1回の流れも</span></a></li>
+    <li><a href="#inchou"><b>院長と院内</b><span>院長のことと院内の見取り図、来られた方の声</span></a></li>
+    <li><a href="#ryoukin"><b>料金</b><span>料金と通う間隔、よくある質問</span></a></li>
+    <li><a href="#aki"><b>空きと予約</b><span>2週間分の空きを見て、そのまま予約できます</span></a></li>
+    <li><a href="#basho"><b>場所</b><span>楓町駅から歩いて4分の道順</span></a></li>
+  </ul>
+</div></section>
+
+<section id="karada" data-pg="karada" class="band"><div class="in">
+  <h2><span class="ph">どこがつらいか、</span><span class="ph">体の図で押してみてください</span></h2>
+  <p class="sub">押した場所に多いお悩みと、院でやること、家でできる体操をひとつ出します。</p>
+  <div class="map">
+    <div>
+      <div class="figs">
+        <figure>
+          <svg viewBox="0 0 160 360" role="img" aria-label="体の前側の図">
+            <use href="#sil"/>
+            <path class="guide" d="M58 84Q68 88 77 84M83 84Q92 88 102 84"/>
+            <rect class="hs" data-area="neck" x="68" y="48" width="24" height="26" rx="10"/>
+            <ellipse class="hs" data-area="shoulder" cx="54" cy="82" rx="17" ry="11"/>
+            <ellipse class="hs" data-area="shoulder" cx="106" cy="82" rx="17" ry="11"/>
+            <rect class="hs" data-area="pelvis" x="46" y="184" width="68" height="34" rx="12"/>
+            <ellipse class="hs" data-area="leg" cx="62" cy="250" rx="14" ry="34"/>
+            <ellipse class="hs" data-area="leg" cx="98" cy="250" rx="14" ry="34"/>
+          </svg>
+          <figcaption>前</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 160 360" role="img" aria-label="体の後ろ側の図">
+            <use href="#sil"/>
+            <path class="guide" d="M80 76V192" stroke-dasharray="4 4"/>
+            <path class="guide" d="M60 98Q58 116 68 126M100 98Q102 116 92 126"/>
+            <rect class="hs" data-area="neck" x="68" y="48" width="24" height="26" rx="10"/>
+            <ellipse class="hs" data-area="shoulder" cx="54" cy="82" rx="17" ry="11"/>
+            <ellipse class="hs" data-area="shoulder" cx="106" cy="82" rx="17" ry="11"/>
+            <rect class="hs" data-area="back" x="54" y="94" width="52" height="52" rx="12"/>
+            <rect class="hs" data-area="waist" x="52" y="148" width="56" height="32" rx="12"/>
+            <rect class="hs" data-area="pelvis" x="46" y="184" width="68" height="34" rx="12"/>
+            <ellipse class="hs" data-area="leg" cx="60" cy="302" rx="12" ry="30"/>
+            <ellipse class="hs" data-area="leg" cx="100" cy="302" rx="12" ry="30"/>
+          </svg>
+          <figcaption>後ろ</figcaption>
+        </figure>
+      </div>
+      <div class="chips" role="group" aria-label="場所を選ぶ">
+        <button class="chip" type="button" data-area="neck">首</button>
+        <button class="chip" type="button" data-area="shoulder">肩</button>
+        <button class="chip" type="button" data-area="back">背中</button>
+        <button class="chip" type="button" data-area="waist">腰</button>
+        <button class="chip" type="button" data-area="pelvis">骨盤</button>
+        <button class="chip" type="button" data-area="leg">脚</button>
+      </div>
+    </div>
+    <div class="panel" id="panel" aria-live="polite"></div>
+  </div>
+</div></section>
+
+<section id="nagare" data-pg="karada"><div class="in">
+  <h2>1回の流れ</h2>
+  <p class="sub">施術の時間だけでなく、前後の話と体操までが1回分です。初回はお話を長めにうかがいます。</p>
+  <div class="flow">
+    <div class="flow-row">
+      <b>2回目から 60分</b>
+      <div>
+        <div class="bar" style="grid-template-columns:15fr 40fr 5fr" aria-hidden="true"><span class="seg-talk">お話 15分</span><span class="seg-work">施術 40分</span><span class="seg-ex"></span></div>
+        <div class="ticks num" style="grid-template-columns:15fr 40fr 5fr" aria-hidden="true"><span>0分</span><span>15分</span><span>60分</span></div>
+      </div>
+    </div>
+    <div class="flow-row">
+      <b>初回 75分</b>
+      <div>
+        <div class="bar" style="grid-template-columns:30fr 40fr 5fr" aria-hidden="true"><span class="seg-talk">お話と姿勢の確認 30分</span><span class="seg-work">施術 40分</span><span class="seg-ex"></span></div>
+        <div class="ticks num" style="grid-template-columns:30fr 40fr 5fr" aria-hidden="true"><span>0分</span><span>30分</span><span>75分</span></div>
+      </div>
+    </div>
+  </div>
+  <ol class="flow-steps">
+    <li><div><b>お話 15分(初回は30分)</b>ふだん何時間座っているか、机といすの高さ、つらくなる時間帯をうかがいます。立った姿と座った姿も見せてもらいます。</div></li>
+    <li><div><b>施術 40分</b>うつ伏せと横向きで、押さえる、ゆっくり動かすを繰り返します。強さはその都度たずねます。</div></li>
+    <li><div><b>体操 5分</b>最後に、会社のいすでできる体操をひとつだけ一緒にやります。覚えきれる数にしています。</div></li>
+  </ol>
+</div></section>
+
+<section id="inchou" data-pg="inchou" class="band"><div class="in">
+  <h2>院長と院内のこと</h2>
+  <div class="about">
+    <div>
+      <h3>院長 森下 遼平(もりした りょうへい)</h3>
+      <p class="prose">県北の港町の生まれです。学生のころラグビーで腰を痛め、通った整体院で体の動かし方を教わったのがこの仕事に就いたきっかけでした。</p>
+      <ol class="career">
+        <li><time>2010年</time><span>福岡市内の整体の専門学校を卒業</span></li>
+        <li><time>2010年〜</time><span>繁華街の整体院に11年勤務。会社員の方の担当が多かった</span></li>
+        <li><time>2021年</time><span>楓町でゆるり整体院をひとりで開院</span></li>
+      </ol>
+      <div class="why">
+        <h3>なぜ、ボキッとしないのか</h3>
+        <p class="prose">勢いをつけて関節を鳴らすと、受ける側はどうしても身構えて、肩や背中に力が入ります。座りっぱなしで固まった体は、力を抜いてもらえたときにいちばんよく動きます。</p>
+        <p class="prose">だから手で押さえて、息を吐くのに合わせてゆっくり動かすやり方だけにしています。音は鳴りませんし、鳴らそうともしません。</p>
+      </div>
+    </div>
+    <figure class="plan-fig">
+      <svg viewBox="0 0 420 300" role="img" aria-label="院内の見取り図。入口を入ると待合、その奥に着替えスペース、右側が施術用の個室">
+        <rect class="fp-room2" x="12" y="12" width="156" height="128"/>
+        <rect class="fp-room" x="12" y="140" width="156" height="148"/>
+        <rect class="fp-room" x="168" y="12" width="240" height="276"/>
+        <path class="fp-wall" d="M12 12H408V288H112M60 288H12V12"/>
+        <path class="fp-wall" d="M168 12V176M168 236V288"/>
+        <path class="fp-dash" d="M14 140H166"/>
+        <path d="M398 70V150" stroke="var(--accent)" stroke-width="6"/>
+        <rect class="fp-thing" x="236" y="90" width="140" height="58" rx="8"/>
+        <rect class="fp-thing" x="350" y="98" width="20" height="42" rx="6"/>
+        <circle class="fp-thing" cx="214" cy="200" r="13"/>
+        <rect class="fp-thing" x="24" y="196" width="36" height="34" rx="6"/>
+        <rect class="fp-thing" x="24" y="238" width="36" height="34" rx="6"/>
+        <rect class="fp-thing" x="120" y="24" width="36" height="22" rx="4"/>
+        <rect class="fp-thing" x="24" y="24" width="56" height="12" rx="3"/>
+        <text class="fp-t" x="288" y="54" text-anchor="middle">施術室(個室)</text>
+        <text class="fp-s" x="306" y="176" text-anchor="middle">施術用ベッド</text>
+        <text class="fp-s" x="386" y="62" text-anchor="end">窓</text>
+        <text class="fp-s" x="234" y="205">荷物入れ</text>
+        <text class="fp-t fp-dn" x="90" y="84" text-anchor="middle">着替えスペース</text>
+        <text class="fp-s fp-dn" x="90" y="106" text-anchor="middle">カーテンで仕切り</text>
+        <text class="fp-s" x="52" y="54" text-anchor="middle">鏡</text>
+        <text class="fp-s" x="138" y="64" text-anchor="middle">着替え</text>
+        <text class="fp-t" x="112" y="210" text-anchor="middle">待合</text>
+        <text class="fp-s" x="112" y="232" text-anchor="middle">いす2つ</text>
+        <path d="M86 300V280M78 288L86 280L94 288" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <text class="fp-s" x="122" y="282">入口</text>
+      </svg>
+      <figcaption>ビル3階、約25平方メートルのひと部屋です。施術の間、ほかのお客さまと顔を合わせることはありません。</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section id="koe" data-pg="inchou"><div class="in">
+  <h2>来られた方の声</h2>
+  <p class="sub">感じ方には個人差があります。ご本人の了承を得て、言葉はそのまま載せています。</p>
+  <div class="voices">
+    <figure class="voice big">
+      <blockquote><p>月末の締めの週は、首が回らないのが毎月のことでした。最初に「何時間、どんな姿勢で座っていますか」と細かく聞かれて、家の机の高さの話までしたのは初めてです。帰りの階段で、肩が楽になった気がしました。</p></blockquote>
+      <figcaption>30代 / 経理の仕事をしている女性</figcaption>
+    </figure>
+    <figure class="voice">
+      <blockquote><p>ボキッとされるのが怖くて整体は避けていました。押さえてゆっくり動かすだけで、何度も「力を抜いていいですよ」と言ってもらえて、緊張せずに済みました。</p></blockquote>
+      <figcaption>40代 / システムエンジニアの男性</figcaption>
+    </figure>
+    <figure class="voice">
+      <blockquote><p>仕事のあと19時に予約できるのが助かっています。個室なので人の目も気になりません。今は3週間に1回くらいです。</p></blockquote>
+      <figcaption>20代 / デザイン会社勤務の女性</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section id="ryoukin" data-pg="ryoukin" class="band"><div class="in">
+  <h2>料金と通う間隔</h2>
+  <p class="sub">金額はすべて税込です。回数券はありません。1回ずつのお支払いです。</p>
+  <div class="fees">
+    <div>
+      <div class="fee-list">
+        <div class="fee main"><h3>はじめての方</h3><p class="yen">5,500<small>円 / 75分</small></p><p>お話と姿勢の確認を長めに取るため、初回だけ15分長くなります。</p></div>
+        <div class="fee main"><h3>2回目から</h3><p class="yen">4,950<small>円 / 60分</small></p><p>前回からの変化をうかがってから始めます。</p></div>
+        <div class="fee"><h3>延長</h3><p class="yen">1,100<small>円 / 15分</small></p><p>次の枠が空いている時だけ、当日その場で決められます。</p></div>
+        <div class="fee"><h3>学生の方</h3><p class="yen">550<small>円引き</small></p><p>学生証を見せていただくと、各回から550円引きます。</p></div>
+      </div>
+      <p class="fee-note">お支払いは現金、クレジットカード、QRコード決済が使えます。</p>
+    </div>
+    <div class="interval">
+      <h3>通う間隔の目安</h3>
+      <div class="weeks" aria-hidden="true">
+        <span class="wk v"></span><span class="wk v"></span><span class="wk"></span><span class="wk v"></span><span class="wk"></span><span class="wk"></span><span class="wk v"></span><span class="wk"></span><span class="wk"></span><span class="wk"></span><span class="wk v"></span><span class="wk"></span><span class="wk"></span><span class="wk"></span><span class="wk v"></span>
+      </div>
+      <div class="wk-lab" aria-hidden="true"><span>はじめの3回</span><span>その後</span></div>
+      <p>はじめの3回は、1〜2週あけて来ていただくのが目安です。体が前の状態に戻る前に次を重ねるためです。</p>
+      <p>そのあとは3〜4週に1回くらいで様子を見ます。忙しい時期だけ間を詰める方もいます。いつまで通うかはご自身で決めてください。</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="shitsumon" data-pg="ryoukin"><div class="in">
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details><summary>どんな服装で行けばいいですか</summary><p>仕事帰りの服のままで大丈夫です。上下の着替えを用意しているので、スカートやスーツの方は着替えスペースでお着替えください。</p></details>
+    <details><summary>痛くないですか</summary><p>押す強さは施術の途中でも何度かおたずねします。「もう少し弱く」は遠慮なく言ってください。関節を鳴らすやり方はしません。</p></details>
+    <details><summary>生理中でも受けられますか</summary><p>受けられます。うつ伏せがつらければ、横向きと仰向けだけで組み立てます。体調がすぐれない日は、当日のご連絡で日を変えても料金はかかりません。</p></details>
+    <details><summary>妊娠中でも受けられますか</summary><p>申し訳ありませんが、妊娠中の方の施術はお受けしていません。産後は体調が落ち着いてから、お電話でご相談ください。</p></details>
+    <details><summary>病院に通っていても大丈夫ですか</summary><p>通院中の方は、主治医の方に整体を受けてよいか確かめてからお越しください。強い痛みやしびれがある時は、先に医療機関へかかることをおすすめしています。</p></details>
+    <details><summary>健康保険は使えますか</summary><p>使えません。料金はすべて自費で、上に載せた金額のとおりです。</p></details>
+    <details><summary>予約の変更やキャンセルはできますか</summary><p>前日までにお電話をください。当日のご連絡でもキャンセル料はいただいていませんが、次の方にその枠をお回しするため、わかった時点でご連絡いただけると助かります。</p></details>
+    <details><summary>駐車場はありますか</summary><p>院の駐車場はありません。近くのコインパーキングか、電車でお越しください。</p></details>
+  </div>
+</div></section>
+
+<section id="aki" data-pg="aki" class="band"><div class="in">
+  <h2>予約の空き</h2>
+  <p class="sub">○か△を押すと、下の予約フォームにその日時が入ります。施術者がひとりのため、1つの時間に1名さまです。</p>
+  <div class="tabs" role="tablist" aria-label="週を選ぶ">
+    <button class="tab" type="button" role="tab" id="tab0" aria-controls="wk0" aria-selected="true">今週 12/7〜12/13</button>
+    <button class="tab" type="button" role="tab" id="tab1" aria-controls="wk1" aria-selected="false" tabindex="-1">来週 12/14〜12/20</button>
+  </div>
+  <div id="weeks"></div>
+  <div class="legend"><span><b>○</b>空きあり</span><span><b>△</b>60分まで(初回の75分は入りません)</span><span>× 予約済み</span><span>休 お休み</span></div>
+  <p class="picked" id="picked" aria-live="polite"></p>
+
+  <div class="reserve-box" id="yoyaku">
+    <h3>予約のお申し込み</h3>
+    <p class="sub">いただいた内容を見て、院長からお電話で折り返し、そこで予約が決まります。</p>
+    <form id="f" novalidate>
+      <div class="f"><label for="fDate">ご希望の日<span class="req">必須</span></label><select id="fDate" aria-describedby="eDate"></select><p class="err" id="eDate"></p></div>
+      <div class="f"><label for="fTime">時間<span class="req">必須</span></label><select id="fTime" aria-describedby="eTime"></select><p class="err" id="eTime"></p></div>
+      <fieldset class="f f-wide" aria-describedby="eKind"><legend>ご来院は<span class="req">必須</span></legend>
+        <div class="opts"><label><input type="radio" name="kind" value="first">はじめて(75分)</label><label><input type="radio" name="kind" value="again">2回目以降(60分)</label></div>
+        <p class="err" id="eKind"></p></fieldset>
+      <div class="f"><label for="fName">お名前<span class="req">必須</span></label><input type="text" id="fName" autocomplete="name" aria-describedby="eName"><p class="err" id="eName"></p></div>
+      <div class="f"><label for="fTel">電話番号<span class="req">必須</span></label><input type="tel" id="fTel" autocomplete="tel" inputmode="tel" placeholder="例 090-1234-5678" aria-describedby="hTel eTel"><p class="hint" id="hTel">折り返しのお電話に使います。</p><p class="err" id="eTel"></p></div>
+      <div class="f f-wide"><label for="fMail">メールアドレス<span class="opt">任意</span></label><input type="email" id="fMail" autocomplete="email" aria-describedby="eMail"><p class="err" id="eMail"></p></div>
+      <fieldset class="f f-wide"><legend>気になる場所<span class="opt">任意 いくつでも</span></legend>
+        <div class="opts" id="fAreas"></div></fieldset>
+      <div class="f f-wide"><label for="fMemo">ひとこと<span class="opt">任意 400字まで</span></label><textarea id="fMemo" maxlength="400" aria-describedby="hMemo eMemo"></textarea><p class="hint" id="hMemo"><span id="memoCount">0</span> / 400字</p><p class="err" id="eMemo"></p></div>
+      <div class="f-wide submit-row"><button class="btn" type="submit">予約を申し込む</button><span class="hint">お急ぎの方はお電話で <a class="num" href="tel:0920000000">092-000-0000</a></span></div>
+      <p class="done f-wide" id="done" role="status" hidden>見本ページのため送信はされません。</p>
+    </form>
+  </div>
+</div></section>
+
+<section id="basho" data-pg="basho"><div class="in">
+  <h2>場所と道順</h2>
+  <p class="sub">楓町駅から歩いて4分、約300メートルです。</p>
+  <div class="access">
+    <div>
+      <div class="route">
+        <svg viewBox="0 0 420 300" role="img" aria-label="道順の図。楓町駅の東口を出て大通りを右へ、コンビニの角を左に曲がり、1階がパン屋のビルの3階">
+          <rect class="rt-blk" x="20" y="20" width="200" height="140" rx="6"/>
+          <rect class="rt-blk" x="300" y="20" width="100" height="140" rx="6"/>
+          <rect class="rt-blk" x="300" y="216" width="100" height="70" rx="6"/>
+          <path class="rt-road" d="M0 194H420"/>
+          <path class="rt-road2" d="M262 0V300"/>
+          <rect class="rt-st" x="24" y="222" width="130" height="56" rx="6"/>
+          <text class="rt-st-t" x="89" y="248" text-anchor="middle">楓町駅</text>
+          <text class="rt-st-t" x="89" y="268" text-anchor="middle" style="font-weight:400;font-size:12px">東口</text>
+          <rect x="216" y="208" width="30" height="24" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/>
+          <text class="rt-s" x="231" y="250" text-anchor="middle">コンビニ</text>
+          <rect class="rt-goal" x="282" y="56" width="110" height="52" rx="6"/>
+          <text class="rt-goal-t" x="337" y="78" text-anchor="middle">ゆるり整体院</text>
+          <text class="rt-goal-t" x="337" y="97" text-anchor="middle" style="font-weight:400;font-size:12px">ビル3階</text>
+          <path class="rt-path" d="M140 222V194H262V82H282"/>
+          <circle class="rt-mk" cx="160" cy="194" r="11"/><text class="rt-mk-t" x="160" y="199" text-anchor="middle">1</text>
+          <circle class="rt-mk" cx="262" cy="194" r="11"/><text class="rt-mk-t" x="262" y="199" text-anchor="middle">2</text>
+          <circle class="rt-mk" cx="262" cy="82" r="11"/><text class="rt-mk-t" x="262" y="87" text-anchor="middle">3</text>
+          <text class="rt-s" x="350" y="128" text-anchor="middle">1階はパン屋</text>
+          <g transform="translate(392 236)"><path d="M0 22V0M-6 8L0 0L6 8" fill="none" stroke="var(--muted)" stroke-width="2"/><text class="rt-s" x="0" y="38" text-anchor="middle">北</text></g>
+        </svg>
+      </div>
+      <ol class="steps">
+        <li>東口を出て、大通りを右へ2分ほど歩きます。</li>
+        <li>緑の看板のコンビニの角を左に曲がります。</li>
+        <li>1つ目の角の白いビル、1階がパン屋の3階です。</li>
+      </ol>
+    </div>
+    <dl class="info">
+      <dt>住所</dt><dd>福岡市 楓町2丁目 みどり坂ビル3階</dd>
+      <dt>受付時間</dt><dd>10時〜13時、15時〜21時<br><span class="muted">土曜は18時まで、日曜は午前のみ</span></dd>
+      <dt>定休日</dt><dd>水曜日</dd>
+      <dt>予約</dt><dd>完全予約制<br><a class="num" href="tel:0920000000">092-000-0000</a></dd>
+      <dt>駐車場</dt><dd>ありません。近くのコインパーキングをご利用ください</dd>
+    </dl>
+  </div>
+</div></section>
+</main>
+
+<footer class="ft"><div class="in">
+  <span><b>ゆるり整体院</b>  福岡市 楓町</span>
+  <span>掲載の院名・番号・料金は見本です</span>
+</div></footer>
+
+<div class="sp-bar">
+  <a class="btn" href="tel:0920000000">電話する<small class="num">092-000-0000</small></a>
+  <a class="btn ghost" href="#aki">空きを見る</a>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="sil" viewBox="0 0 160 360">
+    <g class="sil-o" stroke-width="18"><path d="M44 84L30 146L24 206M116 84L130 146L136 206"/></g>
+    <g class="sil-o" stroke-width="28"><path d="M64 206L60 284L58 340M96 206L100 284L102 340"/></g>
+    <g class="sil-f" stroke-width="15"><path d="M44 84L30 146L24 206M116 84L130 146L136 206"/></g>
+    <g class="sil-f" stroke-width="25"><path d="M64 206L60 284L58 340M96 206L100 284L102 340"/></g>
+    <rect class="trunk" x="71" y="48" width="18" height="26" rx="6"/>
+    <path class="trunk" d="M42 76Q80 64 118 76L122 96L112 150Q109 168 112 182L116 214Q80 224 44 214L48 182Q51 168 48 150L38 96Z"/>
+    <circle class="trunk" cx="80" cy="32" r="21"/>
+  </symbol>
+</svg>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* メニュー */
+const mb=$('#menuBtn'), nav=$('#nav');
+const setMenu=o=>{mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'メニューを閉じる':'メニューを開く');nav.classList.toggle('open',o)};
+mb.addEventListener('click',()=>setMenu(mb.getAttribute('aria-expanded')!=='true'));
+nav.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mb.getAttribute('aria-expanded')==='true'){setMenu(false);mb.focus()}});
+
+/* 体の図 */
+const AREAS={
+  neck:{name:'首',side:'前と後ろ',who:'ノートパソコンを低い机で使っていて、気づくとあごが前に出ている方。夕方になると首の付け根が重い、という話をよくうかがいます。',
+    act:'仰向けで頭を手のひらに預けてもらい、首の後ろを押さえながら左右へ小さく傾けます。首を急にひねることはしません。',
+    ex:['あご引き','背もたれから背中を離して座る','目線は正面のまま、あごを指1本分うしろへ引く','5秒止めて戻す。これを5回']},
+  shoulder:{name:'肩',side:'前と後ろ',who:'マウスを持つ側の肩だけが上がっている方や、肩をすくめたままキーボードを打っている方です。',
+    act:'横向きに寝てもらい、肩甲骨を手で包むように持って、上下と内外へゆっくり動かします。',
+    ex:['うしろ回しだけの肩回し','両手の指先をそれぞれの肩にのせる','ひじで大きな円を描くように、うしろへ回す','息を止めずに10回']},
+  back:{name:'背中',side:'後ろ',who:'一日中背中が丸まったまま座っている方、深く息を吸いにくいと感じている方です。',
+    act:'うつ伏せで、肩甲骨の間から下へ、背骨の両脇を順に押さえます。息を吐くのに合わせて手をゆるめます。',
+    ex:['いすでの胸ひらき','両手を頭のうしろで組む','息を吸いながらひじを横に開き、胸を少し上へ向ける','吐きながら戻す。これを5回']},
+  waist:{name:'腰',side:'後ろ',who:'長い会議や運転のあと、立ち上がるときに腰がすぐ伸びない方です。',
+    act:'横向きで膝を軽く曲げ、骨盤を支えながら腰まわりを少しずつゆるめます。うつ伏せがつらい方は横向きだけで行います。',
+    ex:['いすでの前かがみ','いすに浅く座り、足を肩幅に開く','息を吐きながら、両手を床へ向けてゆっくり前へ倒れる','10秒止め、背中から順に起きる。これを3回']},
+  pelvis:{name:'骨盤',side:'前と後ろ',who:'脚を組むくせがある方、座るとお尻の重さが左右どちらかに寄る方です。',
+    act:'立った姿と座った姿で左右の高さを見てから、お尻の横と脚のつけ根を押さえて、片側ずつ動かします。',
+    ex:['座り直しの体操','いすに座り、左右のお尻の骨を手で確かめる','右、左と交互に、お尻を少しだけ浮かせる','左右10回ずつ。最後に両側へ同じだけ体重をのせる']},
+  leg:{name:'脚',side:'前は太もも、後ろはふくらはぎ',who:'夕方になると脚が重く感じる方、座りっぱなしでふくらはぎが張る方です。',
+    act:'うつ伏せで、ふくらはぎと太ももの裏を足首側から膝へ向けて押さえ、最後に足首をゆっくり回します。',
+    ex:['かかとの上げ下げ','いすに座ったまま、両足の裏を床につける','つま先は床につけたまま、かかとを上げる','ゆっくり下ろす。これを20回']}
+};
+const panel=$('#panel');
+function setArea(k){
+  const a=AREAS[k];
+  $$('.hs').forEach(el=>el.classList.toggle('on',el.dataset.area===k));
+  $$('.chip').forEach(el=>el.setAttribute('aria-pressed',el.dataset.area===k));
+  panel.innerHTML=`<h3>${a.name}<small>${a.side}</small></h3><dl>
+    <dt>こういう方が多いです</dt><dd>${a.who}</dd>
+    <dt>施術でやること</dt><dd>${a.act}</dd>
+    <dt>家でできる体操</dt><dd><div class="ex"><b>${a.ex[0]}</b><ol><li>${a.ex[1]}</li><li>${a.ex[2]}</li><li>${a.ex[3]}</li></ol></div></dd></dl>`;
+}
+$$('.chip').forEach(b=>b.addEventListener('click',()=>setArea(b.dataset.area)));
+$$('.hs').forEach(s=>s.addEventListener('click',()=>setArea(s.dataset.area)));
+setArea('neck');
+
+/* 空き表: o=空き x=予約済み -=休み。△は「次の時間が続けて空いていない○」から自動で決める */
+const SLOTS=[10,11,12,15,16,17,18,19,20];
+const DOW=['月','火','水','木','金','土','日'];
+const RAW=[
+  ['ooxooxxxx','oxooooxox','---------','xoooxooxx','oooxooxxo','xxoxxo---','xox------'],
+  ['oooooooox','ooxoooxox','---------','ooooxoooo','oxoooxxxx','oxoxoo---','oox------']
+];
+const DAYS=[];
+RAW.forEach((wk,w)=>wk.forEach((s,i)=>{
+  const d=7+w*7+i, st=[...s].map((c,j)=>{
+    if(c!=='o')return c;
+    const nextOk=j+1<SLOTS.length&&SLOTS[j+1]===SLOTS[j]+1&&s[j+1]==='o';
+    return nextOk?'o':'t';
+  });
+  DAYS.push({w,d,dow:DOW[i],iso:`2026-12-${String(d).padStart(2,'0')}`,label:`12月${d}日(${DOW[i]})`,st,closed:s==='---------'});
+}));
+const sym={o:'○',t:'△'};
+let html='';
+[0,1].forEach(w=>{
+  const days=DAYS.filter(x=>x.w===w);
+  html+=`<div class="tbl" role="tabpanel" id="wk${w}" aria-labelledby="tab${w}"${w?' hidden':''}><table><caption class="vh" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">2026年12月${days[0].d}日から${days[6].d}日の空き</caption><thead><tr><th scope="col">時間</th>`;
+  days.forEach(x=>html+=`<th scope="col"${x.dow==='土'?' class="sat"':''}>${x.d}<small>${x.dow}</small></th>`);
+  html+='</tr></thead><tbody>';
+  SLOTS.forEach((h,j)=>{
+    html+=`<tr><th scope="row">${h}:00</th>`;
+    days.forEach(x=>{
+      const c=x.st[j];
+      if(c==='o'||c==='t')html+=`<td><button type="button" class="slot${c==='t'?' tri':''}" data-iso="${x.iso}" data-h="${h}" aria-pressed="false" aria-label="${x.label} ${h}時 ${c==='o'?'空きあり':'60分まで空きあり'}、この枠を選ぶ">${sym[c]}</button></td>`;
+      else if(c==='x')html+=`<td class="full"><span aria-hidden="true">×</span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">予約済み</span></td>`;
+      else html+=`<td class="off">休</td>`;
+    });
+    html+='</tr>';
+  });
+  html+='</tbody></table><div class="days">';
+  days.forEach(x=>{
+    html+=`<section class="day"><h3 class="day-h${x.dow==='土'?' sat':''}">${x.label}</h3>`;
+    if(x.closed){html+='<p class="day-off">お休み</p></section>';return}
+    html+='<ul class="day-slots">';
+    SLOTS.forEach((h,j)=>{
+      const c=x.st[j]; if(c==='-')return;
+      if(c==='o'||c==='t')html+=`<li><button type="button" class="slot${c==='t'?' tri':''}" data-iso="${x.iso}" data-h="${h}" aria-pressed="false" aria-label="${x.label} ${h}時 ${c==='o'?'空きあり':'60分まで空きあり'}、この枠を選ぶ">${h}:00<b aria-hidden="true">${sym[c]}</b></button></li>`;
+      else html+=`<li class="x">${h}:00<span aria-hidden="true">×</span><span class="vh">予約済み</span></li>`;
+    });
+    html+='</ul></section>';
+  });
+  html+='</div></div>';
+});
+$('#weeks').innerHTML=html;
+
+const tabs=$$('.tab');
+function showWeek(w,focus){
+  tabs.forEach((t,i)=>{t.setAttribute('aria-selected',i===w);t.tabIndex=i===w?0:-1});
+  $$('[role=tabpanel]').forEach((p,i)=>p.hidden=i!==w);
+  if(focus)tabs[w].focus();
+}
+tabs.forEach((t,i)=>{
+  t.addEventListener('click',()=>showWeek(i));
+  t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();showWeek(1-i,true)}});
+});
+
+/* 予約フォーム */
+const fDate=$('#fDate'), fTime=$('#fTime');
+fDate.innerHTML='<option value="">選んでください</option>'+DAYS.filter(x=>!x.closed).map(x=>`<option value="${x.iso}">${x.label}</option>`).join('');
+const dayOf=iso=>DAYS.find(x=>x.iso===iso);
+function fillTimes(keep){
+  const x=dayOf(fDate.value);
+  let o='<option value="">'+(x?'選んでください':'先に日を選んでください')+'</option>';
+  if(x)SLOTS.forEach((h,j)=>{
+    const c=x.st[j]; if(c==='-')return;
+    const lab=c==='o'?'':c==='t'?'(60分まで)':'(予約済み)';
+    o+=`<option value="${h}"${c==='x'?' disabled':''}>${h}:00〜 ${lab}</option>`;
+  });
+  fTime.innerHTML=o; fTime.disabled=!x;
+  if(keep)fTime.value=keep;
+}
+fillTimes();
+fDate.addEventListener('change',()=>{fillTimes();markSlot()});
+fTime.addEventListener('change',markSlot);
+function markSlot(){
+  $$('.slot').forEach(b=>b.setAttribute('aria-pressed',b.dataset.iso===fDate.value&&b.dataset.h===fTime.value));
+}
+$('#weeks').addEventListener('click',e=>{
+  const b=e.target.closest('.slot'); if(!b)return;
+  fDate.value=b.dataset.iso; fillTimes(b.dataset.h); markSlot();
+  clearErr('eDate',fDate); clearErr('eTime',fTime);
+  const tri=b.classList.contains('tri');
+  if(tri)document.querySelector('input[name=kind][value=again]').checked=true;
+  $('#picked').innerHTML=`${dayOf(b.dataset.iso).label} ${b.dataset.h}:00 を予約フォームに入れました${tri?'(60分の枠です)':''}。 <a href="#yoyaku">フォームへ進む</a>`;
+});
+
+$('#fAreas').innerHTML=Object.entries(AREAS).map(([k,a])=>`<label><input type="checkbox" name="area" value="${k}">${a.name}</label>`).join('');
+const memo=$('#fMemo');
+memo.addEventListener('input',()=>$('#memoCount').textContent=memo.value.length);
+
+function setErr(id,el,msg){$('#'+id).textContent=msg;if(el)el.setAttribute('aria-invalid','true')}
+function clearErr(id,el){$('#'+id).textContent='';if(el)el.removeAttribute('aria-invalid')}
+const form=$('#f');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  $('#done').hidden=true;
+  let first=null; const bad=(id,el,msg)=>{setErr(id,el,msg);if(!first)first=el};
+  ['eDate','eTime','eKind','eName','eTel','eMail','eMemo'].forEach(id=>$('#'+id).textContent='');
+  $$('#f [aria-invalid]').forEach(el=>el.removeAttribute('aria-invalid'));
+  const kind=form.querySelector('input[name=kind]:checked');
+  const day=dayOf(fDate.value);
+  if(!day)bad('eDate',fDate,'ご希望の日を選んでください。');
+  if(!fTime.value)bad('eTime',fTime,'時間を選んでください。');
+  if(!kind)bad('eKind',form.querySelector('input[name=kind]'),'はじめてか2回目以降かを選んでください。');
+  if(day&&fTime.value&&kind&&kind.value==='first'&&day.st[SLOTS.indexOf(+fTime.value)]==='t')
+    bad('eTime',fTime,'この時間は60分までのため、初回の75分が入りません。○の時間を選んでください。');
+  const nm=$('#fName'), tel=$('#fTel'), mail=$('#fMail');
+  if(!nm.value.trim())bad('eName',nm,'お名前を入れてください。');
+  const digits=tel.value.replace(/[\s\-ー－()（）]/g,'').replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0));
+  if(!tel.value.trim())bad('eTel',tel,'電話番号を入れてください。');
+  else if(!/^0\d{9,10}$/.test(digits))bad('eTel',tel,'電話番号は0から始まる10桁か11桁で入れてください。');
+  if(mail.value.trim()&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim()))bad('eMail',mail,'メールアドレスの形を確かめてください。');
+  if(memo.value.length>400)bad('eMemo',memo,'400字以内でお願いします。');
+  if(first){first.focus();return}
+  $('#done').hidden=false;
+});
+['fName','fTel','fMail'].forEach(id=>$('#'+id).addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid'))clearErr('e'+id.slice(1),e.target)}));
+form.addEventListener('change',e=>{if(e.target.name==='kind')clearErr('eKind',null)});
+})();
+</script>
+<script>
+/* ページ切り替え: URLの # で1ページ分だけ出す。JSが動かない時は全部縦に並ぶ */
+(()=>{
+  const de=document.documentElement, ALT='band', NAV='#nav';
+  const secs=[...document.querySelectorAll('[data-pg]')], order=[];
+  secs.forEach(s=>{if(!order.includes(s.dataset.pg))order.push(s.dataset.pg)});
+  const links=[...document.querySelectorAll(NAV+' a')];
+  const label=pg=>{const a=links.find(a=>a.getAttribute('href')==='#'+pg);return a?a.textContent.trim():pg};
+  /* 各ページの一番下に「トップへ」「次のページ」 */
+  order.forEach((pg,i)=>{
+    if(pg==='top')return;
+    const last=secs.filter(s=>s.dataset.pg===pg).pop(), box=last.querySelector('.wrap,.in')||last, nx=order[i+1];
+    const n=document.createElement('nav');n.className='pager';n.setAttribute('aria-label','ページ送り');
+    n.innerHTML='<a class="pager-top" href="#top">トップへ</a>'+(nx?'<a class="pager-next" href="#'+nx+'"><small>次のページ</small><span>'+label(nx)+'</span></a>':'');
+    box.appendChild(n);
+  });
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  let first=true;
+  function jump(fn){const b=de.style.scrollBehavior;de.style.scrollBehavior='auto';fn();de.style.scrollBehavior=b}
+  function show(){
+    let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch(e){}
+    const t=/^[\w-]+$/.test(id)&&document.getElementById(id), host=t&&t.closest('[data-pg]'), pg=host?host.dataset.pg:'top';
+    let prev=null;
+    secs.forEach(s=>{const on=s.dataset.pg===pg;s.classList.toggle('on',on);s.classList.remove('seam','pg-head');
+      if(on){if(prev&&prev.classList.contains(ALT)===s.classList.contains(ALT))s.classList.add('seam');prev=s}});
+    links.forEach(a=>{if(a.getAttribute('href')==='#'+pg)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    const head=secs.find(s=>s.dataset.pg===pg);head.classList.add('pg-head');
+    if(t&&host&&t!==head)jump(()=>t.scrollIntoView({block:'start'}));
+    else{
+      jump(()=>window.scrollTo(0,0));
+      if(!first){const h=head.querySelector('h1,h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}}
+    }
+    first=false;
+  }
+  addEventListener('hashchange',show);
+  /* 今と同じ # を押した時も、そのページの頭(または目当ての場所)へ */
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&location.hash&&a.getAttribute('href')===location.hash){e.preventDefault();show()}});
+  show();
+})();
+</script>
+
+</body>
+</html>

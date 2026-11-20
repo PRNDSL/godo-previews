@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>森川工務店</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* 方針: 福岡市で家を建てたい・直したい30〜50代の家族向けの、地元工務店の看板ページ。
+   木と手仕事の落ち着き、数字で安心してもらう。背景は白と薄い灰緑の交互、主役色は杉の赤身の茶1色。 */
+:root{
+  --bg:#ffffff; --panel:#eef1ee; --surface:#ffffff; --fg:#24221f; --muted:#5a5852; --line:#d5d9d3; --field-line:#8a877f;
+  --accent:#8a4523; --accent-hover:#733819; --accent-fg:#ffffff;
+  --sage:#4f6f5a; --stone:#a39f95; --err:#b3261e; --ok:#2f6b45;
+  --plan-bg:#f6f7f5; --plan-wet:#dbe7ec; --plan-doma:#e3e1db;
+  --w-bark:#5b3a25; --w-sap:#efd7ab; --w-heart:#c97a4b; --w-ring:#6e3f22; --w-crack:#3b2416;
+  --shadow:0 1px 2px rgba(36,34,31,.06),0 4px 16px rgba(36,34,31,.06);
+  --display:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+  --r:4px; --measure:40em;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#191815; --panel:#211f1b; --surface:#262420; --fg:#ebe6dd; --muted:#b4ada1; --line:#3b3832; --field-line:#76726a;
+  --accent:#e09a66; --accent-hover:#eaae80; --accent-fg:#191815;
+  --sage:#8fb39a; --stone:#6f6b63; --err:#ff8f86; --ok:#8fd19e;
+  --plan-bg:#1f1d1a; --plan-wet:#22323a; --plan-doma:#34312b;
+  --w-bark:#3d281b; --w-sap:#cfb183; --w-heart:#a65e35; --w-ring:#3a2213; --w-crack:#1c110a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#191815; --panel:#211f1b; --surface:#262420; --fg:#ebe6dd; --muted:#b4ada1; --line:#3b3832; --field-line:#76726a;
+  --accent:#e09a66; --accent-hover:#eaae80; --accent-fg:#191815;
+  --sage:#8fb39a; --stone:#6f6b63; --err:#ff8f86; --ok:#8fd19e;
+  --plan-bg:#1f1d1a; --plan-wet:#22323a; --plan-doma:#34312b;
+  --w-bark:#3d281b; --w-sap:#cfb183; --w-heart:#a65e35; --w-ring:#3a2213; --w-crack:#1c110a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(80px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.85;overflow-wrap:anywhere}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:.02em;line-height:1.45;text-wrap:balance;word-break:auto-phrase;margin:0}
+p,ul,ol,dl,figure,blockquote{margin:0}
+a{color:var(--accent);text-underline-offset:3px}
+a:hover{color:var(--accent-hover)}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:var(--r)}
+svg{display:block;max-width:100%;height:auto}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.num{font-variant-numeric:tabular-nums}
+
+.wrap{max-width:1160px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:768px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+section{padding-block:var(--s8)}
+.alt{background:var(--panel)}
+.sec-head{margin-bottom:var(--s6)}
+.sec-head h2{font-size:clamp(24px,3.2vw,34px)}
+.sec-head p{margin-top:var(--s3);color:var(--muted);max-width:var(--measure)}
+.note{font-size:14px;color:var(--muted);max-width:var(--measure)}
+
+/* ボタン */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:48px;padding:12px 28px;border:2px solid var(--accent);border-radius:var(--r);background:var(--accent);color:var(--accent-fg);font:inherit;font-weight:700;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color .2s,border-color .2s}
+.btn:hover{background:var(--accent-hover);border-color:var(--accent-hover);color:var(--accent-fg)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--field-line)}
+.btn.ghost:hover{border-color:var(--fg);background:transparent;color:var(--fg)}
+
+/* ヘッダー */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;gap:var(--s4);min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none;margin-right:auto}
+.logo:hover{color:var(--fg)}
+.logo svg{width:30px;height:30px;flex:none}
+.logo b{font-family:var(--display);font-size:21px;letter-spacing:.08em;line-height:1.2;display:block}
+.logo small{display:block;font-size:11px;color:var(--muted);letter-spacing:.04em;line-height:1.3}
+.gnav ul{list-style:none;padding:0;display:flex;gap:var(--s4)}
+.gnav a{color:var(--fg);text-decoration:none;font-size:14px;font-weight:500;padding-block:var(--s2);border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.gnav a:hover{border-bottom-color:var(--accent);color:var(--fg)}
+.head-tel{color:var(--fg);text-decoration:none;text-align:right;line-height:1.25;white-space:nowrap}
+.head-tel:hover{color:var(--accent)}
+.head-tel b{display:block;font-size:20px;letter-spacing:.02em}
+.head-tel small{font-size:11px;color:var(--muted)}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:var(--fg);cursor:pointer;align-items:center;justify-content:center;transition:border-color .2s}
+.menu-btn:hover{border-color:var(--fg)}
+.menu-btn svg{width:20px;height:20px}
+.menu-btn .x{display:none}
+.menu-btn[aria-expanded="true"] .bars{display:none}
+.menu-btn[aria-expanded="true"] .x{display:block}
+@media (max-width:1079px){
+  .menu-btn{display:inline-flex}
+  .gnav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .gnav.open{display:block}
+  .gnav ul{flex-direction:column;gap:0;max-width:1160px;margin-inline:auto;padding:var(--s2) max(16px,env(safe-area-inset-right,0px)) var(--s3) max(16px,env(safe-area-inset-left,0px))}
+  .gnav li+li{border-top:1px solid var(--line)}
+  .gnav a{display:block;padding:14px 0;font-size:16px;border-bottom:0}
+}
+@media (max-width:759px){.head-tel{display:none}}
+
+/* ファーストビュー */
+.hero{padding-block:var(--s7) var(--s8)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:var(--s6);align-items:center}
+.kicker{color:var(--accent);font-weight:700;font-size:15px;letter-spacing:.04em}
+.hero h1{font-size:clamp(28px,4.2vw,48px);margin-top:var(--s3)}
+.hero .lead{margin-top:var(--s4);max-width:30em;color:var(--muted);font-size:17px}
+.hero .btn{margin-top:var(--s5)}
+.hero figure{background:var(--panel);border-radius:var(--r);padding:var(--s4)}
+
+/* 家の性能 */
+.perf{border-top:2px solid var(--fg)}
+.perf-row{display:grid;grid-template-columns:minmax(0,12em) minmax(0,1fr) minmax(0,21em);gap:var(--s5);padding-block:var(--s5);border-bottom:1px solid var(--line);align-items:start}
+.perf-num .k{font-size:14px;color:var(--muted);font-weight:700}
+.perf-num .v{display:block;font-family:var(--display);font-size:clamp(40px,5vw,56px);line-height:1.1;margin-top:var(--s1);color:var(--fg)}
+.perf-num .v small{font-size:.38em;margin-left:4px;font-family:var(--body);font-weight:500}
+.perf-text h3{font-size:20px}
+.perf-text .plain{margin-top:var(--s2);padding-left:var(--s3);border-left:3px solid var(--accent);font-weight:500}
+.perf-text p+p{margin-top:var(--s2)}
+.perf-text p{max-width:var(--measure)}
+.bars{list-style:none;padding:0;display:grid;gap:10px;font-size:13px}
+.bars li{display:grid;grid-template-columns:7.5em minmax(0,1fr) 3.2em;gap:var(--s2);align-items:center}
+.bars .track{height:12px;background:var(--panel);border-radius:2px;overflow:hidden}
+.alt .bars .track{background:var(--bg)}
+.bars .fill{display:block;height:100%;background:var(--stone);width:calc(var(--v) * 100%)}
+.bars .me .fill{background:var(--accent)}
+.bars .me{font-weight:700}
+.bars .val{text-align:right;font-variant-numeric:tabular-nums}
+.fig-cap{font-size:12px;color:var(--muted);margin-top:var(--s2)}
+.hagaki .card{fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:4 3}
+.hagaki .gap{fill:var(--accent)}
+.hagaki text{font-family:var(--body);font-size:11px;fill:var(--fg)}
+
+/* 施工例 */
+.filters{display:flex;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s3)}
+.filters button{min-height:44px;padding:8px 18px;border:1px solid var(--field-line);border-radius:var(--r);background:var(--surface);color:var(--fg);font:inherit;font-size:15px;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.filters button:hover{border-color:var(--fg)}
+.filters button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.filters .c{font-size:12px;margin-left:6px;opacity:.8}
+.count{font-size:14px;color:var(--muted);margin-bottom:var(--s4)}
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4)}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4);display:flex;flex-direction:column;gap:var(--s3)}
+.case[hidden]{display:none}
+.case.feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:var(--s5);align-items:start}
+.case .kind{font-size:13px;font-weight:700;color:var(--accent)}
+.case h3{font-size:20px;margin-top:var(--s1)}
+.case.feature h3{font-size:24px}
+.case p{font-size:15px;max-width:var(--measure)}
+.facts{display:grid;grid-template-columns:auto minmax(0,1fr);border-top:1px solid var(--line);font-size:14px}
+.facts dt,.facts dd{margin:0;padding:8px 0;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted);padding-right:var(--s3)}
+.facts dd{font-variant-numeric:tabular-nums}
+.plan{background:var(--plan-bg);border-radius:var(--r);padding:var(--s2)}
+.plan figcaption{font-size:12px;color:var(--muted);padding:var(--s1) var(--s2) 0}
+.ink{fill:none;stroke:var(--fg);stroke-linecap:round;stroke-linejoin:round}
+.w3{stroke-width:2.6}.w2{stroke-width:1.5}.w1{stroke-width:.9}
+.ink.thin{stroke:var(--muted)}
+.ink.acc{stroke:var(--accent)}
+.dash{stroke-dasharray:3 3}
+.pbg{fill:var(--plan-bg)}
+.wet{fill:var(--plan-wet)}
+.doma{fill:var(--plan-doma)}
+.dot{fill:var(--muted)}
+.accf{fill:var(--accent)}
+.t{font-family:var(--body);font-size:10px;fill:var(--fg);text-anchor:middle;paint-order:stroke;stroke:var(--plan-bg);stroke-width:3px;stroke-linejoin:round;font-weight:500}
+.t.s{font-size:8px;fill:var(--muted);font-weight:400}
+.t.a{fill:var(--accent);font-weight:700}
+.t.l{text-anchor:start}
+.plan .sp{display:none}
+.plan-note{display:none;font-size:13px;line-height:1.6;color:var(--muted);padding:var(--s1) var(--s2) 0}
+.kg-sp{display:none}
+/* 小さな間取り図: 縮む幅では図の中の字を大きく、下の注記は図の外に出す */
+@media (max-width:1199px){
+  .case:not(.feature) .plan .t{font-size:12px}
+  .case:not(.feature) .plan .t.s{font-size:10.8px}
+  .case:not(.feature) .plan .t.note{display:none}
+  .plan-note{display:block}
+}
+@media (min-width:760px) and (max-width:1199px){.feature .plan .t.s{font-size:9.4px}}
+
+/* 木 */
+.wood-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s6);align-items:start}
+.koguchi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4)}
+.koguchi figcaption{font-size:13px;color:var(--muted);margin-top:var(--s2)}
+.w-bark{fill:var(--w-bark)}.w-sap{fill:var(--w-sap)}.w-heart{fill:var(--w-heart)}
+.w-ring path{fill:none;stroke:var(--w-ring);stroke-opacity:.55;stroke-width:.7}
+.w-crack{fill:var(--w-crack)}
+.w-lead{stroke:var(--fg);stroke-width:1;fill:none}
+.w-pt{fill:var(--fg)}
+.w-lab{font-family:var(--body);font-size:15px;fill:var(--fg);font-weight:700}
+.w-sub{font-family:var(--body);font-size:12px;fill:var(--muted)}
+.woods{list-style:none;padding:0;border-top:1px solid var(--line)}
+.woods li{padding-block:var(--s4);border-bottom:1px solid var(--line);display:grid;grid-template-columns:7em minmax(0,1fr);gap:var(--s3)}
+.woods .where{font-family:var(--display);font-size:18px;line-height:1.5}
+.woods .where small{display:block;font-family:var(--body);font-size:12px;color:var(--muted)}
+.woods p{font-size:15px}
+.woods .use{display:block;font-size:13px;color:var(--muted);margin-top:var(--s1)}
+
+/* 流れ(工程表) */
+.gantt{border-top:2px solid var(--fg)}
+.g-row{display:grid;grid-template-columns:minmax(0,256px) minmax(0,1fr);gap:var(--s4);align-items:center;padding-block:14px;border-bottom:1px solid var(--line)}
+.g-row h3{font-family:var(--body);font-size:16px}
+.g-row .d{font-size:13px;color:var(--muted);display:block;line-height:1.6}
+.g-track{position:relative;height:28px;background-image:linear-gradient(to right,var(--line) 1px,transparent 1px);background-size:calc(100% / 9) 100%}
+.g-bar{position:absolute;top:6px;height:16px;left:calc(var(--s) / 9 * 100%);width:calc((var(--e) - var(--s)) / 9 * 100%);min-width:6px;background:var(--sage);border-radius:2px}
+.g-bar.build{background:var(--accent)}
+.g-axis{display:grid;grid-template-columns:minmax(0,256px) minmax(0,1fr);gap:var(--s4);padding-block:var(--s2);font-size:12px;color:var(--muted)}
+.g-axis ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(9,minmax(0,1fr))}
+.g-axis li{border-left:1px solid var(--line);padding-left:4px;white-space:nowrap}
+.g-legend{display:flex;flex-wrap:wrap;gap:var(--s4);font-size:13px;color:var(--muted);margin-top:var(--s3)}
+.g-legend span::before{content:"";display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:6px;vertical-align:0;background:var(--sage)}
+.g-legend .b::before{background:var(--accent)}
+.sub-h{font-size:22px;margin-top:var(--s7);margin-bottom:var(--s2)}
+.insp{list-style:none;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:var(--s4)}
+.insp li{position:relative;padding:36px var(--s3) 0 0}
+.insp li::before{content:"";position:absolute;top:9px;left:0;right:0;height:2px;background:var(--line)}
+.insp li:last-child::before{right:auto;width:24px}
+.insp li::after{content:"";position:absolute;top:2px;left:0;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.insp li:first-child::after{background:var(--accent)}
+.alt .insp li::after{background:var(--panel)}
+.alt .insp li:first-child::after{background:var(--accent)}
+.insp b{display:block;font-family:var(--display);font-size:20px;line-height:1.3}
+.insp span{display:block;font-size:14px;color:var(--muted);margin-top:var(--s1)}
+
+/* 費用 */
+.cost-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--s6);align-items:start}
+.total{font-size:15px}
+.total b{font-family:var(--display);font-size:clamp(32px,4vw,44px);margin-inline:6px;font-variant-numeric:tabular-nums}
+.stack{display:flex;height:44px;border-radius:var(--r);overflow:hidden;margin-top:var(--s3)}
+.stack span{display:block;height:100%}
+.stack .p1{flex:0 0 75.2%;background:var(--accent)}
+.stack .p2{flex:0 0 14.8%;background:var(--sage)}
+.stack .p3{flex:1 1 auto;background:var(--stone)}
+.legend{list-style:none;padding:0;margin-top:var(--s4);border-top:1px solid var(--line)}
+.legend li{display:grid;grid-template-columns:16px minmax(0,1fr) auto;gap:var(--s3);padding-block:var(--s3);border-bottom:1px solid var(--line);align-items:start}
+.legend .sw{width:16px;height:16px;border-radius:2px;margin-top:5px}
+.legend b{display:block}
+.legend small{display:block;font-size:13px;color:var(--muted)}
+.legend .amt{font-variant-numeric:tabular-nums;font-weight:700;text-align:right;white-space:nowrap}
+.legend .amt small{font-weight:400;display:inline;font-size:13px;color:var(--muted);margin-left:2px}
+.range{margin-top:var(--s3)}
+.range-track{position:relative;height:40px;margin-top:var(--s5)}
+.range-track::before{content:"";position:absolute;left:0;right:0;top:18px;height:4px;background:var(--line);border-radius:2px}
+.range-band{position:absolute;top:12px;height:16px;left:36%;width:22%;background:var(--accent);border-radius:2px}
+.range-mark{position:absolute;top:-22px;left:49.4%;transform:translateX(-50%);font-size:12px;white-space:nowrap;color:var(--fg)}
+.range-mark::after{content:"";position:absolute;left:50%;top:20px;width:2px;height:22px;background:var(--fg)}
+.range-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tbl{margin-top:var(--s3);border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+thead th{font-size:13px;color:var(--muted);font-weight:500;background:var(--panel)}
+td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* 声 */
+.voices{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s6);align-items:start}
+.voice{margin:0}
+.voice p{font-family:var(--display);line-height:1.95;max-width:var(--measure)}
+.voice.big p{font-size:clamp(19px,2.2vw,23px)}
+.voice.big{border-left:3px solid var(--accent);padding-left:var(--s4)}
+.voice.sm{padding-block:var(--s4);border-bottom:1px solid var(--line)}
+.voice.sm:first-child{padding-top:0}
+.voice.sm p{font-size:17px}
+.voice cite{display:block;margin-top:var(--s3);font-style:normal;font-size:14px;color:var(--muted)}
+
+/* よくある質問 */
+.faq{max-width:52em;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 48px 20px 0;position:relative;font-weight:700;font-size:17px;transition:color .2s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--accent)}
+.faq summary::after{content:"";position:absolute;right:12px;top:50%;width:10px;height:10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-20%) rotate(225deg)}
+.faq .a{padding:0 0 var(--s4);max-width:var(--measure);color:var(--fg)}
+.faq .a p+p{margin-top:var(--s2)}
+
+/* 見学会 */
+.events{list-style:none;padding:0;border-top:2px solid var(--fg)}
+.events li{display:grid;grid-template-columns:minmax(0,18em) minmax(0,1fr);gap:var(--s5);padding-block:var(--s5);border-bottom:1px solid var(--line)}
+.ev-date{font-family:var(--display);line-height:1.3}
+.ev-date b{display:block;font-size:clamp(26px,2.6vw,30px);font-variant-numeric:tabular-nums}
+.ev-date span{font-size:15px;color:var(--muted)}
+.events h3{font-size:21px}
+.events p{margin-top:var(--s2);max-width:var(--measure)}
+.ev-meta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px var(--s3);margin-top:var(--s3);font-size:14px}
+.ev-meta dt{color:var(--muted)}
+.ev-meta dd{margin:0}
+
+/* 会社 */
+.company{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s6);align-items:start}
+.co{display:grid;grid-template-columns:7.5em minmax(0,1fr);border-top:1px solid var(--line);font-size:15px}
+.co dt,.co dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}
+.co dt{color:var(--muted)}
+.area h3{font-size:20px}
+.area p{margin-top:var(--s2);max-width:var(--measure)}
+.area ul{list-style:none;padding:0;margin-top:var(--s4);border-top:1px solid var(--line)}
+.area li{display:flex;justify-content:space-between;gap:var(--s3);padding-block:12px;border-bottom:1px solid var(--line)}
+.area li span:last-child{color:var(--muted);font-size:14px;white-space:nowrap}
+
+/* 相談フォーム */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:var(--s6);align-items:start}
+.contact-side p{max-width:var(--measure)}
+.contact-side p+p{margin-top:var(--s3)}
+.big-tel{display:inline-block;margin-top:var(--s4);color:var(--fg);text-decoration:none;line-height:1.3}
+.big-tel:hover{color:var(--accent)}
+.big-tel b{display:block;font-family:var(--display);font-size:32px;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.big-tel small{font-size:13px;color:var(--muted)}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4) var(--s4);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s5)}
+.full{grid-column:1/-1}
+label,.lab{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.req,.opt{font-size:12px;font-weight:500;margin-left:6px;color:var(--muted)}
+.req{color:var(--accent)}
+input[type=text],input[type=tel],input[type=email],select,textarea{width:100%;min-height:48px;padding:10px 12px;border:1px solid var(--field-line);border-radius:var(--r);background:var(--bg);color:var(--fg);font:inherit;transition:border-color .2s}
+input:hover,select:hover,textarea:hover{border-color:var(--fg)}
+textarea{min-height:120px;resize:vertical}
+[aria-invalid="true"]{border-color:var(--err)!important;border-width:2px!important}
+.hint{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.err{display:block;font-size:13px;color:var(--err);margin-top:4px;font-weight:700}
+.err:empty{display:none}
+fieldset{border:0;padding:0;margin:0;min-width:0}
+.radios{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4)}
+.radios label{display:inline-flex;align-items:center;gap:var(--s2);font-weight:500;margin:0;min-height:44px;cursor:pointer}
+.radios input{width:20px;height:20px;accent-color:var(--accent);margin:0}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3)}
+.form-foot .note{font-size:13px}
+.done{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ok);border-radius:var(--r);padding:var(--s5)}
+.done h3{font-size:22px}
+.done h3:focus{outline:none}
+.done p{margin-top:var(--s2);max-width:var(--measure)}
+.done dl{display:grid;grid-template-columns:8em minmax(0,1fr);margin-top:var(--s4);border-top:1px solid var(--line);font-size:15px}
+.done dt,.done dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line)}
+.done dt{color:var(--muted)}
+.done dd{white-space:pre-wrap}
+.done .btn{margin-top:var(--s4)}
+
+footer{padding-block:var(--s5);border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2)}
+
+/* スマホ下の固定バー */
+.mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:45;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s2);background:var(--bg);border-top:1px solid var(--line);padding:var(--s2) max(16px,env(safe-area-inset-right,0px)) calc(var(--s2) + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.mbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border-radius:var(--r);text-decoration:none;font-weight:700;line-height:1.25;transition:background-color .2s,border-color .2s}
+.mbar .call{border:1px solid var(--field-line);color:var(--fg)}
+.mbar .call:hover{border-color:var(--fg);color:var(--fg)}
+.mbar .call small{font-weight:500;font-size:13px;font-variant-numeric:tabular-nums}
+.mbar .ask{background:var(--accent);color:var(--accent-fg);border:1px solid var(--accent)}
+.mbar .ask:hover{background:var(--accent-hover);color:var(--accent-fg)}
+
+@media (max-width:1023px){
+  .perf-row{grid-template-columns:minmax(0,12em) minmax(0,1fr)}
+  .perf-fig{grid-column:2}
+  .cost-grid,.company,.contact-grid,.wood-grid{grid-template-columns:minmax(0,1fr)}
+  .case.feature{grid-template-columns:minmax(0,1fr)}
+  .insp{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:var(--s5)}
+}
+@media (max-width:899px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+}
+@media (max-width:759px){
+  section{padding-block:var(--s7)}
+  .hero{padding-block:var(--s5) var(--s7)}
+  .hero .lead{font-size:16px}
+  .perf-row{grid-template-columns:minmax(0,1fr);gap:var(--s3)}
+  .perf-fig{grid-column:auto}
+  .cases{grid-template-columns:minmax(0,1fr)}
+  .case{padding:var(--s3)}
+  /* 間取り図: 横に滑らせず幅に縮める。縮んだぶん図の中の字だけ大きく */
+  .case .plan{margin-inline:calc(-1 * var(--s3));padding:var(--s1) 0;border-radius:0}
+  .case .plan figcaption{padding-inline:var(--s3)}
+  .feature .plan .t{font-size:18px;stroke-width:4px}
+  .feature .plan .t.s{font-size:16.5px}
+  .plan .mv-s{transform:translateY(6px)}
+  .plan .pc{display:none}
+  .plan .sp{display:inline}
+  .plan .mv-up{transform:translateY(-10px)}
+  .plan .mv-dn{transform:translateY(12px)}
+  .plan .mv-r{transform:translate(6px,20px)}
+  .koguchi{margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:var(--s3) var(--s2);border-inline:0;border-radius:0}
+  .koguchi figcaption{padding-inline:var(--s2)}
+  .w-lab{font-size:16px}
+  .w-sub{font-size:15.5px}
+  .kg-pc{display:none}
+  .kg-sp{display:inline}
+  /* 表: 1行=1枚。見出しは data-label で各値の前に出す */
+  .tbl{border:0;background:none}
+  .tbl thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tbl table,.tbl tbody,.tbl tr{display:block}
+  .tbl tr{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s2) var(--s3)}
+  .tbl tr+tr{margin-top:var(--s2)}
+  .tbl td{display:block;position:relative;padding:6px 0 6px 7.5rem;border-bottom:0;text-align:left}
+  .tbl td.r{text-align:left;white-space:normal}
+  .tbl td::before{content:attr(data-label);position:absolute;left:0;top:8px;width:7rem;color:var(--muted);font-size:13px;line-height:1.6}
+  .tbl td:first-child{padding-left:0;font-weight:700;font-size:16px;border-bottom:1px solid var(--line);padding-bottom:var(--s2);margin-bottom:var(--s1)}
+  .tbl td:first-child::before{content:none}
+  .g-row,.g-axis{grid-template-columns:minmax(0,1fr);gap:var(--s2)}
+  .g-axis>span{display:none}
+  .insp{grid-template-columns:minmax(0,1fr);row-gap:0}
+  .insp li{padding:0 0 var(--s4) 36px}
+  .insp li::before{top:4px;bottom:0;left:7px;right:auto;width:2px;height:auto}
+  .insp li:last-child::before{display:none}
+  .insp li::after{top:2px}
+  .voices{grid-template-columns:minmax(0,1fr)}
+  .events li{grid-template-columns:minmax(0,1fr);gap:var(--s3)}
+  .woods li{grid-template-columns:minmax(0,1fr);gap:var(--s2)}
+  form{grid-template-columns:minmax(0,1fr);padding:var(--s4) var(--s3)}
+  .mbar{display:grid}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .co{grid-template-columns:6em minmax(0,1fr)}
+  .done dl{grid-template-columns:minmax(0,1fr)}
+  .done dt{border-bottom:0;padding-bottom:0}
+}
+/* 実在の店と取り違えないための表示(文字はmutedで4.5:1以上) */
+.mihon{margin:0;padding:2px 16px;background:var(--panel);color:var(--muted);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.12em;text-align:center}
+html{scroll-padding-top:calc(96px + env(safe-area-inset-top,0px))}
+/* ページ切り替え(JSが付ける js-pages の時だけ、1ページ分を出す) */
+html.js-pages{scroll-behavior:auto}
+.js-pages [data-pg]:not(.on){display:none}
+.js-pages .seam{border-top:1px solid var(--line)}
+[data-pg] :is(h1,h2)[tabindex="-1"]:focus{outline:none}
+.gnav a[aria-current="page"]{border-bottom-color:var(--accent);font-weight:700}
+@media (max-width:1079px){.gnav a[aria-current="page"]{color:var(--accent)}}
+.js-pages section.pg-head:not(.hero){padding-top:var(--s6)}
+.js-pages .hero{padding-bottom:var(--s5)}
+/* トップの入口 */
+.entry{padding-block:var(--s5)}
+.entry h2{font-size:clamp(19px,2.2vw,22px);margin-bottom:var(--s3)}
+.entry ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s5);border-top:1px solid var(--line)}
+.entry li{border-bottom:1px solid var(--line)}
+.entry li:last-child:nth-child(odd){grid-column:1/-1}
+.entry a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s3);align-items:center;padding-block:14px;color:var(--fg);text-decoration:none}
+.entry b{font-family:var(--display);font-size:19px;font-weight:700;line-height:1.4}
+.entry span{grid-column:1;color:var(--muted);font-size:14px;line-height:1.6}
+.entry a::after{content:"→";grid-column:2;grid-row:1/3;color:var(--accent);font-size:18px}
+.entry a:hover b{color:var(--accent)}
+@media (max-width:759px){.entry ul{grid-template-columns:minmax(0,1fr)}}
+/* 各ページの一番下 */
+.pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3);margin-top:var(--s7);padding-top:var(--s4);border-top:1px solid var(--line)}
+.pager a{text-decoration:none;min-height:48px;display:flex;flex-direction:column;justify-content:center}
+.pager-top{color:var(--fg);font-size:15px;text-decoration:underline!important;text-underline-offset:3px}
+.pager-next{margin-left:auto;text-align:right;color:var(--fg)}
+.pager-next small{font-size:13px;color:var(--muted);line-height:1.4}
+.pager-next span{font-family:var(--display);font-size:20px;font-weight:700;line-height:1.4;color:var(--accent)}
+.pager-next span::after{content:" →"}
+.pager-next:hover span{text-decoration:underline;text-underline-offset:4px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js-pages")</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="hand" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4"/>
+    <feDisplacementMap in="SourceGraphic" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<header class="site-head"><p class="mihon">制作見本</p>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="森川工務店 ページの先頭へ">
+      <svg viewBox="0 0 30 30" aria-hidden="true"><path class="ink acc w3" d="M3 14 15 4l12 10M7 11v15h16V11"/><path class="ink w2" d="M12 26v-8h6v8"/></svg>
+      <span><b>森川工務店</b><small>地元の木の家と、住まいの手直し</small></span>
+    </a>
+    <nav class="gnav" id="gnav" aria-label="ページの案内">
+      <ul>
+      <li><a href="#perf">家の性能と木</a></li>
+      <li><a href="#works">施工例</a></li>
+      <li><a href="#flow">流れと費用</a></li>
+      <li><a href="#event">見学会</a></li>
+      <li><a href="#company">会社概要</a></li>
+      <li><a href="#contact">ご相談</a></li>
+      </ul>
+    </nav>
+    <a class="head-tel" href="tel:0920000000"><b class="num">092-000-0000</b><small>受付 8:00〜18:00(日曜休み)</small></a>
+    <button class="menu-btn" type="button" aria-controls="gnav" aria-expanded="false">
+      <span class="vh">メニューを開く</span>
+      <svg class="bars" viewBox="0 0 20 20" aria-hidden="true"><path class="ink w2" d="M2 5h16M2 10h16M2 15h16"/></svg>
+      <svg class="x" viewBox="0 0 20 20" aria-hidden="true"><path class="ink w2" d="M4 4l12 12M16 4 4 16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" data-pg="top">
+  <div class="wrap">
+    <div>
+      <p class="kicker">福岡市 杉ノ台で39年、大工4人の工務店</p>
+      <h1>建てたあとも、<br>同じ大工が見に来ます。</h1>
+      <p class="lead">新築は年に6棟まで。手が回る数しか請けないので、引き渡し後の点検も建てた大工が伺います。床鳴りひとつの相談からどうぞ。</p>
+      <a class="btn" href="#contact">見学と相談を申し込む</a>
+    </div>
+    <figure>
+      <svg viewBox="0 0 500 300" role="img" aria-labelledby="hero-t">
+        <title id="hero-t">軒の深い平屋の外観の線画。杉板張りの外壁、大きな窓、手前にウッドデッキと庭木</title>
+        <g filter="url(#hand)">
+          <path class="ink thin w1" d="M10 268h460"/>
+          <path class="ink w3" d="M24 150 74 104h300l50 46z"/>
+          <path class="ink w2" d="M74 104 60 117"/>
+          <rect class="ink w2" x="332" y="80" width="14" height="30"/>
+          <path class="ink w3" d="M56 150v118M392 150v118"/>
+          <g class="ink thin w1">
+            <path d="M68 150v118M80 150v118M92 150v118M104 150v40M104 250v18M116 150v40M116 250v18M128 150v40M128 250v18M140 150v40M140 250v18M152 150v40M152 250v18M164 150v40M164 250v18M176 150v40M176 250v18M188 150v40M188 250v18M200 150v40M200 250v18M212 150v40M212 250v18M224 150v118M236 150v118M248 150v118M260 150v118M272 150v42M272 228v40M284 150v42M284 228v40M296 150v42M296 228v40M308 150v42M308 228v40M320 150v42M320 228v40M332 150v118M344 150v118M356 150v118M368 150v118M380 150v118"/>
+          </g>
+          <rect class="pbg" x="98" y="190" width="120" height="60"/>
+          <rect class="ink acc w2" x="98" y="190" width="120" height="60"/>
+          <path class="ink acc w1" d="M158 190v60M128 190v60M188 190v60"/>
+          <rect class="pbg" x="266" y="192" width="60" height="36"/>
+          <rect class="ink acc w2" x="266" y="192" width="60" height="36"/>
+          <path class="ink acc w1" d="M296 192v36"/>
+          <path class="ink w2" d="M84 268v-10h158v10M84 258h158"/>
+          <path class="ink thin w1" d="M96 258v10M112 258v10M128 258v10M144 258v10M160 258v10M176 258v10M192 258v10M208 258v10M224 258v10"/>
+          <path class="ink w2" d="M446 268v-46"/>
+          <path class="ink acc w2" d="M446 230c-26-4-30-34-14-46-6-20 18-34 30-20 18-6 30 14 18 28 10 18-8 40-34 38z"/>
+        </g>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section class="entry alt" data-pg="top" aria-labelledby="entry-h"><div class="wrap">
+  <h2 id="entry-h">見たいところから</h2>
+  <ul>
+    <li><a href="#perf"><b>家の性能と木</b><span>耐震等級3と断熱の数字、柱と床に使う地元と県南の山の杉</span></a></li>
+    <li><a href="#works"><b>施工例</b><span>新築とリフォーム7件の間取り図と、住んでいる方の話</span></a></li>
+    <li><a href="#flow"><b>流れと費用</b><span>相談から引き渡しまでの8〜10か月、費用の内訳、よくある質問</span></a></li>
+    <li><a href="#event"><b>見学会</b><span>12月の完成見学会と、住んでいる家の見学会。どちらも予約制</span></a></li>
+    <li><a href="#company"><b>会社概要</b><span>大工4人の小さな工務店のことと、伺える地域</span></a></li>
+    <li><a href="#contact"><b>ご相談</b><span>見学と相談のお申し込み。2営業日以内にお返事します</span></a></li>
+  </ul>
+</div></section>
+
+<section class="alt" id="perf" data-pg="perf">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>この家の強さと暖かさを、数字で</h2>
+      <p>「地震に強い」「冬あたたかい」は、どの会社も書きます。だから森川工務店は、全棟で同じ物差しの数字を出しています。数字の意味もひと言ずつ添えました。</p>
+    </div>
+    <div class="perf">
+      <div class="perf-row">
+        <p class="perf-num"><span class="k">地震への強さ</span><span class="v">等級3</span></p>
+        <div class="perf-text">
+          <h3>耐震等級3を、全棟で構造計算して取ります</h3>
+          <p class="plain">ひと言でいうと、法律で決められた強さの1.5倍です。</p>
+          <p>消防署や警察署と同じ水準です。壁の量だけで判断する簡易な方法ではなく、柱と梁の一本ずつに力のかかり方を計算する「許容応力度計算」で確かめます。</p>
+        </div>
+        <div class="perf-fig">
+          <ul class="bars" aria-label="地震への強さの比較。長いほど強い">
+            <li><span>建築基準法</span><span class="track"><span class="fill" style="--v:.667"></span></span><span class="val">1.0倍</span></li>
+            <li><span>耐震等級2</span><span class="track"><span class="fill" style="--v:.833"></span></span><span class="val">1.25倍</span></li>
+            <li class="me"><span>森川の標準</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="val">1.5倍</span></li>
+          </ul>
+          <p class="fig-cap">長いほど強い。等級3は等級1の1.5倍の地震力に耐える設計です。</p>
+        </div>
+      </div>
+      <div class="perf-row">
+        <p class="perf-num"><span class="k">断熱(UA値)</span><span class="v num">0.46<small>W/㎡K</small></span></p>
+        <div class="perf-text">
+          <h3>壁と屋根と窓から逃げる熱を、国の基準の半分近くに</h3>
+          <p class="plain">ひと言でいうと、家から外へ逃げる熱の量。小さいほど冬あたたかく、夏は涼しい。</p>
+          <p>福岡市は国の区分で「6地域」。その基準0.87に対し、壁に高性能グラスウール、窓は樹脂枠のペアガラスを標準にして0.46まで下げています。断熱の業界基準「HEAT20」のG2と同じ水準です。</p>
+        </div>
+        <div class="perf-fig">
+          <ul class="bars" aria-label="断熱性能の比較。短いほど熱が逃げにくい">
+            <li><span>国の省エネ基準</span><span class="track"><span class="fill" style="--v:1"></span></span><span class="val">0.87</span></li>
+            <li><span>ZEH水準</span><span class="track"><span class="fill" style="--v:.69"></span></span><span class="val">0.60</span></li>
+            <li class="me"><span>森川の標準</span><span class="track"><span class="fill" style="--v:.529"></span></span><span class="val">0.46</span></li>
+          </ul>
+          <p class="fig-cap">短いほど熱が逃げにくい。いずれも6地域(福岡市)の値です。</p>
+        </div>
+      </div>
+      <div class="perf-row">
+        <p class="perf-num"><span class="k">すき間(C値)</span><span class="v num">0.5<small>㎠/㎡</small></span></p>
+        <div class="perf-text">
+          <h3>すき間の量は、1棟ずつ機械で測ります</h3>
+          <p class="plain">ひと言でいうと、家じゅうのすき間を集めた大きさ。小さいほど、暖めた空気が逃げず、換気も計画どおりに働きます。</p>
+          <p>2025年から2026年に引き渡した11棟の実測の平均が0.5(いちばん良い家で0.3、悪い家で0.7)。延床30坪の家なら、すき間を全部集めても約50㎠、はがきの3分の1ほどです。測定は断熱工事のあとと引き渡し前の2回行い、結果の紙をお渡しします。</p>
+        </div>
+        <figure class="perf-fig">
+          <svg class="hagaki" viewBox="0 0 260 170" role="img" aria-labelledby="hg-t">
+            <title id="hg-t">はがき1枚の大きさと、延床30坪の家のすき間を集めた約50平方センチの正方形を、同じ縮尺で並べた図</title>
+            <rect class="card" x="20" y="10" width="100" height="148" rx="2"/>
+            <text x="70" y="88" text-anchor="middle">はがき1枚</text>
+            <text x="70" y="104" text-anchor="middle">148㎠</text>
+            <rect class="gap" x="150" y="87" width="71" height="71" rx="1"/>
+            <text x="186" y="76" text-anchor="middle">すき間の合計</text>
+            <text x="186" y="60" text-anchor="middle">約50㎠</text>
+          </svg>
+          <figcaption class="fig-cap">同じ縮尺。延床30坪の家でC値0.5の場合。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="works" data-pg="works">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>手がけた家と、直した家</h2>
+      <p>間取り図は、打ち合わせで実際に描いた下書きを清書したものです。坪数と工期、費用の幅は、これから建てる方の目安としてそのまま載せています。</p>
+    </div>
+    <div class="filters" role="group" aria-label="施工例を工事の種類で絞り込む">
+      <button type="button" data-f="all" aria-pressed="true">すべて<span class="c">7</span></button>
+      <button type="button" data-f="new" aria-pressed="false">新築<span class="c">3</span></button>
+      <button type="button" data-f="reform" aria-pressed="false">リフォーム<span class="c">2</span></button>
+      <button type="button" data-f="water" aria-pressed="false">水まわり<span class="c">2</span></button>
+    </div>
+    <p class="count" id="count" aria-live="polite">7件を表示しています</p>
+
+    <div class="cases">
+      <article class="case feature" data-k="new">
+        <figure class="plan">
+          <svg viewBox="0 0 420 280" role="img" aria-labelledby="p1-t">
+            <title id="p1-t">平屋の間取り図。北側に寝室8畳、浴室、洗面、トイレ、玄関、子ども室8畳。南側に和室4.5畳、16畳のLDK、薪ストーブのある土間6畳。LDKの南にウッドデッキ</title>
+            <defs><pattern id="mod" x="32" y="32" width="24" height="24" patternUnits="userSpaceOnUse"><circle class="dot" cx="0" cy="0" r=".8"/></pattern></defs>
+            <rect x="32" y="32" width="336" height="192" fill="url(#mod)"/>
+            <rect class="wet" x="128" y="32" width="48" height="96"/>
+            <rect class="wet" x="176" y="32" width="24" height="48"/>
+            <rect class="doma" x="224" y="32" width="48" height="96"/>
+            <rect class="doma" x="296" y="128" width="72" height="96"/>
+            <g filter="url(#hand)">
+              <rect class="ink w3" x="32" y="32" width="336" height="192"/>
+              <path class="ink w2" d="M32 128h74M126 128h50M272 128h96M128 32v96M176 32v60M176 116v12M128 80h12M164 80h12M176 80h4M196 80h28M200 32v48M224 32v48M272 32v64M272 120v8M104 128v24M104 200v24M32 200h72"/>
+              <path class="ink thin w1 dash" d="M224 128h48M296 128v96"/>
+              <path class="ink thin w1" d="M32 128h48v24H32zM80 128h24v48H80zM56 176h48v24H56zM32 152h24v48H32zM56 152h24v24H56z"/>
+              <path class="ink thin w1" d="M102 152h4v24h-4zM104 176h4v24h-4zM40 200v24M68 200v24"/>
+              <path class="ink thin w1" d="M106 128v20M106 148a20 20 0 0 0 20-20M140 80v24M140 104a24 24 0 0 0 24-24M180 80v16M180 96a16 16 0 0 0 16-16M176 92h24M200 92a24 24 0 0 1-24 24M272 96h24M296 96a24 24 0 0 1-24 24"/>
+              <rect class="ink w2" x="168" y="146" width="80" height="16" rx="1"/>
+              <circle class="ink w1" cx="186" cy="154" r="4"/>
+              <path class="ink thin w1" d="M222 150h18v8h-18z"/>
+              <rect class="ink thin w1" x="184" y="180" width="44" height="22" rx="1"/>
+              <path class="ink thin w1" d="M190 176h8M214 176h8M190 206h8M214 206h8"/>
+              <rect class="ink thin w1" x="112" y="196" width="40" height="18" rx="2"/>
+              <rect class="ink thin w1 dash" x="316" y="160" width="32" height="32"/>
+              <circle class="ink acc w2" cx="332" cy="176" r="9"/>
+              <circle class="accf" cx="332" cy="176" r="3"/>
+              <rect class="ink w2" x="104" y="230" width="192" height="32"/>
+              <path class="ink thin w1" d="M116 230v32M128 230v32M140 230v32M152 230v32M164 230v32M176 230v32M188 230v32M200 230v32M212 230v32M224 230v32M236 230v32M248 230v32M260 230v32M272 230v32M284 230v32"/>
+            </g>
+            <g>
+              <rect class="pbg" x="234" y="28" width="28" height="8"/>
+              <rect class="pbg" x="364" y="176" width="8" height="24"/>
+              <rect class="pbg" x="128" y="220" width="72" height="8"/>
+              <rect class="pbg" x="216" y="220" width="56" height="8"/>
+              <rect class="pbg" x="316" y="220" width="40" height="8"/>
+              <rect class="pbg" x="52" y="28" width="56" height="8"/>
+              <rect class="pbg" x="296" y="28" width="48" height="8"/>
+              <rect class="pbg" x="28" y="140" width="8" height="48"/>
+              <rect class="pbg" x="140" y="28" width="24" height="8"/>
+            </g>
+            <g filter="url(#hand)">
+              <path class="ink w1" d="M128 220h72v8h-72zM128 224h72M216 220h56v8h-56zM216 224h56M316 220h40v8h-40zM316 224h40M52 28h56v8H52zM52 32h56M296 28h48v8h-48zM296 32h48M28 140h8v48h-8zM32 140v48M140 28h24v8h-24zM140 32h24"/>
+              <path class="ink w2" d="M236 32V8M236 8a24 24 0 0 1 24 24"/>
+              <path class="ink w2" d="M368 200h24M392 200a24 24 0 0 0-24-24"/>
+            </g>
+            <g>
+              <text class="t" x="80" y="78">寝室</text><text class="t s mv-s" x="80" y="92">8畳</text>
+              <text class="t" x="152" y="60">浴室</text>
+              <text class="t" x="152" y="112">洗面</text>
+              <text class="t s mv-up" x="188" y="58">WC</text>
+              <text class="t s mv-dn" x="212" y="58">収納</text>
+              <text class="t s" x="200" y="108">廊下</text>
+              <text class="t" x="248" y="84">玄関</text>
+              <text class="t mv-up" x="320" y="76">子ども室</text><text class="t s pc" x="320" y="92">8畳(将来2室)</text><text class="t s sp" x="320" y="88">8畳</text><text class="t s sp" x="320" y="106">(将来2室)</text>
+              <text class="t" x="68" y="164">和室</text><text class="t s mv-s" x="68" y="176">4.5畳</text>
+              <text class="t s" x="68" y="216">押入</text>
+              <text class="t" x="142" y="176">LDK</text><text class="t s mv-s" x="142" y="188">16畳</text>
+              <text class="t" x="332" y="148">土間</text><text class="t s" x="332" y="208">薪ストーブ</text>
+              <text class="t" x="200" y="250">ウッドデッキ</text>
+              <text class="t s mv-r" x="388" y="216">勝手口</text>
+              <path class="ink w2" d="M398 64V36M392 44l6-8 6 8"/><text class="t s" x="398" y="76">北</text>
+              <text class="t s l" x="32" y="276">点の間隔=91cm(半間)</text>
+            </g>
+          </svg>
+          <figcaption>平屋の間取り。南の窓は軒を深く出し、夏の日差しだけを遮ります。</figcaption>
+        </figure>
+        <div>
+          <p class="kind">新築</p>
+          <h3>土間と薪ストーブのある平屋</h3>
+          <p style="margin-top:8px">杉ノ台のO様邸。ご夫婦と小学生のお子さん1人。玄関とは別に、薪や自転車を出し入れできる土間を南東に取りました。和室は襖を開ければLDKとひと続きになり、来客の多い年末は寝る場所にもなります。</p>
+          <p style="margin-top:8px">子ども室は窓とコンセントを2組ずつ付け、将来は壁1枚で2室に分けられます。</p>
+          <dl class="facts" style="margin-top:16px">
+            <dt>延床</dt><dd>28.0坪(92.7㎡)</dd>
+            <dt>工期</dt><dd>4.5か月(着工から引き渡しまで)</dd>
+            <dt>費用の幅</dt><dd>2,600万〜2,800万円(本体と付帯工事、税込)</dd>
+            <dt>性能</dt><dd>耐震等級3、UA値0.45、C値0.4(実測)</dd>
+            <dt>引き渡し</dt><dd>2026年9月</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="case" data-k="new">
+        <figure class="plan">
+          <svg viewBox="0 0 260 168" role="img" aria-labelledby="p2-t">
+            <title id="p2-t">二世帯住宅の1階と2階の間取り。1階は親世帯の和室、水まわり、玄関、LDK。2階は子世帯の寝室、子ども室、洗面、LDK。階段は同じ位置</title>
+            <rect class="wet" x="60" y="28" width="58" height="32"/>
+            <rect class="doma" x="60" y="60" width="30" height="28"/>
+            <rect class="wet" x="194" y="60" width="24" height="28"/>
+            <g filter="url(#hand)">
+              <rect class="ink w3" x="14" y="28" width="104" height="120"/>
+              <path class="ink w2" d="M14 88h40M70 88h48M60 28v60M60 60h58M90 60v28"/>
+              <path class="ink thin w1" d="M94 60v28M98 60v28M102 60v28M106 60v28M110 60v28M114 60v28"/>
+              <rect class="ink w3" x="142" y="28" width="104" height="120"/>
+              <path class="ink w2" d="M142 88h52M208 88h38M194 28v60M194 60h52M218 60v28"/>
+              <path class="ink thin w1" d="M222 60v28M226 60v28M230 60v28M234 60v28M238 60v28M242 60v28"/>
+              <rect class="ink thin w1" x="60" y="112" width="34" height="12"/>
+              <rect class="ink thin w1" x="188" y="112" width="34" height="12"/>
+            </g>
+            <text class="t a" x="66" y="18">1階 親世帯</text>
+            <text class="t a" x="194" y="18">2階 子世帯</text>
+            <text class="t" x="37" y="62">和室</text>
+            <text class="t s" x="89" y="48">浴室と洗面</text>
+            <text class="t s" x="75" y="78">玄関</text>
+            <text class="t" x="40" y="124">LDK</text>
+            <text class="t" x="168" y="62">寝室</text>
+            <text class="t s" x="220" y="48">子ども室</text>
+            <text class="t s" x="206" y="78">洗面</text>
+            <text class="t" x="168" y="124">LDK</text>
+            <text class="t s note" x="130" y="162">階段の位置を上下でそろえ、音の出る場所を寝室の上に置かない</text>
+          </svg>
+          <p class="plan-note" aria-hidden="true">階段の位置を上下でそろえ、音の出る場所を寝室の上に置かない</p>
+        </figure>
+        <div>
+          <p class="kind">新築</p>
+          <h3>玄関だけ共用の、二世帯の総二階</h3>
+        </div>
+        <p>若葉野のS様邸。台所と浴室は世帯ごとに分け、玄関だけを共用にしました。外壁は県南の山の杉板張り。</p>
+        <dl class="facts">
+          <dt>延床</dt><dd>39.0坪</dd>
+          <dt>工期</dt><dd>5か月</dd>
+          <dt>費用の幅</dt><dd>3,500万〜3,800万円(税込)</dd>
+          <dt>引き渡し</dt><dd>2026年4月</dd>
+        </dl>
+      </article>
+
+      <article class="case" data-k="new">
+        <figure class="plan">
+          <svg viewBox="0 0 260 168" role="img" aria-labelledby="p3-t">
+            <title id="p3-t">小さな2階建ての1階の間取り。広いLDKの一部が吹き抜けで、東側に階段、洗面、浴室、玄関</title>
+            <rect class="wet" x="150" y="54" width="60" height="36"/>
+            <rect class="doma" x="150" y="90" width="60" height="54"/>
+            <g filter="url(#hand)">
+              <rect class="ink w3" x="30" y="24" width="180" height="120"/>
+              <path class="ink w2" d="M150 24v30M150 70v74M150 54h60M180 54v36M150 90h20M190 90h20"/>
+              <path class="ink thin w1" d="M160 24v30M170 24v30M180 24v30M190 24v30M200 24v30"/>
+              <rect class="ink thin w1 dash" x="40" y="32" width="64" height="52"/>
+              <path class="ink thin w1" d="M40 32l64 52M104 32 40 84"/>
+              <rect class="ink w2" x="112" y="96" width="30" height="40"/>
+              <rect class="ink thin w1" x="58" y="102" width="34" height="22"/>
+            </g>
+            <text class="t" x="72" y="62">吹き抜け</text>
+            <text class="t" x="80" y="140">LDK 18畳</text>
+            <text class="t s" x="180" y="44">階段</text>
+            <text class="t s" x="165" y="76">洗面</text>
+            <text class="t s" x="195" y="76">浴室</text>
+            <text class="t" x="180" y="122">玄関</text>
+            <text class="t s note" x="130" y="162">1階のみ。2階に寝室と子ども室2つ</text>
+          </svg>
+          <p class="plan-note" aria-hidden="true">1階のみ。2階に寝室と子ども室2つ</p>
+        </figure>
+        <div>
+          <p class="kind">新築</p>
+          <h3>24坪で4人暮らす、小さな2階建て</h3>
+        </div>
+        <p>奥山田のY様邸。廊下をほぼ無くし、その分をLDKと吹き抜けに回しました。2階の窓から入る冬の日が、吹き抜け越しに1階まで届きます。</p>
+        <dl class="facts">
+          <dt>延床</dt><dd>24.5坪</dd>
+          <dt>工期</dt><dd>4か月</dd>
+          <dt>費用の幅</dt><dd>2,200万〜2,400万円(税込)</dd>
+          <dt>引き渡し</dt><dd>2025年12月</dd>
+        </dl>
+      </article>
+
+      <article class="case" data-k="reform">
+        <figure class="plan">
+          <svg viewBox="0 0 260 168" role="img" aria-labelledby="p4-t">
+            <title id="p4-t">工事前は6畳の和室が2間、襖で仕切られている。工事後は仕切りを取り、収納付きの12畳の洋室になった</title>
+            <g filter="url(#hand)">
+              <rect class="ink w3" x="14" y="36" width="100" height="100"/>
+              <path class="ink w2 dash" d="M64 36v100"/>
+              <path class="ink thin w1" d="M14 61h50M14 86h50M14 111h50M39 36v25M39 86v25M64 61h50M64 86h50M64 111h50M89 61v25M89 111v25"/>
+              <path class="ink acc w2" d="M124 86h12M132 81l5 5-5 5"/>
+              <rect class="ink w3" x="146" y="36" width="100" height="100"/>
+              <path class="ink thin w1" d="M146 46h100M146 56h100M146 66h100M146 76h100M146 86h100M146 96h100M146 106h100M146 116h100M146 126h100"/>
+              <rect class="pbg" x="146" y="36" width="30" height="34"/>
+              <rect class="ink w2" x="146" y="36" width="30" height="34"/>
+            </g>
+            <text class="t a" x="64" y="26">工事前</text>
+            <text class="t a" x="196" y="26">工事後</text>
+            <text class="t" x="39" y="78">和室6畳</text>
+            <text class="t" x="89" y="102">和室6畳</text>
+            <text class="t s" x="161" y="57">収納</text>
+            <text class="t" x="206" y="100">洋室12畳</text>
+            <text class="t s note" x="130" y="158">床は杉の無垢板、下に断熱材を足して底冷えを止めた</text>
+          </svg>
+          <p class="plan-note" aria-hidden="true">床は杉の無垢板、下に断熱材を足して底冷えを止めた</p>
+        </figure>
+        <div>
+          <p class="kind">リフォーム</p>
+          <h3>築41年の和室2間を、ひとつの洋室へ</h3>
+        </div>
+        <p>梅見台のK様邸。畳の下は断熱材が無く、冬は足元が冷えていました。床を張り替えるついでに床下の断熱を入れています。</p>
+        <dl class="facts">
+          <dt>広さ</dt><dd>12畳</dd>
+          <dt>工期</dt><dd>3週間</dd>
+          <dt>費用の幅</dt><dd>160万〜200万円(税込)</dd>
+          <dt>引き渡し</dt><dd>2026年7月</dd>
+        </dl>
+      </article>
+
+      <article class="case" data-k="reform">
+        <figure class="plan">
+          <svg viewBox="0 0 260 168" role="img" aria-labelledby="p5-t">
+            <title id="p5-t">築38年の家の1階平面図。耐力壁を足した場所をバツ印、断熱を入れ直した外壁を太い線で示している</title>
+            <g filter="url(#hand)">
+              <rect class="ink acc" style="stroke-width:5" x="30" y="24" width="200" height="116"/>
+              <path class="ink w2" d="M110 24v116M30 82h80M170 24v58M110 82h120M170 82v58"/>
+                            <g class="ink acc w2">
+                                <rect x="24" y="96" width="12" height="28"/><path d="M24 96l12 28M36 96l-12 28"/>
+                <rect x="60" y="134" width="28" height="12"/><path d="M60 134l28 12M88 134l-28 12"/>
+                <rect x="104" y="40" width="12" height="28"/><path d="M104 40l12 28M116 40l-12 28"/>
+                <rect x="224" y="40" width="12" height="28"/><path d="M224 40l12 28M236 40l-12 28"/>
+                <rect x="186" y="134" width="28" height="12"/><path d="M186 134l28 12M214 134l-28 12"/>
+              </g>
+            </g>
+            <text class="t" x="70" y="58">和室</text>
+            <text class="t" x="140" y="58">台所</text>
+            <text class="t" x="200" y="58">浴室</text>
+            <text class="t" x="70" y="116">寝室</text>
+            <text class="t" x="140" y="116">居間</text>
+            <text class="t" x="200" y="116">玄関</text>
+            <text class="t s note" x="130" y="162">×=耐力壁を足した所 太線=断熱を入れ直した外壁</text>
+          </svg>
+          <p class="plan-note" aria-hidden="true">×=耐力壁を足した所 太線=断熱を入れ直した外壁</p>
+        </figure>
+        <div>
+          <p class="kind">リフォーム</p>
+          <h3>住みながら、耐震補強と断熱を入れ直す</h3>
+        </div>
+        <p>浜ノ浦のN様邸。築38年。耐震診断の評点0.6を1.1まで上げ、あわせて外壁の内側に断熱材を入れ直しました。工事中もお住まいのまま、部屋ごとに進めています。</p>
+        <dl class="facts">
+          <dt>延床</dt><dd>32坪</dd>
+          <dt>工期</dt><dd>2.5か月</dd>
+          <dt>費用の幅</dt><dd>980万〜1,100万円(税込、補助金を使う前)</dd>
+          <dt>引き渡し</dt><dd>2026年3月</dd>
+        </dl>
+      </article>
+
+      <article class="case" data-k="water">
+        <figure class="plan">
+          <svg viewBox="0 0 260 168" role="img" aria-labelledby="p6-t">
+            <title id="p6-t">浴室の断面図。工事前は脱衣所と浴室の間に15センチの段差と深い浴槽。工事後は床が平らで、浴槽のまたぎが低く、手すりが付いている</title>
+            <rect class="wet" x="60" y="70" width="54" height="40"/>
+            <rect class="wet" x="190" y="60" width="56" height="40"/>
+            <g filter="url(#hand)">
+              <path class="ink w3" d="M14 90h40v-6h6v26h54"/>
+              <rect class="ink w2" x="82" y="62" width="30" height="48"/>
+              <path class="ink acc w1" d="M48 90v20M44 90h8M44 110h8"/>
+              <path class="ink w3" d="M146 100h100"/>
+              <rect class="ink w2" x="212" y="76" width="32" height="24"/>
+              <path class="ink acc w3" d="M200 50v28M178 64h12"/>
+            </g>
+            <text class="t a" x="64" y="26">工事前</text>
+            <text class="t a" x="196" y="26">工事後</text>
+            <text class="t s" x="30" y="82">脱衣所</text>
+            <text class="t s" x="70" y="62">浴室</text>
+            <text class="t a" x="30" y="128">段差15cm</text>
+            <text class="t s" x="166" y="92">脱衣所</text>
+            <text class="t s" x="226" y="70">浴槽</text>
+            <text class="t a" x="190" y="120">段差なし、手すり2か所</text>
+            <text class="t s note" x="130" y="158">断面図(横から見た図)</text>
+          </svg>
+          <p class="plan-note" aria-hidden="true">断面図(横から見た図)</p>
+        </figure>
+        <div>
+          <p class="kind">水まわり</p>
+          <h3>浴室と脱衣所の段差をなくす</h3>
+        </div>
+        <p>汐見ヶ浜のT様邸。80代のお母様がまたぎやすいよう、浴槽の縁を低くし、出入口の段差を無くしました。脱衣所には暖房を付けています。</p>
+        <dl class="facts">
+          <dt>広さ</dt><dd>2.5坪(浴室と脱衣所)</dd>
+          <dt>工期</dt><dd>9日(お風呂が使えないのは6日)</dd>
+          <dt>費用の幅</dt><dd>150万〜180万円(税込)</dd>
+          <dt>引き渡し</dt><dd>2026年2月</dd>
+        </dl>
+      </article>
+
+      <article class="case" data-k="water">
+        <figure class="plan">
+          <svg viewBox="0 0 260 168" role="img" aria-labelledby="p7-t">
+            <title id="p7-t">台所の平面図。工事前は壁に向かう流し台。工事後は食卓の方を向く対面の台所で、壁側に収納</title>
+            <g filter="url(#hand)">
+              <rect class="ink w3" x="14" y="36" width="100" height="100"/>
+              <rect class="ink w2" x="14" y="36" width="100" height="14"/>
+              <circle class="ink w1" cx="44" cy="43" r="4"/>
+              <rect class="ink thin w1" x="40" y="96" width="44" height="24"/>
+              <path class="ink acc w2" d="M124 86h12M132 81l5 5-5 5"/>
+              <rect class="ink w3" x="146" y="36" width="100" height="100"/>
+              <rect class="ink thin w1" x="146" y="36" width="100" height="10"/>
+              <rect class="ink w2" x="166" y="70" width="80" height="16"/>
+              <circle class="ink w1" cx="190" cy="78" r="4"/>
+              <rect class="ink thin w1" x="178" y="104" width="44" height="22"/>
+            </g>
+            <text class="t a" x="64" y="26">工事前</text>
+            <text class="t a" x="196" y="26">工事後</text>
+            <text class="t s" x="64" y="64">壁向きの流し</text>
+            <text class="t s" x="62" y="112">食卓</text>
+            <text class="t s" x="206" y="60">収納</text>
+            <text class="t s" x="200" y="118">食卓</text>
+            <text class="t s note" x="130" y="158">流しから食卓と庭が見えるように</text>
+          </svg>
+          <p class="plan-note" aria-hidden="true">流しから食卓と庭が見えるように</p>
+        </figure>
+        <div>
+          <p class="kind">水まわり</p>
+          <h3>壁向きの台所を、食卓に向ける</h3>
+        </div>
+        <p>柳ヶ原のM様邸。給排水の管を床下で延ばし、流し台の向きを変えました。料理をしながら宿題を見られるようになったそうです。</p>
+        <dl class="facts">
+          <dt>広さ</dt><dd>台所4畳</dd>
+          <dt>工期</dt><dd>12日</dd>
+          <dt>費用の幅</dt><dd>130万〜160万円(税込)</dd>
+          <dt>引き渡し</dt><dd>2025年11月</dd>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="wood" data-pg="perf">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>柱と床は、地元と県南の山の木で</h2>
+      <p>山から製材所まで車で1時間ほど。運ぶ距離が短く、どの山で伐られた木かを確かめられる材だけを使っています。</p>
+    </div>
+    <div class="wood-grid">
+      <figure class="koguchi">
+        <svg viewBox="0 0 420 330" role="img" aria-labelledby="wd-t">
+          <title id="wd-t">杉の丸太の切り口(木口)。中心の髄から外へ年輪が46本。内側の赤みの強い部分が赤身、外側の白っぽい部分が白太、いちばん外が樹皮。上から中心へ背割りの切れ込み</title>
+          <g id="rings"></g>
+          <path class="w-crack" d="M158 36 L163 36 L161.6 140 L160.5 150 L159.4 140 Z"/>
+          <g>
+            <path class="w-lead" d="M268 86 L306 66 H322"/><circle class="w-pt" cx="268" cy="86" r="3"/>
+            <text class="w-lab" x="326" y="64">樹皮</text><text class="w-sub" x="326" y="81">木を守る皮</text>
+            <path class="w-lead" d="M266 143 L306 124 H322"/><circle class="w-pt" cx="266" cy="143" r="3"/>
+            <text class="w-lab" x="326" y="122">白太</text><text class="w-sub" x="326" y="139">水を吸う外側</text>
+            <path class="w-lead" d="M211 178 L306 182 H322"/><circle class="w-pt" cx="211" cy="178" r="3"/>
+            <text class="w-lab" x="326" y="180">赤身</text><text class="w-sub kg-pc" x="326" y="197">腐りにくい内側</text><text class="w-sub kg-sp" x="326" y="198">腐りにくい</text><text class="w-sub kg-sp" x="326" y="215">内側</text>
+            <path class="w-lead" d="M244 224 L306 240 H322"/><circle class="w-pt" cx="244" cy="224" r="3"/>
+            <text class="w-lab" x="326" y="238">年輪</text><text class="w-sub" x="326" y="255">1年に1本</text>
+            <path class="w-lead" d="M160 52 L118 24 H96"/><circle class="w-pt" cx="160" cy="52" r="3"/>
+            <text class="w-lab" x="36" y="29">背割り</text>
+          </g>
+        </svg>
+        <figcaption>直径およそ28cm、年輪46本の杉の切り口。外側ほど年輪の間が詰まっているのは、育つにつれて1年に太る幅が小さくなるためです。上の切れ込み「背割り」は、乾くときの割れをこの1か所に集めるためのものです。</figcaption>
+      </figure>
+      <div>
+        <ul class="woods">
+          <li>
+            <p class="where">地元の山の杉<small>市内の山、樹齢50〜60年</small></p>
+            <div><p>柱と梁に使います。製材したあと半年ほど寝かせ、含水率(木に含まれる水分)を20%以下にしてから刻みます。乾いていない木は、住んでから縮んで戸が閉まりにくくなるためです。</p><span class="use">使う場所: 柱、梁、2階の床板</span></div>
+          </li>
+          <li>
+            <p class="where">県南の山の杉<small>福岡県南部の山</small></p>
+            <div><p>赤身の多い材を選び、外壁の板張りと1階の床板に使います。厚さ30mmの床板は、素足で歩くと冬でもひやっとしません。</p><span class="use">使う場所: 外壁の板張り、1階の床板</span></div>
+          </li>
+          <li>
+            <p class="where">ひのき<small>九州産</small></p>
+            <div><p>湿気とシロアリに強いので、地面にいちばん近い土台に使います。削ると香りが立つので、浴室の天井や窓枠に希望される方も多い木です。</p><span class="use">使う場所: 土台、浴室の天井(希望により)</span></div>
+          </li>
+        </ul>
+        <p class="note" style="margin-top:16px">刻みは機械と手の両方です。継ぎ手のように力のかかる場所は、大工が手で墨を付けて刻みます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flow" data-pg="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>最初の相談から引き渡しまで、8〜10か月</h2>
+      <p>新築の場合の目安です。土地探しから始める方は、ここに2〜6か月ほど足してください。リフォームは現地を見てから工程表をお出しします。</p>
+    </div>
+    <div class="g-axis" aria-hidden="true"><span></span><ol><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol></div>
+    <ol class="gantt" style="list-style:none;padding:0">
+      <li class="g-row"><div><h3>相談と現地確認</h3><span class="d">土地や今の家を一緒に歩いて見ます。費用はかかりません。約2週</span></div><div class="g-track"><span class="g-bar" style="--s:0;--e:.5"></span></div></li>
+      <li class="g-row"><div><h3>間取りの提案と概算</h3><span class="d">手描きの下書きを何度か往復します。約1か月</span></div><div class="g-track"><span class="g-bar" style="--s:.5;--e:1.5"></span></div></li>
+      <li class="g-row"><div><h3>詳しい設計、見積り、契約</h3><span class="d">見積りは項目ごとの明細で出します。1〜2か月</span></div><div class="g-track"><span class="g-bar" style="--s:1.5;--e:3"></span></div></li>
+      <li class="g-row"><div><h3>確認申請</h3><span class="d">役所や検査機関の審査を待つ期間です。約1か月</span></div><div class="g-track"><span class="g-bar" style="--s:3;--e:4"></span></div></li>
+      <li class="g-row"><div><h3>基礎工事から上棟</h3><span class="d">上棟の日はぜひ現場へ。約1か月</span></div><div class="g-track"><span class="g-bar build" style="--s:4;--e:5"></span></div></li>
+      <li class="g-row"><div><h3>屋根、外壁、内装の仕上げ</h3><span class="d">週に一度、写真つきで進み具合を送ります。約3か月</span></div><div class="g-track"><span class="g-bar build" style="--s:5;--e:8"></span></div></li>
+      <li class="g-row"><div><h3>検査と引き渡し</h3><span class="d">気密の測定と社内検査、完了検査のあとに鍵をお渡しします。約2週</span></div><div class="g-track"><span class="g-bar build" style="--s:8;--e:8.5"></span></div></li>
+    </ol>
+    <p class="g-legend"><span>打ち合わせと手続き</span><span class="b">工事</span><em style="font-style:normal">上の数字は、最初の相談から何か月目か</em></p>
+
+    <h3 class="sub-h">引き渡しのあとの点検</h3>
+    <p class="note">10年目までの点検は無料です。建てた大工と設計の2人で伺います。</p>
+    <ol class="insp">
+      <li><b>引き渡し</b><span>住まい方の説明と、点検の日程を決めます</span></li>
+      <li><b>半年</b><span>建具の調整、クロスのすき間、床鳴り</span></li>
+      <li><b>1年</b><span>木が落ち着いたあとの建具の再調整、外まわり</span></li>
+      <li><b>2年</b><span>給排水の漏れ、換気扇とフィルター</span></li>
+      <li><b>5年</b><span>シロアリ対策の薬の効き目、外壁の継ぎ目</span></li>
+      <li><b>10年</b><span>屋根と外壁、床下の構造。保証を延ばすかどうかの相談</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="alt" id="cost" data-pg="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>費用の目安と、その内訳</h2>
+      <p>「坪単価」だけでは総額が分かりません。本体の工事のほかに、付帯の工事と諸費用がかかります。昨年建てた延床30坪の家の実例で、何にいくらかかったかをお見せします。</p>
+    </div>
+    <div class="cost-grid">
+      <div>
+        <p class="total">延床30坪の新築の例 総額<b>2,980</b>万円<small style="display:block;color:var(--muted);font-size:13px">税込。土地代、家具、引っ越しの費用は含みません。</small></p>
+        <div class="stack" role="img" aria-label="総額2,980万円の内訳。本体工事2,240万円で75パーセント、付帯工事440万円で15パーセント、諸費用300万円で10パーセント">
+          <span class="p1"></span><span class="p2"></span><span class="p3"></span>
+        </div>
+        <ul class="legend">
+          <li><span class="sw" style="background:var(--accent)"></span><span><b>本体工事 75%</b><small>基礎、構造、屋根、外壁、断熱、内装、台所や浴室などの設備</small></span><span class="amt">2,240<small>万円</small></span></li>
+          <li><span class="sw" style="background:var(--sage)"></span><span><b>付帯工事 15%</b><small>地盤の改良、水道とガスの引き込み、外構、照明とカーテン</small></span><span class="amt">440<small>万円</small></span></li>
+          <li><span class="sw" style="background:var(--stone)"></span><span><b>諸費用 10%</b><small>確認申請、登記、住宅ローンの手数料、火災保険、地鎮祭</small></span><span class="amt">300<small>万円</small></span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:20px">本体工事の坪単価は、68万〜79万円</h3>
+        <p class="note" style="margin-top:8px">広さや形、窓の数で変わります。総二階は安く、平屋や凹凸の多い形は高くなります。</p>
+        <div class="range" role="img" aria-label="本体工事の坪単価の幅。68万円から79万円。左の例は約75万円">
+          <div class="range-track"><span class="range-band"></span><span class="range-mark">左の例 約75万円</span></div>
+          <div class="range-scale"><span>50万</span><span>60万</span><span>70万</span><span>80万</span><span>90万</span><span>100万</span></div>
+        </div>
+        <h3 style="font-size:18px;margin-top:40px">リフォームの目安</h3>
+        <div class="tbl">
+          <table>
+            <thead><tr><th scope="col">工事</th><th scope="col">よくある範囲</th><th scope="col" style="text-align:right">費用の幅(税込)</th></tr></thead>
+            <tbody>
+              <tr><td data-label="工事">浴室の入れ替え</td><td data-label="よくある範囲">1坪、脱衣所の床も</td><td data-label="費用の幅(税込)" class="r">120万〜180万円</td></tr>
+              <tr><td data-label="工事">台所の入れ替え</td><td data-label="よくある範囲">向きを変える場合は上の方</td><td data-label="費用の幅(税込)" class="r">90万〜160万円</td></tr>
+              <tr><td data-label="工事">和室を洋室に</td><td data-label="よくある範囲">6畳、床下の断熱込み</td><td data-label="費用の幅(税込)" class="r">80万〜130万円</td></tr>
+              <tr><td data-label="工事">耐震補強</td><td data-label="よくある範囲">評点1.0以上まで</td><td data-label="費用の幅(税込)" class="r">150万〜250万円</td></tr>
+              <tr><td data-label="工事">外壁の張り替え</td><td data-label="よくある範囲">30坪の家、足場込み</td><td data-label="費用の幅(税込)" class="r">180万〜300万円</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top:8px">福岡市の耐震や省エネの補助金は、使えるかどうかを最初の相談で確かめます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voice" data-pg="works">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>住んでいる方の話</h2>
+    </div>
+    <div class="voices">
+      <blockquote class="voice big">
+        <p>梅雨どきに戸が重くなったと電話したら、翌朝には建ててくれた本人が来てくれました。8年経っても、それが続いています。点検の日は、大工さんが子どもの背の高さを柱に書いていってくれるのが恒例になりました。</p>
+        <cite>2018年に新築 杉ノ台のH様</cite>
+      </blockquote>
+      <div>
+        <blockquote class="voice sm">
+          <p>見積りが一行ずつ書いてあったので、どこを削ればいくら下がるかが自分たちで分かりました。削ったのは2階の造作棚だけです。</p>
+          <cite>2026年に平屋を新築 杉ノ台のO様</cite>
+        </blockquote>
+        <blockquote class="voice sm">
+          <p>和室の床が冷たいのは古い家だから仕方ないと思っていました。床下に断熱を入れてもらった今年の冬は、靴下1枚で過ごせています。</p>
+          <cite>2026年にリフォーム 梅見台のK様</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="faq" data-pg="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>よくいただく質問</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>土地がまだ決まっていなくても、相談できますか</summary>
+        <div class="a"><p>できます。むしろ土地を決める前に一度ご相談ください。地盤や日当たり、道路との高低差で、同じ予算でも建てられる家が変わります。候補地があれば一緒に見に行きます。</p></div>
+      </details>
+      <details>
+        <summary>予算が限られています。どのくらいから建てられますか</summary>
+        <div class="a"><p>延床24坪前後の小さな家で、本体と付帯工事を合わせて2,200万円ほどからが目安です。広さを抑えて性能は落とさない、という組み立て方をおすすめしています。</p></div>
+      </details>
+      <details>
+        <summary>他社の見積りと比べてもかまいませんか</summary>
+        <div class="a"><p>かまいません。比べやすいように、項目ごとの明細でお出しします。他社の見積りをお持ちいただければ、含まれている工事の違いを一緒に確かめます。</p></div>
+      </details>
+      <details>
+        <summary>住宅ローンや補助金の相談もできますか</summary>
+        <div class="a"><p>できます。返済の計画は、取引のある地元の金融機関の担当者を交えてご説明します。省エネや耐震の補助金は、申請の書類づくりまで当社で手伝います。</p></div>
+      </details>
+      <details>
+        <summary>工事中に現場を見に行ってもいいですか</summary>
+        <div class="a"><p>いつでもどうぞ。安全のため、前日までにご連絡いただければ担当の大工が案内します。来られない方には、毎週写真つきで進み具合を送っています。</p></div>
+      </details>
+      <details>
+        <summary>網戸の張り替えのような、小さな修理だけでも頼めますか</summary>
+        <div class="a"><p>頼めます。当社で建てた家でなくても伺います。出張の費用は、対応地域内なら3,300円(税込)です。その場で直せるものは、その日のうちに直します。</p></div>
+      </details>
+      <details>
+        <summary>対応地域の外でも建ててもらえますか</summary>
+        <div class="a"><p>申し訳ありませんが、新築は事務所から車で40分ほどの範囲に限っています。何かあったときにすぐ伺えるようにするためです。境目の地域は、まずご相談ください。</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="event" data-pg="event">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>12月の見学会</h2>
+      <p>図面や写真では分からない、木の匂いや床の足ざわり、冬の室温を確かめていただけます。どちらも予約制です。</p>
+    </div>
+    <ul class="events">
+      <li>
+        <p class="ev-date"><b>12月12日・13日</b><span>2026年 土曜と日曜</span></p>
+        <div>
+          <h3>完成見学会 汐見ヶ浜の平屋</h3>
+          <p>引き渡し前のお宅をお借りして公開します。延床27坪、薪ストーブの代わりに床下エアコン1台で家じゅうを暖める平屋です。当日は室温と湿度の記録もお見せします。</p>
+          <dl class="ev-meta">
+            <dt>時間</dt><dd>10:00〜16:00(1組90分ごとの入れ替え)</dd>
+            <dt>場所</dt><dd>福岡市 汐見ヶ浜(ご予約の方に地図をお送りします)</dd>
+            <dt>定員</dt><dd>各日4組</dd>
+          </dl>
+        </div>
+      </li>
+      <li>
+        <p class="ev-date"><b>12月20日</b><span>2026年 日曜</span></p>
+        <div>
+          <h3>住んでいる家の見学会</h3>
+          <p>築6年のお宅で、住んでいる方から直接お話を聞けます。光熱費の明細や、6年経った無垢の床の様子もご覧いただけます。</p>
+          <dl class="ev-meta">
+            <dt>時間</dt><dd>13:00〜16:00</dd>
+            <dt>場所</dt><dd>福岡市 杉ノ台(ご予約の方に地図をお送りします)</dd>
+            <dt>定員</dt><dd>3組</dd>
+          </dl>
+        </div>
+      </li>
+    </ul>
+    <p class="note" style="margin-top:24px">お申し込みは、<a href="#contact">相談フォーム</a>で「見学会に参加したい」を選ぶか、お電話で。</p>
+  </div>
+</section>
+
+<section class="alt" id="company" data-pg="company">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>会社のこと</h2>
+      <p>大工4人、設計1人、事務1人の小さな工務店です。1987年に先代が大工ひとりで始め、いまは2代目が設計と現場を見ています。</p>
+    </div>
+    <div class="company">
+      <dl class="co">
+        <dt>社名</dt><dd>森川工務店</dd>
+        <dt>代表</dt><dd>森川 謙吾(2代目、一級建築士)</dd>
+        <dt>所在地</dt><dd>福岡県福岡市 杉ノ台中央 0-0-0</dd>
+        <dt>電話</dt><dd><a href="tel:0920000000" class="num">092-000-0000</a>(8:00〜18:00、日曜休み)</dd>
+        <dt>創業</dt><dd>1987年</dd>
+        <dt>建設業許可</dt><dd>福岡県知事許可(般-00)第000000号</dd>
+        <dt>人数</dt><dd>大工4人、設計1人、事務1人</dd>
+        <dt>新築の棟数</dt><dd>年に6棟まで(リフォームは年に40件ほど)</dd>
+      </dl>
+      <div class="area">
+        <h3>対応している地域</h3>
+        <p>事務所から車で40分ほどの範囲です。雨漏りや水漏れのときに、その日のうちに伺える距離に限っています。</p>
+        <ul>
+          <li><span>杉ノ台・汐見ヶ浜・浜ノ浦</span><span>15〜30分</span></li>
+          <li><span>梅見台・柳ヶ原・若葉野</span><span>15〜30分</span></li>
+          <li><span>そのほかの福岡市内</span><span>30〜40分</span></li>
+          <li><span>その他の地域</span><span>修理のみ、ご相談</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-pg="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-side">
+        <div class="sec-head" style="margin-bottom:24px">
+          <h2>見学と相談のお申し込み</h2>
+        </div>
+        <p>2営業日以内に、お電話かメールでお返事します。営業の電話を何度もかけることはありません。</p>
+        <p>お急ぎの修理は、お電話のほうが早く伺えます。</p>
+        <a class="big-tel" href="tel:0920000000"><small>お電話で</small><b>092-000-0000</b><small>8:00〜18:00(日曜休み)</small></a>
+      </div>
+      <div>
+        <form id="form" novalidate>
+          <div>
+            <label for="f-name">お名前<span class="req">必須</span></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
+            <span class="err" id="e-name"></span>
+          </div>
+          <div>
+            <label for="f-tel">電話番号<span class="req">必須</span></label>
+            <input type="tel" id="f-tel" name="tel" autocomplete="tel" inputmode="tel" required aria-describedby="h-tel e-tel">
+            <span class="hint" id="h-tel">例: 092-000-0000(ハイフン無しでも可)</span>
+            <span class="err" id="e-tel"></span>
+          </div>
+          <div class="full">
+            <label for="f-mail">メールアドレス<span class="opt">任意</span></label>
+            <input type="email" id="f-mail" name="mail" autocomplete="email" inputmode="email" aria-describedby="e-mail">
+            <span class="err" id="e-mail"></span>
+          </div>
+          <div>
+            <label for="f-kind">ご相談の内容</label>
+            <select id="f-kind" name="kind">
+              <option>新築</option>
+              <option>リフォーム</option>
+              <option>水まわり</option>
+              <option>修理、点検</option>
+              <option>見学会に参加したい</option>
+            </select>
+          </div>
+          <div>
+            <label for="f-date">見学会の希望日<span class="opt">見学会の方のみ</span></label>
+            <select id="f-date" name="date">
+              <option value="">選ばない</option>
+              <option>12月12日(土) 汐見ヶ浜の平屋</option>
+              <option>12月13日(日) 汐見ヶ浜の平屋</option>
+              <option>12月20日(日) 住んでいる家</option>
+            </select>
+          </div>
+          <fieldset class="full">
+            <legend class="lab">ご連絡の方法</legend>
+            <div class="radios">
+              <label><input type="radio" name="how" value="電話" checked>電話</label>
+              <label><input type="radio" name="how" value="メール">メール</label>
+            </div>
+            <span class="err" id="e-how"></span>
+          </fieldset>
+          <div class="full">
+            <label for="f-msg">ご希望や気になっていること<span class="opt">任意</span></label>
+            <textarea id="f-msg" name="msg" rows="4" maxlength="1000" aria-describedby="h-msg"></textarea>
+            <span class="hint" id="h-msg">「築何年」「何人で住むか」などがあると、お返事が早くなります。</span>
+          </div>
+          <div class="full form-foot">
+            <button class="btn" type="submit">この内容で申し込む</button>
+            <span class="note">送信前に確認画面は出ません。</span>
+          </div>
+        </form>
+        <div class="done" id="done" hidden>
+          <h3 tabindex="-1">お申し込みの内容を受け付けました</h3>
+          <p><b>見本ページのため送信はされません。</b>実際のページでは、ここで2営業日以内のお返事をお約束します。</p>
+          <dl id="done-list"></dl>
+          <button class="btn ghost" type="button" id="back">入力に戻る</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 森川工務店 福岡市 杉ノ台中央</span>
+    <span>掲載の社名・番号・事例は見本です</span>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="電話と相談">
+  <a class="call" href="tel:0920000000">電話する<small>092-000-0000</small></a>
+  <a class="ask" href="#contact">相談する</a>
+</nav>
+
+<script>
+(function(){
+  /* 年輪: 同じ向きの歪みを全ての輪で共有させ、内側は広く外側は詰まる間隔で描く */
+  var NS='http://www.w3.org/2000/svg', g=document.getElementById('rings');
+  var cx=162, cy=170, R=132, N=46;
+  function ring(r,k,ox,oy){
+    var d='';
+    for(var i=0;i<72;i++){
+      var th=Math.PI*2*i/72;
+      var rr=r*(1+.045*k*Math.sin(2*th+.6)+.025*k*Math.sin(3*th+1.9)+.01*k*Math.sin(7*th+.8));
+      var x=cx+ox*(1-k)+rr*Math.cos(th), y=cy+oy*(1-k)+rr*Math.sin(th)*.95;
+      d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);
+    }
+    return d+'Z';
+  }
+  function p(cls,d){var e=document.createElementNS(NS,'path');e.setAttribute('class',cls);e.setAttribute('d',d);return e}
+  g.appendChild(p('w-bark',ring(R+10,1,0,0)));
+  g.appendChild(p('w-sap',ring(R,1,0,0)));
+  g.appendChild(p('w-heart',ring(R*.64,.64,-5,4)));
+  var rg=document.createElementNS(NS,'g');rg.setAttribute('class','w-ring');
+  for(var i=1;i<=N;i++){var t=i/N;rg.appendChild(p('',ring(R*Math.pow(t,.8)*.995,t,-5,4)))}
+  g.appendChild(rg);
+
+  /* メニュー */
+  var mb=document.querySelector('.menu-btn'), nav=document.getElementById('gnav');
+  function setMenu(open){nav.classList.toggle('open',open);mb.setAttribute('aria-expanded',open);mb.querySelector('.vh').textContent=open?'メニューを閉じる':'メニューを開く'}
+  mb.addEventListener('click',function(){setMenu(mb.getAttribute('aria-expanded')!=='true')});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){setMenu(false);mb.focus()}});
+
+  /* 施工例の絞り込み */
+  var btns=document.querySelectorAll('.filters button'), cases=document.querySelectorAll('.case'), count=document.getElementById('count');
+  var names={all:'すべて',new:'新築',reform:'リフォーム',water:'水まわり'};
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.dataset.f, n=0;
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    cases.forEach(function(c){var show=f==='all'||c.dataset.k===f;c.hidden=!show;if(show)n++});
+    count.textContent=(f==='all'?'':names[f]+'の')+n+'件を表示しています';
+  })});
+
+  /* 相談フォーム */
+  var form=document.getElementById('form'), done=document.getElementById('done');
+  var fName=document.getElementById('f-name'), fTel=document.getElementById('f-tel'), fMail=document.getElementById('f-mail');
+  function z2h(s){return s.replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0)}).replace(/[－ー―‐−]/g,'-')}
+  function setErr(el,id,msg){document.getElementById(id).textContent=msg;el.setAttribute('aria-invalid',msg?'true':'false');return !msg}
+  function checkName(){return setErr(fName,'e-name',fName.value.trim()?'':'お名前を入れてください。')}
+  function checkTel(){
+    var v=z2h(fTel.value).replace(/[\s()-]/g,'');
+    if(!v)return setErr(fTel,'e-tel','電話番号を入れてください。');
+    if(!/^0\d{9,10}$/.test(v))return setErr(fTel,'e-tel','市外局番から数字10桁か11桁で入れてください(例: 092-000-0000)。');
+    return setErr(fTel,'e-tel','');
+  }
+  function checkMail(){
+    var v=fMail.value.trim(), how=form.querySelector('[name=how]:checked').value;
+    if(!v&&how==='メール')return setErr(fMail,'e-mail','メールでの連絡を選んだ場合は、メールアドレスを入れてください。');
+    if(v&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))return setErr(fMail,'e-mail','メールアドレスの形が正しくありません(例: name@example.jp)。');
+    return setErr(fMail,'e-mail','');
+  }
+  fName.addEventListener('blur',checkName);
+  fTel.addEventListener('blur',checkTel);
+  fMail.addEventListener('blur',checkMail);
+  form.querySelectorAll('[name=how]').forEach(function(r){r.addEventListener('change',function(){if(fMail.getAttribute('aria-invalid')==='true'||fMail.value)checkMail()})});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=[checkName(),checkTel(),checkMail()];
+    var firstBad=[fName,fTel,fMail][ok.indexOf(false)];
+    if(firstBad){firstBad.focus();return}
+    var rows=[['お名前',fName.value.trim()],['電話番号',z2h(fTel.value).trim()],['メール',fMail.value.trim()||'(なし)'],['ご相談の内容',form.kind.value],['見学会の希望日',form.date.value||'(選ばない)'],['ご連絡の方法',form.querySelector('[name=how]:checked').value],['ご希望',form.msg.value.trim()||'(なし)']];
+    var dl=document.getElementById('done-list');dl.textContent='';
+    rows.forEach(function(r){var dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=r[0];dd.textContent=r[1];dl.appendChild(dt);dl.appendChild(dd)});
+    form.hidden=true;done.hidden=false;done.querySelector('h3').focus();
+  });
+  document.getElementById('back').addEventListener('click',function(){done.hidden=true;form.hidden=false;fName.focus()});
+  /* 見学会の日を選んだら内容も合わせる */
+  form.date.addEventListener('change',function(){if(form.date.value)form.kind.value='見学会に参加したい'});
+})();
+</script>
+<script>
+/* ページ切り替え: URLの # で1ページ分だけ出す。JSが動かない時は全部縦に並ぶ */
+(()=>{
+  const de=document.documentElement, ALT='alt', NAV='#gnav';
+  const secs=[...document.querySelectorAll('[data-pg]')], order=[];
+  secs.forEach(s=>{if(!order.includes(s.dataset.pg))order.push(s.dataset.pg)});
+  const links=[...document.querySelectorAll(NAV+' a')];
+  const label=pg=>{const a=links.find(a=>a.getAttribute('href')==='#'+pg);return a?a.textContent.trim():pg};
+  /* 各ページの一番下に「トップへ」「次のページ」 */
+  order.forEach((pg,i)=>{
+    if(pg==='top')return;
+    const last=secs.filter(s=>s.dataset.pg===pg).pop(), box=last.querySelector('.wrap,.in')||last, nx=order[i+1];
+    const n=document.createElement('nav');n.className='pager';n.setAttribute('aria-label','ページ送り');
+    n.innerHTML='<a class="pager-top" href="#top">トップへ</a>'+(nx?'<a class="pager-next" href="#'+nx+'"><small>次のページ</small><span>'+label(nx)+'</span></a>':'');
+    box.appendChild(n);
+  });
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
+  let first=true;
+  function jump(fn){const b=de.style.scrollBehavior;de.style.scrollBehavior='auto';fn();de.style.scrollBehavior=b}
+  function show(){
+    let id='';try{id=decodeURIComponent(location.hash.slice(1))}catch(e){}
+    const t=/^[\w-]+$/.test(id)&&document.getElementById(id), host=t&&t.closest('[data-pg]'), pg=host?host.dataset.pg:'top';
+    let prev=null;
+    secs.forEach(s=>{const on=s.dataset.pg===pg;s.classList.toggle('on',on);s.classList.remove('seam','pg-head');
+      if(on){if(prev&&prev.classList.contains(ALT)===s.classList.contains(ALT))s.classList.add('seam');prev=s}});
+    links.forEach(a=>{if(a.getAttribute('href')==='#'+pg)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    const head=secs.find(s=>s.dataset.pg===pg);head.classList.add('pg-head');
+    if(t&&host&&t!==head)jump(()=>t.scrollIntoView({block:'start'}));
+    else{
+      jump(()=>window.scrollTo(0,0));
+      if(!first){const h=head.querySelector('h1,h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}}
+    }
+    first=false;
+  }
+  addEventListener('hashchange',show);
+  /* 今と同じ # を押した時も、そのページの頭(または目当ての場所)へ */
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&location.hash&&a.getAttribute('href')===location.hash){e.preventDefault();show()}});
+  show();
+})();
+</script>
+
+</body>
+</html>
