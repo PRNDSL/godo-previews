@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>時間割|ヨガとピラティスの教室 ひととき</title>
+<meta name="description" content="ひとときの週の時間割。火曜から日曜まで週14クラス、どのクラスも8人までです。月曜休み。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="kashira">
+  <div class="wrap kashira-in">
+    <a class="yago" href="index.html">ヨガとピラティスの教室<b>ひととき</b></a>
+    <nav aria-label="ページの一覧">
+      <ul class="menu">
+        <li><a href="jikanwari.html" aria-current="page">時間割</a></li>
+        <li><a href="kurasu.html">クラス</a></li>
+        <li><a href="ryokin.html">料金</a></li>
+        <li><a href="taiken.html">体験</a></li>
+        <li><a href="sensei.html">先生と場所</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="pagehead">
+  <div class="wrap">
+    <p class="pan"><a href="index.html">ひととき</a> / 時間割</p>
+    <h1>時間割</h1>
+    <p class="lead">火曜から日曜まで、週に14クラスあります。どのクラスもマット8枚、8人までです。月曜は休みで、祝日は曜日どおりに開けます。</p>
+  </div>
+</div>
+
+<main>
+
+<section class="sec" aria-labelledby="shu-ttl">
+  <div class="wrap">
+    <h2 id="shu-ttl">週の並び</h2>
+    <div class="erabu" data-erabu hidden>
+      <div class="erabu-g" role="group" aria-label="きつさで絞る">
+        <span class="erabu-ko">きつさ</span>
+        <button type="button" data-g="level" data-v="" aria-pressed="true">すべて</button>
+        <button type="button" data-g="level" data-v="hajimete" aria-pressed="false">はじめて</button>
+        <button type="button" data-g="level" data-v="yukkuri" aria-pressed="false">ゆっくり</button>
+        <button type="button" data-g="level" data-v="shikkari" aria-pressed="false">しっかり動く</button>
+      </div>
+      <div class="erabu-g" role="group" aria-label="種類で絞る">
+        <span class="erabu-ko">種類</span>
+        <button type="button" data-g="kind" data-v="" aria-pressed="true">すべて</button>
+        <button type="button" data-g="kind" data-v="yoga" aria-pressed="false">ヨガ</button>
+        <button type="button" data-g="kind" data-v="pila" aria-pressed="false">ピラティス</button>
+      </div>
+      <p class="erabu-kazu" data-kazu aria-live="polite"></p>
+    </div>
+    <ul class="iro-rei">
+      <li><i></i>ヨガ</li>
+      <li><i class="p"></i>ピラティス</li>
+    </ul>
+
+    <div class="hyou">
+      <div class="hyou-jikan" aria-hidden="true"><span></span><span>朝</span><span>昼</span><span>夜</span></div>
+
+      <section class="hi" aria-label="月曜">
+        <h3>月曜</h3>
+        <p class="yasumi">休み</p>
+      </section>
+
+      <section class="hi" aria-label="火曜">
+        <h3>火曜</h3>
+        <ul class="waku">
+          <li class="koma" data-kind="yoga" data-level="yukkuri"><span class="koma-toki">10:00–11:00</span><b class="koma-na">ゆっくりヨガ</b><span class="koma-hito"><span class="k">先生 沢渡</span> <span class="k">定員8人</span></span></li>
+        </ul>
+        <ul class="waku"></ul>
+        <ul class="waku">
+          <li class="koma" data-kind="pila" data-level="shikkari"><span class="koma-toki">19:30–20:20</span><b class="koma-na"><span class="k">しっかり</span><span class="k">ピラティス</span></b><span class="koma-hito"><span class="k">先生 戸川</span> <span class="k">定員8人</span></span></li>
+        </ul>
+      </section>
+
+      <section class="hi" aria-label="水曜">
+        <h3>水曜</h3>
+        <ul class="waku">
+          <li class="koma" data-kind="pila" data-level="hajimete"><span class="koma-toki">10:00–10:50</span><b class="koma-na"><span class="k">はじめての</span><span class="k">ピラティス</span></b><span class="koma-hito"><span class="k">先生 戸川</span> <span class="k">定員8人</span></span></li>
+        </ul>
+        <ul class="waku">
+          <li class="koma" data-kind="pila" data-level="yukkuri"><span class="koma-toki">13:30–14:20</span><b class="koma-na"><span class="k">ゆっくり</span><span class="k">ピラティス</span></b><span class="koma-hito"><span class="k">先生 戸川</span> <span class="k">定員8人</span></span></li>
+        </ul>
+        <ul class="waku">
+          <li class="koma" data-kind="yoga" data-level="shikkari"><span class="koma-toki">19:30–20:45</span><b class="koma-na">しっかりヨガ</b><span class="koma-hito"><span class="k">先生 沢渡</span> <span class="k">定員8人</span></span></li>
+        </ul>
+      </section>
+
+      <section class="hi" aria-label="木曜">
+        <h3>木曜</h3>
+        <ul class="waku">
+          <li class="koma" data-kind="yoga" data-level="hajimete"><span class="koma-toki">10:00–11:00</span><b class="koma-na">はじめてのヨガ</b><span class="koma-hito"><span class="k">先生 沢渡</span> <span class="k">定員8人</span></span></li>
+        </ul>
+        <ul class="waku"></ul>
+        <ul class="waku">
+          <li class="koma" data-kind="yoga" data-level="yukkuri"><span class="koma-toki">19:30–20:30</span><b class="koma-na">ゆっくりヨガ</b><span class="koma-hito"><span class="k">先生 沢渡</span> <span class="k">定員8人</span></span></li>
+        </ul>
+      </section>
+
+      <section class="hi" aria-label="金曜">
+        <h3>金曜</h3>
+        <ul class="waku">
+          <li class="koma" data-kind="pila" data-level="shikkari"><span class="koma-toki">10:00–10:50</span><b class="koma-na"><span class="k">しっかり</span><span class="k">ピラティス</span></b><span class="koma-hito"><span class="k">先生 戸川</span> <span class="k">定員8人</span></span></li>
+        </ul>
+        <ul class="waku"></ul>
+        <ul class="waku">
+          <li class="koma" data-kind="yoga" data-level="hajimete"><span class="koma-toki">19:30–20:30</span><b class="koma-na">はじめてのヨガ</b><span class="koma-hito"><span class="k">先生 沢渡</span> <span class="k">定員8人</span></span></li>
+        </ul>
+      </section>
+
+      <section class="hi" aria-label="土曜">
+        <h3>土曜</h3>
+        <ul class="waku">
+          <li class="koma" data-kind="yoga" data-level="shikkari"><span class="koma-toki">9:00–10:15</span><b class="koma-na">しっかりヨガ</b><span class="koma-hito"><span class="k">先生 沢渡</span> <span class="k">定員8人</span></span></li>
+          <li class="koma" data-kind="pila" data-level="hajimete"><span class="koma-toki">11:00–11:50</span><b class="koma-na"><span class="k">はじめての</span><span class="k">ピラティス</span></b><span class="koma-hito"><span class="k">先生 戸川</span> <span class="k">定員8人</span></span></li>
+        </ul>
+        <ul class="waku">
+          <li class="koma" data-kind="yoga" data-level="yukkuri"><span class="koma-toki">14:00–15:00</span><b class="koma-na">ゆっくりヨガ</b><span class="koma-hito"><span class="k">先生 沢渡</span> <span class="k">定員8人</span></span></li>
+        </ul>
+        <ul class="waku"></ul>
+      </section>
+
+      <section class="hi" aria-label="日曜">
+        <h3>日曜</h3>
+        <ul class="waku">
+          <li class="koma" data-kind="pila" data-level="yukkuri"><span class="koma-toki">9:30–10:20</span><b class="koma-na"><span class="k">ゆっくり</span><span class="k">ピラティス</span></b><span class="koma-hito"><span class="k">先生 戸川</span> <span class="k">定員8人</span></span></li>
+          <li class="koma" data-kind="yoga" data-level="hajimete"><span class="koma-toki">11:00–12:00</span><b class="koma-na">はじめてのヨガ</b><span class="koma-hito"><span class="k">先生 沢渡</span> <span class="k">定員8人</span></span></li>
+        </ul>
+        <ul class="waku"></ul>
+        <ul class="waku"></ul>
+      </section>
+    </div>
+
+    <ul class="hyou-chu">
+      <li>通っている方の予約は、教室の入口にある予約表に名前を書くか、電話で。前の日の夜までに入れてください。</li>
+      <li>遅れて入れるのは始まってから10分までです。それより遅れる時は、次のクラスに回してください。</li>
+      <li>空きの数は、トップページの部屋の絵で次のクラスの分だけ見られます。</li>
+      <li>先生が休む時は代わりの先生を立てず、クラスごと休みにします。決まった日はトップのお知らせに書きます。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="saki-sec">
+  <div class="wrap saki">
+    <a href="kurasu.html">クラスの中身を見る</a>
+    <a href="taiken.html">体験の申し込み</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="ashi">
+  <div class="wrap ashi-in">
+    <div>
+      <p class="ashi-na"><small>ヨガとピラティスの教室</small>ひととき</p>
+      <p><span class="k">藤ノ瀬三丁目8-12 二階</span><span class="k">(バス停「藤ノ瀬中通り」から</span><span class="k">歩いて3分)</span></p>
+      <p>クラスは火曜から日曜。月曜休み</p>
+      <p><span class="k">電話 000-000-0000</span><span class="k">(クラスの前後30分に出られます)</span></p>
+    </div>
+    <ul>
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="jikanwari.html">時間割</a></li>
+      <li><a href="kurasu.html">クラスの種類</a></li>
+      <li><a href="ryokin.html">料金</a></li>
+      <li><a href="taiken.html">体験</a></li>
+      <li><a href="sensei.html">先生と場所</a></li>
+    </ul>
+    <p class="kakuu">このサイトは制作見本です。出てくる教室名や町名、時間割、料金、空きの数、先生の名前や資格の表記などは、すべて架空のものです。</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

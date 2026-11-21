@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>ヨガとピラティスの教室 ひととき|藤ノ瀬</title>
+<meta name="description" content="藤ノ瀬三丁目、元は畳屋の建物の2階にあるヨガとピラティスの教室です。先生は2人、1クラス8人まで。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="kashira">
+  <div class="wrap kashira-in">
+    <a class="yago" href="index.html" aria-current="page">ヨガとピラティスの教室<b>ひととき</b></a>
+    <nav aria-label="ページの一覧">
+      <ul class="menu">
+        <li><a href="jikanwari.html">時間割</a></li>
+        <li><a href="kurasu.html">クラス</a></li>
+        <li><a href="ryokin.html">料金</a></li>
+        <li><a href="taiken.html">体験</a></li>
+        <li><a href="sensei.html">先生と場所</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<h1 class="sr">ヨガとピラティスの教室 ひととき</h1>
+
+<section class="ichimai" aria-label="教室の部屋と次のクラス">
+  <div class="wrap ichimai-in">
+    <figure class="heya-zu">
+      <svg id="heya" class="heya" viewBox="0 0 520 480" role="img" aria-label="上から見た教室。マットが8枚並んでいます。">
+        <defs>
+          <pattern id="ita" width="26" height="40" patternUnits="userSpaceOnUse">
+            <rect width="26" height="40" fill="#b8895a"/>
+            <rect x="25" width="1" height="40" fill="#a3774b"/>
+          </pattern>
+          <clipPath id="yuka"><rect x="22" y="22" width="476" height="396"/></clipPath>
+        </defs>
+        <rect x="8" y="8" width="504" height="424" rx="2" fill="#4a3a2e"/>
+        <rect x="22" y="22" width="476" height="396" fill="url(#ita)"/>
+        <path d="M52 130h26M130 300h26M208 92h26M286 362h26M364 204h26M442 120h26M78 384h26M416 330h26M26 250h26M234 220h26" stroke="#a3774b" stroke-width="1"/>
+        <rect x="150" y="8" width="220" height="14" fill="#9fb3bd"/>
+        <path d="M223 8v14M297 8v14" stroke="#4a3a2e" stroke-width="3"/>
+        <g clip-path="url(#yuka)">
+          <polygon class="hidamari" points="150,22 370,22 412,176 108,176" fill="#fff4d8" opacity=".2"/>
+        </g>
+        <rect x="430" y="22" width="68" height="58" fill="#8d6c4e"/>
+        <path d="M430 80h68" stroke="#e3cda8" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="464" y="56" text-anchor="middle" font-size="12" fill="#f4ece0">更衣室</text>
+        <rect x="205" y="38" width="110" height="36" rx="4" fill="#6c5a4c"/>
+        <text x="260" y="61" text-anchor="middle" font-size="13" fill="#f4ece0">先生</text>
+        <rect class="mat" data-m="1" x="69" y="96" width="60" height="136" rx="5"/>
+        <rect class="mat" data-m="2" x="176" y="96" width="60" height="136" rx="5"/>
+        <rect class="mat" data-m="3" x="284" y="96" width="60" height="136" rx="5"/>
+        <rect class="mat" data-m="4" x="391" y="96" width="60" height="136" rx="5"/>
+        <rect class="mat" data-m="5" x="69" y="256" width="60" height="136" rx="5"/>
+        <rect class="mat" data-m="6" x="176" y="256" width="60" height="136" rx="5"/>
+        <rect class="mat" data-m="7" x="284" y="256" width="60" height="136" rx="5"/>
+        <rect class="mat" data-m="8" x="391" y="256" width="60" height="136" rx="5"/>
+        <rect x="420" y="418" width="62" height="14" fill="#b8895a"/>
+        <rect x="358" y="423" width="62" height="5" fill="#2b221c"/>
+        <text x="340" y="466" text-anchor="end" font-size="15" fill="#c7b8a4">↑ 階段から</text>
+        <rect x="392" y="442" width="120" height="34" rx="3" fill="#e9dcc6" stroke="#7a5734"/>
+        <text x="452" y="466" text-anchor="middle" font-size="18" fill="#2b221c" letter-spacing="2">ひととき</text>
+      </svg>
+      <figcaption>上から見た教室。12畳の板の間に、マットを8枚敷いています。窓は南です。</figcaption>
+    </figure>
+    <div class="kondo-gawa">
+      <p class="kondo" id="kondo"><span class="kondo-ko">次のクラス</span><a href="jikanwari.html">時間割で見られます</a></p>
+      <p class="kondo-ima" id="kondo-ima" hidden></p>
+      <ul class="hanrei">
+        <li><i class="sw sw-yoga"></i>ヨガの予約</li>
+        <li><i class="sw sw-pila"></i>ピラティスの予約</li>
+        <li><i class="sw sw-aki"></i>空いているマット</li>
+      </ul>
+      <p class="kondo-chu">埋まっている枚数は、前の晩までの予約の数です。体験は1,000円で、どのクラスでも受けられます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="tana-sec" aria-labelledby="tana-ttl">
+  <div class="wrap">
+    <h2 id="tana-ttl">教室のこと</h2>
+    <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+      <symbol id="uzu" viewBox="0 0 100 100">
+        <circle cx="51.5" cy="50" r="36" style="fill:var(--c)"/>
+        <path style="fill:none;stroke:rgba(0,0,0,.38);stroke-width:2.4;stroke-linecap:round" d="M50 50a3 3 0 0 1 6 0a6 6 0 0 1-12 0a9 9 0 0 1 18 0a12 12 0 0 1-24 0a15 15 0 0 1 30 0a18 18 0 0 1-36 0a21 21 0 0 1 42 0a24 24 0 0 1-48 0a27 27 0 0 1 54 0a30 30 0 0 1-60 0"/>
+        <circle cx="51.5" cy="50" r="35" style="fill:none;stroke:rgba(255,255,255,.18);stroke-width:1.5"/>
+      </symbol>
+    </svg>
+    <ul class="tana">
+      <li><a class="maki" href="jikanwari.html" style="--c:#c97a4f"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#uzu"/></svg><span class="maki-na">時間割</span><span class="maki-sub">火曜から日曜<br>週に14クラス</span></a></li>
+      <li><a class="maki" href="kurasu.html" style="--c:#8d9a5f"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#uzu"/></svg><span class="maki-na">クラスの種類</span><span class="maki-sub">ヨガ3つと<br>ピラティス3つ</span></a></li>
+      <li><a class="maki" href="ryokin.html" style="--c:#7d97b0"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#uzu"/></svg><span class="maki-na">料金</span><span class="maki-sub">都度、月4回<br>通い放題</span></a></li>
+      <li><a class="maki" href="taiken.html" style="--c:#a5676c"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#uzu"/></svg><span class="maki-na">体験</span><span class="maki-sub">1,000円<br>申し込みは電話で</span></a></li>
+      <li><a class="maki" href="sensei.html" style="--c:#c9a54f"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#uzu"/></svg><span class="maki-na">先生と場所</span><span class="maki-sub">先生2人と<br>2階の部屋</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap nibun">
+    <div>
+      <h2>お知らせ</h2>
+      <dl class="shirase">
+        <div><dt><time datetime="2026-11-15">11月15日</time></dt><dd>年内は12月27日(日)まで、年明けは1月5日(火)からです。</dd></div>
+        <div><dt><time datetime="2026-11-08">11月8日</time></dt><dd>寒くなってきたので、窓ぎわのマットにはひざ掛けを置いています。使ったら棚に戻してください。</dd></div>
+        <div><dt><time datetime="2026-10-30">10月30日</time></dt><dd>1階の自転車置き場を1台分広げました。5台まで停められます。</dd></div>
+      </dl>
+    </div>
+    <div class="basho-tan">
+      <h2>場所と時間</h2>
+      <p>藤ノ瀬三丁目、元は畳屋だった建物の2階です。階段だけで、エレベーターはありません。</p>
+      <p>クラスは火曜から日曜まで。月曜は休みです。始まる時刻は曜日で違うので、<a href="jikanwari.html">時間割</a>を見てください。階段と自転車置き場のことは<a href="sensei.html">先生と場所</a>に書いています。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ashi">
+  <div class="wrap ashi-in">
+    <div>
+      <p class="ashi-na"><small>ヨガとピラティスの教室</small>ひととき</p>
+      <p><span class="k">藤ノ瀬三丁目8-12 二階</span><span class="k">(バス停「藤ノ瀬中通り」から</span><span class="k">歩いて3分)</span></p>
+      <p>クラスは火曜から日曜。月曜休み</p>
+      <p><span class="k">電話 000-000-0000</span><span class="k">(クラスの前後30分に出られます)</span></p>
+    </div>
+    <ul>
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="jikanwari.html">時間割</a></li>
+      <li><a href="kurasu.html">クラスの種類</a></li>
+      <li><a href="ryokin.html">料金</a></li>
+      <li><a href="taiken.html">体験</a></li>
+      <li><a href="sensei.html">先生と場所</a></li>
+    </ul>
+    <p class="kakuu">このサイトは制作見本です。出てくる教室名や町名、時間割、料金、空きの数、先生の名前や資格の表記などは、すべて架空のものです。</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
