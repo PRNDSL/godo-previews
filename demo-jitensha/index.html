@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>サイクルショップ みなと輪業|港見町の自転車店</title>
+<meta name="description" content="港見町の自転車店、サイクルショップ みなと輪業。パンク修理はその場で20分。身長から子どもの自転車の大きさを選べます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="yago" href="index.html">
+      <svg viewBox="0 0 40 40" role="img" aria-label="自転車の丸い標識">
+        <circle cx="20" cy="20" r="20" fill="#0a5fb4"/>
+        <g fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="24" r="5.5"/><circle cx="28" cy="24" r="5.5"/>
+          <path d="M12 24l5-9h8l3 9M17 15l4 9h-9M21 24l4-9M15.5 12.5h4"/>
+        </g>
+      </svg>
+      <span>みなと輪業</span>
+    </a>
+    <nav aria-label="ページの一覧">
+      <a href="shuri.html">修理</a>
+      <a href="jitensha.html">自転車を買う</a>
+      <a href="mise.html">店と地図</a>
+    </nav>
+    <a class="tel-s" href="tel:000-000-0000">000-000-0000</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <p class="place">港見町の自転車店</p>
+      <h1><span class="small">サイクルショップ</span><span class="k">みなと</span><span class="k">輪業</span></h1>
+      <p class="lead"><span class="k">パンクを直す。</span><span class="k">子どもの一台を選ぶ。</span><span class="k">港見駅から歩いて6分の店です。</span></p>
+      <p class="notice">
+        <svg viewBox="0 0 44 44" role="img" aria-label="タイヤの標識">
+          <circle cx="22" cy="22" r="22" fill="#13233a"/>
+          <circle cx="22" cy="22" r="12" fill="none" stroke="#ffd21f" stroke-width="4"/>
+          <circle cx="22" cy="22" r="3" fill="#ffd21f"/>
+        </svg>
+        <span><span class="k">パンク修理</span> <span class="k">その場で20分</span></span>
+      </p>
+      <p class="hero-tel">
+        <a href="tel:000-000-0000">000-000-0000</a>
+        <span><span class="k">平日 9:30から19:00</span> <span class="k">水曜休み</span> <span class="k">土日は時間が変わります</span></span>
+      </p>
+      <ul class="promise">
+        <li><span><span class="k">修理は予約なしで</span><span class="k">受け付けます</span></span></li>
+        <li><span><span class="k">ほかの店で買った自転車も</span><span class="k">直します</span></span></li>
+        <li><span><span class="k">店から2km以内は</span><span class="k">550円で引き取りに行きます</span></span></li>
+      </ul>
+    </div>
+
+    <div class="picker" id="size">
+      <div class="picker-head"><h2><span class="k">身長から</span><span class="k">車輪の大きさを選ぶ</span></h2></div>
+      <div class="picker-body">
+        <div class="stage">
+          <svg class="bike" id="bike" viewBox="0 0 340 330" role="img" aria-label="身長の目盛りと自転車の線の絵。身長に合わせて車輪の大きさが変わります">
+            <line x1="6" y1="320" x2="334" y2="320" stroke="#13233a" stroke-width="3" stroke-linecap="round"/>
+            <g stroke="#c9d3df" stroke-width="2">
+              <line x1="20" y1="320" x2="20" y2="6"/>
+              <line x1="14" y1="151" x2="26" y2="151"/>
+              <line x1="14" y1="235.5" x2="26" y2="235.5"/>
+              <line x1="14" y1="66.5" x2="26" y2="66.5"/>
+            </g>
+            <g class="mark" id="mark" style="transform:translateY(-219.7px)">
+              <line x1="20" y1="320" x2="334" y2="320" stroke="#13233a" stroke-width="2" stroke-dasharray="4 6"/>
+              <circle cx="20" cy="320" r="9" fill="#ffd21f" stroke="#13233a" stroke-width="3"/>
+            </g>
+            <g class="scale" id="bikeScale" style="--s:.7407">
+              <g fill="none" stroke="#0a5fb4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="100" cy="262" r="58"/>
+                <circle cx="277" cy="262" r="58"/>
+                <circle cx="100" cy="262" r="47" stroke-width="2.5"/>
+                <circle cx="277" cy="262" r="47" stroke-width="2.5"/>
+                <g class="spin" stroke-width="2">
+                  <line x1="100" y1="215" x2="100" y2="309"/><line x1="53" y1="262" x2="147" y2="262"/>
+                  <line x1="66.8" y1="228.8" x2="133.2" y2="295.2"/><line x1="66.8" y1="295.2" x2="133.2" y2="228.8"/>
+                </g>
+                <g class="spin" stroke-width="2">
+                  <line x1="277" y1="215" x2="277" y2="309"/><line x1="230" y1="262" x2="324" y2="262"/>
+                  <line x1="243.8" y1="228.8" x2="310.2" y2="295.2"/><line x1="243.8" y1="295.2" x2="310.2" y2="228.8"/>
+                </g>
+                <path d="M100 262L168 266L145 162L100 262" />
+                <path d="M145 162L250 168L168 266" />
+                <path d="M250 168L258 196L277 262" />
+                <path d="M145 162L140 142M122 140h34" stroke-width="6"/>
+                <path d="M250 168L245 138L222 132" />
+                <circle cx="168" cy="266" r="12" stroke-width="4"/>
+                <path d="M160 278l16 -24" stroke-width="4"/>
+              </g>
+              <circle cx="100" cy="262" r="5" fill="#13233a"/>
+              <circle cx="277" cy="262" r="5" fill="#13233a"/>
+            </g>
+          </svg>
+          <div class="answer" aria-live="polite">
+            <p class="q"><span id="cmText">130</span>cmなら</p>
+            <p class="big"><b id="inch">20</b><span>インチ</span></p>
+            <p class="memo"><span class="k">目安です。</span><span class="k">店でまたがって決めます</span></p>
+          </div>
+        </div>
+        <div class="slider">
+          <label for="height"><span>身長</span><output id="hOut" for="height">130cm</output></label>
+          <input type="range" id="height" min="100" max="185" step="1" value="130">
+          <div class="ends" aria-hidden="true"><span>100cm</span><span>185cm</span></div>
+        </div>
+        <div class="chart">
+          <h3>店の目安</h3>
+          <ul id="chart">
+            <li data-inch="16"><span>100〜114cm</span><b>16インチ</b></li>
+            <li data-inch="18"><span>115〜124cm</span><b>18インチ</b></li>
+            <li data-inch="20"><span>125〜134cm</span><b>20インチ</b></li>
+            <li data-inch="22"><span>135〜141cm</span><b>22インチ</b></li>
+            <li data-inch="24"><span>142〜149cm</span><b>24インチ</b></li>
+            <li data-inch="26"><span>150〜159cm</span><b>26インチ</b></li>
+            <li data-inch="27"><span>160cm以上</span><b>27インチ</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2><span><span class="k">ご用件から選ぶ</span></span></h2>
+    <ul class="annai">
+      <li><a href="shuri.html"><b>修理</b><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#fff"/><path d="M12 22h18M23 14l8 8-8 8" fill="none" stroke="#0a5fb4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span class="k">パンク修理はその場で20分。</span><span class="k">ほかの店で買った自転車も直します。</span></span></a></li>
+      <li><a href="jitensha.html"><b>自転車を買う</b><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#fff"/><path d="M12 22h18M23 14l8 8-8 8" fill="none" stroke="#0a5fb4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span class="k">子ども用・通学用・電動アシスト・街乗りの4種類。</span><span class="k">点検は買った日から1年無料です。</span></span></a></li>
+      <li><a href="mise.html"><b>店と地図</b><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#fff"/><path d="M12 22h18M23 14l8 8-8 8" fill="none" stroke="#0a5fb4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span class="k">港見駅の南口から歩いて6分。</span><span class="k">店の前に車を3台止められます。</span></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2><span><span class="k">場所と営業時間</span></span></h2>
+    <div class="kantan">
+      <div>
+        <dl class="facts">
+          <div><dt>場所</dt><dd>港見町2丁目14-3<small>港見駅の南口から歩いて6分</small></dd></div>
+          <div><dt>定休日</dt><dd>水曜<small>祝日と重なる時は開けます</small></dd></div>
+          <div><dt>電話</dt><dd><a href="tel:000-000-0000">000-000-0000</a><small>営業時間の中なら店主が出ます</small></dd></div>
+        </dl>
+        <a class="motto" href="mise.html">地図と店のこと →</a>
+      </div>
+      <div class="hours">
+          <h3>営業時間</h3>
+          <p class="today-msg" data-today-msg hidden></p>
+          <div class="post">
+            <svg class="post-sign" viewBox="0 0 72 72" role="img" aria-label="時計の丸い標識">
+              <circle cx="36" cy="36" r="36" fill="#0a5fb4"/>
+              <circle cx="36" cy="36" r="22" fill="none" stroke="#fff" stroke-width="4"/>
+              <path d="M36 22v14l10 6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <ul class="plates" data-plates>
+              <li class="plate" data-days="1 2 4 5" data-close="19:00"><span class="p-day">平日<small>月 火 木 金</small></span><span class="p-time">9:30–19:00</span></li>
+              <li class="plate" data-days="6" data-close="19:00"><span class="p-day">土曜</span><span class="p-time">9:00–19:00</span></li>
+              <li class="plate" data-days="0" data-close="17:00"><span class="p-day">日曜と祝日</span><span class="p-time">10:00–17:00</span></li>
+              <li class="plate" data-days="3"><span class="p-day">水曜</span><span class="p-time">休み</span></li>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-na">
+        <b>サイクルショップ みなと輪業</b>
+        <p><span class="k">港見町2丁目14-3</span><span class="k">(港見駅の南口から歩いて6分)</span></p>
+        <p><span class="k">平日 9:30–19:00 /</span> <span class="k">土曜 9:00–19:00 /</span> <span class="k">日曜と祝日 10:00–17:00 /</span> <span class="k">水曜休み</span></p>
+        <p>電話 <a href="tel:000-000-0000">000-000-0000</a></p>
+      </div>
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="shuri.html">修理</a></li>
+        <li><a href="jitensha.html">自転車を買う</a></li>
+        <li><a href="mise.html">店と地図</a></li>
+      </ul>
+    </div>
+    <p class="kakuu"><span class="k">このサイトは制作見本です。</span><span class="k">出てくる店名や値段、</span><span class="k">資格の表記などは、</span><span class="k">すべて架空のものです。</span></p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
