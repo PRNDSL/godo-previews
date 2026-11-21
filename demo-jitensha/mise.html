@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>店と地図|サイクルショップ みなと輪業</title>
+<meta name="description" content="みなと輪業は港見町2丁目14-3、港見駅の南口から歩いて6分。平日9:30から19:00、水曜休み。土日は時間が変わります。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="yago" href="index.html">
+      <svg viewBox="0 0 40 40" role="img" aria-label="自転車の丸い標識">
+        <circle cx="20" cy="20" r="20" fill="#0a5fb4"/>
+        <g fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="24" r="5.5"/><circle cx="28" cy="24" r="5.5"/>
+          <path d="M12 24l5-9h8l3 9M17 15l4 9h-9M21 24l4-9M15.5 12.5h4"/>
+        </g>
+      </svg>
+      <span>みなと輪業</span>
+    </a>
+    <nav aria-label="ページの一覧">
+      <a href="shuri.html">修理</a>
+      <a href="jitensha.html">自転車を買う</a>
+      <a href="mise.html" aria-current="page">店と地図</a>
+    </nav>
+    <a class="tel-s" href="tel:000-000-0000">000-000-0000</a>
+  </div>
+</header>
+
+<div class="pagehead">
+  <div class="wrap">
+    <p class="pan"><a href="index.html">みなと輪業</a> / 店と地図</p>
+    <h1>店と地図</h1>
+    <p class="lead"><span class="k">港見駅の南口から歩いて6分。</span><span class="k">土日は営業時間が変わります。</span></p>
+  </div>
+</div>
+
+<main>
+<section class="sec">
+  <div class="wrap">
+    <h2><span><span class="k">地図と営業時間</span></span></h2>
+    <div class="shop-in">
+      <div class="map-box" id="chizu">
+        <svg viewBox="0 36 400 264" role="img" aria-label="港見駅の南口から店までの道の図。南口を出て海岸通りを東へ進み、郵便局の角を右に曲がってすぐ右手に店があります">
+          <rect width="400" height="300" fill="#fff"/>
+          <g stroke="#13233a" stroke-width="4"><line x1="0" y1="52" x2="400" y2="52"/></g>
+          <g stroke="#13233a" stroke-width="2"><line x1="0" y1="60" x2="400" y2="60" stroke-dasharray="10 8"/></g>
+          <g stroke="#c9d3df" stroke-width="18" stroke-linecap="round">
+            <line x1="20" y1="150" x2="380" y2="150"/>
+            <line x1="110" y1="70" x2="110" y2="150"/>
+            <line x1="290" y1="150" x2="290" y2="280"/>
+          </g>
+          <path d="M110 92V150H290V236" fill="none" stroke="#0a5fb4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 10"/>
+          <rect x="50" y="64" width="120" height="38" rx="12" fill="#0a5fb4"/>
+          <text x="110" y="90" text-anchor="middle" fill="#fff" font-size="18" font-weight="800" font-family="M PLUS 1p, sans-serif">港見駅 南口</text>
+          <rect x="300" y="94" width="80" height="42" rx="12" fill="none" stroke="#13233a" stroke-width="2"/>
+          <text x="340" y="121" text-anchor="middle" fill="#13233a" font-size="17" font-weight="500" font-family="M PLUS 1p, sans-serif">郵便局</text>
+          <text x="196" y="182" text-anchor="middle" fill="#4a5a6e" font-size="17" font-weight="500" font-family="M PLUS 1p, sans-serif">海岸通り</text>
+          <circle cx="260" cy="236" r="22" fill="#ffd21f" stroke="#13233a" stroke-width="3"/>
+          <g fill="none" stroke="#13233a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="252" cy="240" r="5"/><circle cx="268" cy="240" r="5"/><path d="M252 240l5-8h7l4 8M257 232l4 8"/>
+          </g>
+          <text x="226" y="276" text-anchor="middle" fill="#13233a" font-size="18" font-weight="800" font-family="M PLUS 1p, sans-serif">みなと輪業</text>
+        </svg>
+        <p><span><b>港見町2丁目14-3</b><span class="k">南口を出て海岸通りを東へ。</span><span class="k">郵便局の角を右に曲がって</span><span class="k">すぐ右手です。</span></span></p>
+      </div>
+      <div class="shop-info">
+        <div class="hours">
+          <h3>営業時間</h3>
+          <p class="today-msg" data-today-msg hidden></p>
+          <div class="post">
+            <svg class="post-sign" viewBox="0 0 72 72" role="img" aria-label="時計の丸い標識">
+              <circle cx="36" cy="36" r="36" fill="#0a5fb4"/>
+              <circle cx="36" cy="36" r="22" fill="none" stroke="#fff" stroke-width="4"/>
+              <path d="M36 22v14l10 6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <ul class="plates" data-plates>
+              <li class="plate" data-days="1 2 4 5" data-close="19:00"><span class="p-day">平日<small>月 火 木 金</small></span><span class="p-time">9:30–19:00</span></li>
+              <li class="plate" data-days="6" data-close="19:00"><span class="p-day">土曜</span><span class="p-time">9:00–19:00</span></li>
+              <li class="plate" data-days="0" data-close="17:00"><span class="p-day">日曜と祝日</span><span class="p-time">10:00–17:00</span></li>
+              <li class="plate" data-days="3"><span class="p-day">水曜</span><span class="p-time">休み</span></li>
+            </ul>
+          </div>
+        </div>
+        <dl class="facts">
+          <div><dt>創業</dt><dd>47年<small>昭和54年に港見町で開きました</small></dd></div>
+          <div><dt>整備する人</dt><dd>店主ほか2名<small>自転車技士 2名<br>自転車安全整備士 1名</small></dd></div>
+          <div><dt>定休日</dt><dd>水曜<small>祝日と重なる時は開けます</small></dd></div>
+          <div><dt>場所</dt><dd>港見町2丁目14-3<small>港見駅の南口から歩いて6分<br>店の前に車を3台止められます</small></dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="call" id="denwa">
+      <div>
+        <p class="label">修理の相談と在庫の問い合わせ</p>
+        <a class="big-tel" href="tel:000-000-0000">000-000-0000</a>
+      </div>
+      <ul>
+        <li><span><span class="k">パンク修理は</span><span class="k">電話なしで来て大丈夫です</span></span></li>
+        <li><span><span class="k">引き取り修理は</span><span class="k">電話で住所を教えてください</span></span></li>
+        <li><span><span class="k">営業時間の中なら</span><span class="k">店主が出ます</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="tsugi-sec" aria-label="次に見るページ">
+  <div class="wrap">
+    <p>次はこちら</p>
+    <div class="tsugi">
+      <a href="shuri.html">修理</a>
+      <a href="jitensha.html">自転車を買う</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-na">
+        <b>サイクルショップ みなと輪業</b>
+        <p><span class="k">港見町2丁目14-3</span><span class="k">(港見駅の南口から歩いて6分)</span></p>
+        <p><span class="k">平日 9:30–19:00 /</span> <span class="k">土曜 9:00–19:00 /</span> <span class="k">日曜と祝日 10:00–17:00 /</span> <span class="k">水曜休み</span></p>
+        <p>電話 <a href="tel:000-000-0000">000-000-0000</a></p>
+      </div>
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="shuri.html">修理</a></li>
+        <li><a href="jitensha.html">自転車を買う</a></li>
+        <li><a href="mise.html">店と地図</a></li>
+      </ul>
+    </div>
+    <p class="kakuu"><span class="k">このサイトは制作見本です。</span><span class="k">出てくる店名や値段、</span><span class="k">資格の表記などは、</span><span class="k">すべて架空のものです。</span></p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

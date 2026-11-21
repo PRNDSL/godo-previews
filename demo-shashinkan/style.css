@@ -1,0 +1,362 @@
+/* 配置の考え: 撮影用のグレーの背景紙の上に、白い印画紙(枠・カード)を置いていく。
+   色は無彩色のグレーと墨と青緑の1色だけ。角はほぼ立て、影は紙1枚ぶんの薄さ。
+   寸法(mm)の数字だけ等幅にして「正確さ」を見せる。 */
+:root{
+  /* 色(コントラストは WCAG の式で計算済み) */
+  --bg:#dfe1e3;        /* 背景紙の薄いグレー */
+  --paper:#ffffff;     /* 写真の紙。枠とカードだけに使う */
+  --ink:#1f2326;       /* 本文 地に12.07:1 / 白に15.83:1 */
+  --ink-2:#4a4f54;     /* 補足 地に6.31:1 / 白に8.28:1 */
+  --accent:#006570;    /* 深い青緑 地に5.17:1 / 白に6.78:1 / 青緑の上の白文字6.78:1 */
+  --accent-pale:#e3eeef; /* 選んだ時の淡い面 上の墨13.37:1 青緑5.73:1 */
+  --photo:#cfd3d6;     /* 証明写真の中の背景(文字は墨だけ 10.51:1) */
+  --figure:#5b6168;    /* 影絵の人 */
+  --line:#b9bec3;      /* 罫線(文字には使わない) */
+  /* 書体 */
+  --f-head:"Shippori Mincho","Yu Mincho","Hiragino Mincho ProN",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --f-mm:"DM Mono",ui-monospace,"Consolas",monospace;
+  /* 余白 */
+  --s1:8px; --s2:16px; --s3:24px; --s4:40px; --s5:64px; --s6:104px;
+  /* 角丸(印画紙の角はほぼ立っている) */
+  --r:2px;
+  /* 影(紙1枚ぶん) */
+  --shadow:0 1px 2px rgba(31,35,38,.14), 0 3px 10px rgba(31,35,38,.06);
+}
+*{box-sizing:border-box;min-width:0;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--f-body);
+  background:var(--bg);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.85;
+  word-break:keep-all;
+  overflow-wrap:anywhere;
+}
+@supports (word-break:auto-phrase){body{word-break:auto-phrase}}
+a{color:inherit}
+svg{display:block;max-width:100%}
+ul,ol{list-style:none}
+.k{display:inline-block}
+.nw{white-space:nowrap}
+.mm{font-family:var(--f-mm);font-weight:400;letter-spacing:0;white-space:nowrap}
+.yen{white-space:nowrap;font-variant-numeric:tabular-nums}
+.wrap{
+  width:min(1180px,100%);margin-inline:auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;letter-spacing:.02em;line-height:1.4}
+h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:var(--s2)}
+h3{font-size:20px}
+.lead{color:var(--ink-2);max-width:40em}
+section{padding-block:var(--s6) 0}
+section:last-of-type{padding-bottom:var(--s6)}
+.sec-head{display:grid;gap:var(--s1);margin-bottom:var(--s4)}
+/* 節の頭の印: 見出しの左に小さな証明写真(白い縁の縦長の枠と影絵)。全部の節で同じ形 */
+.sec-head h2{margin:0;position:relative;padding-left:40px}
+.sec-head h2::before{
+  content:"";position:absolute;left:4px;top:calc(.7em - 14px);
+  width:20px;height:27px;
+  background:
+    radial-gradient(circle at 50% 40%, var(--figure) 0 4.5px, transparent 5px),
+    radial-gradient(ellipse 9px 8px at 50% 100%, var(--figure) 0 98%, transparent 100%),
+    var(--photo);
+  box-shadow:0 0 0 3px var(--paper), 0 0 0 4px var(--line), 0 2px 6px 3px rgba(31,35,38,.08);
+}
+
+/* ── 上の帯 ── */
+.top{border-bottom:1px solid var(--line)}
+.top-in{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s1) var(--s3);padding-block:14px}
+.yago{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-head);font-weight:700;font-size:20px;line-height:1.3}
+.yago svg{width:34px;height:34px;flex:none}
+.top nav{margin-left:auto}
+.top nav ul{display:flex;flex-wrap:wrap;gap:2px var(--s2)}
+.top nav a{
+  display:inline-block;text-decoration:none;font-size:15px;font-weight:500;
+  padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .2s,color .2s;
+}
+.top nav a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── 一枚目 ── */
+.hero{padding-block:var(--s4) var(--s2)}
+.catch{font-family:var(--f-head);font-weight:500;font-size:clamp(20px,2.6vw,30px);line-height:1.5;letter-spacing:.02em;margin-bottom:var(--s3)}
+
+/* 写真館の台紙: 白い紙に4枚を並べ、右下に屋号を署名のように入れる */
+.idboard{background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);padding:var(--s4) var(--s4) var(--s3)}
+.board-note{font-size:14px;color:var(--ink-2);margin-bottom:var(--s3);text-align:right}
+.sign{display:flex;justify-content:flex-end;align-items:baseline;gap:10px;margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid var(--line)}
+.sign h1{font-size:18px;font-weight:700;letter-spacing:.12em;line-height:1.4}
+.sign-town{font-size:13px;color:var(--ink-2);letter-spacing:.08em}
+.tel-line{margin-top:var(--s1);padding-top:var(--s1);border-top:1px dashed var(--line);font-weight:500}
+.tel-line a{font-weight:700;font-size:20px;color:var(--accent);text-decoration:none;letter-spacing:.03em;white-space:nowrap;transition:color .2s}
+.tel-line a:hover{color:var(--ink);text-decoration:underline}
+/* 縮尺: 1mmあたりのpxを箱の幅から決める。4枚は同じ --mm を使うので比が実物どおりになる */
+.frames{container-type:inline-size}
+.frames ul{
+  --gap:20px;
+  /* 140mm = 24+30+35+51。枠の外の縁取り(左右5pxずつ×4枚=40px)を引いてから割る */
+  --mm:min(7px, calc((100cqw - 3 * var(--gap) - 40px) / 140));
+  display:flex;align-items:flex-end;justify-content:center;gap:var(--gap);
+}
+/* 列の幅は枠の幅に固定する。ボタンの文字は枠の幅の中で折り返す */
+.frames li{flex:none;width:calc(var(--w) * var(--mm) + 10px);display:grid;justify-items:start;align-content:end;gap:10px}
+.photo{
+  width:calc(var(--w) * var(--mm));height:calc(var(--h) * var(--mm));
+  background:var(--photo);
+  box-shadow:0 0 0 4px var(--paper), 0 0 0 5px var(--line);
+  margin:5px;
+  transition:box-shadow .25s;
+}
+.photo svg{width:100%;height:100%}
+.photo use{fill:var(--figure);transition:fill .25s}
+.frames li.is-on .photo{box-shadow:0 0 0 4px var(--paper), 0 0 0 7px var(--accent)}
+.frames li.is-on .photo use{fill:#3f454b}
+.cap{display:grid;gap:2px;font-size:14px;line-height:1.5;padding-left:5px}
+.cap .mm{font-size:13px;color:var(--ink-2)}
+.cap .yen{font-weight:700}
+.use-btn{
+  font:inherit;font-weight:700;font-size:15px;line-height:1.35;text-align:left;
+  color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:var(--r);
+  padding:6px 10px;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s;
+}
+.use-btn:hover{border-color:var(--accent);color:var(--accent)}
+.use-btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.use-btn[aria-pressed="true"]:focus-visible{outline-color:var(--ink)}
+.id-info{
+  margin-top:var(--s2);padding:var(--s2) var(--s3);background:var(--accent-pale);border-left:4px solid var(--accent);
+  display:grid;gap:4px var(--s3);grid-template-columns:minmax(0,1fr);
+}
+.id-info .ttl{font-weight:700;color:var(--accent)}
+.id-info dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px var(--s2)}
+.id-info dt{color:var(--ink-2)}
+.id-info dd{font-weight:500}
+.id-info .memo{color:var(--ink-2);font-size:15px}
+
+/* ── 記念写真の料金 ── */
+.menu{background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);padding:var(--s2) var(--s4)}
+.menu-row{display:grid;gap:4px var(--s3);padding-block:var(--s3);border-bottom:1px solid var(--line);
+  grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr) minmax(0,1.6fr) auto;align-items:baseline}
+.menu-row:last-child{border-bottom:0}
+.menu-row.head{padding-block:var(--s1);font-size:14px;color:var(--ink-2)}
+.menu-row.head span:last-child{text-align:right}
+.menu-row h3{font-size:19px}
+.menu-row h3 small{display:block;font-family:var(--f-body);font-weight:400;font-size:14px;color:var(--ink-2);letter-spacing:0}
+.menu-row .time,.menu-row .with{font-size:15px}
+.menu-row .price{font-size:22px;font-weight:700;text-align:right}
+.menu-row .price small{font-size:13px;font-weight:400;margin-left:2px}
+.menu-row .lbl{display:none}
+.items>span{display:block;position:relative;padding-left:.9em}.items>span::before{content:"";position:absolute;left:0;top:.8em;width:.45em;height:1px;background:currentColor}
+.menu-note{margin-top:var(--s2);font-size:15px;color:var(--ink-2)}
+
+/* ── 撮る日の流れ ── */
+.flow ol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3);counter-reset:st}
+.flow li{counter-increment:st;border-top:2px solid var(--ink);padding-top:var(--s2);position:relative}
+.flow li::before{content:counter(st);display:block;font-family:var(--f-head);font-weight:700;font-size:40px;line-height:1;color:var(--accent);margin-bottom:var(--s1)}
+.flow h3{margin-bottom:var(--s1)}
+.flow p{font-size:15px}
+
+/* ── スタジオ ── */
+.studio-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--s5);align-items:center}
+.studio-pic{background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);padding:var(--s2)}
+.studio-pic svg{width:100%;height:auto}
+.glow{animation:breathe 7s ease-in-out infinite;transform-origin:center}
+@keyframes breathe{0%,100%{opacity:.35}50%{opacity:.7}}
+.swatch-ttl{font-weight:700;margin-bottom:var(--s2)}
+.swatches{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:var(--s2);margin-bottom:var(--s5)}
+.swatches li{display:grid;gap:6px;font-size:14px;line-height:1.4}
+.swatches b{display:block;aspect-ratio:3/2;border-radius:var(--r);box-shadow:0 0 0 1px rgba(31,35,38,.18) inset}
+.facts{display:grid;gap:0}
+.facts li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:var(--s2);padding-block:var(--s2);border-top:1px solid var(--line)}
+.facts li:last-child{border-bottom:1px solid var(--line)}
+.facts strong{font-weight:700}
+
+/* ── データと焼き直し ── */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4)}
+.card{background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);padding:var(--s4)}
+.card h3{margin-bottom:var(--s2)}
+.card p{margin-bottom:var(--s2)}
+.plist{border-top:1px solid var(--line);margin-top:var(--s2)}
+.plist li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px var(--s2);padding-block:12px;border-bottom:1px solid var(--line)}
+.plist .yen{font-weight:700}
+.before-after{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:var(--s2);align-items:center;margin-bottom:var(--s3)}
+.before-after figure{display:grid;gap:10px;font-size:14px;line-height:1.5;color:var(--ink-2);padding:5px}
+.before-after figure svg{width:100%;height:auto;aspect-ratio:4/3;box-shadow:0 0 0 4px var(--paper),0 0 0 5px var(--line)}
+.before-after .arrow{width:28px;height:20px;color:var(--accent)}
+
+/* ── 写真師の一言 ── */
+/* 写真の裏に書いた覚え書き: 白い紙を少しだけ傾け、上の2つの角を台紙の留め具(三角)で押さえる */
+.voice{max-width:44em}
+blockquote{
+  position:relative;background:var(--paper);box-shadow:var(--shadow);
+  padding:var(--s4) var(--s4) var(--s3);transform:rotate(-1deg);margin:var(--s1) 6px 0;
+}
+blockquote::before,blockquote::after{
+  content:"";position:absolute;top:-6px;width:36px;height:36px;
+  background:linear-gradient(135deg, var(--figure) 0 50%, transparent 50%);
+}
+blockquote::before{left:-6px}
+blockquote::after{right:-6px;transform:scaleX(-1)}
+blockquote p{font-family:var(--f-head);font-weight:500;font-size:clamp(19px,2.2vw,24px);line-height:1.95}
+blockquote footer{margin-top:var(--s2);color:var(--ink-2);font-size:15px;text-align:right}
+/* 写真の下の余白に書き込むような店の事実 */
+.margin-note{margin-top:var(--s4);padding-left:calc(var(--s4) + 4px);font-family:var(--f-head);font-weight:500;font-size:17px;line-height:1.9;color:var(--ink-2)}
+
+/* ── 営業時間と場所 ── */
+.visit-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--s5);align-items:start}
+/* 営業時間は、写真の裏に書く覚え書きの形 */
+.memo-card{background:var(--paper);border-radius:var(--r);box-shadow:var(--shadow);padding:var(--s4)}
+.memo-card .today{font-weight:700;font-size:clamp(20px,2.4vw,24px);line-height:1.6;color:var(--accent);margin-bottom:var(--s3)}
+.memo-card .rules{border-top:1px dashed var(--line);padding-top:var(--s3);display:grid;gap:6px}
+.memo-card .rules p{font-family:var(--f-head);font-weight:500;font-size:19px;line-height:1.7}
+.memo-card .rules .t{white-space:nowrap;font-variant-numeric:tabular-nums}
+.memo-card .small{margin-top:var(--s3);font-size:15px;color:var(--ink-2)}
+.route{margin-top:var(--s2);display:grid;gap:10px;font-size:16px;font-weight:400;line-height:1.6}
+.route li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:baseline}
+.route li::before{content:"";width:10px;height:10px;border:2px solid var(--accent);border-radius:50%;transform:translateY(1px)}
+.route li:last-child::before{background:var(--accent)}
+.place dl{display:grid;gap:var(--s3)}
+.place dt{font-size:14px;color:var(--ink-2)}
+.place dd{font-size:clamp(20px,2.2vw,24px);font-weight:700;line-height:1.6}
+.place dd.big a{font-size:clamp(34px,4.6vw,48px);letter-spacing:.03em;text-decoration:none;color:var(--accent);white-space:nowrap;transition:color .2s}
+.place dd.big a:hover{color:var(--ink)}
+.place dd small{display:block;font-size:15px;font-weight:400;color:var(--ink-2)}
+
+/* ── 一番下 ── */
+.foot{border-top:1px solid var(--line);padding-block:var(--s4);font-size:14px;color:var(--ink-2)}
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s1) var(--s3)}
+.foot strong{color:var(--ink);font-family:var(--f-head);font-size:17px}
+
+/* ── 幅で切り替え ── */
+@media (max-width:959px){
+  .idboard{padding:var(--s3) var(--s3) var(--s2)}
+  .swatches{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .menu-row{grid-template-columns:minmax(0,1fr) auto;padding-block:var(--s2)}
+  .menu-row.head{display:none}
+  .menu-row h3{grid-column:1/2;grid-row:1}
+  .menu-row .price{grid-column:2/3;grid-row:1}
+  .menu-row .time,.menu-row .with{grid-column:1/-1;display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:var(--s1)}
+  .menu-row .lbl{display:block;color:var(--ink-2)}
+  .menu{padding:var(--s1) var(--s3)}
+  .flow ol{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:var(--s4)}
+  .studio-grid,.two,.visit-grid{grid-template-columns:minmax(0,1fr);gap:var(--s4)}
+  .studio-pic{max-width:560px}
+  .memo-card{max-width:640px}
+}
+@media (max-width:599px){
+  section{padding-top:var(--s5)}
+  .hero{padding-top:var(--s3)}
+  .catch{margin-bottom:var(--s2)}
+  .board-note{text-align:left;margin-bottom:var(--s2)}
+  .top nav{margin-left:0;width:100%}
+  .top nav ul{gap:0 var(--s2)}
+  .idboard{padding:var(--s2) var(--s2) var(--s2)}
+  /* スマホは2列×2段。左の列は24と35mm、右の列は30と51mmなので、幅の合計は35+51=86mm */
+  .frames ul{
+    --gap:14px;
+    --mm:min(3.8px, calc((100cqw - var(--gap) - 20px) / 86));
+    display:grid;grid-template-columns:auto auto;justify-content:center;align-items:end;row-gap:var(--s3);
+  }
+  .use-btn{font-size:14px;padding:5px 8px}
+  .flow ol{grid-template-columns:minmax(0,1fr)}
+  .card{padding:var(--s3)}
+  blockquote{padding:var(--s4) var(--s3) var(--s3)}
+  blockquote::before,blockquote::after{width:28px;height:28px}
+  .margin-note{padding-left:var(--s3);font-size:16px}
+  .memo-card{padding:var(--s3)}
+  .memo-card .rules p{font-size:18px}
+  .facts li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .swatches{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .sec-head h2{padding-left:34px}
+  .sec-head h2::before{left:3px;width:17px;height:23px;top:calc(.7em - 12px)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  html{scroll-behavior:auto}
+}
+/* ───── ページの切り替え(全ページ共通の上の帯) ───── */
+.top nav a[aria-current="page"]{border-color:var(--ink);font-weight:700}
+.top nav a[aria-current="page"]:hover{border-color:var(--accent)}
+
+/* ───── 下のページの頭 ───── */
+.pagehead{padding-block:var(--s5) 0}
+.pan{font-size:14px;color:var(--ink-2);margin-bottom:var(--s1)}
+.pan a{color:var(--accent);font-weight:500}
+.pagehead h1{font-size:clamp(32px,5vw,52px);letter-spacing:.06em;line-height:1.3}
+.pagehead .lead{margin-top:var(--s2)}
+.pagehead + main > section:first-child{padding-top:var(--s5)}
+.pagehead + main > section.only{padding-top:var(--s4)}
+
+/* ───── トップの入口: 背景紙の色を変えて撮ったプリントを、アルバムに並べる ───── */
+.album{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4) var(--s3)}
+.print{
+  display:grid;gap:12px;align-content:start;height:100%;
+  text-decoration:none;background:var(--paper);border-radius:var(--r);
+  padding:12px 12px 20px;box-shadow:var(--shadow);
+  transform:rotate(var(--tilt,0deg));
+  transition:transform .25s, box-shadow .25s;
+}
+.album li:nth-child(1) .print{--tilt:-1.2deg}
+.album li:nth-child(2) .print{--tilt:.8deg}
+.album li:nth-child(3) .print{--tilt:-.6deg}
+.album li:nth-child(4) .print{--tilt:1.1deg}
+.print:hover,.print:focus-visible{transform:rotate(0deg) translateY(-4px);box-shadow:0 2px 4px rgba(31,35,38,.16),0 10px 24px rgba(31,35,38,.12)}
+.print svg{width:100%;height:auto;aspect-ratio:4/3;box-shadow:0 0 0 1px var(--line)}
+.print b{display:block;font-family:var(--f-head);font-weight:700;font-size:20px;line-height:1.4;padding-inline:2px}
+.print .txt{display:block;font-size:14.5px;line-height:1.65;color:var(--ink-2);padding-inline:2px}
+.print em{display:block;font-style:normal;font-weight:700;font-size:14px;color:var(--accent);padding-inline:2px}
+
+/* ───── 次のページへ ───── */
+.tsuzuki{
+  display:inline-block;text-decoration:none;
+  background:var(--paper);color:var(--accent);border:1px solid var(--accent);border-radius:var(--r);
+  font-weight:700;font-size:16px;line-height:1.5;padding:10px 20px;box-shadow:var(--shadow);
+  transition:background-color .2s,color .2s;
+}
+.tsuzuki:hover{background:var(--accent);color:#fff}
+.place .tsuzuki{margin-top:var(--s3)}
+.tsugi-sec{padding-top:var(--s5)}
+.tsugi{display:flex;flex-wrap:wrap;gap:var(--s2)}
+
+/* ───── 一番下(全ページ共通) ───── */
+.foot{margin-top:0;padding-block:var(--s5) var(--s4)}
+.foot-in{align-items:flex-start;gap:var(--s3) var(--s5)}
+.foot-na{display:grid;gap:4px}
+.foot-na strong{font-size:19px}
+.foot-na a{color:var(--accent);font-weight:700;white-space:nowrap}
+.foot-nav{display:grid;grid-template-columns:auto auto;gap:2px var(--s4)}
+.foot-nav a{display:inline-block;padding-block:4px;color:var(--ink);font-weight:500;font-size:15px}
+.foot-nav a:hover{color:var(--accent)}
+.foot .kakuu{margin-top:var(--s4);padding-top:var(--s2);border-top:1px solid var(--line)}
+
+/* ───── 上へ戻る(長いページでだけ出る): 小さなプリントの形 ───── */
+.ue{
+  position:fixed;z-index:20;
+  right:calc(16px + env(safe-area-inset-right,0px));
+  bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  width:56px;height:60px;display:grid;place-items:center;align-content:center;gap:2px;
+  background:var(--paper);color:var(--ink);border:0;border-radius:var(--r);
+  box-shadow:0 0 0 1px var(--line),var(--shadow);
+  font-family:var(--f-body);font-weight:700;font-size:13px;line-height:1.2;
+  cursor:pointer;transition:transform .2s;
+}
+.ue::before{content:"";width:10px;height:10px;margin-top:6px;border-left:3px solid var(--accent);border-top:3px solid var(--accent);transform:rotate(45deg)}
+.ue:hover{transform:translateY(-3px)}
+.ue[hidden]{display:none}
+
+@media (max-width:959px){
+  .album{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:599px){
+  .pagehead{padding-top:var(--s4)}
+  .pagehead + main > section:first-child{padding-top:var(--s4)}
+  .album{gap:var(--s3) 14px}
+  .print{padding:8px 8px 14px;gap:8px}
+  .print b{font-size:17px}
+  .print .txt{font-size:13.5px}
+  .print em{font-size:13px}
+  .foot-in{display:grid}
+}
+@supports not (word-break:auto-phrase){body{word-break:normal;line-break:strict}}

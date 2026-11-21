@@ -1,0 +1,517 @@
+:root{
+  --tile:#eef4f5;
+  --grout:#c7d8de;
+  --ai:#1d3f8f;
+  --ai-deep:#142c66;
+  --sora:#8ec9ea;
+  --shu:#d8442b;
+  --ki:#f2c230;
+  --sumi:#1c1b19;
+  --kami:#fbfdfd;
+  --disp:"Dela Gothic One","Zen Maru Gothic",sans-serif;
+  --min:"Shippori Mincho B1",serif;
+  --body:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  color:var(--sumi);
+  line-height:1.9;
+  font-size:16px;
+  background-color:var(--tile);
+  background-image:
+    linear-gradient(var(--grout) 2px,transparent 2px),
+    linear-gradient(90deg,var(--grout) 2px,transparent 2px);
+  background-size:56px 56px;
+  overflow-x:hidden;
+}
+body{word-break:keep-all;overflow-wrap:anywhere}
+@supports (word-break:auto-phrase){body{word-break:auto-phrase}}
+.k{display:inline-block}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+.wrap{
+  width:min(1152px,100%);margin-inline:auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+
+/* ───── のれん ───── */
+.noren{
+  background:var(--sumi);
+  padding-top:14px;
+  position:relative;
+}
+.noren::before{
+  content:"";position:absolute;left:0;right:0;top:8px;height:8px;
+  background:linear-gradient(#b98a4a,#7a5527);
+}
+.noren ul{
+  list-style:none;display:flex;gap:4px;
+  width:min(760px,100% - 32px);margin-inline:auto;
+  position:relative;
+}
+.noren li{flex:1}
+.noren a{
+  display:flex;align-items:center;justify-content:center;
+  height:112px;
+  background:var(--ai);
+  color:var(--kami);
+  text-decoration:none;
+  font-family:var(--disp);
+  font-size:clamp(19px,2.6vw,24px);
+  writing-mode:vertical-rl;
+  letter-spacing:.18em;
+  border-radius:0 0 3px 3px;
+  transform-origin:top center;
+  transition:transform .25s ease, background .2s;
+  box-shadow:inset 0 -6px 0 rgba(0,0,0,.14);
+}
+.noren a:hover,.noren a:focus-visible{transform:rotate(-3deg) translateY(2px);background:var(--ai-deep)}
+.noren li:nth-child(even) a:hover{transform:rotate(3deg) translateY(2px)}
+.noren a:focus-visible{outline:3px solid var(--ki);outline-offset:2px}
+
+/* ───── 一枚目 ───── */
+.hero{
+  background:var(--sumi);
+  padding:28px 0 0;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:28px;
+  align-items:stretch;
+}
+.penki{
+  position:relative;
+  border:10px solid var(--kami);
+  outline:3px solid var(--ai);
+  outline-offset:-7px;
+  background:var(--sora);
+  min-height:520px;
+  overflow:hidden;
+}
+.penki svg{position:absolute;inset:0;width:100%;height:100%}
+.penki .fuda{
+  position:absolute;left:18px;bottom:18px;
+  background:var(--kami);
+  font-family:var(--min);font-weight:700;
+  font-size:13px;letter-spacing:.12em;
+  padding:4px 12px;border:2px solid var(--sumi);
+}
+.nami{animation:nami 9s linear infinite}
+@keyframes nami{to{transform:translateX(-80px)}}
+
+.kanban{
+  display:flex;gap:18px;
+  color:var(--kami);
+  padding:6px 4px 0 0;
+}
+.kanban h1{
+  font-family:var(--disp);
+  font-weight:400;
+  writing-mode:vertical-rl;
+  font-size:clamp(72px,8.6vw,118px);
+  line-height:1;
+  letter-spacing:.04em;
+  color:var(--kami);
+}
+.kanban h1 span{color:var(--ki)}
+.kanban p{
+  writing-mode:vertical-rl;
+  font-family:var(--min);
+  font-size:17px;
+  letter-spacing:.3em;
+  line-height:2.1;
+  color:#dfe8ea;
+}
+.kanban .maru{
+  writing-mode:horizontal-tb;
+  display:grid;place-items:center;
+  width:64px;height:64px;border-radius:50%;
+  background:var(--shu);color:var(--kami);
+  font-family:var(--disp);font-size:36px;line-height:1;
+  margin-bottom:18px;
+  letter-spacing:0;
+}
+
+/* 今日の札 */
+.kyou{
+  margin-top:28px;
+  background:var(--ki);
+  border-top:4px solid var(--sumi);
+  border-bottom:4px solid var(--sumi);
+}
+.kyou-in{
+  display:grid;grid-template-columns:auto 1fr 1fr 1fr;
+  align-items:stretch;
+}
+.kyou-in>div{padding:18px 22px;border-left:3px solid var(--sumi)}
+.kyou-in>div:first-child{border-left:0;display:flex;align-items:center;gap:12px;padding-left:0}
+.lamp{
+  width:18px;height:18px;border-radius:50%;
+  background:#8a8676;border:3px solid var(--sumi);flex:none;
+}
+.lamp.on{background:var(--shu);box-shadow:0 0 0 5px rgba(216,68,43,.25)}
+.kyou b{font-family:var(--disp);font-weight:400;font-size:clamp(18px,2.3vw,26px);line-height:1.2;display:block;white-space:nowrap}
+.kyou small{font-size:13px;font-weight:700;letter-spacing:.08em;display:block;line-height:1.5}
+.kyou [data-state]{font-family:var(--disp);font-size:30px;line-height:1.1}
+
+/* ───── 共通の見出し ───── */
+section{padding:96px 0}
+.midashi{
+  display:flex;align-items:flex-end;gap:18px;
+  margin-bottom:44px;
+}
+.midashi h2{
+  font-family:var(--disp);font-weight:400;
+  font-size:clamp(34px,5.4vw,60px);
+  line-height:1.1;letter-spacing:.02em;
+}
+.midashi p{
+  margin-left:auto;max-width:26em;
+  font-size:15px;line-height:1.8;
+  background:var(--tile);padding:2px 0;
+}
+
+/* ───── 湯ぶね ───── */
+.yubune{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.fune{
+  background:var(--kami);
+  border:3px solid var(--sumi);
+  padding:20px 18px 22px;
+  display:flex;flex-direction:column;
+  box-shadow:6px 6px 0 var(--sumi);
+  transition:transform .2s, box-shadow .2s;
+}
+.fune:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--sumi)}
+.fune .ondo{
+  font-family:var(--disp);
+  font-size:clamp(52px,5.4vw,72px);line-height:1;
+  color:var(--c);
+}
+.fune .ondo i{font-style:normal;font-size:.36em;margin-left:2px}
+.fune .hakari{
+  height:10px;border:2px solid var(--sumi);margin:14px 0 16px;
+  background:
+    linear-gradient(var(--c),var(--c)) left/var(--w) 100% no-repeat,
+    var(--tile);
+}
+.fune h3{font-family:var(--disp);font-weight:400;font-size:22px;line-height:1.3;margin-bottom:8px}
+.fune p{font-size:14.5px;line-height:1.8}
+
+/* ───── 薬湯 ───── */
+.kusuri{background:var(--ai);color:var(--kami)}
+
+.kusuri .midashi p{background:none;color:#dfe7fa}
+.shu-kan{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.hi{
+  background:var(--ai-deep);
+  border:2px solid rgba(255,255,255,.35);
+  padding:16px 10px 20px;text-align:center;
+  position:relative;
+}
+.hi .you{font-family:var(--disp);font-size:20px;display:block;line-height:1;margin-bottom:14px;color:var(--sora)}
+.hi .yu{
+  font-family:var(--min);font-weight:700;
+  writing-mode:vertical-rl;
+  font-size:clamp(20px,2.4vw,28px);letter-spacing:.2em;
+  height:6.4em;margin-inline:auto;line-height:1.2;
+}
+.hi small{display:block;font-size:12.5px;line-height:1.6;margin-top:12px;color:#cfd9f3}
+.hi.yasumi{background:transparent;border-style:dashed}
+.hi.yasumi .yu{color:#9fb1df}
+.hi.kyo{background:var(--kami);color:var(--sumi);border-color:var(--ki);box-shadow:0 0 0 4px var(--ki)}
+.hi.kyo .you{color:var(--shu)}
+.hi.kyo small{color:var(--sumi)}
+.hi.kyo::before{
+  content:"今日";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  background:var(--shu);color:var(--kami);
+  font-family:var(--disp);font-size:13px;padding:2px 12px;line-height:1.6;
+  white-space:nowrap;
+}
+
+/* ───── 料金 ───── */
+.ryokin{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.fudagumi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gesoku{
+  background:linear-gradient(#e2bd84,#d1a566);
+  border:3px solid var(--sumi);
+  border-radius:8px 8px 4px 4px;
+  padding:34px 10px 20px;text-align:center;
+  position:relative;
+}
+.gesoku::before{
+  content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);
+  width:12px;height:12px;border-radius:50%;background:var(--sumi);
+}
+.gesoku span{font-size:14px;font-weight:700;display:block;line-height:1.5}
+.gesoku b{font-family:var(--disp);font-weight:400;font-size:clamp(24px,3.6vw,42px);line-height:1.2;display:block;white-space:nowrap}
+.gesoku b i{font-style:normal;font-size:.45em}
+.betsu{
+  background:var(--kami);border:3px solid var(--sumi);
+  padding:8px 24px;
+}
+.betsu dl{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:2px dotted var(--sumi)}
+.betsu dl:last-child{border-bottom:0}
+.betsu dt{font-weight:700}
+.betsu dd{font-family:var(--disp);white-space:nowrap}
+.chu{font-size:14px;margin-top:16px;background:var(--tile);display:inline-block}
+
+/* ───── 入り方 ───── */
+.hairikata{background:var(--kami);border-top:4px solid var(--sumi);border-bottom:4px solid var(--sumi)}
+.jun{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:j}
+.jun li{
+  padding:8px 26px 8px 26px;
+  border-left:3px solid var(--sumi);
+}
+.jun li:first-child{border-left:0;padding-left:0}
+.jun .kazu{
+  font-family:var(--min);font-weight:700;
+  font-size:64px;line-height:1;color:var(--shu);display:block;margin-bottom:14px;
+}
+.jun h3{font-family:var(--disp);font-weight:400;font-size:21px;line-height:1.4;margin-bottom:8px}
+.jun p{font-size:15px}
+.kimari{
+  margin-top:48px;display:flex;flex-wrap:wrap;gap:10px;
+}
+.kimari span{
+  border:2px solid var(--sumi);border-radius:999px;
+  padding:4px 18px;font-size:14.5px;font-weight:700;background:var(--tile);
+}
+.kimari span.ok{background:var(--ki)}
+
+/* ───── 湯上がり ───── */
+.agari{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.bin{
+  background:var(--kami);border:3px solid var(--sumi);
+  padding:34px 16px 20px;text-align:center;
+}
+.bottle{
+  width:44px;height:92px;margin:22px auto 20px;position:relative;
+  background:var(--b);
+  border:3px solid var(--sumi);
+  border-radius:12px 12px 7px 7px;
+  transition:transform .25s;
+}
+.bottle::before{
+  content:"";position:absolute;left:50%;top:-21px;transform:translateX(-50%);
+  width:22px;height:20px;background:var(--b);
+  border:3px solid var(--sumi);border-bottom:0;border-radius:4px 4px 0 0;
+}
+.bottle::after{
+  content:"";position:absolute;left:50%;top:-29px;transform:translateX(-50%);
+  width:30px;height:10px;background:var(--cap,var(--shu));
+  border:3px solid var(--sumi);border-radius:3px;
+}
+.bin:hover .bottle{transform:rotate(-14deg)}
+.bin h3{font-family:var(--disp);font-weight:400;font-size:19px;line-height:1.4}
+.bin b{font-family:var(--disp);font-weight:400;color:var(--shu);font-size:17px}
+.bin p{font-size:14px;line-height:1.7;margin-top:6px}
+
+/* ───── お知らせ ───── */
+.harigami{
+  background:var(--kami);border:3px solid var(--sumi);
+  padding:10px 30px;
+  transform:rotate(-.5deg);
+  box-shadow:6px 6px 0 var(--sumi);
+}
+.harigami li{
+  list-style:none;display:grid;grid-template-columns:8.5em 1fr;gap:18px;
+  padding:16px 0;border-bottom:2px dotted var(--sumi);
+}
+.harigami li:last-child{border-bottom:0}
+.harigami time{font-family:var(--disp);font-size:15px;color:var(--ai)}
+
+/* ───── 道順 ───── */
+.michi{background:var(--sumi);color:var(--kami)}
+
+.michi-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.chizu{border:6px solid var(--kami);background:#e3ebee}
+.jouhou dl{display:grid;grid-template-columns:6.5em 1fr;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.28)}
+.jouhou dt{font-family:var(--disp);color:var(--ki);font-size:15px;line-height:1.9}
+.jouhou dd b{font-family:var(--disp);font-weight:400;font-size:28px;line-height:1.3;display:block}
+.denwa{
+  display:inline-block;margin-top:26px;
+  background:var(--ki);color:var(--sumi);text-decoration:none;
+  font-family:var(--disp);font-size:clamp(24px,3.4vw,34px);line-height:1.2;
+  padding:14px 28px;border:3px solid var(--kami);
+  transition:transform .2s;
+}
+.denwa:hover{transform:translate(-3px,-3px)}
+.denwa small{display:block;font-family:var(--body);font-weight:700;font-size:13px}
+
+footer{
+  background:var(--ai);color:var(--kami);
+  text-align:center;padding:56px 0 40px;
+}
+footer .maru{
+  display:grid;place-items:center;margin:0 auto 16px;
+  width:88px;height:88px;border-radius:50%;
+  background:var(--kami);color:var(--shu);
+  font-family:var(--disp);font-size:52px;line-height:1;
+}
+footer p{font-size:14px}
+footer .kakuu{margin-top:18px;font-size:12.5px;color:#c9d5f4}
+
+/* ───── 幅 ───── */
+@media (max-width:980px){
+  .yubune{grid-template-columns:repeat(3,1fr)}
+  .ryokin{grid-template-columns:1fr}
+  .jun{grid-template-columns:repeat(2,1fr);row-gap:36px}
+  .jun li:nth-child(3){border-left:0;padding-left:0}
+  .midashi{flex-wrap:wrap}
+  .midashi p{margin-left:0;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  section{padding:68px 0}
+  .noren a{height:92px}
+  .hero-grid{grid-template-columns:1fr;gap:20px}
+  .penki{min-height:0;aspect-ratio:4/3}
+  .kanban{display:block;padding:0}
+  .kanban h1{writing-mode:horizontal-tb;font-size:15.5vw;white-space:nowrap}
+  .kanban p{writing-mode:horizontal-tb;letter-spacing:.14em;font-size:15.5px;line-height:2;margin-top:12px}
+  .kanban .maru{display:none}
+  .kyou-in{grid-template-columns:1fr 1fr}
+  .kyou-in>div{padding:14px 14px;border-left:0;border-top:3px solid var(--sumi)}
+  .kyou-in>div:nth-child(even){border-left:3px solid var(--sumi)}
+  .kyou-in>div:nth-child(-n+2){border-top:0}
+  .kyou-in>div:first-child{padding-left:0}
+  .kyou-in>div:nth-child(3){padding-left:0}
+  .kyou b{font-size:17px}
+  .hi small{font-size:11.5px}
+  .kyou [data-state]{font-size:24px}
+  .yubune{grid-template-columns:1fr 1fr}
+  .shu-kan{grid-template-columns:repeat(4,1fr);row-gap:22px}
+  .agari{grid-template-columns:1fr 1fr}
+  .michi-grid{grid-template-columns:1fr}
+  .harigami{padding:6px 18px}
+  .harigami li{grid-template-columns:1fr;gap:2px}
+}
+@media (max-width:460px){
+  .yubune{grid-template-columns:1fr}
+  .fune{display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:center}
+  .fune .hakari{grid-column:1/-1}
+  .fune h3{margin:0}
+  .fune p{grid-column:1/-1}
+  .fudagumi{gap:8px}
+  .jun{grid-template-columns:1fr}
+  .jun li{border-left:0;padding:0 0 0 0}
+  .jun li{display:grid;grid-template-columns:64px 1fr;column-gap:8px}
+  .jun .kazu{grid-row:1/3;font-size:52px}
+}
+@media (prefers-reduced-motion:reduce){
+  .nami{animation:none}
+  *{transition:none!important}
+  html{scroll-behavior:auto}
+}
+/* ───── 屋号の帯(全ページ共通) ───── */
+.yago{background:var(--sumi);color:var(--kami)}
+.yago-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:10px;padding-bottom:10px}
+.yago-na{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--disp);font-size:20px;line-height:1.2;white-space:nowrap}
+.yago-na i{font-style:normal;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--shu);font-size:19px;line-height:1}
+.yago-na:focus-visible{outline:3px solid var(--ki);outline-offset:3px}
+.yago-ji{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;white-space:nowrap}
+.yago-ji .lamp{width:14px;height:14px;border-color:var(--kami)}
+.yago-ji .lamp.on{border-color:var(--kami)}
+.noren a[aria-current="page"]{background:var(--shu)}
+.noren a[aria-current="page"]:hover{background:#b8351f}
+
+/* ───── 下のページの頭 ───── */
+.pagehead{background:var(--sumi);color:var(--kami);padding:34px 0 48px}
+.pan{font-size:13.5px;font-weight:700;color:#cfd8da;margin-bottom:10px}
+.pan a{color:var(--ki)}
+.pagehead h1{font-family:var(--disp);font-weight:400;font-size:clamp(44px,8vw,88px);line-height:1.1;letter-spacing:.02em}
+.pagehead h1::after{content:"";display:block;width:72px;height:8px;background:var(--ki);margin-top:18px}
+.pagehead .lead{margin-top:18px;max-width:34em;color:#dfe8ea}
+
+/* ───── トップの入口(下足札) ───── */
+.iriguchi{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.fuda-link{
+  display:block;text-decoration:none;padding:40px 16px 22px;
+  box-shadow:6px 6px 0 var(--sumi);
+  transition:transform .2s, box-shadow .2s;
+}
+.fuda-link:hover,.fuda-link:focus-visible{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--sumi)}
+.fuda-link:focus-visible{outline:3px solid var(--ai);outline-offset:3px}
+.fuda-link b{font-size:clamp(26px,3vw,36px)}
+.fuda-link span{font-weight:500;font-size:14.5px;line-height:1.7;margin-top:10px}
+.fuda-link em{font-style:normal;font-family:var(--disp);font-size:14px;display:block;margin-top:14px;color:var(--ai-deep)}
+
+.tsuzuki{
+  display:inline-block;margin-top:28px;
+  background:var(--ki);color:var(--sumi);text-decoration:none;
+  font-family:var(--disp);font-size:17px;line-height:1.4;
+  padding:10px 22px;border:3px solid var(--sumi);
+  box-shadow:4px 4px 0 var(--sumi);
+  transition:transform .2s, box-shadow .2s;
+}
+.tsuzuki:hover,.tsuzuki:focus-visible{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--sumi)}
+.michi .tsuzuki{border-color:var(--kami);box-shadow:none;display:block;width:max-content;margin-top:18px}
+.hairikata .midashi p{background:none}
+.tsugi-sec{padding:0 0 84px}
+.tsugi{display:flex;flex-wrap:wrap;gap:16px}
+.tsugi .tsuzuki{margin-top:0}
+.nen{font-family:var(--disp);font-size:22px;margin-bottom:18px}
+
+/* ───── よくある質問 ───── */
+.toi{background:var(--kami);border:3px solid var(--sumi)}
+.toi details{border-bottom:2px dotted var(--sumi);padding:0 24px}
+.toi details:last-child{border-bottom:0}
+.toi summary{cursor:pointer;font-weight:700;padding:18px 0;list-style:none;display:flex;gap:14px;align-items:baseline}
+.toi summary::-webkit-details-marker{display:none}
+.toi summary::before{content:"問";font-family:var(--min);font-weight:700;font-size:19px;color:var(--shu);flex:none}
+.toi summary::after{content:"+";margin-left:auto;font-family:var(--disp);flex:none}
+.toi details[open] summary::after{content:"−"}
+.toi details p{padding:0 0 20px 2.2em;font-size:15.5px}
+
+/* ───── 営業時間の表 ───── */
+.jikan{width:100%;border-collapse:collapse;background:var(--kami);border:3px solid var(--sumi)}
+.jikan th,.jikan td{padding:14px 20px;text-align:left;border-bottom:2px dotted var(--sumi);vertical-align:top}
+.jikan tr:last-child th,.jikan tr:last-child td{border-bottom:0}
+.jikan th{font-weight:700;width:9.5em}
+.jikan td b{font-family:var(--disp);font-weight:400;font-size:20px;margin-right:10px;white-space:nowrap;display:inline-block}
+.pagehead + main > .michi:first-child{padding-top:20px}
+
+/* ───── フッター(全ページ共通) ───── */
+footer{text-align:left;padding:56px 0 36px}
+.foot{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:start}
+footer .maru{margin:0}
+.foot-na b{font-family:var(--disp);font-weight:400;font-size:24px;display:block;line-height:1.3;margin-bottom:6px}
+.foot ul{list-style:none;display:grid;grid-template-columns:auto auto;gap:4px 28px}
+.foot ul a{font-weight:700;font-size:15px}
+footer .kakuu{margin-top:32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.3)}
+
+/* ───── 上へ戻る(長いページでだけ出る) ───── */
+.ue{
+  position:fixed;z-index:20;
+  right:calc(16px + env(safe-area-inset-right,0px));
+  bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  width:60px;height:60px;border-radius:50%;
+  background:var(--ki);color:var(--sumi);
+  border:3px solid var(--sumi);box-shadow:3px 3px 0 var(--sumi);
+  font-family:var(--disp);font-size:13px;line-height:1.15;
+  cursor:pointer;
+  transition:transform .2s;
+}
+.ue::before{content:"";display:block;width:12px;height:12px;margin:4px auto -1px;border-left:4px solid var(--sumi);border-top:4px solid var(--sumi);transform:rotate(45deg)}
+.ue:hover{transform:translateY(-3px)}
+.ue:focus-visible{outline:3px solid var(--ai);outline-offset:3px}
+.ue[hidden]{display:none}
+
+@media (max-width:980px){
+  .iriguchi{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .foot{grid-template-columns:1fr;gap:22px}
+  .foot ul{grid-template-columns:1fr 1fr}
+  .tsugi-sec{padding-bottom:64px}
+  .toi details{padding:0 16px}
+  .jikan th,.jikan td{padding:12px 14px}
+  .jikan th{width:7.5em}
+}
+@media (max-width:560px){
+  .yago-t{display:none}
+}
+@supports not (word-break:auto-phrase){body{word-break:normal;line-break:strict}}

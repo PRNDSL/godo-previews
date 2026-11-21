@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>月謝と時間割|しろくろピアノ教室</title>
+<meta name="description" content="しろくろピアノ教室の月謝。1回の長さ(30分、45分、60分)と月の回数で決まり、30分 月3回で6,700円から。火曜から土曜、15時から20時の空きも載せています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site dark">
+  <div class="wrap bar-in">
+    <a class="bar-na" href="index.html">しろくろピアノ教室</a>
+    <p class="bar-ji">レッスン 火曜から土曜、15時から20時</p>
+  </div>
+  <nav class="keys" aria-label="ページの切り替え" aria-describedby="keys-hint">
+    <div class="keys-in">
+      <a href="index.html"><span>トップ</span></a>
+      <a href="lesson.html"><span>レッスン</span></a>
+      <a href="trial.html"><span>体験</span></a>
+      <a href="fee.html" aria-current="page"><span>月謝</span></a>
+      <a href="teacher.html"><span>先生</span></a>
+      <a href="access.html"><span>場所</span></a>
+      <span class="bk" style="--n:1" aria-hidden="true"></span>
+      <span class="bk" style="--n:2" aria-hidden="true"></span>
+      <span class="bk" style="--n:4" aria-hidden="true"></span>
+      <span class="bk" style="--n:5" aria-hidden="true"></span>
+    </div>
+  </nav>
+  <p class="wrap keys-hint" id="keys-hint">上の鍵盤を押すと、そのページへ移ります。</p>
+</header>
+
+<div class="pagehead dark">
+  <div class="wrap">
+    <p class="pan"><a href="index.html">しろくろピアノ教室</a> / 月謝と時間割</p>
+    <h1>月謝と時間割</h1>
+    <p class="lead">かかるお金と、いま空いている時間帯です。</p>
+    <div class="staves" aria-hidden="true"><div class="staff"></div></div>
+  </div>
+</div>
+
+<main>
+
+<section class="sec" id="fee" aria-labelledby="h-fee">
+  <div class="wrap">
+    <h2 id="h-fee"><span><span class="k">長さと回数</span><span class="k">ごとの額</span></span></h2>
+    <p class="sec-lead">月謝は1回の長さと、月に何回来るかで決まります。きょうだいで通う場合もひとりずつの月謝です。</p>
+    <div class="fee-grid">
+      <div>
+        <div id="fee-switch" hidden>
+          <p class="len-label" id="len-label">1回の長さを選ぶ</p>
+          <div class="len-btns" role="group" aria-labelledby="len-label">
+            <button type="button" id="len-30" data-len="30" aria-pressed="true">30分</button>
+            <button type="button" id="len-45" data-len="45" aria-pressed="false">45分</button>
+            <button type="button" id="len-60" data-len="60" aria-pressed="false">60分</button>
+          </div>
+          <div class="bag" aria-live="polite">
+            <div class="bag-h"><p>月謝</p><p class="len-now">1回 <span id="out-len">30</span>分</p></div>
+            <dl>
+              <dt>月4回</dt><dd><b><span id="out-4">8,800</span><small>円</small></b></dd>
+              <dt>月3回</dt><dd><b><span id="out-3">6,700</span><small>円</small></b></dd>
+            </dl>
+            <div class="bag-foot"><p>税込み。月の初めのレッスンでお預かりします。</p><span class="stamp" aria-hidden="true">受</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <table class="fee-table">
+          <caption>3つの長さの月謝を並べると</caption>
+          <thead><tr><th scope="col">1回の長さ</th><th scope="col">月3回</th><th scope="col">月4回</th></tr></thead>
+          <tbody>
+            <tr data-len="30"><th scope="row">30分</th><td><span class="lbl">月3回</span><span>6,700円</span></td><td><span class="lbl">月4回</span><span>8,800円</span></td></tr>
+            <tr data-len="45"><th scope="row">45分</th><td><span class="lbl">月3回</span><span>9,200円</span></td><td><span class="lbl">月4回</span><span>12,100円</span></td></tr>
+            <tr data-len="60"><th scope="row">60分</th><td><span class="lbl">月3回</span><span>11,700円</span></td><td><span class="lbl">月4回</span><span>15,400円</span></td></tr>
+          </tbody>
+        </table>
+        <p class="tax">金額はすべて税込みです。4歳から小学2年生までは30分から始めるのをおすすめしています。</p>
+        <div class="other">
+          <h3>月謝のほかにかかるもの</h3>
+          <dl>
+            <div><dt>入会金</dt><dd><span class="price">5,500円</span>(入る時に1回だけ)</dd></div>
+            <div><dt>教材費</dt><dd>本の値段のまま。1冊 <span class="price">990円</span>から<span class="price">1,650円</span>ほど</dd></div>
+            <div><dt>発表会</dt><dd>参加費 <span class="price">7,700円</span>(出る人だけ。写真とプログラム込み)</dd></div>
+            <div><dt>お休み</dt><dd><span class="k">前の日までに電話をください。</span><span class="k">月に1回まで</span><span class="k">別の日に振り替えます</span></dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="schedule" aria-labelledby="h-schedule" style="padding-top:0">
+  <div class="wrap">
+    <h2 id="h-schedule"><span><span class="k">空いている</span><span class="k">時間帯</span></span></h2>
+    <p class="sec-lead">レッスンは火曜から土曜の15時から20時です。空いている時間帯から、毎週同じ時間を選びます。</p>
+    <ul class="legend">
+      <li><span class="mk ok">空き</span>入れます</li>
+      <li><span class="mk full">満</span>いまは埋まっています</li>
+    </ul>
+    <table class="tt">
+      <caption class="vh">曜日と時間帯ごとの空き</caption>
+      <thead>
+        <tr><th scope="col">時間帯</th><th scope="col" data-day="2">火</th><th scope="col" data-day="3">水</th><th scope="col" data-day="4">木</th><th scope="col" data-day="5">金</th><th scope="col" data-day="6">土</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">15時台</th><td data-day="2"><span class="mk ok">空き</span></td><td data-day="3"><span class="mk full">満</span></td><td data-day="4"><span class="mk ok">空き</span></td><td data-day="5"><span class="mk full">満</span></td><td data-day="6"><span class="mk full">満</span></td></tr>
+        <tr><th scope="row">16時台</th><td data-day="2"><span class="mk full">満</span></td><td data-day="3"><span class="mk full">満</span></td><td data-day="4"><span class="mk ok">空き</span></td><td data-day="5"><span class="mk full">満</span></td><td data-day="6"><span class="mk full">満</span></td></tr>
+        <tr><th scope="row">17時台</th><td data-day="2"><span class="mk full">満</span></td><td data-day="3"><span class="mk ok">空き</span></td><td data-day="4"><span class="mk full">満</span></td><td data-day="5"><span class="mk full">満</span></td><td data-day="6"><span class="mk ok">空き</span></td></tr>
+        <tr><th scope="row">18時台</th><td data-day="2"><span class="mk ok">空き</span></td><td data-day="3"><span class="mk full">満</span></td><td data-day="4"><span class="mk full">満</span></td><td data-day="5"><span class="mk ok">空き</span></td><td data-day="6"><span class="mk full">満</span></td></tr>
+        <tr><th scope="row">19時台</th><td data-day="2"><span class="mk ok">空き</span></td><td data-day="3"><span class="mk ok">空き</span></td><td data-day="4"><span class="mk full">満</span></td><td data-day="5"><span class="mk ok">空き</span></td><td data-day="6"><span class="mk full">満</span></td></tr>
+      </tbody>
+    </table>
+    <div class="days">
+      <details class="day" data-day="2"><summary><span class="d">火曜</span><span class="cnt">空き 3つ</span><span class="today-tag" hidden>今日</span></summary>
+        <ul><li><span>15時台</span><span class="mk ok">空き</span></li><li><span>16時台</span><span class="mk full">満</span></li><li><span>17時台</span><span class="mk full">満</span></li><li><span>18時台</span><span class="mk ok">空き</span></li><li><span>19時台</span><span class="mk ok">空き</span></li></ul>
+      </details>
+      <details class="day" data-day="3"><summary><span class="d">水曜</span><span class="cnt">空き 2つ</span><span class="today-tag" hidden>今日</span></summary>
+        <ul><li><span>15時台</span><span class="mk full">満</span></li><li><span>16時台</span><span class="mk full">満</span></li><li><span>17時台</span><span class="mk ok">空き</span></li><li><span>18時台</span><span class="mk full">満</span></li><li><span>19時台</span><span class="mk ok">空き</span></li></ul>
+      </details>
+      <details class="day" data-day="4"><summary><span class="d">木曜</span><span class="cnt">空き 2つ</span><span class="today-tag" hidden>今日</span></summary>
+        <ul><li><span>15時台</span><span class="mk ok">空き</span></li><li><span>16時台</span><span class="mk ok">空き</span></li><li><span>17時台</span><span class="mk full">満</span></li><li><span>18時台</span><span class="mk full">満</span></li><li><span>19時台</span><span class="mk full">満</span></li></ul>
+      </details>
+      <details class="day" data-day="5"><summary><span class="d">金曜</span><span class="cnt">空き 2つ</span><span class="today-tag" hidden>今日</span></summary>
+        <ul><li><span>15時台</span><span class="mk full">満</span></li><li><span>16時台</span><span class="mk full">満</span></li><li><span>17時台</span><span class="mk full">満</span></li><li><span>18時台</span><span class="mk ok">空き</span></li><li><span>19時台</span><span class="mk ok">空き</span></li></ul>
+      </details>
+      <details class="day" data-day="6"><summary><span class="d">土曜</span><span class="cnt">空き 1つ</span><span class="today-tag" hidden>今日</span></summary>
+        <ul><li><span>15時台</span><span class="mk full">満</span></li><li><span>16時台</span><span class="mk full">満</span></li><li><span>17時台</span><span class="mk ok">空き</span></li><li><span>18時台</span><span class="mk full">満</span></li><li><span>19時台</span><span class="mk full">満</span></li></ul>
+      </details>
+    </div>
+    <p class="tt-note">空きは月の初めに書き直しています。「満」の時間帯も、空いたら順にお知らせできます。</p>
+  </div>
+</section>
+
+<section class="tsugi-sec" aria-label="次に見るページ">
+  <div class="wrap tsugi">
+      <a class="kbtn" href="trial.html">体験レッスンへ</a>
+      <a class="kbtn" href="access.html">場所と電話へ</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-na">
+        <p class="yago">しろくろピアノ教室</p>
+        <p>楓台二丁目14-6(楓台駅の南口から歩いて7分)</p>
+        <p>レッスン 火曜から土曜、15時から20時</p>
+        <p>電話 <a href="tel:000-000-0000">000-000-0000</a>(レッスン中は出られません。折り返します)</p>
+      </div>
+      <ul class="foot-links">
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="lesson.html">レッスン</a></li>
+        <li><a href="trial.html">体験レッスン</a></li>
+        <li><a href="fee.html">月謝と時間割</a></li>
+        <li><a href="teacher.html">先生</a></li>
+        <li><a href="access.html">場所と電話</a></li>
+      </ul>
+    </div>
+    <p class="kakuu">このサイトは制作見本です。出てくる店名や料金などは、すべて架空のものです。</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
