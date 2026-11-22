@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>御菓子処 葛葉堂|上生菓子と大福、手土産のご相談(制作見本)</title>
+<meta name="description" content="葛葉町で三代続く和菓子屋、葛葉堂。毎朝の上生菓子と大福、手土産の詰め合わせとのしのご相談はInstagramのDMかお電話で。(このページは制作見本です)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&family=Zen+Old+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<script>if('IntersectionObserver' in window)document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  color-scheme: light dark;
+  --bg:#ffffff;
+  --paper:#ffffff;
+  --ink:#24251f;
+  --ink-soft:#55574e;
+  --line:#d9dad3;
+  --accent:#3b5b2c;          /* 抹茶の深い緑。線と文字だけに使う */
+  --on-ink:#ffffff;
+  --mizuhiki-red:#b3443c;
+  --mizuhiki-yellow:#c9a43a;
+  --mizuhiki-white:#c4c5bd;
+  --fiber-op:.24;
+  --f-head:"Zen Old Mincho", "BIZ UDPMincho", serif;
+  --f-body:"BIZ UDPMincho", "Zen Old Mincho", serif;
+  --r:2px;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1a1c18; --paper:#22241f; --ink:#e8e8e1; --ink-soft:#b5b6ac; --line:#3d3f38;
+    --accent:#a7c58e; --on-ink:#1a1c18; --mizuhiki-white:#8d8f86; --fiber-op:.08;
+  }
+}
+[data-theme="dark"]{
+  --bg:#1a1c18; --paper:#22241f; --ink:#e8e8e1; --ink-soft:#b5b6ac; --line:#3d3f38;
+  --accent:#a7c58e; --on-ink:#1a1c18; --mizuhiki-white:#8d8f86; --fiber-op:.08;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.9;letter-spacing:.02em;background:transparent;position:relative}
+/* 和紙の繊維: 横に流れる薄い筋だけ。色は乗せない */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:var(--fiber-op);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.6 .6' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .47 0 0 0 1.2 -.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E")}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;margin:0;letter-spacing:.04em;line-height:1.4}
+p{margin:0}
+.v{writing-mode:vertical-rl;text-orientation:mixed}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 制作見本の帯 */
+.demo{background:var(--ink);color:var(--on-ink);font-size:12px;line-height:1.6;text-align:center;padding:6px var(--s2)}
+
+/* ヘッダー */
+.top{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding:var(--s2) 20px;max-width:1200px;margin:0 auto}
+.top-name{font-family:var(--f-head);font-weight:700;font-size:18px;letter-spacing:.12em;text-decoration:none}
+.top-name small{font-size:12px;letter-spacing:.08em;margin-right:6px;color:var(--ink-soft);font-weight:500}
+.ig-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;text-decoration:none;color:var(--accent);padding:6px 0}
+.ig-ico{width:20px;height:20px;flex:none}
+
+/* ファーストビュー */
+.fv{max-width:1200px;margin:0 auto;padding:0 0 var(--s4)}
+.fv-photo{position:relative;margin:0}
+.fv-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 55%;background:var(--line)}
+.fv-photo figcaption{position:absolute;left:var(--s1);bottom:var(--s1);font-size:11px;color:#fff;background:rgba(20,21,18,.6);padding:2px 6px;border-radius:var(--r)}
+.fuda-big{position:absolute;top:var(--s2);right:var(--s2);background:var(--paper);border:1px solid var(--accent);padding:5px;border-radius:var(--r)}
+.fuda-big-in{border:1px solid var(--accent);padding:var(--s2) 10px;display:flex;flex-direction:row-reverse;gap:6px;align-items:flex-start}
+.fuda-big h1{font-size:40px;letter-spacing:.3em;line-height:1.1}
+.fuda-big h1 small{display:block;font-size:14px;letter-spacing:.3em;margin-bottom:.6em;font-weight:500;color:var(--accent)}
+.fuda-big .kicker{font-size:12px;letter-spacing:.18em;line-height:1.6;color:var(--ink-soft);padding-top:3.6em}
+.fv-text{padding:var(--s3) 20px 0}
+.fv-lead{font-size:15px;line-height:1.9;max-width:26em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--s3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:var(--r);text-decoration:none;font-family:var(--f-body);font-weight:700;font-size:15px;letter-spacing:.06em;white-space:nowrap;border:1px solid var(--ink)}
+.btn-dm{background:var(--ink);color:var(--on-ink)}
+.btn-tel{background:transparent;color:var(--accent);border-color:var(--accent)}
+.btn svg{width:18px;height:18px;flex:none}
+.cta .btn{flex:1 1 160px}
+
+/* セクション: 見出しは右に縦書き */
+.sec{max-width:1200px;margin:0 auto;padding:var(--s6) 20px;display:grid;gap:var(--s4)}
+.sec + .sec{border-top:1px solid var(--line)}
+.sec-head{display:flex;flex-direction:row-reverse;align-items:flex-start;gap:20px}
+.sec-head h2{writing-mode:vertical-rl;font-size:26px;letter-spacing:.24em;padding-left:14px;border-left:1px solid var(--accent);flex:none}
+.sec-head p{flex:1;font-size:15px;color:var(--ink-soft);max-width:24em;padding-top:4px}
+
+/* 季節のお菓子 */
+.goods{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4) var(--s2);margin:0;padding:0;list-style:none}
+.goods li:first-child{grid-column:1 / -1}
+.good-ph{position:relative;padding-top:10px}
+.good-ph img{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--line)}
+.fuda{position:absolute;top:0;right:10px;background:var(--paper);border:1px solid var(--accent);padding:10px 5px;font-family:var(--f-head);font-weight:700;font-size:16px;letter-spacing:.16em;line-height:1.2;writing-mode:vertical-rl;border-radius:var(--r)}
+.goods li:first-child .fuda{font-size:20px;padding:14px 7px;right:14px}
+.good-txt{margin-top:12px}
+.good-txt .price{font-size:15px;font-weight:700}
+.good-txt .price span{font-size:12px;font-weight:400;color:var(--ink-soft);margin-left:4px}
+.good-txt p.note{font-size:14px;color:var(--ink-soft);line-height:1.8}
+
+/* 品書き */
+.menu-cols{display:grid;gap:var(--s5)}
+.menu h3{font-size:18px;color:var(--accent);margin-bottom:var(--s1);padding-bottom:6px;border-bottom:1px solid var(--accent)}
+.menu ul{list-style:none;margin:0;padding:0}
+.menu li{display:flex;align-items:baseline;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.menu li .nm{flex:1;min-width:0}
+.menu li .nm small{display:block;font-size:13px;color:var(--ink-soft);line-height:1.6}
+.menu li .pr{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.menu-foot{font-size:13px;color:var(--ink-soft);margin-top:var(--s2)}
+
+/* 手土産えらび */
+.pick{display:grid;gap:var(--s4)}
+.pick fieldset{border:0;margin:0;padding:0;min-width:0}
+.pick legend{font-family:var(--f-head);font-weight:700;font-size:16px;margin-bottom:10px;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative;cursor:pointer}
+.opts input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opts span{display:inline-block;min-height:44px;padding:10px 14px;border:1px solid var(--line);border-radius:var(--r);font-size:15px;line-height:1.5;background:var(--paper)}
+.opts input:checked + span{border-color:var(--accent);color:var(--accent);font-weight:700;box-shadow:inset 0 -2px 0 var(--accent)}
+.opts input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.result{display:grid;grid-template-columns:136px 1fr;gap:var(--s3);align-items:start;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);padding:var(--s3) 0}
+.noshi{width:136px;height:auto}
+.result h3{font-size:20px;line-height:1.5}
+.result .rp{font-size:18px;font-weight:700;margin-top:4px}
+.result dl{margin:var(--s2) 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px;line-height:1.7}
+.result dt{color:var(--accent);font-weight:700;white-space:nowrap}
+.result dd{margin:0}
+.result .rnote{grid-column:1 / -1;font-size:14px;color:var(--ink-soft);margin-top:var(--s1)}
+.noshi-guide{font-size:13px;color:var(--ink-soft);line-height:1.8}
+.noshi-guide b{color:var(--ink)}
+
+/* インスタ */
+.ig-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s2)}
+.ig-acc{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;text-decoration:none;color:var(--accent)}
+.ig-acc .ig-ico{width:24px;height:24px}
+.ig-follow{font-size:14px;color:var(--ink-soft)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:0;padding:0;list-style:none}
+.tile{display:block;width:100%;padding:0;border:0;background:var(--line);cursor:zoom-in;aspect-ratio:1/1;overflow:hidden;border-radius:0}
+.tile img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.tile:hover img{opacity:.88}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:var(--on-ink);font-size:13px;padding:8px 14px;border-radius:var(--r);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1}
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,900px);width:100%}
+dialog.lb::backdrop{background:rgba(18,19,16,.86)}
+.lb img{width:100%;max-height:80vh;object-fit:contain;background:#2a2b27}
+.lb-close{display:block;margin:12px auto 0;min-height:44px;padding:0 22px;border:1px solid #fff;background:transparent;color:#fff;font:inherit;font-size:15px;border-radius:var(--r);cursor:pointer}
+
+/* 三代目のこと */
+.story-ph img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--line)}
+.story-txt{display:grid;gap:var(--s2);max-width:34em}
+.story-txt .sig{font-size:14px;color:var(--ink-soft)}
+.voices{list-style:none;margin:var(--s2) 0 0;padding:0;display:grid;gap:12px}
+.voices li{border-left:1px solid var(--accent);padding-left:14px;font-size:15px}
+.voices small{display:block;font-size:13px;color:var(--ink-soft)}
+
+/* 店の情報 */
+.info{display:grid;gap:var(--s4)}
+.info dl{margin:0;display:grid;grid-template-columns:5.5em 1fr;font-size:15px}
+.info dt,.info dd{padding:12px 0;border-bottom:1px solid var(--line);margin:0}
+.info dt{color:var(--accent);font-weight:700}
+.map{width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
+
+/* 最下部 */
+.last{text-align:left}
+.last p{font-size:15px;max-width:30em}
+footer{border-top:1px solid var(--line);padding:var(--s3) 20px calc(var(--s3) + 80px);text-align:center;font-size:12px;color:var(--ink-soft)}
+
+/* スマホ下の固定バー */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
+.bar .btn{padding:0 8px;font-size:14px;min-height:46px}
+
+/* 動き: 見出しと写真だけ、1回 */
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:359px){
+  .fuda-big h1{font-size:34px}
+  .btn{font-size:14px;padding:0 12px}
+  .bar .btn{font-size:13px}
+}
+@media (min-width:768px){
+  .bar{display:none}
+  footer{padding-bottom:var(--s3)}
+  .toast{bottom:32px}
+  .fv{display:grid;grid-template-columns:1.55fr 1fr;gap:0 var(--s6);padding:0 20px var(--s6);align-items:end}
+  .fv-photo img{aspect-ratio:4/3}
+  .fuda-big{top:var(--s4);right:auto;left:100%;transform:translateX(-50%)}
+  .fuda-big-in{padding:var(--s3) 14px}
+  .fuda-big h1{font-size:52px}
+  .fuda-big .kicker{font-size:13px}
+  .fv-text{padding:0 0 var(--s2) var(--s5)}
+  .fv-lead{font-size:16px}
+  .cta{flex-direction:column;align-items:stretch;max-width:300px}
+  .cta .btn{flex:none}
+  .goods{grid-template-columns:repeat(3,1fr)}
+  .goods li:first-child{grid-column:1 / span 2;grid-row:span 2}
+  .menu-cols{grid-template-columns:1fr 1fr;gap:var(--s6)}
+  .info{grid-template-columns:1fr 1fr;align-items:start}
+  .story{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s5);align-items:start}
+  .pick{grid-template-columns:1fr 1fr;column-gap:var(--s6)}
+  .pick .result-wrap{grid-column:2;grid-row:1 / span 4}
+}
+@media (min-width:1024px){
+  .sec{grid-template-columns:1fr auto;column-gap:var(--s6);padding:var(--s7) 32px}
+  .sec-head{grid-column:2;grid-row:1 / span 3;position:sticky;top:var(--s4);align-self:start}
+  .sec-head p{writing-mode:vertical-rl;max-height:17em;max-width:none;padding-top:0;line-height:2.1}
+  .sec-head h2{font-size:30px}
+  .sec > :not(.sec-head){grid-column:1;min-width:0}
+  .fv{padding:0 32px var(--s6)}
+  .top{padding:var(--s2) 32px}
+  .grid{gap:6px;max-width:760px}
+}
+@media (prefers-reduced-motion: reduce){
+  .js .rv,.js .rv.in{opacity:1;transform:none;transition:none}
+  .toast,.tile img{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="cam" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></symbol>
+  <symbol id="tel" viewBox="0 0 24 24"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.4v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+</svg>
+
+<p class="demo">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="top">
+  <a class="top-name" href="#"><small>御菓子処</small>葛葉堂</a>
+  <a class="ig-link" href="#ig" data-ig><svg class="ig-ico" aria-hidden="true"><use href="#cam"/></svg>@kuzuhado</a>
+</header>
+
+<main>
+<section class="fv">
+  <figure class="fv-photo">
+    <img src="img/wagashi_hero-1600.jpg" srcset="img/wagashi_hero-800.jpg 800w, img/wagashi_hero-1600.jpg 1600w" sizes="(min-width:768px) 60vw, 100vw" alt="漆の盆に並んだ季節の練切と抹茶" width="1600" height="914">
+    <figcaption>写真はイメージです</figcaption>
+    <div class="fuda-big">
+      <div class="fuda-big-in">
+        <h1 class="v"><small>御菓子処</small>葛葉堂</h1>
+        <p class="kicker v">葛葉町で三代 上生菓子と大福</p>
+      </div>
+    </div>
+  </figure>
+  <div class="fv-text">
+    <p class="fv-lead">毎朝炊いた餡で、季節の上生菓子を八種と大福を作っています。手土産の数や、のしの書き方のご相談もどうぞ。</p>
+    <div class="cta">
+      <a class="btn btn-dm" href="#ig" data-ig><svg aria-hidden="true"><use href="#cam"/></svg>InstagramのDMで予約</a>
+      <a class="btn btn-tel" href="tel:0920000000"><svg aria-hidden="true"><use href="#tel"/></svg>電話する</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="goods" aria-labelledby="h-goods">
+  <div class="sec-head">
+    <h2 id="h-goods" class="rv">今月のお菓子</h2>
+    <p>上生菓子は月の半ばで替わります。午後には売り切れる日もあるので、取り置きは前日までに。</p>
+  </div>
+  <ul class="goods">
+    <li>
+      <div class="good-ph">
+        <img class="rv" src="img/wagashi_hero-1600.jpg" srcset="img/wagashi_hero-800.jpg 800w, img/wagashi_hero-1600.jpg 1600w" sizes="(min-width:768px) 50vw, 100vw" alt="花をかたどった練切" width="1600" height="914" loading="lazy" style="object-position:30% 50%">
+        <span class="fuda">上生菓子 山茶花</span>
+      </div>
+      <div class="good-txt">
+        <p class="price">378円<span>1個 税込</span></p>
+        <p class="note">白あんを紅で染めた練切。花びらは一枚ずつへらで筋を入れています。今月はほかに初霜、木枯らしなど八種。</p>
+      </div>
+    </li>
+    <li>
+      <div class="good-ph">
+        <img class="rv" src="img/wagashi_daifuku-800.jpg" srcset="img/wagashi_daifuku-800.jpg 800w, img/wagashi_daifuku-1600.jpg 1600w" sizes="(min-width:768px) 25vw, 50vw" alt="半分に切った苺大福の断面" width="800" height="800" loading="lazy">
+        <span class="fuda">苺大福</span>
+      </div>
+      <div class="good-txt">
+        <p class="price">356円<span>税込</span></p>
+        <p class="note">十二月から四月まで。白あんとこしあんを選べます。</p>
+      </div>
+    </li>
+    <li>
+      <div class="good-ph">
+        <img class="rv" src="img/wagashi_dango-800.jpg" srcset="img/wagashi_dango-800.jpg 800w, img/wagashi_dango-1600.jpg 1600w" sizes="(min-width:768px) 25vw, 50vw" alt="たれをからめたみたらし団子" width="800" height="800" loading="lazy">
+        <span class="fuda">みたらし団子</span>
+      </div>
+      <div class="good-txt">
+        <p class="price">140円<span>1本 税込</span></p>
+        <p class="note">注文を受けてから焼き目をつけます。</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section class="sec" id="menu" aria-labelledby="h-menu">
+  <div class="sec-head">
+    <h2 id="h-menu" class="rv">品書き</h2>
+    <p>値段はすべて税込です。詰め合わせの箱代と、のし紙は無料でお付けします。</p>
+  </div>
+  <div class="menu-cols">
+    <div class="menu">
+      <h3>生菓子</h3>
+      <ul>
+        <li><span class="nm">上生菓子<small>練切ときんとん、毎朝八種</small></span><span class="pr">378円</span></li>
+        <li><span class="nm">苺大福<small>十二月から四月まで</small></span><span class="pr">356円</span></li>
+        <li><span class="nm">豆大福<small>赤えんどう豆入り、こしあん</small></span><span class="pr">238円</span></li>
+        <li><span class="nm">みたらし団子<small>1本</small></span><span class="pr">140円</span></li>
+        <li><span class="nm">よもぎ団子<small>1本、こしあんのせ</small></span><span class="pr">162円</span></li>
+      </ul>
+    </div>
+    <div class="menu">
+      <h3>日持ちのするもの</h3>
+      <ul>
+        <li><span class="nm">葛葉もなか<small>粒あん、日持ち10日</small></span><span class="pr">172円</span></li>
+        <li><span class="nm">どら焼き<small>日持ち4日</small></span><span class="pr">216円</span></li>
+        <li><span class="nm">季節の落雁<small>12個入、日持ち30日</small></span><span class="pr">1,080円</span></li>
+        <li><span class="nm">紅白まんじゅう<small>10個入、お祝い用</small></span><span class="pr">2,420円</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="menu-foot">生菓子は当日中にお召し上がりください。</p>
+</section>
+
+<section class="sec" id="pick" aria-labelledby="h-pick">
+  <div class="sec-head">
+    <h2 id="h-pick" class="rv">手土産えらび</h2>
+    <p>用途と人数と予算を選ぶと、詰め合わせの目安と、のし紙の種類と表書きが出ます。</p>
+  </div>
+  <form class="pick" id="pickForm" onsubmit="return false">
+    <fieldset>
+      <legend>用途</legend>
+      <div class="opts">
+        <label><input type="radio" name="use" value="a" checked><span>ご挨拶</span></label>
+        <label><input type="radio" name="use" value="o"><span>お供え</span></label>
+        <label><input type="radio" name="use" value="i"><span>お祝い</span></label>
+        <label><input type="radio" name="use" value="j"><span>自分用</span></label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>人数</legend>
+      <div class="opts">
+        <label><input type="radio" name="ppl" value="2"><span>1〜2人</span></label>
+        <label><input type="radio" name="ppl" value="5" checked><span>3〜5人</span></label>
+        <label><input type="radio" name="ppl" value="10"><span>6〜10人</span></label>
+        <label><input type="radio" name="ppl" value="20"><span>11〜20人</span></label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>予算</legend>
+      <div class="opts">
+        <label><input type="radio" name="bud" value="0-1500"><span>1,500円まで</span></label>
+        <label><input type="radio" name="bud" value="1500-3000" checked><span>3,000円まで</span></label>
+        <label><input type="radio" name="bud" value="3000-5000"><span>5,000円まで</span></label>
+        <label><input type="radio" name="bud" value="5000-99999"><span>5,000円より上</span></label>
+      </div>
+    </fieldset>
+    <div class="result-wrap">
+      <div class="result" id="result" aria-live="polite">
+        <svg class="noshi" id="noshi" viewBox="0 0 200 280" role="img" aria-label="のし紙の見本: 紅白蝶結び、表書きは御挨拶">
+          <rect x="1" y="1" width="198" height="278" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/>
+          <g id="noshiMark" transform="translate(162 14)"><path d="M10 0 L20 6 L20 30 L10 36 L0 30 L0 6 Z" fill="none" stroke="var(--ink-soft)" stroke-width="1.5"/><path d="M10 8 L14 12 L14 26 L10 30 L6 26 L6 12 Z" fill="var(--mizuhiki-yellow)"/></g>
+          <g id="mizuhiki"></g>
+          <text id="omote" x="100" y="86" text-anchor="middle" writing-mode="vertical-rl" font-size="30" font-family="Zen Old Mincho, serif" font-weight="700" fill="var(--ink)" letter-spacing="6">御挨拶</text>
+          <text id="namae" x="100" y="240" text-anchor="middle" writing-mode="vertical-rl" font-size="17" font-family="Zen Old Mincho, serif" fill="var(--ink-soft)" letter-spacing="3">お名前</text>
+        </svg>
+        <div>
+          <h3 id="rName">上生菓子 5個入</h3>
+          <p class="rp" id="rPrice">2,050円<small style="font-size:13px;font-weight:400"> 税込</small></p>
+          <dl>
+            <dt>中身</dt><dd id="rIn">その日の練切ときんとんから五種</dd>
+            <dt>日持ち</dt><dd id="rKeep">当日中</dd>
+            <dt>のし</dt><dd id="rNoshi">紅白蝶結び</dd>
+            <dt>表書き</dt><dd id="rOmote">御挨拶</dd>
+          </dl>
+        </div>
+        <p class="rnote" id="rNote">訪問先で当日のうちに召し上がる場合に。前日までにDMで取り置きできます。</p>
+      </div>
+      <p class="noshi-guide" style="margin-top:16px"><b>のしの目安</b><br>ご挨拶とお祝いは紅白蝶結び、お供えは黄白の結び切り(結婚祝いは紅白結び切りで「寿」)。迷ったら店でお書きします。</p>
+    </div>
+  </form>
+</section>
+
+<section class="sec" id="insta" aria-labelledby="h-insta">
+  <div class="sec-head">
+    <h2 id="h-insta" class="rv">店の便り</h2>
+    <p>その日の上生菓子と売り切れは、朝のうちにInstagramに載せています。</p>
+  </div>
+  <div>
+    <div class="ig-head">
+      <a class="ig-acc" href="#ig" data-ig><svg class="ig-ico" aria-hidden="true"><use href="#cam"/></svg>@kuzuhado</a>
+      <span class="ig-follow">写真を押すと大きく見られます</span>
+    </div>
+    <ul class="grid">
+      <li><button class="tile" type="button" data-full="img/wagashi_hero-1600.jpg" data-alt="漆の盆に並んだ季節の練切"><img class="rv" src="img/wagashi_hero-800.jpg" alt="漆の盆に並んだ季節の練切" width="800" height="457" loading="lazy" style="object-position:20% 50%"></button></li>
+      <li><button class="tile" type="button" data-full="img/wagashi_dango-1600.jpg" data-alt="みたらし団子"><img class="rv" src="img/wagashi_dango-800.jpg" alt="みたらし団子" width="800" height="800" loading="lazy"></button></li>
+      <li><button class="tile" type="button" data-full="img/wagashi_shop-1600.jpg" data-alt="のれんのかかった店の木のカウンター"><img class="rv" src="img/wagashi_shop-800.jpg" alt="のれんのかかった店の木のカウンター" width="800" height="457" loading="lazy" style="object-position:35% 50%"></button></li>
+      <li><button class="tile" type="button" data-full="img/wagashi_daifuku-1600.jpg" data-alt="苺大福の断面"><img class="rv" src="img/wagashi_daifuku-800.jpg" alt="苺大福の断面" width="800" height="800" loading="lazy"></button></li>
+      <li><button class="tile" type="button" data-full="img/wagashi_hero-1600.jpg" data-alt="練切と抹茶"><img class="rv" src="img/wagashi_hero-800.jpg" alt="練切と抹茶" width="800" height="457" loading="lazy" style="object-position:85% 50%"></button></li>
+      <li><button class="tile" type="button" data-full="img/wagashi_shop-1600.jpg" data-alt="店のカウンター"><img class="rv" src="img/wagashi_shop-800.jpg" alt="店のカウンター" width="800" height="457" loading="lazy" style="object-position:80% 50%"></button></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="story" aria-labelledby="h-story">
+  <div class="sec-head">
+    <h2 id="h-story" class="rv">三代目のこと</h2>
+    <p>昭和三十一年、祖父が葛葉町の角で始めた店です。</p>
+  </div>
+  <div class="story">
+    <figure class="story-ph" style="margin:0"><img class="rv" src="img/wagashi_shop-1600.jpg" srcset="img/wagashi_shop-800.jpg 800w, img/wagashi_shop-1600.jpg 1600w" sizes="(min-width:768px) 50vw, 100vw" alt="のれんのかかった店の木のカウンター" width="1600" height="914" loading="lazy"></figure>
+    <div class="story-txt">
+      <p>餡は今も、祖父の代と同じ銅鍋で毎朝炊いています。変えたのは、上生菓子の数を四種から八種に増やしたことと、取り置きをInstagramで受けるようにしたことくらいです。</p>
+      <p>法事やご挨拶の数がまとまる時は、日持ちと持ち歩く時間まで聞いてから箱を組みます。</p>
+      <p class="sig">三代目 樋口 康平</p>
+      <ul class="voices">
+        <li>法事の御供を相談したら、日持ちと数まで一緒に考えてくれました。<small>K.Mさん 60代</small></li>
+        <li>上生菓子が月で替わるので、毎月の楽しみにしています。<small>S.Tさん 40代</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="info" aria-labelledby="h-info">
+  <div class="sec-head">
+    <h2 id="h-info" class="rv">店の場所</h2>
+    <p>葛葉町公園の向かい、小学校へ向かう通りの角です。</p>
+  </div>
+  <div class="info">
+    <dl>
+      <dt>住所</dt><dd>福岡市葛葉町2丁目0-0</dd>
+      <dt>電話</dt><dd><a href="tel:0920000000">092-000-0000</a></dd>
+      <dt>営業時間</dt><dd>9:00〜18:00<br><small style="color:var(--ink-soft)">上生菓子は売り切れまで</small></dd>
+      <dt>定休日</dt><dd>水曜(祝日は営業、翌日休み)</dd>
+      <dt>駐車場</dt><dd>店の横に2台</dd>
+      <dt>取り置き</dt><dd>前日の17時まで、DMか電話で</dd>
+    </dl>
+    <svg class="map" viewBox="0 0 480 300" role="img" aria-label="略図: 葛葉町通りと公園通りの角に葛葉堂。向かいに葛葉町公園、通りの先に葛葉町小学校">
+      <rect x="0" y="0" width="480" height="300" fill="var(--paper)"/>
+      <rect x="0" y="150" width="480" height="30" fill="var(--line)"/>
+      <rect x="250" y="0" width="30" height="300" fill="var(--line)"/>
+      <text x="16" y="172" font-size="20" fill="var(--ink-soft)" font-family="BIZ UDPMincho, serif">葛葉町通り</text>
+      <text x="297" y="290" font-size="20" fill="var(--ink-soft)" font-family="BIZ UDPMincho, serif">公園通り</text>
+      <rect x="292" y="196" width="176" height="70" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 4" rx="2"/>
+      <circle cx="308" cy="220" r="6" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+      <circle cx="322" cy="240" r="4" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+      <text x="336" y="238" font-size="20" fill="var(--ink)" font-family="BIZ UDPMincho, serif">葛葉町公園</text>
+      <rect x="296" y="24" width="150" height="80" fill="none" stroke="var(--ink-soft)" stroke-width="1.5" rx="2"/>
+      <text x="311" y="70" font-size="20" fill="var(--ink)" font-family="BIZ UDPMincho, serif">葛葉町小学校</text>
+      <rect x="196" y="104" width="44" height="38" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.5" rx="2"/>
+      <text x="218" y="129" font-size="20" text-anchor="middle" fill="var(--accent)" font-family="Zen Old Mincho, serif" font-weight="700">店</text>
+      <text x="96" y="130" font-size="20" fill="var(--ink)" font-family="Zen Old Mincho, serif" font-weight="700">葛葉堂</text>
+      <text x="16" y="282" font-size="20" fill="var(--ink-soft)" font-family="BIZ UDPMincho, serif">略図</text>
+    </svg>
+  </div>
+</section>
+
+<section class="sec last" aria-labelledby="h-last">
+  <div class="sec-head">
+    <h2 id="h-last" class="rv">ご予約</h2>
+    <p>取り置きと詰め合わせのご相談は、DMかお電話で。</p>
+  </div>
+  <div>
+    <p>「何日に、何を、いくつ」を送っていただければ、こちらから受け取りの時間をお返しします。のしの表書きとお名前もその時に。</p>
+    <div class="cta">
+      <a class="btn btn-dm" href="#ig" data-ig><svg aria-hidden="true"><use href="#cam"/></svg>InstagramのDMで予約</a>
+      <a class="btn btn-tel" href="tel:0920000000"><svg aria-hidden="true"><use href="#tel"/></svg>電話する</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>御菓子処 葛葉堂(制作見本)</footer>
+
+<nav class="bar" aria-label="予約">
+  <a class="btn btn-dm" href="#ig" data-ig><svg aria-hidden="true"><use href="#cam"/></svg>DMで予約</a>
+  <a class="btn btn-tel" href="tel:0920000000"><svg aria-hidden="true"><use href="#tel"/></svg>電話する</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog class="lb" id="lb" aria-label="写真の拡大">
+  <img id="lbImg" src="" alt="">
+  <button class="lb-close" id="lbClose" type="button">閉じる</button>
+</dialog>
+
+<script>
+(function(){
+  /* 見本のIGリンク */
+  var toast=document.getElementById('toast'),tt;
+  document.querySelectorAll('[data-ig]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      toast.textContent='見本のため実在のアカウントはありません';
+      toast.classList.add('show');clearTimeout(tt);
+      tt=setTimeout(function(){toast.classList.remove('show')},2600);
+    });
+  });
+
+  /* 写真の拡大 */
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+  document.querySelectorAll('.tile').forEach(function(b){
+    b.addEventListener('click',function(){
+      lbImg.src=b.dataset.full;lbImg.alt=b.dataset.alt;
+      if(lb.showModal)lb.showModal();else lb.setAttribute('open','');
+    });
+  });
+  function closeLb(){if(lb.close)lb.close();else lb.removeAttribute('open')}
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+
+  /* 手土産えらび */
+  var U={a:'ご挨拶',o:'お供え',i:'お祝い',j:'自分用'};
+  var BOX=[
+    {n:'豆大福 4個入',p:980,c:4,k:'当日中',u:'aj',in:'豆大福を四つ'},
+    {n:'どら焼き 5個入',p:1190,c:5,k:'4日',u:'aoj',in:'どら焼きを五つ、個包装'},
+    {n:'葛葉もなか 8個入',p:1480,c:8,k:'10日',u:'ao',in:'粒あんのもなか、個包装'},
+    {n:'季節の落雁 12個入',p:1080,c:12,k:'30日',u:'o',in:'季節の形の落雁'},
+    {n:'上生菓子 5個入',p:2050,c:5,k:'当日中',u:'aij',in:'その日の練切ときんとんから五種'},
+    {n:'紅白まんじゅう 10個入',p:2420,c:10,k:'3日',u:'i',in:'紅白のこしあんまんじゅう'},
+    {n:'葛葉もなか 15個入',p:2780,c:15,k:'10日',u:'ao',in:'粒あんのもなか、個包装'},
+    {n:'落雁ともなか 20個入',p:3180,c:20,k:'10日',u:'o',in:'落雁12個ともなか8個'},
+    {n:'上生菓子と苺大福 10個入',p:3560,c:10,k:'当日中',u:'ai',in:'上生菓子6個と苺大福4個(冬から春は豆大福)'},
+    {n:'上生菓子 10個入',p:4020,c:10,k:'当日中',u:'ij',in:'その日の上生菓子を十種'},
+    {n:'もなかとどら焼き 20個入',p:4380,c:20,k:'7日',u:'ao',in:'もなか12個とどら焼き8個、個包装'},
+    {n:'紅白まんじゅう 20個入',p:4630,c:20,k:'3日',u:'i',in:'紅白のこしあんまんじゅう'},
+    {n:'葛葉もなか 30個入',p:5460,c:30,k:'10日',u:'ao',in:'粒あんのもなか、個包装'},
+    {n:'上生菓子と苺大福 20個入',p:6980,c:20,k:'当日中',u:'ai',in:'上生菓子12個と苺大福8個'},
+    {n:'上生菓子2個と苺大福2個',p:1232,c:4,k:'当日中',u:'j',in:'簡易包装でお渡しします'}
+  ];
+  var NOSHI={
+    a:{t:'紅白蝶結び',o:'御挨拶',col:'red',knot:'cho',note:'引っ越しのご挨拶なら表書きを「粗品」にもできます。'},
+    o:{t:'黄白の結び切り',o:'御供',col:'yellow',knot:'kiri',note:'仏事は日持ちのするものが喜ばれます。四十九日の前後で表書きを変える場合はお申し付けください。'},
+    i:{t:'紅白蝶結び',o:'御祝',col:'red',knot:'cho',note:'結婚のお祝いは紅白の結び切りで「寿」にします。'},
+    j:{t:'なし',o:'なし',col:'',knot:'',note:'ご自宅用は簡易包装でお渡しします。'}
+  };
+  var f=document.getElementById('pickForm');
+  function val(n){return f.querySelector('input[name="'+n+'"]:checked').value}
+  function yen(n){return n.toLocaleString('ja-JP')+'円'}
+  function update(){
+    var u=val('use'),need=+val('ppl'),b=val('bud').split('-').map(Number),lo=b[0],hi=b[1];
+    var list=BOX.filter(function(x){return x.u.indexOf(u)>-1});
+    var fit=list.filter(function(x){return x.p<=hi&&x.c>=need&&x.c<=need*2});
+    var inRange=fit.filter(function(x){return x.p>lo});
+    var pick,extra='';
+    function best(a){return a.slice().sort(function(x,y){return Math.abs(x.c-need)-Math.abs(y.c-need)||y.p-x.p})[0]}
+    if(inRange.length){pick=best(inRange)}
+    else if(fit.length){pick=fit.slice().sort(function(x,y){return y.p-x.p})[0];extra='ご予算より控えめな箱です。数を増やした詰め合わせもお作りします。'}
+    else{
+      var cheap=list.filter(function(x){return x.p<=hi});
+      if(cheap.length){pick=cheap.sort(function(x,y){return y.c-x.c||y.p-x.p})[0];extra='人数分には少し足りません。個包装のもなかを足す組み方をDMでご相談ください。'}
+      else{pick=list.slice().sort(function(x,y){return x.p-y.p})[0];extra='ご予算内の箱がありません。いちばん近いものを出しています。'}
+    }
+    var ns=NOSHI[u];
+    document.getElementById('rName').textContent=pick.n;
+    document.getElementById('rPrice').firstChild.nodeValue=yen(pick.p);
+    document.getElementById('rIn').textContent=pick.in;
+    document.getElementById('rKeep').textContent=pick.k;
+    document.getElementById('rNoshi').textContent=ns.t;
+    document.getElementById('rOmote').textContent=ns.o;
+    var keepNote=pick.k==='当日中'?'生菓子なので当日中に。':'';
+    document.getElementById('rNote').textContent=(keepNote+ns.note+(extra?' '+extra:'')).trim();
+    drawNoshi(ns);
+  }
+  var SVGNS='http://www.w3.org/2000/svg';
+  function el(t,a){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);return e}
+  function drawNoshi(ns){
+    var g=document.getElementById('mizuhiki'),om=document.getElementById('omote'),nm=document.getElementById('namae'),mk=document.getElementById('noshiMark'),svg=document.getElementById('noshi');
+    while(g.firstChild)g.removeChild(g.firstChild);
+    if(!ns.col){
+      om.textContent='ご自宅用';om.setAttribute('font-size','24');nm.style.display='none';mk.style.display='none';
+      svg.setAttribute('aria-label','のし紙なし、簡易包装');return;
+    }
+    om.textContent=ns.o;om.setAttribute('font-size','30');nm.style.display='';mk.style.display='';
+    svg.setAttribute('aria-label','のし紙の見本: '+ns.t+'、表書きは'+ns.o);
+    var right=ns.col==='red'?'var(--mizuhiki-red)':'var(--mizuhiki-yellow)',left='var(--mizuhiki-white)';
+    [-6,0,6].forEach(function(d){
+      g.appendChild(el('line',{x1:2,y1:176+d,x2:100,y2:176+d,stroke:left,'stroke-width':2.4}));
+      g.appendChild(el('line',{x1:100,y1:176+d,x2:198,y2:176+d,stroke:right,'stroke-width':2.4}));
+    });
+    if(ns.knot==='cho'){
+      g.appendChild(el('ellipse',{cx:80,cy:170,rx:18,ry:11,fill:'none',stroke:left,'stroke-width':2.4}));
+      g.appendChild(el('ellipse',{cx:120,cy:170,rx:18,ry:11,fill:'none',stroke:right,'stroke-width':2.4}));
+      g.appendChild(el('path',{d:'M94 182 Q86 196 78 206',fill:'none',stroke:left,'stroke-width':2.4}));
+      g.appendChild(el('path',{d:'M106 182 Q114 196 122 206',fill:'none',stroke:right,'stroke-width':2.4}));
+    }else{
+      g.appendChild(el('path',{d:'M100 168 L92 194 M100 168 L108 194',fill:'none',stroke:left,'stroke-width':2.4}));
+      g.appendChild(el('path',{d:'M104 170 L112 196',fill:'none',stroke:right,'stroke-width':2.4}));
+    }
+    g.appendChild(el('rect',{x:92,y:166,width:16,height:20,fill:'var(--paper)',stroke:right,'stroke-width':2}));
+    /* 名入れは結びの下へ */
+    nm.setAttribute("y","240");
+  }
+  f.addEventListener('change',update);
+  update();
+
+  /* 見出しと写真だけ、スクロールで1回 */
+  if(document.documentElement.classList.contains('js')){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rv').forEach(function(x){io.observe(x)});
+  }
+})();
+</script>
+</body>
+</html>

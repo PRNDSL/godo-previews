@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>atelier hisui(ヒスイ)| 硝子坂のハンドメイドアクセサリー工房</title>
+<meta name="description" content="福岡市 硝子坂のアクセサリー工房 atelier hisui。ガラスと天然石と真鍮のピアス、イヤリング、リング。形と石の色を選ぶオーダーと、90分から参加できるワークショップ。木曜から日曜 11:00〜18:00。">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Zen+Kaku+Gothic+New:wght@300;500&display=swap" rel="stylesheet">
+<style>
+/* 方針: Instagramで作品を見て気になった人と、検索で来た初めての人向けの、手作りアクセサリー工房の案内。
+   透明なガラスと細い真鍮線の手触り。作品を細い線で吊るして余白で見せる、ギャラリーの展示が参考 */
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f4f5f6;      /* ごく薄い灰 */
+  --ink:#1f2226;
+  --ink-sub:#555a61;
+  --brass:#8a6a2e;        /* アクセント1色(真鍮) */
+  --on-brass:#ffffff;
+  --line:#dcdee1;
+  --photo-bg:#cfd2d6;
+  --gold:#b08a43; --silver:#8f969e;
+  --f-ja:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-en:"Italiana","Times New Roman",serif;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+  --r:2px;                /* 角丸はこれ1つ */
+  --shadow:none;          /* 影は使わない */
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131518; --bg-soft:#1a1d21; --ink:#e8e6e1; --ink-sub:#adb1b7;
+    --brass:#cdae6e; --on-brass:#131518; --line:#30343a; --photo-bg:#3a3e44;
+    --gold:#d2b06a; --silver:#b9bfc6; color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#131518; --bg-soft:#1a1d21; --ink:#e8e6e1; --ink-sub:#adb1b7;
+  --brass:#cdae6e; --on-brass:#131518; --line:#30343a; --photo-bg:#3a3e44;
+  --gold:#d2b06a; --silver:#b9bfc6; color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-ja);font-weight:300;font-size:16px;line-height:1.9;letter-spacing:.04em;overflow-wrap:anywhere;padding-bottom:72px}
+@media (min-width:768px){body{padding-bottom:0}}
+img{display:block;max-width:100%;height:auto;background:var(--photo-bg)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:var(--r)}
+h1,h2,h3{font-weight:300;line-height:1.5;letter-spacing:.06em;margin:0}
+p{margin:0}
+b,strong{font-weight:500}
+.en{font-family:var(--f-en);font-weight:400;letter-spacing:.06em}
+.sp-only{display:inline}
+@media (min-width:768px){.sp-only{display:none}}
+.wrap{width:min(1120px,100% - 2*var(--s4));margin-inline:auto}
+@media (min-width:768px){.wrap{width:min(1120px,100% - 2*var(--s6))}}
+section{padding-block:var(--s7)}
+@media (min-width:768px){section{padding-block:var(--s8)}}
+.sec-title{font-size:22px;margin-bottom:var(--s5)}
+.sec-title::after{content:"";display:block;width:32px;height:1px;background:var(--brass);margin-top:var(--s3)}
+@media (min-width:768px){.sec-title{font-size:26px}}
+.lead{color:var(--ink-sub);max-width:36em}
+
+/* 制作見本の帯 */
+.demo-band{background:var(--ink);color:var(--bg);font-size:13px;line-height:1.6;text-align:center;padding:var(--s2) var(--s3);font-weight:500}
+
+/* ヘッダー */
+.head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);padding-block:var(--s4) 0}
+.logo{font-family:var(--f-en);font-size:22px;letter-spacing:.08em;text-decoration:none;line-height:1}
+.logo small{font-size:13px;letter-spacing:.14em;margin-right:6px;color:var(--ink-sub)}
+.head-note{font-size:12px;color:var(--ink-sub)}
+
+/* ファーストビュー: 真鍮の棒から作品の写真を吊るす */
+.fv{padding-block:var(--s3) var(--s6)}
+.rod{position:relative;border-top:1px solid var(--brass);margin-top:var(--s2)}
+.hang{display:flex;justify-content:space-between;align-items:flex-start;width:min(1120px,100% - 2*var(--s4));margin-inline:auto}
+.pend{position:relative;margin:0;flex:none}
+.pend::before{content:"";position:absolute;left:50%;bottom:calc(100% + 6px);width:1px;height:var(--drop);background:var(--brass)}
+.pend::after{content:"";position:absolute;left:calc(50% - 3px);bottom:100%;width:7px;height:7px;border:1px solid var(--brass);border-radius:50%;margin-bottom:-1px}
+.pend img{width:100%;object-fit:cover;border-radius:var(--r)}
+.pend{margin-top:calc(var(--drop) + 6px)}
+.p1{width:27%;--drop:20px}.p1 img{aspect-ratio:1}
+.p2{width:42%;--drop:52px}.p2 img{aspect-ratio:4/3;object-position:50% 50%}
+.p3{width:19%;--drop:32px}.p3 img{aspect-ratio:3/4}
+.p4,.p5{display:none}
+.photo-note{font-size:11px;color:var(--ink-sub);text-align:right;margin-top:var(--s2)}
+.fv-text{margin-top:var(--s4)}
+.kicker{font-size:13px;color:var(--brass);font-weight:500;letter-spacing:.12em}
+.fv h1{font-size:28px;margin-top:var(--s2);line-height:1.45}
+.fv-desc{margin-top:var(--s3);color:var(--ink-sub);font-size:15px;line-height:1.85;max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s3);margin-top:var(--s4)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:48px;padding:0 var(--s4);border-radius:var(--r);font-size:15px;font-weight:500;text-decoration:none;letter-spacing:.06em;white-space:nowrap;border:1px solid var(--brass)}
+.btn-main{background:var(--brass);color:var(--on-brass)}
+.btn-sub{background:transparent;color:var(--ink)}
+.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}
+.btn-main:hover{filter:brightness(1.08)}
+.btn-sub:hover{background:var(--bg-soft)}
+@media (max-width:767px){.fv .cta .btn{flex:1 1 100%}}
+@media (min-width:768px){
+  .hang{width:min(1120px,100% - 2*var(--s6))}
+  .p1{width:14%;--drop:28px}
+  .p2{width:24%;--drop:64px}
+  .p3{width:10%;--drop:40px}
+  .p4{display:block;width:12%;--drop:104px}.p4 img{aspect-ratio:1;object-position:30% 40%}
+  .p5{display:block;width:8%;--drop:20px}.p5 img{aspect-ratio:2/3;object-position:80% 50%}
+  .fv-text{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3) var(--s6);align-items:end;margin-top:var(--s5)}
+  .fv h1{font-size:40px}
+  .fv-desc{margin-top:0}
+  .fv .cta{grid-column:1/-1;margin-top:var(--s2)}
+}
+
+/* 工房のこと */
+.about{background:var(--bg-soft)}
+.about-grid{display:grid;gap:var(--s5)}
+.about-photo{width:56%;margin:0 0 0 auto}
+.about-photo img{aspect-ratio:1;object-fit:cover;border-radius:var(--r)}
+.about-photo figcaption{font-size:12px;color:var(--ink-sub);margin-top:var(--s2)}
+.facts{list-style:none;padding:0;margin:var(--s4) 0 0;border-top:1px solid var(--line)}
+.facts li{padding:var(--s3) 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:4.5em 1fr;gap:var(--s3)}
+.facts b{color:var(--brass)}
+@media (min-width:768px){
+  .about-grid{grid-template-columns:5fr 3fr;gap:var(--s7);align-items:start}
+  .about-photo{width:58%;margin-top:var(--s8)}
+}
+
+/* オーダーしてみる */
+.order-grid{display:grid;gap:var(--s5)}
+.preview{margin:0;border:1px solid var(--line);border-radius:var(--r);padding:var(--s4) var(--s3) var(--s3)}
+.preview svg{display:block;width:100%;max-width:340px;height:auto;margin-inline:auto}
+.preview .metal{fill:none;stroke:var(--m,var(--gold));stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.preview .stone{fill:var(--st,#3e9b7a);fill-opacity:.5;stroke:var(--m,var(--gold));stroke-width:3;transition:fill .3s,stroke .3s}
+.preview .shine{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;opacity:.85}
+.preview .facet{fill:none;stroke:var(--st,#3e9b7a);stroke-width:1;opacity:.8;transition:stroke .3s}
+.quote{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--s2);border-top:1px solid var(--line);margin-top:var(--s3);padding-top:var(--s3)}
+.quote-sel{font-size:13px;color:var(--ink-sub)}
+.quote-price{font-size:28px;font-weight:300;letter-spacing:.02em}
+.quote-price small{font-size:13px;margin-left:4px;color:var(--ink-sub)}
+.opts fieldset{border:0;margin:0 0 var(--s4);padding:0;min-width:0}
+.opts legend{font-size:14px;font-weight:500;padding:0;margin-bottom:var(--s2)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip span{display:inline-flex;align-items:center;gap:var(--s2);min-height:44px;padding:0 var(--s3);border:1px solid var(--line);border-radius:var(--r);font-size:14px}
+.chip input:checked+span{border-color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass);font-weight:500}
+.chip input:focus-visible+span{outline:2px solid var(--brass);outline-offset:2px}
+.sw{width:16px;height:16px;border-radius:var(--r);background:var(--c);opacity:.75;border:1px solid rgba(0,0,0,.15)}
+.price-rule{font-size:13px;color:var(--ink-sub);line-height:1.8;border-left:1px solid var(--brass);padding-left:var(--s3);margin-top:var(--s2)}
+@media (min-width:768px){
+  .order-grid{grid-template-columns:1fr 1fr;gap:var(--s7);align-items:start}
+  .preview{position:sticky;top:var(--s4)}
+}
+
+/* 作品と料金 */
+.menu-grp{display:grid;gap:var(--s2);padding-block:var(--s4);border-top:1px solid var(--line)}
+.menu-grp:last-of-type{border-bottom:1px solid var(--line)}
+.menu-grp h3{font-size:16px;font-weight:500;color:var(--brass)}
+.menu-grp .note{font-size:13px;color:var(--ink-sub)}
+.items{list-style:none;margin:0;padding:0}
+.items li{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3);padding-block:var(--s2)}
+.items .nm small{display:block;font-size:12px;color:var(--ink-sub)}
+.items .pr{white-space:nowrap;font-weight:500}
+.menu-photo{width:34%;margin:var(--s5) 0 0 12%}
+.menu-photo img{aspect-ratio:1;object-fit:cover;border-radius:var(--r)}
+@media (min-width:768px){
+  .menu-wrap{display:grid;grid-template-columns:3fr 1fr;gap:var(--s7);align-items:start}
+  .menu-grp{grid-template-columns:14em 1fr;gap:var(--s5)}
+  .menu-photo{width:72%;margin:var(--s8) 0 0 auto}
+}
+
+/* Instagram */
+.ig{background:var(--bg-soft)}
+.ig-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s4)}
+.ig-account{display:inline-flex;align-items:center;gap:var(--s2);font-family:var(--f-en);font-size:20px;text-decoration:none;min-height:44px}
+.ig-account svg{width:24px;height:24px;fill:none;stroke:var(--brass);stroke-width:1.5}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;list-style:none;margin:0;padding:0}
+.tile{display:block;aspect-ratio:1;overflow:hidden;border-radius:var(--r);background:var(--photo-bg)}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile:hover img{opacity:.9}
+.t-zoom1 img{transform:scale(1.7);transform-origin:20% 20%}
+.t-zoom2 img{transform:scale(1.8);transform-origin:70% 65%}
+.t-left img{object-position:15% 50%}
+.t-right img{object-position:85% 50%}
+@media (min-width:768px){.grid{grid-template-columns:repeat(6,1fr);gap:8px}}
+
+/* お客様の声 */
+.voices{display:grid;gap:var(--s5)}
+.voice{margin:0;padding-left:var(--s4);border-left:1px solid var(--brass)}
+.voice cite{display:block;font-style:normal;font-size:13px;color:var(--ink-sub);margin-top:var(--s2)}
+@media (min-width:768px){.voices{grid-template-columns:1fr 1fr;gap:var(--s7);align-items:start}.voice:nth-child(2){margin-top:var(--s6)}}
+
+/* 店の情報 */
+.info-grid{display:grid;gap:var(--s5)}
+.info dl{margin:0;display:grid;grid-template-columns:5em 1fr;border-top:1px solid var(--line)}
+.info dt,.info dd{padding:var(--s3) 0;border-bottom:1px solid var(--line);margin:0}
+.info dt{font-weight:500;font-size:14px;color:var(--brass)}
+.map{margin:0}
+.map svg{display:block;width:100%;max-width:460px;height:auto;border:1px solid var(--line);border-radius:var(--r)}
+.map .blk{fill:var(--bg-soft);stroke:var(--line)}
+.map .park{fill:none;stroke:var(--brass);stroke-dasharray:3 3}
+.map .road{fill:none;stroke:var(--ink-sub);stroke-width:1}
+.map text{fill:var(--ink);font-family:var(--f-ja);font-weight:500}
+.map .en-t{font-family:var(--f-en);font-weight:400}
+.map .pin{fill:var(--brass)}
+.map figcaption{font-size:13px;color:var(--ink-sub);margin-top:var(--s2)}
+@media (min-width:768px){.info-grid{grid-template-columns:1fr 1fr;gap:var(--s7)}}
+
+/* 最下部 */
+.last{text-align:left}
+.last h2{font-size:24px}
+.last p{margin-top:var(--s3);color:var(--ink-sub)}
+@media (min-width:768px){.last h2{font-size:32px}}
+footer{padding:var(--s5) 0;font-size:12px;color:var(--ink-sub);text-align:center;border-top:1px solid var(--line)}
+
+/* スマホ下の固定バー */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:var(--s2);padding:var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
+.bar .btn{flex:1;padding:0 var(--s2)}
+@media (min-width:768px){.bar{display:none}}
+
+/* 写真の拡大 */
+.lb{border:0;padding:0;background:transparent;max-width:min(92vw,720px);width:100%}
+.lb::backdrop{background:rgba(19,21,24,.82)}
+.lb figure{margin:0;background:var(--bg);border-radius:var(--r);overflow:hidden}
+.lb img{width:100%;max-height:72vh;object-fit:contain}
+.lb figcaption{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);padding:var(--s2) var(--s3);font-size:14px}
+.lb-close{font:inherit;font-weight:500;background:none;color:var(--ink);border:1px solid var(--line);border-radius:var(--r);min-height:44px;padding:0 var(--s3);cursor:pointer}
+
+.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:30;width:max-content;max-width:calc(100% - 32px);background:var(--ink);color:var(--bg);font-size:13px;padding:var(--s2) var(--s3);border-radius:var(--r);opacity:0;pointer-events:none;transition:opacity .2s;margin:0}
+.toast.show{opacity:1}
+@media (min-width:768px){.toast{bottom:32px}}
+
+/* スクロールで1回(JSがクラスを付けた時だけ隠す) */
+.rv-on .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv-on .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important}
+  .rv-on .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cam" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l1.5 4.5-2.2 1.4a11 11 0 0 0 5.8 5.8l1.4-2.2L20 15v4a1.5 1.5 0 0 1-1.6 1.5C10.6 20 4 13.4 3.5 5.6A1.5 1.5 0 0 1 5 4z"/></symbol>
+</svg>
+
+<p class="demo-band">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="wrap head">
+  <a class="logo" href="#top" id="top"><small>atelier</small>hisui</a>
+  <span class="head-note">オーダーとワークショップ</span>
+</header>
+
+<main>
+  <section class="fv" aria-labelledby="fv-h">
+    <div class="rod">
+      <div class="hang">
+        <figure class="pend p1"><img class="rv" src="img/accessory_earring-800.jpg" srcset="img/accessory_earring-800.jpg 800w, img/accessory_earring-1600.jpg 1600w" sizes="(min-width:768px) 15vw, 27vw" alt="しずく形のガラスのピアス" width="800" height="800"></figure>
+        <figure class="pend p2"><img class="rv" src="img/accessory_hero-800.jpg" srcset="img/accessory_hero-800.jpg 800w, img/accessory_hero-1600.jpg 1600w" sizes="(min-width:768px) 30vw, 42vw" alt="作業台に並んだ作りかけのアクセサリーと真鍮線" width="1600" height="914"></figure>
+        <figure class="pend p3"><img class="rv" src="img/accessory_beads-800.jpg" srcset="img/accessory_beads-800.jpg 800w, img/accessory_beads-1600.jpg 1600w" sizes="(min-width:768px) 11vw, 19vw" alt="小皿に分けた色とりどりのビーズ" width="800" height="800"></figure>
+        <figure class="pend p4"><img class="rv" src="img/accessory_ring-800.jpg" srcset="img/accessory_ring-800.jpg 800w, img/accessory_ring-1600.jpg 1600w" sizes="13vw" alt="真鍮の細いリング" width="800" height="800"></figure>
+        <figure class="pend p5"><img class="rv" src="img/accessory_earring-800.jpg" srcset="img/accessory_earring-800.jpg 800w, img/accessory_earring-1600.jpg 1600w" sizes="9vw" alt="耳もとで揺れるピアスの拡大" width="800" height="800"></figure>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="photo-note">写真はイメージです</p>
+      <div class="fv-text">
+        <div>
+          <p class="kicker">硝子坂のアクセサリー工房</p>
+          <h1 class="rv" id="fv-h">光をとおす、<br>小さな耳飾り。</h1>
+        </div>
+        <p class="fv-desc">ガラスと天然石と真鍮で、ひとつずつ手で組み立てています。形と石の色を選べるオーダーと、作ってそのまま持ち帰れるワークショップもあります。</p>
+        <div class="cta">
+          <a class="btn btn-main js-ig" href="#ig"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cam"/></svg>InstagramのDMで相談</a>
+          <a class="btn btn-sub" href="tel:092-000-0000"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tel"/></svg>電話する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap about-grid">
+      <div>
+        <h2 class="sec-title rv" id="about-h">坂の途中の、<br class="sp-only">ひとりの工房です</h2>
+        <p class="lead">作り手の小田切なおが、金属加工の会社で8年働いたあと、2019年に硝子坂の坂の途中で始めました。耳が痛くなりにくい金具と、つけたまま出かけても曲がりにくい太さの真鍮線を選んでいます。</p>
+        <ul class="facts">
+          <li><b>金具</b><span>チタンと樹脂の金具も選べます。金属でかぶれやすい方はご相談ください</span></li>
+          <li><b>お直し</b><span>当工房の作品は、お買い上げから1年間は金具の交換を無料で</span></li>
+          <li><b>お届け</b><span>オーダーは約2週間。郵送もできます(送料370円)</span></li>
+        </ul>
+      </div>
+      <figure class="about-photo">
+        <img class="rv" src="img/accessory_ring-800.jpg" srcset="img/accessory_ring-800.jpg 800w, img/accessory_ring-1600.jpg 1600w" sizes="(min-width:768px) 26vw, 56vw" alt="細い真鍮のリング" width="800" height="800" loading="lazy">
+        <figcaption>真鍮の細いリング 2,970円</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="order" aria-labelledby="order-h">
+    <div class="wrap">
+      <h2 class="sec-title rv" id="order-h">オーダーしてみる</h2>
+      <p class="lead">形と金具と石の色を選ぶと、図と価格が変わります。決まったら、この組み合わせをDMで送ってください。</p>
+      <div class="order-grid" style="margin-top:var(--s5)">
+        <figure class="preview" id="preview" aria-live="polite">
+          <svg viewBox="0 0 320 300" role="img" aria-labelledby="ear-t">
+            <title id="ear-t">イヤリングの図</title>
+            <g class="ear" transform="translate(104 10)">
+                <!-- ピアスの金具(フック) -->
+                <path class="metal hk-pierce" d="M0 78V62C0 34 28 28 33 48c3 13-6 24-12 44"/>
+                <!-- イヤリングの金具(ネジ) -->
+                <g class="hk-clip" display="none">
+                  <rect class="metal" x="-14" y="24" width="28" height="22" rx="2"/>
+                  <path class="metal" d="M0 46V78M-8 18h16"/>
+                  <circle class="metal" cx="0" cy="14" r="5"/>
+                </g>
+                <circle class="metal" cx="0" cy="84" r="5"/>
+                <path class="metal" d="M0 89V112"/>
+                <g transform="translate(0 168)">
+                  <g class="sh sh-drop">
+                    <path class="stone" d="M0-56C20-28 38-6 38 16a38 38 0 0 1-76 0C-38-6-20-28 0-56z"/>
+                    <path class="facet" d="M0-40C10-20 22-4 22 14a22 22 0 0 1-44 0C-22-4-10-20 0-40z"/>
+                    <path class="shine" d="M-22 4c2-12 8-22 14-30"/>
+                  </g>
+                  <g class="sh sh-round" display="none">
+                    <circle class="stone" r="40"/>
+                    <circle class="facet" r="24"/>
+                    <path class="shine" d="M-26-6a28 28 0 0 1 18-20"/>
+                  </g>
+                  <g class="sh sh-square" display="none">
+                    <rect class="stone" x="-36" y="-40" width="72" height="72" rx="2"/>
+                    <rect class="facet" x="-22" y="-26" width="44" height="44" rx="2"/>
+                    <path class="shine" d="M-26 -10V-30h18"/>
+                  </g>
+                </g>
+              </g>
+            <g class="ear" transform="translate(216 30)">
+                
+                <path class="metal hk-pierce" d="M0 78V62C0 34 28 28 33 48c3 13-6 24-12 44"/>
+                
+                <g class="hk-clip" display="none">
+                  <rect class="metal" x="-14" y="24" width="28" height="22" rx="2"/>
+                  <path class="metal" d="M0 46V78M-8 18h16"/>
+                  <circle class="metal" cx="0" cy="14" r="5"/>
+                </g>
+                <circle class="metal" cx="0" cy="84" r="5"/>
+                <path class="metal" d="M0 89V112"/>
+                <g transform="translate(0 168)">
+                  <g class="sh sh-drop">
+                    <path class="stone" d="M0-56C20-28 38-6 38 16a38 38 0 0 1-76 0C-38-6-20-28 0-56z"/>
+                    <path class="facet" d="M0-40C10-20 22-4 22 14a22 22 0 0 1-44 0C-22-4-10-20 0-40z"/>
+                    <path class="shine" d="M-22 4c2-12 8-22 14-30"/>
+                  </g>
+                  <g class="sh sh-round" display="none">
+                    <circle class="stone" r="40"/>
+                    <circle class="facet" r="24"/>
+                    <path class="shine" d="M-26-6a28 28 0 0 1 18-20"/>
+                  </g>
+                  <g class="sh sh-square" display="none">
+                    <rect class="stone" x="-36" y="-40" width="72" height="72" rx="2"/>
+                    <rect class="facet" x="-22" y="-26" width="44" height="44" rx="2"/>
+                    <path class="shine" d="M-26 -10V-30h18"/>
+                  </g>
+                </g>
+              </g>
+          </svg>
+          <div class="quote">
+            <span class="quote-sel" id="q-sel">しずく、ゴールド、みどり、ピアス</span>
+            <span class="quote-price"><span id="q-price">4,400</span>円<small>税込 両耳</small></span>
+          </div>
+        </figure>
+
+        <form class="opts" id="opts" onsubmit="return false">
+          <fieldset>
+            <legend>つけ方</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="type" value="pierce" checked><span>ピアス</span></label>
+              <label class="chip"><input type="radio" name="type" value="clip"><span>イヤリング</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>形</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="shape" value="drop" checked><span>しずく</span></label>
+              <label class="chip"><input type="radio" name="shape" value="round"><span>まる</span></label>
+              <label class="chip"><input type="radio" name="shape" value="square"><span>しかく</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>金具</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="metal" value="gold" checked><span>ゴールド</span></label>
+              <label class="chip"><input type="radio" name="metal" value="silver"><span>シルバー</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>石の色</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="stone" value="midori" checked><span><i class="sw" style="--c:#3e9b7a"></i>みどり</span></label>
+              <label class="chip"><input type="radio" name="stone" value="mizu"><span><i class="sw" style="--c:#6fb3d2"></i>みずいろ</span></label>
+              <label class="chip"><input type="radio" name="stone" value="sumire"><span><i class="sw" style="--c:#9c88c6"></i>すみれ</span></label>
+              <label class="chip"><input type="radio" name="stone" value="kohaku"><span><i class="sw" style="--c:#c98a3a"></i>こはく</span></label>
+            </div>
+          </fieldset>
+          <p class="price-rule">しずく 3,960円、まる 3,630円、しかく 4,180円<br>ゴールドの金具は 440円、イヤリングの金具は 330円の追加<br>石の色で値段は変わりません</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" aria-labelledby="menu-h">
+    <div class="wrap menu-wrap">
+      <div>
+        <h2 class="sec-title rv" id="menu-h">作品と料金</h2>
+        <div class="menu-grp">
+          <div><h3>定番の作品</h3><p class="note">工房と委託先で販売しています</p></div>
+          <ul class="items">
+            <li><span class="nm">しずくの硝子ピアス</span><span class="pr">3,960円</span></li>
+            <li><span class="nm">天然石のひと粒イヤリング</span><span class="pr">3,190円</span></li>
+            <li><span class="nm">ビーズのロングピアス</span><span class="pr">4,620円</span></li>
+            <li><span class="nm">真鍮の細いリング<small>号数は5号から15号</small></span><span class="pr">2,970円</span></li>
+          </ul>
+        </div>
+        <div class="menu-grp">
+          <div><h3>オーダー</h3><p class="note">DMで写真を送っていただくと話が早いです</p></div>
+          <ul class="items">
+            <li><span class="nm">セミオーダー<small>形と金具と石の色を選ぶ、約2週間</small></span><span class="pr">3,630円から</span></li>
+            <li><span class="nm">フルオーダー<small>デザインから相談、約1か月</small></span><span class="pr">8,800円から</span></li>
+          </ul>
+        </div>
+        <div class="menu-grp">
+          <div><h3>ワークショップ</h3><p class="note">土曜と日曜の10:30と14:00、各回3名まで</p></div>
+          <ul class="items">
+            <li><span class="nm">ピアスかイヤリングを作る<small>90分、材料込み</small></span><span class="pr">4,400円</span></li>
+            <li><span class="nm">真鍮のリングを作る<small>120分、材料込み</small></span><span class="pr">6,380円</span></li>
+          </ul>
+        </div>
+        <div class="menu-grp">
+          <div><h3>お直し</h3><p class="note">他店の作品もお預かりします</p></div>
+          <ul class="items">
+            <li><span class="nm">金具の交換</span><span class="pr">660円から</span></li>
+            <li><span class="nm">ピアスをイヤリングに</span><span class="pr">880円</span></li>
+          </ul>
+        </div>
+        <p class="note" style="font-size:13px;color:var(--ink-sub);margin-top:var(--s3)">表示はすべて税込です。</p>
+      </div>
+      <figure class="menu-photo" style="margin-bottom:0">
+        <img class="rv" src="img/accessory_beads-800.jpg" srcset="img/accessory_beads-800.jpg 800w, img/accessory_beads-1600.jpg 1600w" sizes="(min-width:768px) 22vw, 34vw" alt="ワークショップで使うビーズ" width="800" height="800" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <section class="ig" aria-labelledby="ig-h">
+    <div class="wrap">
+      <div class="ig-head">
+        <h2 class="sec-title rv" id="ig-h" style="margin-bottom:0">新作はInstagramで</h2>
+        <a class="ig-account js-ig" href="#ig"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cam"/></svg>@atelier_hisui</a>
+      </div>
+      <ul class="grid">
+        <li><a class="tile t-left" href="img/accessory_hero-1600.jpg" data-cap="作業台の上"><img class="rv" src="img/accessory_hero-800.jpg" alt="作業台に並んだ作りかけのアクセサリー" width="1600" height="914" loading="lazy"></a></li>
+        <li><a class="tile" href="img/accessory_earring-1600.jpg" data-cap="しずくの硝子ピアス"><img class="rv" src="img/accessory_earring-800.jpg" alt="しずく形のガラスのピアス" width="800" height="800" loading="lazy"></a></li>
+        <li><a class="tile t-zoom1" href="img/accessory_beads-1600.jpg" data-cap="ビーズの仕分け"><img class="rv" src="img/accessory_beads-800.jpg" alt="ビーズの拡大" width="800" height="800" loading="lazy"></a></li>
+        <li><a class="tile" href="img/accessory_ring-1600.jpg" data-cap="真鍮の細いリング"><img class="rv" src="img/accessory_ring-800.jpg" alt="真鍮のリング" width="800" height="800" loading="lazy"></a></li>
+        <li><a class="tile t-right" href="img/accessory_hero-1600.jpg" data-cap="真鍮線と工具"><img class="rv" src="img/accessory_hero-800.jpg" alt="真鍮線と小さな工具" width="1600" height="914" loading="lazy"></a></li>
+        <li><a class="tile t-zoom2" href="img/accessory_earring-1600.jpg" data-cap="石の色を合わせる"><img class="rv" src="img/accessory_earring-800.jpg" alt="ピアスの石の拡大" width="800" height="800" loading="lazy"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="voice-sec" aria-labelledby="voice-h">
+    <div class="wrap">
+      <h2 class="sec-title rv" id="voice-h">お客様の声</h2>
+      <div class="voices">
+        <blockquote class="voice"><p>片方だけなくしてしまったピアスを、残った方に合わせて作り直してもらいました。前より少し軽くなっています。</p><cite>A.Mさん 30代</cite></blockquote>
+        <blockquote class="voice"><p>ワークショップは初めてでしたが、90分でちゃんと形になりました。娘と並んで作れたのがよかったです。</p><cite>K.Sさん 40代</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" aria-labelledby="info-h" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="sec-title rv" id="info-h">工房の場所と時間</h2>
+      <div class="info-grid">
+        <dl>
+          <dt>店名</dt><dd>atelier hisui(アトリエ ヒスイ)</dd>
+          <dt>住所</dt><dd>福岡市 硝子坂 1丁目0-0<br>2階建ての1階、白い扉</dd>
+          <dt>電話</dt><dd><a href="tel:092-000-0000">092-000-0000</a></dd>
+          <dt>営業</dt><dd>木曜から日曜 11:00〜18:00<br>ワークショップは土日の10:30と14:00</dd>
+          <dt>定休</dt><dd>月曜、火曜、水曜(制作の日)</dd>
+          <dt>支払い</dt><dd>現金、クレジットカード、QRコード決済</dd>
+          <dt>駐車場</dt><dd>ありません。硝子坂公園の向かいにコインパーキングがあります</dd>
+        </dl>
+        <figure class="map">
+          <svg viewBox="0 0 340 240" role="img" aria-labelledby="map-t">
+            <title id="map-t">略図: 硝子坂公園の角から坂を上り、硝子坂小学校の向かい</title>
+            <rect class="park" x="16" y="150" width="120" height="74" rx="2"/>
+            <rect class="blk" x="16" y="16" width="120" height="96" rx="2"/>
+            <rect class="blk" x="214" y="16" width="110" height="80" rx="2"/>
+            <rect class="blk" x="214" y="150" width="110" height="74" rx="2"/>
+            <path class="road" d="M156 240V0M196 240V0M0 126h156M196 126h144M0 138h156M196 138h144"/>
+            <text x="176" y="200" font-size="15" text-anchor="middle" transform="rotate(-90 176 200)">坂(上り)</text>
+            <text x="76" y="192" font-size="15" text-anchor="middle">硝子坂公園</text>
+            <text x="76" y="68" font-size="15" text-anchor="middle">硝子坂小学校</text>
+            <g transform="translate(232 52)">
+              <path class="pin" d="M0-14c-8 0-13 6-13 12 0 9 13 20 13 20s13-11 13-20c0-6-5-12-13-12z"/>
+              <circle cx="0" cy="-2" r="4" fill="var(--bg)"/>
+            </g>
+            <text class="en-t" x="250" y="56" font-size="18">hisui</text>
+            <text x="269" y="186" font-size="15" text-anchor="middle">コインP</text>
+          </svg>
+          <figcaption>硝子坂公園の角から坂を上って、硝子坂小学校の向かいです。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="last" aria-labelledby="last-h" style="background:var(--bg-soft)">
+    <div class="wrap">
+      <h2 class="rv" id="last-h">迷ったら、<br class="sp-only">写真を1枚送ってください。</h2>
+      <p>よく着る服や手持ちのアクセサリーの写真があれば、合う形と石の色を一緒に考えます。</p>
+      <div class="cta">
+        <a class="btn btn-main js-ig" href="#ig"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cam"/></svg>InstagramのDMで相談</a>
+        <a class="btn btn-sub" href="tel:092-000-0000"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tel"/></svg>電話する</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><span class="en">atelier hisui</span> (制作見本)</footer>
+
+<nav class="bar" aria-label="相談と電話">
+  <a class="btn btn-main js-ig" href="#ig">DMで相談</a>
+  <a class="btn btn-sub" href="tel:092-000-0000">電話する</a>
+</nav>
+
+<dialog class="lb" id="lb" aria-label="写真を大きく見る">
+  <figure>
+    <img id="lb-img" alt="">
+    <figcaption><span id="lb-cap"></span><button class="lb-close" type="button" id="lb-close">閉じる</button></figcaption>
+  </figure>
+</dialog>
+
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+<script>
+(function(){
+  // オーダーしてみる
+  var form=document.getElementById('opts'),svg=document.querySelector('#preview svg');
+  var base={drop:3960,round:3630,square:4180};
+  var names={pierce:'ピアス',clip:'イヤリング',drop:'しずく',round:'まる',square:'しかく',gold:'ゴールド',silver:'シルバー',midori:'みどり',mizu:'みずいろ',sumire:'すみれ',kohaku:'こはく'};
+  var stones={midori:'#3e9b7a',mizu:'#6fb3d2',sumire:'#9c88c6',kohaku:'#c98a3a'};
+  function val(n){return form.querySelector('input[name="'+n+'"]:checked').value}
+  function update(){
+    var t=val('type'),s=val('shape'),m=val('metal'),c=val('stone');
+    svg.querySelectorAll('.sh').forEach(function(g){g.setAttribute('display',g.classList.contains('sh-'+s)?'inline':'none')});
+    svg.querySelectorAll('.hk-pierce').forEach(function(e){e.setAttribute('display',t==='pierce'?'inline':'none')});
+    svg.querySelectorAll('.hk-clip').forEach(function(e){e.setAttribute('display',t==='clip'?'inline':'none')});
+    svg.style.setProperty('--m','var(--'+m+')');
+    svg.style.setProperty('--st',stones[c]);
+    var p=base[s]+(m==='gold'?440:0)+(t==='clip'?330:0);
+    document.getElementById('q-price').textContent=p.toLocaleString('ja-JP');
+    document.getElementById('q-sel').textContent=[names[s],names[m],names[c],names[t]].join('、');
+    document.getElementById('ear-t').textContent=names[s]+'の'+names[c]+'の石、'+names[m]+'の'+names[t];
+  }
+  form.addEventListener('change',update);update();
+
+  // Instagramのリンク(見本なので実在しない)
+  var toast=document.getElementById('toast'),tm;
+  document.querySelectorAll('.js-ig').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      toast.textContent='見本のため実在のアカウントはありません';
+      toast.classList.add('show');clearTimeout(tm);
+      tm=setTimeout(function(){toast.classList.remove('show')},2800);
+    });
+  });
+
+  // 投稿の拡大
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),last;
+  if(lb.showModal){
+    document.querySelectorAll('.tile').forEach(function(t){
+      t.addEventListener('click',function(e){
+        e.preventDefault();last=t;
+        lbImg.src=t.getAttribute('href');lbImg.alt=t.querySelector('img').alt;lbCap.textContent=t.dataset.cap||'';
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){lb.close()});
+    lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+    lb.addEventListener('close',function(){if(last)last.focus()});
+  }
+
+  // スクロールで1回だけ表示
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    document.documentElement.classList.add('rv-on');
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }
+})();
+</script>
+</body>
+</html>

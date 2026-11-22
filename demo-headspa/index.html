@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ヘッドスパ専門店 ねむり | 福岡市雫ヶ丘 夜22時まで</title>
+<meta name="description" content="福岡市雫ヶ丘のヘッドスパ専門店 ねむり。半個室2席、夜22時まで。仕事帰りに頭をほぐして、そのまま眠れる夜に。30分3,850円から。">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  /* 色: 夜の藍。ライトでも暗い地 */
+  --bg:#17203d;
+  --bg-deep:#111830;
+  --surface:#1e2849;
+  --line:#34406a;
+  --text:#eef0f7;
+  --muted:#b9bfd3;
+  --accent:#f0e2a4;      /* 月の淡い黄。これ1色 */
+  --on-accent:#141b33;
+  /* 字体 */
+  --f-head:"Zen Old Mincho", serif;
+  --f-body:"IBM Plex Sans JP", system-ui, sans-serif;
+  /* 余白(8の倍数) */
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s6:48px; --s8:64px; --s12:96px;
+  /* 角丸 */
+  --r:6px;
+  /* 影は使わない */
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f1529;
+    --bg-deep:#0a0f1f;
+    --surface:#161e38;
+    --line:#2a3458;
+    --text:#e9ecf5;
+    --muted:#aeb5cb;
+  }
+}
+[data-theme="dark"]{
+  --bg:#0f1529;
+  --bg-deep:#0a0f1f;
+  --surface:#161e38;
+  --line:#2a3458;
+  --text:#e9ecf5;
+  --muted:#aeb5cb;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--f-body);font-size:15px;line-height:1.9;letter-spacing:.03em;
+  overflow-wrap:anywhere;
+  padding-bottom:72px;
+}
+@media (min-width:768px){ body{padding-bottom:0;font-size:16px} }
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-head);font-weight:400;letter-spacing:.04em;line-height:1.5;margin:0}
+p{margin:0}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 var(--s3)}
+@media (min-width:768px){ .wrap{padding:0 var(--s6)} }
+.sp-only{display:inline}
+@media (min-width:768px){ .sp-only{display:none} }
+
+/* 制作見本の帯 */
+.demo-band{word-break:keep-all;background:var(--accent);color:var(--on-accent);font-size:12px;line-height:1.6;text-align:center;padding:var(--s1) var(--s2)}
+
+/* ヘッダー */
+.site-head{border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s2);padding-top:var(--s2);padding-bottom:var(--s2)}
+.logo{font-family:var(--f-head);font-size:22px;text-decoration:none;letter-spacing:.12em}
+.logo small{font-family:var(--f-body);font-size:11px;color:var(--muted);letter-spacing:.08em;margin-left:var(--s1)}
+.head-hours{font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* ヒーロー */
+.hero-grid{display:grid;grid-template-columns:1fr auto;gap:var(--s3);padding-top:var(--s4);padding-bottom:var(--s4)}
+.hero,.closing{
+  /* 星の点: 大きさは画面幅で変わらないよう px で */
+  background-image:
+    radial-gradient(circle at 8% 14%, rgba(240,226,164,.75) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 37% 6%, rgba(240,226,164,.5) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 52% 24%, rgba(240,226,164,.6) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 66% 9%, rgba(240,226,164,.45) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 79% 33%, rgba(240,226,164,.5) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 24% 44%, rgba(240,226,164,.4) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 94% 15%, rgba(240,226,164,.55) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 44% 58%, rgba(240,226,164,.35) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 5% 70%, rgba(240,226,164,.4) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 72%, rgba(240,226,164,.35) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 96% 86%, rgba(240,226,164,.35) 0 1px, transparent 1.5px);
+}
+.hero-grid{grid-template-areas:"moon h1" "text h1" "cta cta"}
+.hero-cta{grid-area:cta}
+.moon-box{grid-area:moon}
+.hero-text{grid-area:text;align-self:end;min-width:0}
+.hero h1{grid-area:h1}
+.moon{width:72px;height:72px;color:var(--accent);display:block}
+.hero-kicker{font-size:12px;color:var(--accent);letter-spacing:.1em;margin-bottom:var(--s1)}
+.hero-lead{color:var(--muted);font-size:14px;line-height:1.95;letter-spacing:.02em;word-break:keep-all;max-width:22em}
+.hero h1{
+  writing-mode:vertical-rl;text-orientation:upright;
+  font-size:clamp(30px,9vw,72px);line-height:1.55;letter-spacing:.14em;
+  justify-self:end;
+}
+.hero-cta{display:grid;gap:var(--s2);padding-top:var(--s1)}
+@media (min-width:768px){
+  .hero-grid{
+    grid-template-columns:minmax(0,1fr) auto auto;
+    grid-template-areas:". moon h1" "text moon h1" "cta moon h1";
+    grid-template-rows:1fr auto auto;
+    gap:var(--s4) var(--s8);padding-top:var(--s8);padding-bottom:var(--s8);min-height:520px
+  }
+  .moon-box{align-self:center}
+  .moon{width:clamp(140px,18vw,220px);height:auto}
+  .hero-lead{font-size:16px}
+  .hero-cta{grid-template-columns:repeat(2,max-content);justify-content:start}
+}
+
+/* ボタン */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);min-height:52px;padding:0 var(--s3);border-radius:var(--r);font-size:15px;font-weight:500;text-decoration:none;letter-spacing:.06em;white-space:nowrap;border:1px solid var(--accent);transition:background-color .2s,color .2s}
+.btn-main{background:var(--accent);color:var(--on-accent)}
+.btn-main:hover{background:transparent;color:var(--accent)}
+.btn-sub{background:transparent;color:var(--accent)}
+.btn-sub:hover{background:var(--accent);color:var(--on-accent)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* 写真の帯 */
+.band-photo{position:relative;margin:0}
+.band-photo img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 45%}
+@media (min-width:768px){ .band-photo img{aspect-ratio:16/6;max-height:72vh} }
+.band-photo figcaption{position:absolute;right:var(--s2);bottom:var(--s1);font-size:11px;color:#eef0f7;background:rgba(10,15,31,.72);padding:2px var(--s1);border-radius:var(--r)}
+
+/* セクション共通 */
+.sec{padding:var(--s12) 0 0}
+.sec-head{margin-bottom:var(--s4)}
+.sec-head h2{font-size:clamp(22px,5.6vw,30px)}
+.sec-head p{color:var(--muted);margin-top:var(--s1);font-size:14px}
+
+/* ねむりの夜(縦書き見出し+縦長写真) */
+.night{display:grid;grid-template-columns:auto 1fr;gap:var(--s3);align-items:start}
+.night h2{writing-mode:vertical-rl;font-size:clamp(22px,6vw,32px);letter-spacing:.16em;line-height:1.6;padding-top:var(--s1)}
+.night-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 40%;border-radius:var(--r)}
+.night-body{grid-column:1 / -1}
+.night-body > p{max-width:36em}
+.points{list-style:none;margin:var(--s4) 0 0;padding:0;border-top:1px solid var(--line)}
+.points li{display:grid;grid-template-columns:5.5em 1fr;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.points b{font-family:var(--f-head);font-weight:400;color:var(--accent)}
+.points span{color:var(--muted);font-size:14px}
+@media (min-width:768px){
+  .night{grid-template-columns:auto minmax(0,5fr) minmax(0,6fr);gap:var(--s6)}
+  .night-photo img{aspect-ratio:4/7}
+  .night-body{grid-column:auto;padding-top:var(--s6)}
+}
+
+/* メニュー */
+.menu-list{margin:0;padding:0;list-style:none}
+.menu-list li{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--s2);padding:var(--s3) 0;border-bottom:1px solid var(--line)}
+.menu-list li:first-child{border-top:1px solid var(--line)}
+.menu-name{font-family:var(--f-head);font-size:18px}
+.menu-min{font-size:13px;color:var(--muted)}
+.menu-price{margin-left:auto;font-size:18px;font-weight:500;color:var(--accent);font-variant-numeric:tabular-nums}
+.menu-price small{font-size:11px;color:var(--muted);font-weight:400;margin-left:2px}
+.menu-desc{flex-basis:100%;font-size:13px;color:var(--muted);margin-top:var(--s1)}
+.menu-opt{margin-top:var(--s4);display:grid;gap:var(--s1);font-size:14px;color:var(--muted)}
+.menu-opt div{display:flex;justify-content:space-between;gap:var(--s2);border-bottom:1px dashed var(--line);padding-bottom:var(--s1)}
+.menu-opt dt,.menu-opt dd{margin:0}
+.menu-opt dd{color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (min-width:768px){
+  .menu-cols{display:grid;grid-template-columns:3fr 2fr;gap:var(--s8);align-items:start}
+  .menu-opt{margin-top:0}
+}
+
+/* 仕掛け: 終わる時刻 */
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3)}
+@media (min-width:768px){ .calc{padding:var(--s6)} .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start} }
+.calc fieldset{border:0;margin:0 0 var(--s3);padding:0;min-width:0}
+.calc legend,.calc label.lbl{display:block;font-size:13px;color:var(--muted);margin-bottom:var(--s1);padding:0}
+.course-opts{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s1)}
+.course-opts label{position:relative}
+.course-opts input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.course-opts span{display:flex;align-items:center;justify-content:center;min-height:48px;border:1px solid var(--line);border-radius:var(--r);font-size:15px;font-variant-numeric:tabular-nums}
+.course-opts input:checked + span{border-color:var(--accent);color:var(--on-accent);background:var(--accent)}
+.course-opts input:focus-visible + span{outline:2px solid var(--accent);outline-offset:3px}
+.calc select{width:100%;min-height:48px;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:0 var(--s2)}
+.calc-note{font-size:12px;color:var(--muted)}
+.result{border-top:1px solid var(--line);padding-top:var(--s3)}
+@media (min-width:768px){ .result{border-top:0;border-left:1px solid var(--line);padding:0 0 0 var(--s6)} }
+.result-time{font-family:var(--f-head);font-size:clamp(34px,10vw,52px);line-height:1.2;color:var(--accent);font-variant-numeric:tabular-nums}
+.result-time small{font-family:var(--f-body);font-size:14px;color:var(--muted);margin-left:var(--s1)}
+.result-msg{margin-top:var(--s2);min-height:3.8em}
+.result.is-over .result-time{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px}
+.tl{margin-top:var(--s3)}
+.tl-track{position:relative;height:12px;border-radius:var(--r);background:var(--bg);border:1px solid var(--line)}
+.tl-seg{position:absolute;top:-1px;bottom:-1px;border-radius:var(--r);background:var(--accent);left:66.6%;width:13%}
+.result.is-over .tl-seg{background:repeating-linear-gradient(135deg,var(--muted) 0 4px,transparent 4px 8px)}
+.tl-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:4px;font-variant-numeric:tabular-nums}
+.last-list{margin:0;padding:0;list-style:none;font-size:13px;color:var(--muted);display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s2)}
+
+/* Instagram */
+.ig-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2);margin-bottom:var(--s3)}
+.ig-account{display:inline-flex;align-items:center;gap:var(--s1);text-decoration:none;font-size:16px;font-weight:500}
+.ig-account svg{width:28px;height:28px;color:var(--accent)}
+.ig-account:hover span{text-decoration:underline}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;list-style:none;margin:0;padding:0}
+.tile{display:block;position:relative;overflow:hidden;aspect-ratio:1/1;background:var(--surface)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.tile:hover img{opacity:.85}
+.tile.z img{transform:scale(1.6)}
+.tile.z2 img{transform:scale(1.35)}
+@media (min-width:768px){ .ig-grid{gap:8px} }
+@media (min-width:1024px){ .ig-grid{grid-template-columns:repeat(6,1fr)} }
+.ig-note{font-size:12px;color:var(--muted);margin-top:var(--s1)}
+
+/* 拡大 */
+dialog#lb{padding:0;border:0;background:transparent;max-width:min(92vw,880px);max-height:92vh;color:var(--text)}
+dialog#lb::backdrop{background:rgba(8,11,24,.88)}
+#lb img{max-height:80vh;width:auto;margin:0 auto;border-radius:var(--r)}
+#lb-cap{font-size:13px;color:var(--muted);margin-top:var(--s1);text-align:center}
+#lb-close{display:block;margin:var(--s2) auto 0;min-height:44px;padding:0 var(--s3);font:inherit;color:var(--accent);background:transparent;border:1px solid var(--accent);border-radius:var(--r);cursor:pointer}
+
+/* お客様の声 */
+.voices{display:grid;gap:var(--s3)}
+.voice{border-left:1px solid var(--accent);padding-left:var(--s3)}
+.voice p{font-family:var(--f-head);font-size:17px;line-height:1.9}
+.voice cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:var(--s1)}
+@media (min-width:768px){ .voices{grid-template-columns:1fr 1fr;gap:var(--s6)} }
+
+/* 店の情報 */
+.info{display:grid;gap:var(--s4)}
+.info dl{margin:0;display:grid;gap:0}
+.info dl div{display:grid;grid-template-columns:5em 1fr;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.info dt{color:var(--muted);font-size:13px}
+.info dd{margin:0}
+.map{background:var(--bg-deep);border:1px solid var(--line);border-radius:var(--r);padding:var(--s2)}
+.map svg{width:100%;height:auto;display:block}
+.map p{font-size:13px;color:var(--muted);margin-top:var(--s1)}
+@media (min-width:768px){ .info{grid-template-columns:1fr 1fr;gap:var(--s8);align-items:start} }
+
+/* 最下部 */
+.closing{margin-top:var(--s12);background-color:var(--bg-deep);border-top:1px solid var(--line)}
+.closing .wrap{padding-top:var(--s8);padding-bottom:var(--s8);display:grid;gap:var(--s3);justify-items:start}
+.closing h2{font-size:clamp(22px,6vw,32px)}
+.closing p{color:var(--muted)}
+.closing .cta-row{display:grid;gap:var(--s2);width:100%}
+@media (min-width:768px){ .closing .cta-row{grid-template-columns:repeat(2,max-content);width:auto} }
+.foot{background:var(--bg-deep);font-size:12px;color:var(--muted);text-align:center;padding:var(--s3) var(--s2) var(--s4)}
+
+/* スマホの固定バー */
+.fixbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:3fr 2fr;gap:var(--s1);padding:var(--s1) var(--s2) calc(var(--s1) + env(safe-area-inset-bottom));background:var(--bg-deep);border-top:1px solid var(--line)}
+.fixbar .btn{min-height:48px;font-size:14px;padding:0 var(--s1)}
+@media (min-width:768px){ .fixbar{display:none} }
+
+/* 小さなお知らせ */
+#toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:30;max-width:calc(100% - 32px);background:var(--text);color:var(--on-accent);font-size:13px;padding:var(--s1) var(--s2);border-radius:var(--r);opacity:0;visibility:hidden;transition:opacity .2s}
+#toast.show{opacity:1;visibility:visible}
+@media (min-width:768px){ #toast{bottom:32px} }
+
+/* 動き: 見出しと写真だけ、1回 */
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  *{transition:none !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body>
+<div class="demo-band" role="note">このページは制作見本です。<wbr><span style="white-space:nowrap">店名や住所、電話番号は架空です</span></div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top" id="top">ねむり<small>ヘッドスパ専門店</small></a>
+    <span class="head-hours">13時〜22時 水曜休み</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="moon-box">
+        <svg class="moon" viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path vector-effect="non-scaling-stroke" d="M78 14a48 48 0 1 0 30 70a40 40 0 0 1-30-70z"/>
+          <path vector-effect="non-scaling-stroke" d="M104 22v8M100 26h8" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="hero-text">
+        <p class="hero-kicker">雫ヶ丘の半個室ヘッドスパ</p>
+        <p class="hero-lead">照明を落とした<wbr>2席だけの店。<wbr>仕事帰りに<wbr>頭をほぐして、<wbr>そのまま<wbr>眠れる夜に。</p>
+      </div>
+      <h1 id="hero-title" class="rv">今夜は、<br>頭から眠る。</h1>
+      <div class="hero-cta">
+      <a class="btn btn-main ig-link" href="#ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>
+        InstagramのDMで予約
+      </a>
+      <a class="btn btn-sub" href="tel:0920000000">電話する 092-000-0000</a>
+      </div>
+    </div>
+  </section>
+
+  <figure class="band-photo">
+    <img class="rv" src="img/headspa_hero-1600.jpg" srcset="img/headspa_hero-800.jpg 800w, img/headspa_hero-1600.jpg 1600w" sizes="100vw" alt="照明を落とした半個室で、仰向けになってヘッドスパを受けている様子" width="1600" height="914">
+    <figcaption>写真はイメージです</figcaption>
+  </figure>
+
+  <section class="sec" aria-labelledby="night-title">
+    <div class="wrap night">
+      <h2 id="night-title" class="rv">眠るための<br>六十分</h2>
+      <div class="night-photo">
+        <img class="rv" src="img/headspa_towel-1600.jpg" srcset="img/headspa_towel-800.jpg 800w, img/headspa_towel-1600.jpg 1600w" sizes="(min-width:768px) 380px, 70vw" alt="温めたタオルが丸めて置かれた施術台" width="1600" height="2800" loading="lazy">
+      </div>
+      <div class="night-body">
+        <p>ねむりは、店主の宮園がひとりで営むヘッドスパ専門店です。カットやカラーはしていません。そのぶん、頭と首と目のまわりだけを、時間をかけてほぐします。途中で眠ってしまう方がほとんどなので、話しかけるのは最初と最後だけにしています。</p>
+        <ul class="points">
+          <li><b>半個室</b><span>2席の間は壁で区切っています。照明は手元が見える程度まで落とします。</span></li>
+          <li><b>炭酸泉</b><span>全コースで頭皮を炭酸泉で流します。オイルは無香料と柑橘の2種類から。</span></li>
+          <li><b>帰り支度</b><span>髪は最後まで乾かします。メイク直しの鏡とブラシも用意しています。</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="menu-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="menu-title" class="rv">メニューと料金</h2>
+        <p>料金はすべて税込です。カウンセリングと髪の仕上げに、別で10分ほどいただきます。</p>
+      </div>
+      <div class="menu-cols">
+        <ul class="menu-list">
+          <li><span class="menu-name">ひと休み</span><span class="menu-min">30分</span><span class="menu-price">3,850<small>円</small></span><span class="menu-desc">頭皮をほぐして炭酸泉で流す、いちばん短いコース</span></li>
+          <li><span class="menu-name">定番</span><span class="menu-min">45分</span><span class="menu-price">5,280<small>円</small></span><span class="menu-desc">頭に加えて首と肩の付け根まで。初めての方に多いコース</span></li>
+          <li><span class="menu-name">深い眠り</span><span class="menu-min">60分</span><span class="menu-price">6,930<small>円</small></span><span class="menu-desc">目のまわりのホットタオルと、デコルテのオイルケアつき</span></li>
+          <li><span class="menu-name">夜ふかしの人へ</span><span class="menu-min">90分</span><span class="menu-price">9,680<small>円</small></span><span class="menu-desc">60分の内容に、手と腕のほぐしと頭皮パックを足した長いコース</span></li>
+        </ul>
+        <dl class="menu-opt">
+          <div><dt>初めての方(45分以上)</dt><dd>550円引き</dd></div>
+          <div><dt>目もとのホットアイマスク追加</dt><dd>+440円</dd></div>
+          <div><dt>頭皮のクレンジング追加</dt><dd>+1,100円</dd></div>
+          <div><dt>延長(15分)</dt><dd>+1,650円</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="calc-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="calc-title" class="rv">今から予約すると、<br class="sp-only">何時に終わる?</h2>
+        <p>コースと始める時刻を選ぶと、お店を出る時刻の目安が出ます。閉店は22時です。</p>
+      </div>
+      <form class="calc" id="calc" onsubmit="return false">
+        <div class="calc-grid">
+          <div>
+            <fieldset>
+              <legend>コース</legend>
+              <div class="course-opts">
+                <label><input type="radio" name="course" value="30"><span>30分</span></label>
+                <label><input type="radio" name="course" value="45"><span>45分</span></label>
+                <label><input type="radio" name="course" value="60" checked><span>60分</span></label>
+                <label><input type="radio" name="course" value="90"><span>90分</span></label>
+              </div>
+            </fieldset>
+            <label class="lbl" for="start">始める時刻</label>
+            <select id="start" name="start">
+              <option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option>
+              <option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option>
+              <option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option>
+              <option>19:00</option><option>19:30</option><option selected>20:00</option><option>20:30</option>
+              <option>21:00</option><option>21:30</option>
+            </select>
+            <p class="calc-note" id="start-note" style="margin-top:8px">施術時間にカウンセリングと仕上げの約10分を足して計算しています。</p>
+          </div>
+          <div class="result" id="result" aria-live="polite">
+            <p class="calc-note">お店を出る時刻の目安</p>
+            <p class="result-time" id="end-time">21:10<small>ごろ</small></p>
+            <p class="result-msg" id="end-msg">帰ったらお風呂と布団だけ。そのまま眠れます。</p>
+            <div class="tl" aria-hidden="true">
+              <div class="tl-track"><div class="tl-seg" id="tl-seg"></div></div>
+              <div class="tl-scale"><span>13時</span><span>16時</span><span>19時</span><span>22時</span></div>
+            </div>
+            <p class="calc-note" style="margin-top:24px">コースごとの最終受付</p>
+            <ul class="last-list">
+              <li>30分は21:20まで</li><li>45分は21:05まで</li>
+              <li>60分は20:50まで</li><li>90分は20:20まで</li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="ig-title">
+    <div class="wrap">
+      <div class="ig-head">
+        <h2 id="ig-title" class="rv" style="font-size:clamp(22px,5.6vw,30px)">Instagramで空き枠をお知らせ</h2>
+        <a class="ig-account ig-link" href="#ig">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>
+          <span>@nemuri_headspa</span>
+        </a>
+      </div>
+      <ul class="ig-grid">
+        <li><a class="tile" href="img/headspa_water-1600.jpg" data-cap="炭酸泉で頭皮を流すところ"><img src="img/headspa_water-800.jpg" alt="洗面台に注がれる炭酸泉" width="800" height="800" loading="lazy"></a></li>
+        <li><a class="tile" href="img/headspa_hero-1600.jpg" data-cap="夜の半個室"><img src="img/headspa_hero-800.jpg" alt="薄暗い半個室の施術台" width="800" height="457" loading="lazy" style="object-position:30% 50%"></a></li>
+        <li><a class="tile" href="img/headspa_oil-1600.jpg" data-cap="無香料と柑橘のオイル"><img src="img/headspa_oil-800.jpg" alt="小瓶に入ったヘッドスパ用のオイル" width="800" height="800" loading="lazy"></a></li>
+        <li><a class="tile z" href="img/headspa_towel-1600.jpg" data-cap="温めたタオル"><img src="img/headspa_towel-800.jpg" alt="丸めた白いタオルの近景" width="800" height="1400" loading="lazy" style="object-position:50% 45%"></a></li>
+        <li><a class="tile z2" href="img/headspa_water-1600.jpg" data-cap="お湯の温度は38度前後"><img src="img/headspa_water-800.jpg" alt="水面に落ちるしずくの近景" width="800" height="800" loading="lazy" style="object-position:70% 60%"></a></li>
+        <li><a class="tile z" href="img/headspa_oil-1600.jpg" data-cap="オイルは手のひらで温めてから"><img src="img/headspa_oil-800.jpg" alt="オイルの瓶の口もとの近景" width="800" height="800" loading="lazy" style="object-position:40% 30%"></a></li>
+      </ul>
+      <p class="ig-note">当日の空き枠は、夕方にストーリーズでお知らせしています。</p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="voice-title">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="voice-title" class="rv">お客様の声</h2></div>
+      <div class="voices">
+        <blockquote class="voice" style="margin:0"><p>残業のあと21時に駆け込みました。気づいたら終わっていて、その夜は久しぶりに朝まで眠れました。</p><cite>M.K さん(30代)</cite></blockquote>
+        <blockquote class="voice" style="margin:0"><p>話しかけられないのがありがたいです。髪も乾かしてもらえるので、そのまま電車に乗れます。</p><cite>S.T さん(40代)</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="info-title">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="info-title" class="rv">お店の場所と営業時間</h2></div>
+      <div class="info">
+        <dl>
+          <div><dt>店名</dt><dd>ヘッドスパ専門店 ねむり</dd></div>
+          <div><dt>住所</dt><dd>福岡市 雫ヶ丘2丁目0-0 1階</dd></div>
+          <div><dt>電話</dt><dd><a href="tel:0920000000">092-000-0000</a></dd></div>
+          <div><dt>営業時間</dt><dd>13:00〜22:00<br><span style="color:var(--muted);font-size:13px">最終受付はコースにより20:20〜21:20</span></dd></div>
+          <div><dt>定休日</dt><dd>水曜日、第3火曜日</dd></div>
+          <div><dt>席</dt><dd>半個室2席(完全予約制)</dd></div>
+          <div><dt>お支払い</dt><dd>現金、クレジットカード、QR決済</dd></div>
+        </dl>
+        <div class="map">
+          <svg viewBox="0 0 340 240" role="img" aria-labelledby="map-t">
+            <title id="map-t">略図: 雫ヶ丘公園の北側、雫ヶ丘郵便局の角を曲がって2軒目</title>
+            <g stroke="#34406a" stroke-width="14" stroke-linecap="square" fill="none">
+              <path d="M0 150H340"/><path d="M200 0V240"/>
+            </g>
+            <g stroke="#4a5788" stroke-width="1" stroke-dasharray="4 4" fill="none">
+              <path d="M0 150H340"/><path d="M200 0V240"/>
+            </g>
+            <rect x="24" y="172" width="150" height="56" rx="6" fill="none" stroke="#b9bfd3" stroke-width="1"/>
+            <g fill="none" stroke="#b9bfd3" stroke-width="1"><circle cx="40" cy="186" r="6"/><circle cx="40" cy="212" r="5"/><circle cx="158" cy="190" r="6"/></g>
+            <text x="99" y="205" fill="#b9bfd3" font-size="17" text-anchor="middle" font-family="IBM Plex Sans JP, sans-serif">雫ヶ丘公園</text>
+            <rect x="214" y="160" width="100" height="44" rx="6" fill="none" stroke="#b9bfd3" stroke-width="1"/>
+            <text x="264" y="187" fill="#b9bfd3" font-size="17" text-anchor="middle" font-family="IBM Plex Sans JP, sans-serif">郵便局</text>
+            <path d="M210 140 V 96 H 256" stroke="#f0e2a4" stroke-width="1.6" fill="none" stroke-dasharray="3 4"/>
+            <rect x="258" y="74" width="64" height="44" rx="6" fill="#f0e2a4"/>
+            <text x="290" y="102" fill="#141b33" font-size="17" text-anchor="middle" font-family="Zen Old Mincho, serif">ねむり</text>
+            <text x="16" y="138" fill="#b9bfd3" font-size="16" font-family="IBM Plex Sans JP, sans-serif">雫ヶ丘通り</text>
+            <path d="M310 22 l0 22 M304 30 l6-8 6 8" stroke="#b9bfd3" stroke-width="1.2" fill="none"/>
+            <text x="310" y="58" fill="#b9bfd3" font-size="16" text-anchor="middle" font-family="IBM Plex Sans JP, sans-serif">北</text>
+          </svg>
+          <p>雫ヶ丘通りを郵便局の角で北へ曲がり、右手2軒目の1階です。専用の駐車場はありません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="closing-title">
+    <div class="wrap">
+      <h2 class="rv">今夜の空き枠は、DMで聞いてください</h2>
+      <p>当日の予約も、空いていれば受けています。施術中は電話に出られないことがあるので、DMが確実です。</p>
+      <div class="cta-row">
+        <a class="btn btn-main ig-link" href="#ig">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>
+          InstagramのDMで予約
+        </a>
+        <a class="btn btn-sub" href="tel:0920000000">電話する 092-000-0000</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">ヘッドスパ専門店 ねむり 福岡市 雫ヶ丘2丁目0-0</footer>
+
+<nav class="fixbar" aria-label="予約">
+  <a class="btn btn-main ig-link" href="#ig">DMで予約</a>
+  <a class="btn btn-sub" href="tel:0920000000">電話する</a>
+</nav>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="lb" aria-label="写真の拡大">
+  <img id="lb-img" src="" alt="">
+  <p id="lb-cap"></p>
+  <button type="button" id="lb-close">閉じる</button>
+</dialog>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+
+  // 見出しと写真: スクロールで1回
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){ io.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // 見本のIGリンク
+  var toast = document.getElementById('toast'), tt;
+  function note(msg){
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+  }
+  document.querySelectorAll('a[href="#ig"]').forEach(function(a){
+    a.addEventListener('click', function(ev){ ev.preventDefault(); note('見本のため実在のアカウントはありません'); });
+  });
+
+  // IGグリッドの拡大
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
+  if (lb && typeof lb.showModal === 'function'){
+    document.querySelectorAll('.tile').forEach(function(t){
+      t.addEventListener('click', function(ev){
+        ev.preventDefault();
+        lbImg.src = t.getAttribute('href');
+        lbImg.alt = t.querySelector('img').alt;
+        lbCap.textContent = t.dataset.cap || '';
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click', function(){ lb.close(); });
+    lb.addEventListener('click', function(ev){ if (ev.target === lb) lb.close(); });
+  }
+
+  // 仕掛け: 何時に終わる?
+  var OPEN = 13*60, CLOSE = 22*60, PREP = 10, COURSES = [30,45,60,90];
+  var form = document.getElementById('calc'), sel = document.getElementById('start');
+  var out = document.getElementById('end-time'), msg = document.getElementById('end-msg');
+  var res = document.getElementById('result'), seg = document.getElementById('tl-seg');
+  var startNote = document.getElementById('start-note');
+  function toMin(s){ var p = s.split(':'); return (+p[0])*60 + (+p[1]); }
+  function fmt(m){ var h = Math.floor(m/60), mm = m%60; return h + ':' + (mm<10?'0':'') + mm; }
+  function update(){
+    var c = +form.querySelector('input[name="course"]:checked').value;
+    var s = toMin(sel.value), end = s + c + PREP;
+    out.innerHTML = fmt(end) + '<small>ごろ</small>';
+    var over = end > CLOSE;
+    res.classList.toggle('is-over', over);
+    if (over){
+      var left = CLOSE - s - PREP, fit = COURSES.filter(function(x){ return x <= left; }).pop();
+      var last = fmt(CLOSE - c - PREP);
+      msg.textContent = '閉店の22時に間に合いません。' + c + '分なら' + last + 'までに始めてください。'
+        + (fit ? sel.value + 'からなら' + fit + '分のコースまで受けられます。' : '');
+    } else if (end <= 18*60){
+      msg.textContent = '夕方には終わります。そのあとの予定にも、頭が軽いまま向かえます。';
+    } else if (end <= 20*60){
+      msg.textContent = '夕飯の前に終わります。帰ってからの時間がゆっくり取れます。';
+    } else if (end <= 21*60 + 30){
+      msg.textContent = '帰ったらお風呂と布団だけ。そのまま眠れます。';
+    } else {
+      msg.textContent = 'その日の最後の枠です。帰りの終電を気にせず、ゆっくり帰れます。';
+    }
+    var a = Math.max(0, s - OPEN), b = Math.min(end, CLOSE) - OPEN;
+    seg.style.left = (a / (CLOSE-OPEN) * 100) + '%';
+    seg.style.width = Math.max(1, (b - a) / (CLOSE-OPEN) * 100) + '%';
+  }
+  // 「今から」に合わせて初期値を選ぶ(営業時間外なら20:00のまま)
+  var now = new Date(), nm = now.getHours()*60 + now.getMinutes() + 20;
+  var slot = Math.ceil(nm/30)*30;
+  if (now.getDay() !== 3 && slot >= OPEN && slot <= 21*60 + 30){
+    sel.value = fmt(slot);
+    startNote.textContent = 'いまから一番早い枠(' + fmt(slot) + ')を選んでいます。施術時間にカウンセリングと仕上げの約10分を足して計算しています。';
+  }
+  form.addEventListener('change', update);
+  update();
+})();
+</script>
+</body>
+</html>

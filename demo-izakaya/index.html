@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark">
+<title>炭火やきとり 灯守(ひもり)| 備長炭と朝引き鶏、カウンター10席</title>
+<meta name="description" content="福岡市 灯守町の炭火やきとり、灯守(ひもり)。備長炭で焼く朝引き鶏と豚バラ。カウンター10席と小上がり2卓。17:00から24:00、月曜休み。予約はInstagramのDMか電話で。">
+<meta name="theme-color" content="#211e1b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* 方針: インスタやGoogleで灯守を知った初めての人向けの、炭火やきとり屋の案内ページ。
+   夜の炭の黒と火の朱、店の看板のような極太の縦書き。参考は焼き場の壁に掛かった木札 */
+:root{
+  --bg:#211e1b;          /* 炭色(純黒にしない) */
+  --surface:#2a2623;
+  --line:#3d3834;
+  --ink:#ede7de;
+  --ink-soft:#b8afa3;
+  --accent:#f06a3c;      /* 炭火の朱(地に対して 5.4:1) */
+  --on-accent:#211e1b;
+  --wood:#c9ae86;        /* 木札の素材色(お品書きの札だけ) */
+  --wood-ink:#211e1b;
+  --photo-bg:#3a3530;
+  --shade:rgba(22,20,18,.62);
+  --font-head:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --font-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+  --r:2px;
+  --shadow:none;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#171513; --surface:#211e1b; --line:#36312d; --ink:#e6dfd5; --ink-soft:#ada397;
+    --accent:#f06a3c; --on-accent:#171513; --wood:#b39a74; --wood-ink:#171513;
+    --photo-bg:#302b27; --shade:rgba(16,14,13,.66); color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#171513; --surface:#211e1b; --line:#36312d; --ink:#e6dfd5; --ink-soft:#ada397;
+  --accent:#f06a3c; --on-accent:#171513; --wood:#b39a74; --wood-ink:#171513;
+  --photo-bg:#302b27; --shade:rgba(16,14,13,.66); color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.85;overflow-wrap:anywhere}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--font-head);font-weight:800;letter-spacing:.04em;line-height:1.25}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 制作見本の帯 */
+.demo-band{background:var(--surface);color:var(--ink);border-bottom:1px solid var(--line);font-size:13px;line-height:1.6;text-align:center;padding:8px 16px}
+
+/* ファーストビュー */
+.hero{position:relative;min-height:540px;height:calc(100svh - 112px);max-height:820px;display:grid;grid-template-columns:1fr auto;grid-template-rows:1fr auto;background:var(--photo-bg);overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 60%}
+.hero::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(to left,var(--shade) 0,transparent 55%),
+  linear-gradient(to top,var(--bg) 0,var(--shade) 38%,rgba(22,20,18,.25) 70%,rgba(22,20,18,.35) 100%)}
+.hero h1{position:relative;z-index:1;grid-column:2;grid-row:1;writing-mode:vertical-rl;display:flex;flex-direction:column;gap:var(--s2);align-items:flex-start;padding:var(--s4) 20px 0 0;color:var(--ink);text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.hero h1 .kind{flex:none;font-size:18px;font-weight:700;letter-spacing:.3em;padding-top:var(--s1)}
+.hero h1 .name{flex:none;font-size:clamp(104px,30vw,208px);line-height:1;letter-spacing:0}
+.hero h1 .yomi{flex:none;font-family:var(--font-body);font-size:13px;font-weight:400;letter-spacing:.4em;align-self:flex-start;padding-top:8px}
+.hero-foot{position:relative;z-index:1;grid-column:1 / 3;grid-row:2;padding:0 20px var(--s4)}
+.hero-lead{max-width:30em;font-size:16px;line-height:1.8}
+.hero-lead strong{font-family:var(--font-head);font-weight:800;font-size:clamp(22px,6vw,30px);letter-spacing:.04em;display:block;line-height:1.4;margin-bottom:var(--s2)}
+.photo-note{position:absolute;z-index:1;top:var(--s2);left:var(--s2);font-size:11px;line-height:1.4;color:var(--ink);background:rgba(22,20,18,.7);padding:2px 6px;border-radius:var(--r)}
+
+/* ボタン(DMと電話の2種だけ) */
+.cta{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:52px;padding:12px 24px;border-radius:var(--r);font-family:var(--font-body);font-weight:700;font-size:16px;line-height:1.3;text-decoration:none;white-space:nowrap;border:2px solid var(--accent);cursor:pointer}
+.btn-dm{background:var(--accent);color:var(--on-accent)}
+.btn-tel{background:transparent;color:var(--ink);border-color:var(--ink-soft)}
+.btn svg{width:20px;height:20px;flex:none}
+@media (max-width:420px){.hero .cta .btn,.end .cta .btn{flex:1 1 100%}}
+
+/* セクション共通: 左に文、右に縦書きの見出し */
+section{padding:var(--s7) 0}
+.sec-head{display:grid;grid-template-columns:1fr auto;gap:var(--s4);align-items:start;margin-bottom:var(--s5)}
+.sec-head h2{grid-column:2;grid-row:1 / span 2;writing-mode:vertical-rl;font-size:clamp(36px,10vw,60px);line-height:1.15;position:relative;padding-top:20px}
+.sec-head h2::before{content:"";position:absolute;top:0;left:50%;width:8px;height:8px;margin-left:-4px;background:var(--accent)}
+.sec-head .lead{grid-column:1;max-width:34em;color:var(--ink-soft);padding-top:var(--s2)}
+.sec-head .lead b{color:var(--ink)}
+
+/* 店の紹介 */
+.intro-photo{position:relative;background:var(--photo-bg);aspect-ratio:16/9;overflow:hidden;border-radius:var(--r)}
+.intro-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.three{margin:var(--s5) 0 0;padding:0;display:grid;gap:0}
+.three div{display:grid;grid-template-columns:64px 1fr;gap:var(--s3);padding:var(--s3) 0;border-top:1px solid var(--line)}
+.three div:last-child{border-bottom:1px solid var(--line)}
+.three dt{font-family:var(--font-head);font-weight:800;font-size:44px;line-height:1;color:var(--ink)}
+.three dd{margin:0}
+.three dd b{display:block;font-size:17px;margin-bottom:2px}
+.three dd span{color:var(--ink-soft);font-size:15px}
+@media (min-width:880px){
+  .intro-grid{display:grid;grid-template-columns:7fr 5fr;gap:var(--s6);align-items:start}
+  .intro-grid .sec-head{order:2;margin-bottom:0}
+  .intro-grid .intro-photo{order:1;grid-row:1 / span 2}
+  .intro-grid .three{order:3;grid-column:2;margin-top:0}
+}
+
+/* お品書き(木札の壁) */
+.menu{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.wall-group{margin-top:var(--s5)}
+.wall-group h3{font-family:var(--font-body);font-weight:700;font-size:15px;letter-spacing:.1em;color:var(--ink-soft);margin-bottom:var(--s3);display:flex;align-items:center;gap:var(--s2)}
+.wall-group h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.wall{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:var(--s4) var(--s2);direction:rtl}
+.wall li{direction:ltr;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-height:196px;padding:22px 4px 10px;background:var(--wood);color:var(--wood-ink);border-radius:var(--r);
+  background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 1px,transparent 1px 7px)}
+.wall li::before{content:"";position:absolute;top:8px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--wood-ink);opacity:.55}
+.wall .nm{writing-mode:vertical-rl;font-family:var(--font-head);font-weight:800;font-size:21px;letter-spacing:.08em;line-height:1.1}
+.wall .pr{font-family:var(--font-head);font-weight:800;font-size:17px;line-height:1;letter-spacing:0;margin-top:var(--s2);white-space:nowrap}
+.wall .pr small{font-size:11px;font-weight:700;margin-left:1px}
+.menu-notes{margin-top:var(--s5);display:grid;gap:var(--s3)}
+.menu-notes p{color:var(--ink-soft);font-size:15px}
+.course{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.course li{display:grid;grid-template-columns:1fr auto;gap:var(--s1) var(--s3);padding:var(--s3) 0;border-bottom:1px solid var(--line)}
+.course b{font-size:17px}
+.course .yen{font-family:var(--font-head);font-weight:800;font-size:22px;line-height:1.3;white-space:nowrap}
+.course span{grid-column:1 / -1;color:var(--ink-soft);font-size:14px}
+@media (min-width:880px){
+  .wall{grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:var(--s5) var(--s3)}
+  .wall li{min-height:220px}
+  .wall .nm{font-size:23px}
+  .menu-notes{grid-template-columns:5fr 7fr;gap:var(--s6);align-items:start}
+}
+
+/* 予約メモ(仕掛け) */
+.memo-box{display:grid;gap:var(--s5)}
+.memo-form{display:grid;gap:var(--s4);border:0;margin:0;padding:0;min-width:0}
+.field{display:grid;gap:var(--s1);min-width:0}
+.field label,.field legend{font-weight:700;font-size:15px;padding:0}
+.field input,.field select{width:100%;min-width:0;min-height:48px;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:8px 12px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.seat{border:0;margin:0;padding:0;display:grid;gap:var(--s1);min-width:0}
+.seat .opts{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.seat label{display:flex;align-items:center;gap:var(--s2);min-height:48px;padding:8px 12px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);font-weight:400;cursor:pointer}
+.seat-lg{font-weight:700;font-size:15px;padding:0;margin-bottom:4px}
+.seat input{accent-color:var(--accent);width:18px;height:18px;margin:0}
+.seat label:has(input:checked){border-color:var(--accent)}
+.warn{min-height:1.6em;font-size:14px;color:var(--ink)}
+.warn:not(:empty)::before{content:"";display:inline-block;width:8px;height:8px;background:var(--accent);margin-right:8px;vertical-align:1px}
+.memo-out{display:grid;gap:var(--s2);min-width:0}
+.memo-out label{font-weight:700;font-size:15px}
+.memo-out textarea{width:100%;min-width:0;resize:vertical;overflow-x:hidden;font:inherit;font-size:16px;line-height:1.8;color:var(--wood-ink);background:var(--wood);border:0;border-radius:var(--r);padding:var(--s3);min-height:290px}
+.copy{justify-self:start;min-height:48px;padding:10px 24px;font:inherit;font-weight:700;color:var(--ink);background:transparent;border:2px solid var(--accent);border-radius:var(--r);cursor:pointer}
+.copy[hidden]{display:none}
+.copy-msg{font-size:14px;color:var(--ink-soft);min-height:1.6em}
+@media (min-width:880px){.memo-box{grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start}}
+
+/* インスタ */
+.ig-account{line-height:1.6;display:flex;align-items:center;gap:var(--s2);font-weight:700;font-size:17px;text-decoration:none;margin-bottom:var(--s3)}
+.ig-account svg{width:28px;height:28px;flex:none}
+.ig-account:hover span{text-decoration:underline}
+.ig-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:760px}
+.ig-grid a{display:block;aspect-ratio:1;overflow:hidden;background:var(--photo-bg);border-radius:var(--r)}
+.ig-grid img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.ig-grid a:hover img{opacity:.85}
+.ig-grid .z img{transform:scale(1.5)}
+.ig-not{font-size:13px;color:var(--ink-soft);margin-top:var(--s2)}
+.ig-not{display:none}
+#ig:target .ig-not{display:block}
+@media (min-width:880px){
+  .ig-layout{display:grid;grid-template-columns:1fr auto;gap:var(--s6);align-items:start}
+  .ig-layout .sec-head{grid-column:2;grid-row:1;margin:0}
+  .ig-layout .sec-head .lead{display:none}
+  .ig-side{grid-column:1;grid-row:1}
+}
+.ig-lead-pc{display:none;color:var(--ink-soft);margin-bottom:var(--s3);max-width:34em}
+@media (min-width:880px){.ig-lead-pc{display:block}}
+
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,960px);color:var(--ink)}
+dialog.lb::backdrop{background:rgba(14,12,11,.88)}
+.lb figure{margin:0}
+.lb img{max-height:78vh;width:auto;max-width:100%;margin:0 auto;background:var(--photo-bg);border-radius:var(--r)}
+.lb figcaption{font-size:14px;margin-top:var(--s2);text-align:center}
+.lb-close{display:block;margin:var(--s3) auto 0;min-height:44px;padding:8px 24px;font:inherit;font-weight:700;color:var(--ink);background:var(--bg);border:1px solid var(--ink-soft);border-radius:var(--r);cursor:pointer}
+
+/* 店の情報 */
+.info{background:var(--surface);border-top:1px solid var(--line)}
+.info-grid{display:grid;gap:var(--s5)}
+.facts{margin:0;padding:0;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:6em 1fr;gap:var(--s3);padding:12px 0;border-bottom:1px solid var(--line)}
+.facts dt{font-weight:700;color:var(--ink-soft);font-size:15px}
+.facts dd{margin:0}
+.facts a{text-decoration:underline;text-underline-offset:3px}
+.map{max-width:560px;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:var(--s2)}
+.map svg{display:block;width:100%;height:auto}
+.map p{font-size:14px;color:var(--ink-soft);padding:var(--s2) var(--s2) var(--s1)}
+@media (min-width:880px){.info-grid{grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start}}
+
+/* 最下部 */
+.end{padding:var(--s8) 0 var(--s7);text-align:left}
+.end-in{display:grid;grid-template-columns:1fr auto;gap:var(--s4);align-items:start}
+.end h2{grid-column:2;writing-mode:vertical-rl;font-size:clamp(40px,11vw,72px);line-height:1.15}
+.end-in>div{display:contents}
+.end p{grid-column:1;grid-row:1;color:var(--ink-soft);max-width:30em}
+.end .cta{grid-column:1 / -1;margin-top:0}
+footer{border-top:1px solid var(--line);padding:var(--s4) 0;font-size:13px;color:var(--ink-soft)}
+
+/* スマホ下の固定バー */
+.bar{display:none}
+@media (max-width:767px){
+  body{padding-bottom:76px}
+  .bar{display:flex;gap:var(--s2);position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
+  .bar .btn{flex:1 1 0;min-height:48px;padding:8px 10px;font-size:15px;min-width:0}
+  .bar .btn-dm{flex-grow:1.6}
+}
+@media (max-width:359px){.bar .btn{font-size:13px;gap:4px}.bar .btn svg{width:16px;height:16px}}
+
+.toast{position:fixed;left:50%;bottom:96px;z-index:30;transform:translateX(-50%);max-width:calc(100vw - 32px);background:var(--ink);color:var(--bg);font-size:13px;padding:8px 14px;border-radius:var(--r);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+@media (min-width:768px){.toast{bottom:32px}}
+
+@media (min-width:768px){
+  .wrap{padding:0 40px}
+  section{padding:var(--s8) 0}
+  .hero{height:min(88vh,820px);min-height:600px}
+  .hero h1{padding:var(--s6) 48px 0 0;gap:var(--s3)}
+  .hero h1 .kind{font-size:24px}
+  .hero-foot{padding:0 40px var(--s6)}
+  .photo-note{top:var(--s3);left:var(--s3)}
+}
+@media (min-width:1120px){
+  .hero-foot,.hero h1{padding-left:calc((100vw - 1120px)/2 + 40px)}
+  .hero h1{padding-right:calc((100vw - 1120px)/2 + 40px);padding-left:0}
+}
+
+@media (min-width:880px){
+  .wrap.sec{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s7)}
+  .wrap.sec>.sec-head{display:contents}
+  .wrap.sec>.sec-head h2{grid-column:2;grid-row:1 / span 12;align-self:start}
+  .wrap.sec>.sec-head .lead{grid-column:1;grid-row:1;margin-bottom:var(--s5);padding-top:24px}
+  .wrap.sec>*:not(.sec-head){grid-column:1}
+  .wall-group:first-of-type{margin-top:0}
+  .intro-grid .intro-photo{aspect-ratio:auto;align-self:stretch;min-height:480px}
+}
+.memo-out textarea{min-height:330px}
+/* 動き: 見出しと写真だけ、1回 */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .ig-grid img,.toast{transition:none}
+}
+</style>
+</head>
+<body>
+
+<p class="demo-band">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="hero">
+  <img class="hero-img" src="img/izakaya_hero-1600.jpg" srcset="img/izakaya_hero-800.jpg 800w, img/izakaya_hero-1600.jpg 1600w" sizes="100vw" alt="備長炭の上で焼けていく焼き鳥の串" width="1600" height="914" fetchpriority="high">
+  <p class="photo-note">写真はイメージです</p>
+  <h1 class="reveal"><span class="kind">炭火やきとり</span><span class="name">灯守</span><span class="yomi">ひもり</span></h1>
+  <div class="hero-foot">
+    <p class="hero-lead"><strong>備長炭で、一本ずつ。</strong>朝引きの鶏と豚バラを、カウンター十席の目の前で焼いています。夜5時から24時まで、月曜休み。</p>
+    <div class="cta">
+      <a class="btn btn-dm" href="#ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>InstagramのDMで予約</a>
+      <a class="btn btn-tel" href="tel:092-000-0000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>電話する</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="wrap intro-grid">
+      <div class="sec-head">
+        <h2 class="reveal">炭の前の十席</h2>
+        <p class="lead">焼き場をぐるりと囲むカウンターが10席、奥に小上がりが2卓。<b>おひとりでも、仕事帰りのふたりでも</b>入りやすい広さです。焼くのは店主の久保田がひとりで。混む時間は少しお待たせします。</p>
+      </div>
+      <div class="intro-photo reveal">
+        <img src="img/izakaya_counter-1600.jpg" srcset="img/izakaya_counter-800.jpg 800w, img/izakaya_counter-1600.jpg 1600w" sizes="(min-width:880px) 620px, 100vw" alt="提灯の明かりが落ちる、夜の木のカウンター" width="1600" height="914" loading="lazy">
+      </div>
+      <dl class="three">
+        <div><dt>炭</dt><dd><b>紀州の備長炭だけで焼く</b><span>火が強く、煙が少ない。外は香ばしく、中はふっくら。</span></dd></div>
+        <div><dt>鶏</dt><dd><b>その朝にさばいた鶏</b><span>部位ごとに店で串を打ちます。せせりと砂ずりは数に限りがあります。</span></dd></div>
+        <div><dt>豚</dt><dd><b>福岡の焼き鳥屋らしく豚バラ</b><span>脂の甘い豚バラを、塩とレモンで。野菜巻きもこの豚で巻きます。</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <h2 class="reveal">お品書き</h2>
+        <p class="lead">焼き場の壁に掛けている札と同じです。<b>串は1本の値段、すべて税込。</b>塩かタレは、注文の時にひと言どうぞ。</p>
+      </div>
+
+      <div class="wall-group">
+        <h3>鶏の串</h3>
+        <ul class="wall">
+          <li><span class="nm">もも</span><span class="pr">198<small>円</small></span></li>
+          <li><span class="nm">皮</span><span class="pr">143<small>円</small></span></li>
+          <li><span class="nm">せせり</span><span class="pr">198<small>円</small></span></li>
+          <li><span class="nm">砂ずり</span><span class="pr">154<small>円</small></span></li>
+          <li><span class="nm">ハツ</span><span class="pr">165<small>円</small></span></li>
+          <li><span class="nm">つくね</span><span class="pr">242<small>円</small></span></li>
+          <li><span class="nm">ささみ梅</span><span class="pr">209<small>円</small></span></li>
+          <li><span class="nm">手羽先</span><span class="pr">231<small>円</small></span></li>
+        </ul>
+      </div>
+
+      <div class="wall-group">
+        <h3>豚と巻きもの</h3>
+        <ul class="wall">
+          <li><span class="nm">豚バラ</span><span class="pr">165<small>円</small></span></li>
+          <li><span class="nm">トマト巻き</span><span class="pr">264<small>円</small></span></li>
+          <li><span class="nm">えのき巻き</span><span class="pr">220<small>円</small></span></li>
+          <li><span class="nm">アスパラ巻き</span><span class="pr">286<small>円</small></span></li>
+          <li><span class="nm">しいたけ</span><span class="pr">187<small>円</small></span></li>
+          <li><span class="nm">銀杏</span><span class="pr">220<small>円</small></span></li>
+        </ul>
+      </div>
+
+      <div class="wall-group">
+        <h3>一品と〆</h3>
+        <ul class="wall">
+          <li><span class="nm">鶏皮ぽん酢</span><span class="pr">418<small>円</small></span></li>
+          <li><span class="nm">明太だし巻き</span><span class="pr">638<small>円</small></span></li>
+          <li><span class="nm">冷やしトマト</span><span class="pr">385<small>円</small></span></li>
+          <li><span class="nm">鶏がらスープ</span><span class="pr">352<small>円</small></span></li>
+          <li><span class="nm">焼きおにぎり</span><span class="pr">297<small>円</small></span></li>
+        </ul>
+      </div>
+
+      <div class="wall-group">
+        <h3>お酒と飲みもの</h3>
+        <ul class="wall">
+          <li><span class="nm">生ビール</span><span class="pr">572<small>円</small></span></li>
+          <li><span class="nm">ハイボール</span><span class="pr">495<small>円</small></span></li>
+          <li><span class="nm">麦焼酎</span><span class="pr">473<small>円</small></span></li>
+          <li><span class="nm">芋焼酎</span><span class="pr">517<small>円</small></span></li>
+          <li><span class="nm">梅酒</span><span class="pr">484<small>円</small></span></li>
+          <li><span class="nm">烏龍茶</span><span class="pr">308<small>円</small></span></li>
+        </ul>
+      </div>
+
+      <div class="menu-notes">
+        <p>お通し代はいただいていません。酢だれのキャベツは無料で、おかわりもどうぞ。お酒は20歳になってから。</p>
+        <ul class="course">
+          <li><b>おまかせ串 七本</b><span class="yen">1,580円</span><span>迷ったらこれ。その日いちばん良い部位を店主が選びます。</span></li>
+          <li><b>小上がりの宴会コース</b><span class="yen">4,950円</span><span>串10本と一品3品、2時間の飲み放題つき。4名から、前日までにご予約を。</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="yoyaku">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <h2 class="reveal">予約メモ</h2>
+        <p class="lead">日にちと人数を選ぶと、<b>DMにそのまま貼れる予約の文</b>ができます。文をコピーして、灯守のインスタへ送ってください。</p>
+      </div>
+      <div class="memo-box">
+        <form class="memo-form" id="memoForm" onsubmit="return false">
+          <div class="row2">
+            <div class="field"><label for="m-date">日にち</label><input type="date" id="m-date" name="date"></div>
+            <div class="field"><label for="m-time">時間</label>
+              <select id="m-time" name="time">
+                <option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option>
+                <option selected>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option>
+                <option>21:00</option><option>21:30</option><option>22:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="m-num">人数</label>
+            <select id="m-num" name="num">
+              <option value="1">1名</option><option value="2" selected>2名</option><option value="3">3名</option><option value="4">4名</option>
+              <option value="5">5名</option><option value="6">6名</option><option value="7">7名</option><option value="8">8名</option>
+              <option value="9">9名</option><option value="10">10名</option><option value="11">11名</option><option value="12">12名</option>
+            </select>
+          </div>
+          <fieldset class="seat">
+            <legend class="seat-lg">席</legend>
+            <div class="opts">
+              <label><input type="radio" name="seat" value="カウンター" checked>カウンター</label>
+              <label><input type="radio" name="seat" value="小上がり">小上がり</label>
+            </div>
+          </fieldset>
+          <p class="warn" id="m-warn" role="status" aria-live="polite"></p>
+        </form>
+        <div class="memo-out">
+          <label for="m-text">DMに貼る文</label>
+          <textarea id="m-text" rows="9" readonly>灯守さん
+予約をお願いします。
+
+日にち 12月5日(金)
+時間 19:00から
+人数 2名
+席 カウンター希望
+
+名前
+電話番号</textarea>
+          <button type="button" class="copy" id="m-copy" hidden>文をコピー</button>
+          <p class="copy-msg" id="m-msg" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ig" class="ig-sec">
+    <div class="wrap ig-layout">
+      <div class="sec-head">
+        <h2 class="reveal">今日の灯守</h2>
+        <p class="lead">その日の入荷と、空いている席はインスタで先にお知らせしています。</p>
+      </div>
+      <div class="ig-side">
+        <p class="ig-lead-pc">その日の入荷と、空いている席はインスタで先にお知らせしています。</p>
+        <a class="ig-account" href="#ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg><span>@yakitori_himori</span></a>
+        <ul class="ig-grid" id="igGrid">
+          <li><a href="img/izakaya_hero-1600.jpg" data-cap="今夜の炭、いい火になってます。"><img class="reveal" src="img/izakaya_hero-800.jpg" alt="炭火で焼いている串" width="800" height="457" loading="lazy" style="object-position:30% 50%"></a></li>
+          <li><a href="img/izakaya_plate-1600.jpg" data-cap="おまかせ七本、今日はせせり入り。"><img class="reveal" src="img/izakaya_plate-800.jpg" alt="皿に盛った焼き鳥の盛り合わせ" width="800" height="800" loading="lazy"></a></li>
+          <li><a href="img/izakaya_beer-1600.jpg" data-cap="一杯目は生で。"><img class="reveal" src="img/izakaya_beer-800.jpg" alt="生ビールと枝豆" width="800" height="800" loading="lazy"></a></li>
+          <li><a href="img/izakaya_counter-1600.jpg" data-cap="開店前のカウンター。今日は19時まで空きあり。"><img class="reveal" src="img/izakaya_counter-800.jpg" alt="開店前の木のカウンター" width="800" height="457" loading="lazy" style="object-position:60% 50%"></a></li>
+          <li class="z"><a href="img/izakaya_plate-1600.jpg" data-cap="皮は三日かけて仕込みます。"><img class="reveal" src="img/izakaya_plate-800.jpg" alt="焼き鳥の串の寄り" width="800" height="800" loading="lazy" style="object-position:40% 45%"></a></li>
+          <li><a href="img/izakaya_hero-1600.jpg" data-cap="豚バラ、焼けました。"><img class="reveal" src="img/izakaya_hero-800.jpg" alt="焼き台の上の豚バラ" width="800" height="457" loading="lazy" style="object-position:75% 50%"></a></li>
+        </ul>
+        <p class="ig-not">見本のため実在のアカウントはありません</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" id="access">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <h2 class="reveal">店への道</h2>
+        <p class="lead">灯守橋を渡って、ひとつ目の角を左へ。<b>赤い提灯</b>が目印です。</p>
+      </div>
+      <div class="info-grid">
+        <dl class="facts">
+          <div><dt>店名</dt><dd>炭火やきとり 灯守(ひもり)</dd></div>
+          <div><dt>住所</dt><dd>福岡市 灯守町2丁目0-0 1階</dd></div>
+          <div><dt>電話</dt><dd><a href="tel:092-000-0000">092-000-0000</a></dd></div>
+          <div><dt>営業時間</dt><dd>17:00〜24:00<br>料理のラストオーダー 23:30</dd></div>
+          <div><dt>定休日</dt><dd>月曜(祝日も休み)</dd></div>
+          <div><dt>席</dt><dd>カウンター10席<br>小上がり2卓(1卓6名まで)</dd></div>
+          <div><dt>お支払い</dt><dd>現金、クレジットカード、QR決済</dd></div>
+          <div><dt>駐車場</dt><dd>ありません。近くのコインパーキングをご利用ください</dd></div>
+        </dl>
+        <div class="map">
+          <svg viewBox="0 0 320 220" role="img" aria-labelledby="mapT">
+            <title id="mapT">略図: 灯守橋を渡って最初の角を左、灯守町公園の向かいに店</title>
+            <rect width="320" height="220" fill="var(--bg)"/>
+            <!-- 川 -->
+            <path d="M0 150 C80 138 140 168 200 160 S290 140 320 148" fill="none" stroke="var(--line)" stroke-width="18"/>
+            <!-- 道 -->
+            <path d="M120 0 V220" stroke="var(--ink-soft)" stroke-width="6" fill="none"/>
+            <path d="M0 70 H320" stroke="var(--ink-soft)" stroke-width="6" fill="none"/>
+            <!-- 橋 -->
+            <rect x="110" y="140" width="20" height="34" fill="var(--bg)" stroke="var(--ink)" stroke-width="2"/>
+            <text x="138" y="196" fill="var(--ink)" font-size="15" font-family="BIZ UDPGothic, sans-serif">灯守橋</text>
+            <!-- 公園 -->
+            <rect x="180" y="84" width="96" height="44" fill="none" stroke="var(--ink-soft)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="190" y="111" fill="var(--ink)" font-size="15" font-family="BIZ UDPGothic, sans-serif">灯守町公園</text>
+            <!-- 店 -->
+            <rect x="60" y="34" width="44" height="26" fill="var(--accent)"/>
+            <text x="82" y="52" fill="var(--on-accent)" font-size="15" font-weight="700" text-anchor="middle" font-family="Shippori Mincho B1, serif">灯守</text>
+            <!-- 道順 -->
+            <path d="M120 200 V82 Q120 70 108 70 H92" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 4"/>
+            <text x="8" y="100" fill="var(--ink-soft)" font-size="14" font-family="BIZ UDPGothic, sans-serif">橋から徒歩3分</text>
+          </svg>
+          <p>地図は略図です。来られる前に住所をご確認ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="end" id="reserve">
+    <div class="wrap end-in">
+      <h2 class="reveal">今夜、ひと席</h2>
+      <div>
+        <p>カウンターは当日でも空いていればご案内します。確実に座りたい日は、DMか電話で先にひと声ください。営業中の電話は焼きながら出るので、つながりにくい時はDMが早いです。</p>
+        <div class="cta">
+          <a class="btn btn-dm" href="#ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>InstagramのDMで予約</a>
+          <a class="btn btn-tel" href="tel:092-000-0000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>電話する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">炭火やきとり 灯守 福岡市 灯守町2丁目0-0(制作見本、架空の店です)</div>
+</footer>
+
+<nav class="bar" aria-label="予約">
+  <a class="btn btn-dm" href="#ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>DMで予約</a>
+  <a class="btn btn-tel" href="tel:092-000-0000">電話する</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog class="lb" id="lb" aria-label="写真を大きく見る">
+  <figure><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button type="button" class="lb-close" id="lbClose">閉じる</button>
+</dialog>
+
+<script>
+(function(){
+  var doc=document.documentElement;
+
+  /* 見出しと写真をスクロールで1回だけ出す */
+  if('IntersectionObserver' in window){
+    doc.classList.add('js');
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }
+
+  /* #ig のリンク: 見本のため実在のアカウントはない */
+  var toast=document.getElementById('toast'),tt;
+  document.querySelectorAll('a[href="#ig"]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      toast.textContent='見本のため実在のアカウントはありません';
+      toast.classList.add('on');
+      clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on');},2600);
+    });
+  });
+
+  /* インスタ風グリッドの拡大 */
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+  if(lb && typeof lb.showModal==='function'){
+    document.querySelectorAll('#igGrid a').forEach(function(a){
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var im=a.querySelector('img');
+        lbImg.src=a.getAttribute('href');lbImg.alt=im.alt;
+        lbCap.textContent=a.dataset.cap||'';
+        lb.showModal();
+      });
+    });
+    document.getElementById('lbClose').addEventListener('click',function(){lb.close();});
+    lb.addEventListener('click',function(ev){if(ev.target===lb)lb.close();});
+  }
+
+  /* 予約メモ */
+  var f=document.getElementById('memoForm'),dEl=document.getElementById('m-date'),tEl=document.getElementById('m-time'),
+      nEl=document.getElementById('m-num'),out=document.getElementById('m-text'),warn=document.getElementById('m-warn'),
+      btn=document.getElementById('m-copy'),msg=document.getElementById('m-msg');
+  var WD=['日','月','火','水','木','金','土'];
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  var start=new Date();if(start.getDay()===1)start.setDate(start.getDate()+1);
+  dEl.min=iso(new Date());dEl.value=iso(start);
+  function build(){
+    var p=(dEl.value||'').split('-'),seat=f.querySelector('input[name=seat]:checked').value,n=+nEl.value,ws=[];
+    var dayTxt='(日にちを選んでください)';
+    if(p.length===3){
+      var d=new Date(+p[0],+p[1]-1,+p[2]);
+      dayTxt=(d.getMonth()+1)+'月'+d.getDate()+'日('+WD[d.getDay()]+')';
+      if(d.getDay()===1)ws.push('月曜は定休日です。別の日を選んでください。');
+    }
+    if(seat==='カウンター'&&n>10)ws.push('カウンターは10席です。小上がりを選んでください。');
+    else if(seat==='カウンター'&&n>=5)ws.push('カウンターは横一列になります。5名以上なら小上がりが話しやすいです。');
+    if(seat==='小上がり'&&n>=7)ws.push('7名以上は小上がりの2卓をつなげてご用意します。');
+    warn.textContent=ws.join(' ');
+    out.value='灯守さん\n予約をお願いします。\n\n日にち '+dayTxt+'\n時間 '+tEl.value+'から\n人数 '+n+'名\n席 '+seat+'希望\n\n名前\n電話番号';
+    msg.textContent='';
+  }
+  f.addEventListener('input',build);f.addEventListener('change',build);
+  build();
+  btn.hidden=false;
+  btn.addEventListener('click',function(){
+    function fallback(){
+      out.focus();out.select();out.setSelectionRange(0,out.value.length);
+      msg.textContent='文を選択しました。長押しか Ctrl+C でコピーしてください。';
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(out.value).then(function(){
+        msg.textContent='コピーしました。灯守のDMに貼り付けて、名前と電話番号を書き足してください。';
+      },fallback);
+    }else{fallback();}
+  });
+})();
+</script>
+</body>
+</html>

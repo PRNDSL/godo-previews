@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>小鳩珈琲(こばとコーヒー)| 朝7時からのハンドドリップと焼き菓子</title>
+<meta name="description" content="福岡市 小鳩通の小さな喫茶、小鳩珈琲。朝7時開店。ハンドドリップの珈琲、曜日ごとに替わる自家製の焼き菓子、厚切りトースト。7:00〜17:00、水曜定休。">
+<meta name="theme-color" content="#d6ebf7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 方針: Instagramで知った人・検索で来た初めての人向けの、朝の喫茶の案内ページ。朝の光と手描きの柔らかい手触り。参考は紙の喫茶メニュー */
+:root{
+  --bg:#ffffff;
+  --sky:#d6ebf7;          /* 大きな面 */
+  --accent:#8cc5e6;       /* アクセント1色(空色) */
+  --ink:#1c2b4b;          /* 濃い紺 */
+  --ink-soft:#43536f;
+  --line:#bfd6e6;
+  --paper:#ffffff;
+  --btn-bg:#1c2b4b;
+  --btn-ink:#ffffff;
+  --photo-bg:#c9d4dc;
+  --font:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+  --r-sm:12px; --r-lg:32px; --r-full:50%;
+  --shadow:0 2px 8px rgba(28,43,75,.08);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111a2b; --sky:#1a2c46; --accent:#7db9de; --ink:#e4ecf6; --ink-soft:#b2c0d4;
+    --line:#304667; --paper:#14213a; --btn-bg:#9bcbe9; --btn-ink:#0f1a2c; --photo-bg:#3a4658;
+    --shadow:0 2px 8px rgba(0,0,0,.25); color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#111a2b; --sky:#1a2c46; --accent:#7db9de; --ink:#e4ecf6; --ink-soft:#b2c0d4;
+  --line:#304667; --paper:#14213a; --btn-bg:#9bcbe9; --btn-ink:#0f1a2c; --photo-bg:#3a4658;
+  --shadow:0 2px 8px rgba(0,0,0,.25); color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-weight:500;line-height:1.85;font-size:16px;letter-spacing:.02em;overflow-wrap:anywhere}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-weight:700;line-height:1.35;letter-spacing:.02em;margin:0}
+p{margin:0}
+.sp-only{display:inline}
+@media (min-width:768px){.sp-only{display:none}}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 var(--s4)}
+.hand{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* 制作見本の帯 */
+.demo-band{background:var(--ink);color:var(--bg);font-size:13px;line-height:1.6;text-align:center;padding:var(--s2) var(--s3)}
+
+/* ファーストビュー */
+.fv{background:var(--sky);padding:var(--s5) 0 var(--s6);border-radius:0 0 50% 50% / 0 0 40px 40px;overflow-x:clip}
+.fv-inner{display:flex;flex-direction:column;align-items:center;text-align:center}
+.window{position:relative;width:min(80vw,340px);aspect-ratio:1}
+.window .round{width:100%;height:100%;border-radius:var(--r-full);overflow:hidden;background:var(--photo-bg)}
+.window .round img{width:100%;height:100%;object-fit:cover;object-position:55% 50%}
+.window .mini{position:absolute;right:-4%;bottom:2%;width:34%;aspect-ratio:1;border-radius:var(--r-full);overflow:hidden;border:4px solid var(--sky);background:var(--photo-bg)}
+.window .mini img{width:100%;height:100%;object-fit:cover}
+.window .steam{position:absolute;right:-12%;bottom:36%;width:13%}
+.window .bird{position:absolute;left:2%;top:4%;width:22%}
+.photo-note{font-size:12px;color:var(--ink-soft);margin-top:var(--s2)}
+.fv-en{margin-top:var(--s4);font-size:13px;letter-spacing:.32em;font-weight:700;color:var(--ink-soft)}
+.fv h1{font-size:44px;letter-spacing:.08em;margin-top:var(--s1)}
+.fv-lead{margin-top:var(--s2);font-size:17px}
+@media (min-width:768px){
+  .fv{padding:var(--s5) 0 var(--s6);border-radius:0 0 50% 50% / 0 0 64px 64px}
+  .window{width:360px}
+  .fv h1{font-size:60px}
+  .fv-lead{font-size:19px}
+}
+
+/* 予約ボタン */
+.cta{display:flex;flex-wrap:wrap;gap:var(--s3);justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:52px;padding:var(--s3) var(--s4);border-radius:var(--r-sm);font-weight:700;font-size:16px;text-decoration:none;line-height:1.3;white-space:nowrap}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-main{background:var(--btn-bg);color:var(--btn-ink)}
+.btn-sub{background:var(--bg);color:var(--ink);border:1.5px solid var(--ink)}
+.after-fv{padding:var(--s5) 0 var(--s3);text-align:center}
+.after-fv .cta .btn{flex:1 1 220px;max-width:300px}
+.hours-line{margin-top:var(--s3);font-size:14px;color:var(--ink-soft)}
+
+/* 共通セクション */
+section{padding:var(--s7) 0}
+.sec-title{font-size:28px;display:flex;align-items:center;gap:var(--s2)}
+.sec-title svg{width:36px;height:36px;flex:none}
+.sec-lead{margin-top:var(--s3);color:var(--ink-soft);max-width:40em}
+@media (min-width:768px){.sec-title{font-size:34px} section{padding:var(--s8) 0}}
+
+/* 店のこと */
+.about-grid{display:grid;gap:var(--s5);align-items:center}
+.arch{position:relative;max-width:340px;width:100%;margin:0 auto}
+.arch .frame{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;background:var(--photo-bg)}
+.arch .frame img{width:100%;height:100%;object-fit:cover}
+.arch .cup{position:absolute;right:-8px;bottom:-24px;width:72px}
+.about-text p+p{margin-top:var(--s3)}
+.about-text .sec-title{margin-bottom:var(--s4)}
+@media (min-width:768px){.about-grid{grid-template-columns:5fr 6fr;gap:var(--s7)}}
+
+/* 今日の焼き菓子 */
+.bake{background:var(--sky)}
+.bake-grid{display:grid;gap:var(--s5);margin-top:var(--s5);align-items:start}
+.bake-photo{position:relative;width:min(64vw,260px);margin:0 auto}
+.bake-photo .round{border-radius:var(--r-full);overflow:hidden;aspect-ratio:1;background:var(--photo-bg)}
+.bake-photo .round img{width:100%;height:100%;object-fit:cover}
+.bake-photo .steam{position:absolute;left:-6%;top:-14%;width:24%}
+.days{display:none;grid-template-columns:repeat(7,1fr);gap:var(--s1);padding:0;margin:0 0 var(--s4);list-style:none}
+.js .days{display:grid}
+.day{position:relative;width:100%;min-height:52px;padding:var(--s2) 0 var(--s3);border:1.5px solid var(--line);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);font:inherit;font-weight:700;font-size:17px;cursor:pointer}
+.day[aria-selected="true"]{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)}
+.day.off{color:var(--ink-soft)}
+.day.off[aria-selected="true"]{color:var(--btn-ink)}
+.day .today{position:absolute;left:0;right:0;bottom:3px;font-size:11px;line-height:1;font-weight:700}
+.day .today::before{content:"";display:inline-block;width:6px;height:6px;border-radius:var(--r-full);background:var(--accent);margin-right:2px;vertical-align:1px}
+.bake-items{display:grid;gap:var(--s3)}
+.bake-item{background:var(--paper);border-radius:var(--r-lg);padding:var(--s4);box-shadow:var(--shadow)}
+.js .bake-item{display:none}
+.js .bake-item.is-active{display:block}
+.bake-day{font-size:14px;color:var(--ink-soft);font-weight:700}
+.bake-name{font-size:24px;margin-top:var(--s1)}
+.bake-desc{margin-top:var(--s2)}
+.bake-meta{margin-top:var(--s3);display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);font-size:14px;color:var(--ink-soft)}
+.bake-meta strong{color:var(--ink);font-size:18px}
+.bake-foot{margin-top:var(--s4);font-size:14px;color:var(--ink-soft)}
+@media (min-width:768px){
+  .bake-grid{grid-template-columns:300px 1fr;gap:var(--s7)}
+  .bake-photo{width:300px}
+  .day{font-size:18px;min-height:60px}
+}
+
+/* お品書き(紙のメニュー) */
+.menu-paper{position:relative;margin-top:var(--s5);background:var(--paper);border:1.5px solid var(--ink);border-radius:var(--r-lg);padding:var(--s5) var(--s4)}
+.menu-cols{display:grid;gap:var(--s5)}
+.menu-cat{font-size:18px;padding-bottom:var(--s2);border-bottom:1.5px solid var(--ink);margin-bottom:var(--s3)}
+.menu-list{list-style:none;margin:0;padding:0}
+.menu-list li{display:flex;align-items:baseline;gap:var(--s2);padding:6px 0}
+.menu-list .nm{min-width:0}
+.menu-list .nm small{display:block;font-size:13px;color:var(--ink-soft);line-height:1.5}
+.menu-list .ld{flex:1 1 24px;min-width:16px;border-bottom:2px dotted var(--ink-soft);transform:translateY(-6px)}
+.menu-list .pr{white-space:nowrap;font-weight:700}
+.menu-toast{position:relative;width:132px;margin:var(--s5) auto 0}
+.menu-toast .round{border-radius:var(--r-full);overflow:hidden;aspect-ratio:1;background:var(--photo-bg)}
+.menu-toast .round img{width:100%;height:100%;object-fit:cover}
+.menu-note{margin-top:var(--s4);font-size:13px;color:var(--ink-soft);text-align:center}
+@media (min-width:768px){
+  .menu-paper{padding:var(--s6) var(--s6)}
+  .menu-cols{grid-template-columns:1fr 1fr;gap:var(--s7)}
+  .menu-toast{position:absolute;right:-24px;top:-72px;width:156px;margin:0}
+}
+
+/* Instagram */
+.ig-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3)}
+.ig-account{display:inline-flex;align-items:center;gap:var(--s2);font-weight:700;font-size:18px;text-decoration:none;padding:var(--s2) 0}
+.ig-account svg{width:28px;height:28px}
+.ig-note{display:none;font-size:13px;color:var(--ink-soft);margin-top:var(--s2)}
+#ig:target .ig-note{display:block}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:var(--s4)}
+.tile{display:block;aspect-ratio:1;overflow:hidden;background:var(--photo-bg);border-radius:4px}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.tile:hover img{transform:scale(1.03)}
+.tile .z{transform:scale(1.7);transform-origin:35% 60%}
+.tile:hover .z{transform:scale(1.75)}
+@media (min-width:768px){.ig-grid{gap:8px;grid-template-columns:repeat(6,1fr)}}
+
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,720px);width:100%}
+dialog.lb::backdrop{background:rgba(17,26,43,.82)}
+.lb figure{margin:0;background:var(--paper);border-radius:var(--r-lg);overflow:hidden}
+.lb img{width:100%;max-height:70vh;object-fit:contain;background:var(--photo-bg)}
+.lb figcaption{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding:var(--s3) var(--s4);font-size:14px;color:var(--ink)}
+.lb-close{font:inherit;font-weight:700;min-height:44px;padding:0 var(--s4);border-radius:var(--r-sm);border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer}
+
+/* 声 */
+.voices{display:grid;gap:var(--s4);margin-top:var(--s5)}
+.voice{border-left:3px solid var(--accent);padding:var(--s1) 0 var(--s1) var(--s4)}
+.voice p{font-size:17px}
+.voice cite{display:block;margin-top:var(--s2);font-style:normal;font-size:14px;color:var(--ink-soft)}
+@media (min-width:768px){.voices{grid-template-columns:1fr 1fr;gap:var(--s6)}}
+
+/* 店の情報 */
+.info-grid{display:grid;gap:var(--s5);margin-top:var(--s5)}
+.info dl{margin:0;display:grid;grid-template-columns:5em 1fr;gap:var(--s3) var(--s3)}
+.info dt{font-weight:700;color:var(--ink-soft)}
+.info dd{margin:0}
+.info dd a{font-weight:700}
+.map{border:1.5px solid var(--ink);border-radius:var(--r-lg);overflow:hidden;background:var(--paper)}
+.map svg{display:block;width:100%;height:auto}
+.map .road{fill:var(--sky);stroke:var(--line);stroke-width:1.5}
+.map .park{fill:var(--accent);opacity:.45}
+.map .blk{fill:none;stroke:var(--line);stroke-width:1.5}
+.map text{fill:var(--ink);font-family:var(--font);font-weight:700}
+.map .pin{fill:var(--btn-bg)}
+.map .pin-ink{fill:var(--btn-ink)}
+.map figcaption{padding:var(--s2) var(--s4) var(--s3);font-size:13px;color:var(--ink-soft)}
+@media (min-width:768px){.info-grid{grid-template-columns:1fr 1fr;gap:var(--s7);align-items:start}}
+
+/* 最下部 */
+.last{background:var(--sky);text-align:center;border-radius:50% 50% 0 0 / 40px 40px 0 0}
+.last h2{font-size:28px}
+.last p{margin-top:var(--s3);color:var(--ink-soft)}
+.last .cta{margin-top:var(--s5)}
+.last .cta .btn{flex:1 1 220px;max-width:300px}
+.last .bird{width:56px;margin:0 auto var(--s3)}
+@media (min-width:768px){.last h2{font-size:36px}}
+footer{background:var(--sky);text-align:center;font-size:13px;color:var(--ink-soft);padding:var(--s4) var(--s4) var(--s5)}
+
+/* スマホ下の固定バー */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);padding:var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom));background:var(--bg);border-top:1.5px solid var(--line)}
+.bar .btn{min-height:48px;padding:var(--s2);font-size:15px}
+body{padding-bottom:72px}
+@media (min-width:768px){.bar{display:none} body{padding-bottom:0}}
+
+.toast{position:fixed;left:50%;width:max-content;bottom:88px;transform:translateX(-50%);z-index:30;max-width:calc(100vw - 32px);background:var(--ink);color:var(--bg);font-size:13px;padding:var(--s2) var(--s3);border-radius:var(--r-sm);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+@media (min-width:768px){.toast{bottom:32px}}
+
+/* スクロールで1回だけ(見出しと写真) */
+.rv{transition:opacity .6s ease,transform .6s ease}
+.rv-on .rv:not(.in){opacity:0;transform:translateY(20px)}
+@media (prefers-reduced-motion: reduce){
+  .rv,.tile img,.toast{transition:none}
+  .rv-on .rv:not(.in){opacity:1;transform:none}
+  .tile:hover img{transform:none}
+  .tile:hover .z{transform:scale(1.7)}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<p class="demo-band">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<!-- 手描き風の線画 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-steam" viewBox="0 0 60 80"><path d="M14 76c-8-10 6-18-1-29s6-18 0-28"/><path d="M30 72c-7-9 6-16 0-26s6-16 1-26"/><path d="M46 76c-8-10 6-18-1-29s5-16 0-26"/></symbol>
+  <symbol id="i-bird" viewBox="0 0 64 56"><path d="M8 32c3-12 18-17 30-11 3-5 9-7 14-5l-5 4c5 10-3 22-17 22-11 0-19-3-22-10z"/><path d="M20 30c5-6 13-6 18 1"/><path d="M52 16l7-1-6 4"/><circle cx="45" cy="19" r="1.4"/><path d="M24 42l-2 9m8-9l1 9"/></symbol>
+  <symbol id="i-cup" viewBox="0 0 72 72"><path d="M14 30h36v10c0 11-8 18-18 18s-18-7-18-18z"/><path d="M50 34c8-1 10 9 1 12"/><path d="M8 63c14 4 42 4 56 0"/><path d="M26 22c-3-4 3-7 0-12m10 12c-3-4 3-7 0-12"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 32 32"><rect x="4" y="4" width="24" height="24" rx="7"/><circle cx="16" cy="16" r="5.5"/><circle cx="23" cy="9" r="1.2"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.5 3.5l3 .5 1.3 4-2 1.6c1 2.2 2.6 3.8 4.8 4.8l1.6-2 4 1.3.5 3c-.3 1.8-1.9 3-3.7 2.8C10 18.7 5.3 14 4.7 7.2 4.5 5.4 5 3.9 6.5 3.5z"/></symbol>
+</svg>
+
+<header class="fv">
+  <div class="wrap fv-inner">
+    <div class="window">
+      <div class="round">
+        <img src="img/c_hero-1600.jpg" srcset="img/c_hero-800.jpg 800w, img/c_hero-1600.jpg 1600w" sizes="(min-width:768px) 740px, 140vw" alt="朝日の入るカウンターと、ドリップポット" width="1600" height="914" fetchpriority="high">
+      </div>
+      <div class="mini">
+        <img src="img/c_latte-800.jpg" srcset="img/c_latte-800.jpg 800w, img/c_latte-1600.jpg 1600w" sizes="150px" alt="ラテアートのカフェラテ" width="1600" height="1600">
+      </div>
+      <svg class="steam hand" viewBox="0 0 60 80" aria-hidden="true"><use href="#i-steam"/></svg>
+      <svg class="bird hand" viewBox="0 0 64 56" aria-hidden="true"><use href="#i-bird"/></svg>
+    </div>
+    <p class="photo-note">写真はイメージです</p>
+    <p class="fv-en" lang="en">KOBATO COFFEE</p>
+    <h1>小鳩珈琲</h1>
+    <p class="fv-lead">朝7時、ドリップの湯気と<br class="sp-only">焼きたての菓子で。</p>
+  </div>
+</header>
+
+<main>
+  <div class="after-fv wrap">
+    <div class="cta">
+      <a class="btn btn-main js-ig" href="#ig"><svg class="hand" style="stroke:currentColor" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-cam"/></svg>InstagramのDMで予約</a>
+      <a class="btn btn-sub" href="tel:092-000-0000"><svg class="hand" style="stroke:currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tel"/></svg>電話する</a>
+    </div>
+    <p class="hours-line">7:00〜17:00 / 水曜定休 / 福岡市 小鳩通</p>
+  </div>
+
+  <section class="about">
+    <div class="wrap about-grid">
+      <div class="arch rv">
+        <div class="frame">
+          <img src="img/c_beans-800.jpg" srcset="img/c_beans-800.jpg 800w, img/c_beans-1600.jpg 1600w" sizes="(min-width:768px) 420px, 88vw" alt="コーヒー豆の瓶と手回しのミル" width="1600" height="1600" loading="lazy">
+        </div>
+        <svg class="cup hand" viewBox="0 0 72 72" aria-hidden="true"><use href="#i-cup"/></svg>
+      </div>
+      <div class="about-text">
+        <h2 class="sec-title rv">夫婦ふたりの、<br class="sp-only">十席の喫茶です</h2>
+        <p>小鳩通りの角で、朝7時にシャッターを上げます。豆は週に2回、店の奥の小さな焙煎機で。注文を受けてから挽いて、一杯ずつ手で落とします。</p>
+        <p>焼き菓子は妻の担当で、毎朝6時から焼いています。曜日で焼くものが替わるので、お目当ての日に来てくださる方も。トーストは近所のパン屋に頼んでいる角食を、4センチの厚切りで。</p>
+        <p>出勤前の10分でも、休みの日の長居でも。どうぞ気軽に。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bake" id="bake" aria-labelledby="bake-h">
+    <div class="wrap">
+      <h2 class="sec-title rv" id="bake-h">今日の焼き菓子</h2>
+      <p class="sec-lead">曜日ごとに焼く菓子が替わります。9時ごろ焼き上がり、なくなり次第おしまいです。</p>
+      <div class="bake-grid">
+        <div class="bake-photo rv">
+          <div class="round">
+            <img src="img/c_sweets-800.jpg" srcset="img/c_sweets-800.jpg 800w, img/c_sweets-1600.jpg 1600w" sizes="(min-width:768px) 300px, 64vw" alt="ベイクドチーズケーキとカヌレ" width="1600" height="1600" loading="lazy">
+          </div>
+          <svg class="steam hand" viewBox="0 0 60 80" aria-hidden="true"><use href="#i-steam"/></svg>
+        </div>
+        <div>
+          <ul class="days" role="tablist" aria-label="曜日を選ぶ"></ul>
+          <div class="bake-items">
+            <article class="bake-item" data-day="1"><p class="bake-day">月曜日</p><h3 class="bake-name">バナナブレッド</h3><p class="bake-desc">よく熟したバナナを多めに。くるみ入りで、少し温めて出します。</p><p class="bake-meta"><strong>380円</strong><span>深煎りのブレンドと</span></p></article>
+            <article class="bake-item" data-day="2"><p class="bake-day">火曜日</p><h3 class="bake-name">紅茶のスコーン</h3><p class="bake-desc">茶葉を練り込んだ、外さくっと中しっとりのスコーン。クロテッドクリームを添えて。</p><p class="bake-meta"><strong>360円</strong><span>カフェオレと</span></p></article>
+            <article class="bake-item" data-day="3" data-off="1"><p class="bake-day">水曜日</p><h3 class="bake-name">定休日</h3><p class="bake-desc">お店も焼き菓子もお休みです。木曜はカヌレを焼きます。</p></article>
+            <article class="bake-item" data-day="4"><p class="bake-day">木曜日</p><h3 class="bake-name">カヌレ</h3><p class="bake-desc">銅型で焼く、外がかりっと香ばしいカヌレ。ラム酒は控えめです。</p><p class="bake-meta"><strong>330円</strong><span>浅煎りのブレンドと</span></p></article>
+            <article class="bake-item" data-day="5"><p class="bake-day">金曜日</p><h3 class="bake-name">ベイクドチーズケーキ</h3><p class="bake-desc">底のクッキー生地まで手作り。昼過ぎには売り切れることが多いので、取り置きはDMで。</p><p class="bake-meta"><strong>480円</strong><span>ブレンドと</span></p></article>
+            <article class="bake-item" data-day="6"><p class="bake-day">土曜日</p><h3 class="bake-name">レモンケーキ</h3><p class="bake-desc">国産レモンの皮をたっぷり。白いアイシングは薄めにかけています。</p><p class="bake-meta"><strong>420円</strong><span>水出しアイス珈琲と</span></p></article>
+            <article class="bake-item" data-day="0"><p class="bake-day">日曜日</p><h3 class="bake-name">りんごのクランブルケーキ</h3><p class="bake-desc">紅玉を煮て、ほろほろのクランブルをのせて焼きます。秋から春までの限定です。</p><p class="bake-meta"><strong>460円</strong><span>カフェラテと</span></p></article>
+          </div>
+          <p class="bake-foot">焼き菓子はお持ち帰りもできます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" aria-labelledby="menu-h">
+    <div class="wrap">
+      <h2 class="sec-title rv" id="menu-h"><svg class="hand" viewBox="0 0 72 72" aria-hidden="true"><use href="#i-cup"/></svg>お品書き</h2>
+      <div class="menu-paper">
+        <div class="menu-cols">
+          <div>
+            <h3 class="menu-cat">珈琲</h3>
+            <ul class="menu-list">
+              <li><span class="nm">小鳩ブレンド<small>中深煎り。苦みとコク</small></span><span class="ld"></span><span class="pr">520円</span></li>
+              <li><span class="nm">朝のブレンド<small>浅煎り。軽くて明るい</small></span><span class="ld"></span><span class="pr">520円</span></li>
+              <li><span class="nm">今月のシングルオリジン</span><span class="ld"></span><span class="pr">620円</span></li>
+              <li><span class="nm">カフェオレ</span><span class="ld"></span><span class="pr">580円</span></li>
+              <li><span class="nm">カフェラテ</span><span class="ld"></span><span class="pr">600円</span></li>
+              <li><span class="nm">水出しアイス珈琲</span><span class="ld"></span><span class="pr">560円</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="menu-cat">朝の皿</h3>
+            <ul class="menu-list">
+              <li><span class="nm">モーニングセット<small>10時半まで。ブレンドと厚切りトースト、ゆで卵</small></span><span class="ld"></span><span class="pr">760円</span></li>
+              <li><span class="nm">厚切りトースト<small>バターかジャム</small></span><span class="ld"></span><span class="pr">380円</span></li>
+              <li><span class="nm">あんバタートースト</span><span class="ld"></span><span class="pr">460円</span></li>
+              <li><span class="nm">ゆで卵</span><span class="ld"></span><span class="pr">80円</span></li>
+            </ul>
+            <h3 class="menu-cat" style="margin-top:var(--s5)">焼き菓子と豆</h3>
+            <ul class="menu-list">
+              <li><span class="nm">今日の焼き菓子</span><span class="ld"></span><span class="pr">330円〜</span></li>
+              <li><span class="nm">豆の量り売り<small>100gから</small></span><span class="ld"></span><span class="pr">780円〜</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu-toast rv">
+          <div class="round">
+            <img src="img/c_toast-800.jpg" srcset="img/c_toast-800.jpg 800w, img/c_toast-1600.jpg 1600w" sizes="160px" alt="厚切りトーストとゆで卵" width="1600" height="1600" loading="lazy">
+          </div>
+        </div>
+        <p class="menu-note">価格はすべて税込です</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ig" id="ig" aria-labelledby="ig-h">
+    <div class="wrap">
+      <div class="ig-head">
+        <h2 class="sec-title rv" id="ig-h">毎朝の様子はInstagramで</h2>
+        <a class="ig-account js-ig" href="#ig"><svg class="hand" style="stroke:currentColor" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-cam"/></svg>@kobato.coffee</a>
+      </div>
+      <p class="sec-lead">その日の焼き菓子と、売り切れのお知らせを朝のうちに載せています。</p>
+      <p class="ig-note">見本のため実在のアカウントはありません</p>
+      <div class="ig-grid">
+        <a class="tile" href="img/c_latte-1600.jpg" data-cap="今朝のラテアートは小鳥"><img src="img/c_latte-800.jpg" alt="ラテアートのカフェラテ" width="800" height="800" loading="lazy"></a>
+        <a class="tile" href="img/c_sweets-1600.jpg" data-cap="金曜はチーズケーキの日"><img src="img/c_sweets-800.jpg" alt="チーズケーキとカヌレ" width="800" height="800" loading="lazy"></a>
+        <a class="tile" href="img/c_toast-1600.jpg" data-cap="厚さ4センチのトースト"><img src="img/c_toast-800.jpg" alt="厚切りトーストとゆで卵" width="800" height="800" loading="lazy"></a>
+        <a class="tile" href="img/c_hero-1600.jpg" data-cap="7時の光がいちばんきれい"><img src="img/c_hero-800.jpg" alt="朝日の入るカウンター" width="800" height="457" loading="lazy" style="object-position:70% 50%"></a>
+        <a class="tile" href="img/c_beans-1600.jpg" data-cap="今週の焙煎はエチオピア"><img src="img/c_beans-800.jpg" alt="コーヒー豆の瓶とミル" width="800" height="800" loading="lazy"></a>
+        <a class="tile" href="img/c_sweets-1600.jpg" data-cap="カヌレの焼き色"><img class="z" src="img/c_sweets-800.jpg" alt="カヌレの焼き色の寄り" width="800" height="800" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="voice-sec" aria-labelledby="voice-h">
+    <div class="wrap">
+      <h2 class="sec-title rv" id="voice-h">通ってくださる方の声</h2>
+      <div class="voices">
+        <blockquote class="voice"><p>7時に開いているのが本当にありがたい。出勤前にトーストを半分食べて、残りは包んでもらっています。</p><cite>M.Kさん 30代</cite></blockquote>
+        <blockquote class="voice"><p>金曜のチーズケーキは昼過ぎには無くなるので、朝のうちにDMで取り置きをお願いしています。</p><cite>S.Tさん 40代</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" aria-labelledby="info-h">
+    <div class="wrap">
+      <h2 class="sec-title rv" id="info-h">お店の場所と時間</h2>
+      <div class="info-grid">
+        <dl>
+          <dt>店名</dt><dd>小鳩珈琲(こばとコーヒー)</dd>
+          <dt>住所</dt><dd>福岡市 小鳩通 2丁目0-0</dd>
+          <dt>電話</dt><dd><a href="tel:092-000-0000">092-000-0000</a></dd>
+          <dt>営業</dt><dd>7:00〜17:00<br>モーニングは10:30まで</dd>
+          <dt>定休</dt><dd>水曜日</dd>
+          <dt>席</dt><dd>カウンター4席とテーブル6席<br>全席禁煙</dd>
+          <dt>支払い</dt><dd>現金、QRコード決済</dd>
+        </dl>
+        <figure class="map" style="margin:0">
+          <svg viewBox="0 0 340 230" role="img" aria-labelledby="map-t">
+            <title id="map-t">略図: 小鳩通り沿い、こばと公園の向かい、角の文具店の2軒となり</title>
+            <rect class="blk" x="16" y="16" width="120" height="74" rx="12"/>
+            <rect class="park" x="196" y="16" width="128" height="74" rx="12"/>
+            <rect class="blk" x="16" y="142" width="120" height="72" rx="12"/>
+            <rect class="blk" x="196" y="142" width="128" height="72" rx="12"/>
+            <rect class="road" x="-4" y="100" width="348" height="32"/>
+            <rect class="road" x="148" y="-4" width="36" height="238"/>
+            <text x="250" y="122" font-size="14" text-anchor="middle">小鳩通り</text>
+            <text x="260" y="58" font-size="15" text-anchor="middle">こばと公園</text>
+            <text x="76" y="184" font-size="14" text-anchor="middle">角の文具店</text>
+            <g transform="translate(244 160)">
+              <path class="pin" d="M0 -8c-11 0-18 8-18 17 0 12 18 27 18 27s18-15 18-27c0-9-7-17-18-17z"/>
+              <circle class="pin-ink" cx="0" cy="9" r="6"/>
+            </g>
+            <text x="244" y="210" font-size="15" text-anchor="middle">小鳩珈琲</text>
+          </svg>
+          <figcaption>こばと公園の向かい、角の文具店から2軒となりです。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="last" aria-labelledby="last-h">
+    <div class="wrap">
+      <svg class="bird hand" viewBox="0 0 64 56" aria-hidden="true"><use href="#i-bird"/></svg>
+      <h2 id="last-h">朝の一杯を、<br class="sp-only">小鳩通りで。</h2>
+      <p>席の予約と焼き菓子の取り置きは、DMかお電話で。</p>
+      <div class="cta">
+        <a class="btn btn-main js-ig" href="#ig"><svg class="hand" style="stroke:currentColor" viewBox="0 0 32 32" aria-hidden="true"><use href="#i-cam"/></svg>InstagramのDMで予約</a>
+        <a class="btn btn-sub" href="tel:092-000-0000"><svg class="hand" style="stroke:currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tel"/></svg>電話する</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>小鳩珈琲 (制作見本)</footer>
+
+<nav class="bar" aria-label="予約と電話">
+  <a class="btn btn-main js-ig" href="#ig">DMで予約</a>
+  <a class="btn btn-sub" href="tel:092-000-0000">電話する</a>
+</nav>
+
+<dialog class="lb" id="lb" aria-label="写真を大きく見る">
+  <figure>
+    <img id="lb-img" src="" alt="">
+    <figcaption><span id="lb-cap"></span><button class="lb-close" type="button" id="lb-close">閉じる</button></figcaption>
+  </figure>
+</dialog>
+
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+<script>
+(function(){
+  // 今日の焼き菓子: 曜日タブ
+  var names=['日','月','火','水','木','金','土'];
+  var order=[1,2,3,4,5,6,0];
+  var list=document.querySelector('.days');
+  var items={};
+  document.querySelectorAll('.bake-item').forEach(function(a){items[a.dataset.day]=a;a.id='bake-'+a.dataset.day;a.setAttribute('role','tabpanel');});
+  var today=new Date().getDay();
+  var tabs=[];
+  order.forEach(function(d){
+    var li=document.createElement('li');li.setAttribute('role','presentation');
+    var b=document.createElement('button');
+    b.type='button';b.className='day'+(items[d].dataset.off?' off':'');
+    b.setAttribute('role','tab');b.setAttribute('aria-controls','bake-'+d);b.id='tab-'+d;
+    b.dataset.day=d;
+    b.innerHTML=names[d]+(d===today?'<span class="today">きょう</span>':'');
+    b.setAttribute('aria-label',names[d]+'曜日'+(d===today?'(今日)':''));
+    items[d].setAttribute('aria-labelledby','tab-'+d);
+    b.addEventListener('click',function(){select(d,false)});
+    b.addEventListener('keydown',function(e){
+      var i=order.indexOf(d),n=null;
+      if(e.key==='ArrowRight')n=order[(i+1)%7];
+      if(e.key==='ArrowLeft')n=order[(i+6)%7];
+      if(e.key==='Home')n=order[0];
+      if(e.key==='End')n=order[6];
+      if(n!==null){e.preventDefault();select(n,true)}
+    });
+    li.appendChild(b);list.appendChild(li);tabs.push(b);
+  });
+  function select(d,focus){
+    tabs.forEach(function(t){var on=+t.dataset.day===d;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;if(on&&focus)t.focus();});
+    Object.keys(items).forEach(function(k){items[k].classList.toggle('is-active',+k===d)});
+  }
+  select(today,false);
+
+  // Instagramのリンク(見本なので実在しない)
+  var toast=document.getElementById('toast'),tm;
+  document.querySelectorAll('.js-ig').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      toast.textContent='見本のため実在のアカウントはありません';
+      toast.classList.add('show');clearTimeout(tm);
+      tm=setTimeout(function(){toast.classList.remove('show')},2800);
+    });
+  });
+
+  // 投稿の拡大
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),last;
+  if(lb.showModal){
+    document.querySelectorAll('.tile').forEach(function(t){
+      t.addEventListener('click',function(e){
+        e.preventDefault();last=t;
+        var im=t.querySelector('img');
+        lbImg.src=t.getAttribute('href');lbImg.alt=im.alt;lbCap.textContent=t.dataset.cap||'';
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){lb.close()});
+    lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+    lb.addEventListener('close',function(){if(last)last.focus()});
+  }
+
+  // スクロールで1回だけ表示
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    document.documentElement.classList.add('rv-on');
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }
+})();
+</script>
+</body>
+</html>

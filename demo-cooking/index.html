@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>料理教室 匙(さじ)| 自宅キッチンで習う和食の基本と作り置き</title>
+<meta name="description" content="福岡市 匙ヶ丘の料理教室 匙。自宅キッチンで最大4名、だしの取り方から作り置きまで和食の基本を手を動かして覚えます。体験レッスン3,850円(材料費込み)。予約はInstagramのDMか電話で。">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;500;700&family=Zen+Kaku+Gothic+Antique:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* 方針: Instagramで教室を知った人・「福岡 料理教室 少人数」で探した人向けの、自宅料理教室の案内ページ。
+   手触りは「台所に置いたレシピノート」。方眼と罫線、角の小さいレシピカード、材料表。参考は市販のレシピカードと料理本の材料欄 */
+:root{
+  --bg:#ffffff;
+  --bg-sub:#f5f6f7;          /* ごく薄い灰(クリームにしない) */
+  --card:#ffffff;
+  --ink:#24262b;
+  --ink-soft:#575b63;
+  --line:#d9dce1;
+  --rule:#e6e9ee;            /* カードの罫線 */
+  --grid:rgba(52,98,150,.075);/* 方眼の線 */
+  --accent:#c4361f;          /* トマトの赤 1色(白地で約5.5:1) */
+  --accent-ink:#ffffff;
+  --photo-bg:#cfd3d8;
+  --f-head:"Zen Kaku Gothic Antique","Hiragino Sans",sans-serif;
+  --f-body:"M PLUS 2","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+  --r:4px;                   /* 角丸はこれ1つ */
+  --shadow:0 1px 2px rgba(36,38,43,.08);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#18191c; --bg-sub:#1f2124; --card:#222428; --ink:#ebecee; --ink-soft:#b4b8bf;
+    --line:#3a3d43; --rule:#33363b; --grid:rgba(160,190,230,.07);
+    --accent:#ff7a63; --accent-ink:#18191c; --photo-bg:#3b3e44; --shadow:0 1px 2px rgba(0,0,0,.4);
+    color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#18191c; --bg-sub:#1f2124; --card:#222428; --ink:#ebecee; --ink-soft:#b4b8bf;
+  --line:#3a3d43; --rule:#33363b; --grid:rgba(160,190,230,.07);
+  --accent:#ff7a63; --accent-ink:#18191c; --photo-bg:#3b3e44; --shadow:0 1px 2px rgba(0,0,0,.4);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.8;letter-spacing:.02em;overflow-wrap:anywhere}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;line-height:1.4;letter-spacing:.02em;margin:0}
+p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+.sp-only{display:inline}
+@media (min-width:768px){.sp-only{display:none}}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 var(--s3)}
+@media (min-width:768px){.wrap{padding:0 var(--s5)}}
+.num{font-family:var(--f-head);font-weight:700;font-variant-numeric:tabular-nums}
+.grid-bg{
+  background-color:var(--bg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.sec{padding:var(--s7) 0}
+@media (min-width:768px){.sec{padding:var(--s8) 0}}
+.sec-head{margin-bottom:var(--s5)}
+.sec-head h2{font-size:clamp(24px,5.6vw,32px)}
+.sec-head p{margin-top:var(--s2);color:var(--ink-soft);max-width:40em}
+.photo{background:var(--photo-bg);overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+/* 制作見本の帯 */
+.demo-band{background:var(--ink);color:var(--bg);font-size:13px;line-height:1.6;text-align:center;padding:var(--s2) var(--s3)}
+
+/* ヘッダー */
+.site-head{border-bottom:1px solid var(--line);background:var(--bg)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);min-height:56px}
+.logo{display:flex;align-items:center;gap:var(--s2);text-decoration:none;font-family:var(--f-head);font-weight:700;font-size:18px}
+.logo small{font-size:12px;font-weight:500;color:var(--ink-soft);margin-right:2px}
+.logo svg{width:28px;height:28px;flex:none}
+.ig-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;text-decoration:none;color:var(--ink-soft);padding:var(--s2) 0}
+.ig-link:hover{color:var(--ink)}
+.ig-ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8}
+
+/* ボタン */
+.btns{display:grid;gap:var(--s2)}
+.btn{display:flex;align-items:center;justify-content:center;gap:var(--s2);min-height:52px;padding:var(--s2) var(--s4);border-radius:var(--r);font-weight:700;font-size:16px;text-decoration:none;border:2px solid var(--accent);white-space:nowrap}
+.btn-main{background:var(--accent);color:var(--accent-ink)}
+.btn-main:hover{filter:brightness(.94)}
+.btn-sub{background:var(--card);color:var(--ink);border-color:var(--ink)}
+.btn-sub:hover{background:var(--bg-sub)}
+.btn svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8}
+
+/* ファーストビュー: 方眼の上に置いたレシピカード */
+.hero{padding:var(--s3) 0 var(--s5)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.hero-card{overflow:hidden;border-top:4px solid var(--accent)}
+.hero-photo{aspect-ratio:2/1;position:relative}
+.hero-photo img{object-position:50% 60%}
+.photo-note{position:absolute;right:var(--s2);bottom:var(--s2);font-size:11px;line-height:1.4;background:rgba(0,0,0,.6);color:#fff;padding:2px 6px;border-radius:var(--r)}
+.hero-body{padding:var(--s4) var(--s4) var(--s4)}
+.hero-eyebrow{font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.04em}
+.hero h1{font-size:min(7.2vw,30px);margin-top:var(--s1)}
+.ruled{
+  margin-top:var(--s3);line-height:28px;font-size:15px;color:var(--ink-soft);
+  background-image:linear-gradient(transparent 27px,var(--rule) 27px);background-size:100% 28px;
+}
+.hero .btns{margin-top:var(--s4)}
+@media (min-width:768px){
+  .hero{padding:var(--s5) 0 var(--s6)}
+  .hero-photo{aspect-ratio:3/1}
+  .hero h1{font-size:40px}
+  .hero-body{padding:var(--s5)}
+  .ruled{line-height:32px;font-size:16px;background-image:linear-gradient(transparent 31px,var(--rule) 31px);background-size:100% 32px;max-width:36em}
+  .hero .btns{grid-template-columns:auto auto;justify-content:start}
+}
+@media (min-width:1024px){
+  .hero h1{font-size:44px}
+  .hero-body{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--s5);align-items:end}
+  .ruled{margin-top:0}
+}
+
+/* 教室について */
+.about-grid{display:grid;gap:var(--s5)}
+.about-photo{aspect-ratio:1;border-radius:var(--r);max-width:420px}
+.about-photo img{object-position:40% 50%}
+.teacher{margin-top:var(--s4);padding:var(--s3) var(--s4);border-left:4px solid var(--accent);background:var(--bg-sub);border-radius:0 var(--r) var(--r) 0;font-size:15px}
+.teacher b{font-family:var(--f-head);font-size:16px;display:block}
+.flow{margin-top:var(--s5);border-top:1px solid var(--line)}
+.flow li{display:grid;grid-template-columns:64px 1fr;gap:var(--s3);padding:var(--s3) 0;border-bottom:1px solid var(--line)}
+.flow .num{color:var(--accent);font-size:17px}
+.flow h3{font-size:16px}
+.flow p{font-size:15px;color:var(--ink-soft)}
+@media (min-width:768px){
+  .about-grid{grid-template-columns:5fr 7fr;gap:var(--s6);align-items:start}
+  .about-photo{max-width:none;position:sticky;top:var(--s4)}
+}
+
+/* 今月のレッスンと分量計算 */
+.lesson-grid{display:grid;gap:var(--s4)}
+.dates{padding:var(--s4)}
+.dates h3,.recipe h3{font-size:18px}
+.dates ul{margin-top:var(--s3);border-top:1px solid var(--rule)}
+.dates li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--s1) var(--s3);padding:12px 0;border-bottom:1px solid var(--rule)}
+.dates .when{font-weight:500}
+.dates .when small{display:block;font-size:13px;color:var(--ink-soft)}
+.seat{font-family:var(--f-head);font-weight:700;font-size:15px;white-space:nowrap}
+.seat b{font-size:22px;color:var(--accent)}
+.seat.full{color:var(--ink-soft)}
+.seat.full b{color:var(--ink-soft)}
+.dates .note{margin-top:var(--s3);font-size:14px;color:var(--ink-soft)}
+.recipe{overflow:hidden;border-top:4px solid var(--accent)}
+.recipe-top{display:grid;grid-template-columns:96px 1fr;gap:var(--s3);padding:var(--s4) var(--s4) 0;align-items:center}
+.recipe-top .photo{aspect-ratio:1;border-radius:var(--r)}
+.recipe-top p{font-size:14px;color:var(--ink-soft)}
+.recipe-body{padding:var(--s4)}
+.serve{border:0;padding:0;margin:0}
+.serve legend{font-weight:700;font-size:15px;padding:0;margin-bottom:var(--s2)}
+.serve-row{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--ink);border-radius:var(--r);overflow:hidden}
+.serve input{position:absolute;opacity:0;width:1px;height:1px}
+.serve label{display:flex;align-items:center;justify-content:center;min-height:44px;font-family:var(--f-head);font-weight:700;font-size:16px;cursor:pointer;border-left:1px solid var(--line)}
+.serve label:first-of-type{border-left:0}
+.serve input:checked+label{background:var(--ink);color:var(--bg)}
+.serve input:focus-visible+label{outline:3px solid var(--accent);outline-offset:-3px}
+.ing-head{display:flex;justify-content:space-between;align-items:baseline;margin-top:var(--s4);padding-bottom:var(--s2);border-bottom:2px solid var(--ink)}
+.ing-head h4{margin:0;font-family:var(--f-head);font-size:16px}
+.ing-head span{font-size:14px;color:var(--ink-soft)}
+.ing-sub{margin-top:var(--s3);font-size:13px;font-weight:700;color:var(--accent)}
+.ing li{display:flex;align-items:baseline;gap:var(--s2);padding:6px 0;border-bottom:1px dashed var(--rule);font-size:15px}
+.ing li::after{content:"";order:1;flex:1 1 auto;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:16px}
+.ing .q{order:2;font-family:var(--f-head);font-weight:700;white-space:nowrap}
+.ing .q.changed{color:var(--accent)}
+.recipe .tip{margin-top:var(--s3);font-size:14px;color:var(--ink-soft)}
+@media (min-width:900px){
+  .lesson-grid{grid-template-columns:5fr 7fr;align-items:start}
+}
+
+/* コースと料金 */
+.price-list{border-top:2px solid var(--ink)}
+.price-list li{display:grid;grid-template-columns:1fr auto;gap:var(--s1) var(--s4);padding:var(--s4) 0;border-bottom:1px solid var(--line)}
+.price-list h3{font-size:18px}
+.price-list p{grid-column:1/-1;font-size:14px;color:var(--ink-soft)}
+.price{font-family:var(--f-head);font-weight:700;font-size:22px;white-space:nowrap;text-align:right}
+.price small{font-size:13px;font-weight:500;color:var(--ink-soft);margin-left:2px}
+.price-note{margin-top:var(--s3);font-size:14px;color:var(--ink-soft)}
+@media (min-width:768px){
+  .price-list li{grid-template-columns:16em 1fr auto;align-items:baseline}
+  .price-list p{grid-column:2;grid-row:1}
+  .price-list .price{grid-column:3;grid-row:1}
+}
+
+/* Instagram */
+.ig-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2) var(--s3);margin-bottom:var(--s3)}
+.ig-account{display:inline-flex;align-items:center;gap:var(--s2);font-weight:700;text-decoration:none;font-size:16px;padding:var(--s1) 0}
+.ig-account .ig-ico{width:24px;height:24px}
+.ig-head p{font-size:14px;color:var(--ink-soft)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.tile{display:block;aspect-ratio:1;overflow:hidden;background:var(--photo-bg);border-radius:var(--r)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.tile:hover img{transform:scale(1.04)}
+.tile.c2 img{object-position:20% 30%;transform:scale(1.5)}
+.tile.c2:hover img{transform:scale(1.55)}
+.tile.c3 img{object-position:80% 70%;transform:scale(1.35)}
+.tile.c3:hover img{transform:scale(1.4)}
+@media (min-width:768px){.tiles{gap:8px}}
+.ig-wrap{display:grid;gap:0}
+@media (min-width:1024px){
+  .ig-wrap{grid-template-columns:1fr 2fr;gap:var(--s6);align-items:start}
+  .ig-wrap .ig-head{flex-direction:column;align-items:flex-start}
+}
+
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,760px);width:100%}
+dialog.lb::backdrop{background:rgba(20,21,24,.86)}
+.lb img{width:100%;height:auto;max-height:78vh;object-fit:contain;background:var(--photo-bg);border-radius:var(--r)}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);margin-top:var(--s2);color:#fff;font-size:14px}
+.lb-close{background:#fff;color:#24262b;border:0;border-radius:var(--r);min-height:44px;padding:0 var(--s4);font:inherit;font-weight:700;cursor:pointer}
+
+/* お客様の声 */
+.voices{display:grid;gap:var(--s3)}
+.voices blockquote{margin:0;padding:var(--s4);background:var(--card);border:1px solid var(--line);border-radius:var(--r);font-size:15px}
+.voices cite{display:block;margin-top:var(--s2);font-style:normal;font-size:13px;color:var(--ink-soft)}
+@media (min-width:768px){.voices{grid-template-columns:3fr 2fr;align-items:start}}
+
+/* 教室の情報 */
+.info{background:var(--bg-sub)}
+.info-grid{display:grid;gap:var(--s5)}
+.info dl{display:grid;grid-template-columns:6.5em 1fr;border-top:1px solid var(--line)}
+.info dt,.info dd{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info dt{font-weight:700}
+.info dd a{font-weight:700}
+.map{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3)}
+.map svg{display:block;width:100%;max-width:440px;height:auto;margin:0 auto}
+.m-txt.m-small{font-size:16px;fill:var(--ink-soft)}
+.map p{margin-top:var(--s2);font-size:14px;color:var(--ink-soft)}
+.m-road{stroke:var(--line);stroke-width:14;fill:none}
+.m-road2{stroke:var(--line);stroke-width:8;fill:none}
+.m-block{fill:var(--bg-sub);stroke:var(--line)}
+.m-txt{fill:var(--ink);font-family:var(--f-body);font-size:18px;font-weight:500}
+.m-pin{fill:var(--accent)}
+.m-pin-txt{fill:var(--accent);font-family:var(--f-head);font-size:18px;font-weight:700}
+@media (min-width:900px){.info-grid{grid-template-columns:1fr 1fr;align-items:start}}
+
+/* 最下部 */
+.end{text-align:left}
+.end-card{padding:var(--s5) var(--s4);border-top:4px solid var(--accent)}
+.end-card h2{font-size:clamp(22px,5.4vw,30px)}
+.end-card p{margin-top:var(--s2);color:var(--ink-soft)}
+.end-card .btns{margin-top:var(--s4)}
+@media (min-width:768px){
+  .end-card{padding:var(--s6);display:grid;grid-template-columns:1fr auto;gap:var(--s5);align-items:center}
+  .end-card .btns{margin-top:0;grid-template-columns:auto auto}
+}
+.foot{padding:var(--s5) 0 calc(var(--s5) + 72px);font-size:13px;color:var(--ink-soft);border-top:1px solid var(--line)}
+@media (min-width:768px){.foot{padding-bottom:var(--s5)}}
+
+/* スマホ下の固定バー */
+.fixbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s2);padding:var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line);transition:transform .25s}
+.fixbar .btn{min-height:48px;font-size:15px;padding:0 var(--s2)}
+.js .fixbar.hide{transform:translateY(110%)}
+@media (min-width:768px){.fixbar{display:none}}
+
+.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:30;width:max-content;max-width:calc(100vw - 32px);background:var(--ink);color:var(--bg);font-size:13px;padding:var(--s2) var(--s3);border-radius:var(--r);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+@media (min-width:768px){.toast{bottom:32px}}
+
+/* 動き: 見出しと写真だけ、1回 */
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  .tile img,.fixbar,.toast{transition:none}
+  .tile:hover img{transform:none}
+}
+</style>
+</head>
+<body>
+
+<p class="demo-band">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="料理教室 匙 トップへ">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><ellipse cx="14" cy="8.5" rx="5" ry="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14 15v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="20.5" cy="5" r="2" fill="var(--accent)"/></svg>
+      <span><small>料理教室</small>匙</span>
+    </a>
+    <a class="ig-link" href="#ig" data-ig>
+      <svg class="ig-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+      @saji_cooking
+    </a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero grid-bg" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="card hero-card">
+        <div class="hero-photo photo">
+          <img class="rv" src="img/cooking_hero-1600.jpg" srcset="img/cooking_hero-800.jpg 800w, img/cooking_hero-1600.jpg 1600w" sizes="(min-width:1120px) 1056px, 100vw" alt="教室のキッチン。まな板の上に切った野菜と、だしの入った鍋" width="1600" height="914" fetchpriority="high">
+          <span class="photo-note">写真はイメージです</span>
+        </div>
+        <div class="hero-body">
+          <div>
+            <p class="hero-eyebrow">匙ヶ丘の自宅キッチンで、1回4名まで</p>
+            <h1 id="hero-title" class="rv">だしの取り方から、<br>作り置きまで。</h1>
+          </div>
+          <div>
+            <p class="ruled">和食の基本を、少人数で手を動かして覚える教室です。作った料理はその場で食べて、作り置きは容器で持ち帰れます。</p>
+            <div class="btns" id="hero-cta">
+              <a class="btn btn-main" href="#ig" data-ig><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>InstagramのDMで予約</a>
+              <a class="btn btn-sub" href="tel:0920000000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>電話する</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="about-title">
+    <div class="wrap about-grid">
+      <div class="about-photo photo">
+        <img class="rv" src="img/cooking_tools-800.jpg" srcset="img/cooking_tools-800.jpg 800w, img/cooking_tools-1600.jpg 1600w" sizes="(min-width:768px) 440px, 100vw" alt="木べら、計量スプーン、片手鍋が並んだ調理台" width="800" height="800" loading="lazy">
+      </div>
+      <div>
+        <div class="sec-head">
+          <h2 id="about-title" class="rv">ふだんの台所で、<br class="sp-only">ふだんの道具で。</h2>
+          <p>教室は講師の自宅のキッチンです。特別な鍋や機械は使いません。家に帰って同じように作れることを一番に考えて、包丁の持ち方や火加減の見方から一緒に確かめます。</p>
+        </div>
+        <div class="teacher">
+          <b>講師 宮園 さわこ</b>
+          病院の給食調理を12年。いまは二人の子の母。毎日の献立に困らない、少ない調味料で決まる味つけを教えています。
+        </div>
+        <ol class="flow" aria-label="レッスンの流れ(午前の回)">
+          <li><span class="num">10:00</span><div><h3>集まって、今日の献立の説明</h3><p>エプロンをつけて手を洗ったら、作る順番を紙で確認します。</p></div></li>
+          <li><span class="num">10:20</span><div><h3>だしを取って、下ごしらえ</h3><p>昆布とかつお節の一番だしから。切り方は一人ずつ見ます。</p></div></li>
+          <li><span class="num">11:30</span><div><h3>煮る、和える、盛りつける</h3><p>4名なので、全員が鍋の前に立てます。</p></div></li>
+          <li><span class="num">12:15</span><div><h3>いただきます</h3><p>食べながら、作り置きの日持ちや詰め方の質問を受けます。13:00ごろ解散です。</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec grid-bg" id="lesson" aria-labelledby="lesson-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="lesson-title" class="rv">今月のレッスン</h2>
+        <p>11月は「鶏と根菜の筑前煮」と「青菜のおひたし」。家の人数に合わせて、材料の量を下で切り替えられます。</p>
+      </div>
+      <div class="lesson-grid">
+        <div class="card dates">
+          <h3>11月の日程と残りの席</h3>
+          <ul>
+            <li><span class="when">11月24日(火)<small>10:00〜13:00</small></span><span class="seat">残り <b>1</b> 席</span></li>
+            <li><span class="when">11月25日(水)<small>10:00〜13:00</small></span><span class="seat full">残り <b>0</b> 席</span></li>
+            <li><span class="when">11月27日(金)夜の回<small>18:30〜21:00</small></span><span class="seat">残り <b>3</b> 席</span></li>
+            <li><span class="when">11月28日(土)<small>10:00〜13:00</small></span><span class="seat">残り <b>2</b> 席</span></li>
+          </ul>
+          <p class="note">各回4名まで。12月は「年越しの煮しめと黒豆」で、日程は11月末にInstagramでお知らせします。</p>
+        </div>
+
+        <div class="card recipe">
+          <div class="recipe-top">
+            <div class="photo"><img class="rv" src="img/cooking_dish-800.jpg" srcset="img/cooking_dish-800.jpg 800w, img/cooking_dish-1600.jpg 1600w" sizes="96px" alt="器に盛った筑前煮" width="800" height="800" loading="lazy"></div>
+            <div>
+              <h3>鶏と根菜の筑前煮</h3>
+              <p>冷蔵で3日もちます。お弁当にも。</p>
+            </div>
+          </div>
+          <div class="recipe-body">
+            <fieldset class="serve" id="serve">
+              <legend>何人分を作りますか</legend>
+              <div class="serve-row">
+                <input type="radio" name="n" id="n1" value="1"><label for="n1">1人</label>
+                <input type="radio" name="n" id="n2" value="2"><label for="n2">2人</label>
+                <input type="radio" name="n" id="n3" value="3"><label for="n3">3人</label>
+                <input type="radio" name="n" id="n4" value="4" checked><label for="n4">4人</label>
+                <input type="radio" name="n" id="n5" value="5"><label for="n5">5人</label>
+                <input type="radio" name="n" id="n6" value="6"><label for="n6">6人</label>
+              </div>
+            </fieldset>
+            <div class="ing-head"><h4>材料</h4><span id="ing-count" aria-live="polite">4人分</span></div>
+            <ul class="ing" id="ing">
+              <li data-base="300" data-u="g">鶏もも肉<span class="q">300g</span></li>
+              <li data-base="150" data-u="g">れんこん<span class="q">150g</span></li>
+              <li data-base="100" data-u="g">ごぼう<span class="q">100g</span></li>
+              <li data-base="1" data-u="本" data-step="0.25">にんじん<span class="q">1本</span></li>
+              <li data-base="0.5" data-u="枚" data-step="0.25">こんにゃく<span class="q">1/2枚</span></li>
+              <li data-base="4" data-u="枚" data-step="1">干ししいたけ<span class="q">4枚</span></li>
+              <li data-base="6" data-u="本" data-step="1">さやいんげん<span class="q">6本</span></li>
+            </ul>
+            <p class="ing-sub">煮汁</p>
+            <ul class="ing">
+              <li data-base="300" data-u="ml">だし汁<span class="q">300ml</span></li>
+              <li data-base="7.5" data-u="spoon">しょうゆ<span class="q">大さじ2と1/2</span></li>
+              <li data-base="6" data-u="spoon">みりん<span class="q">大さじ2</span></li>
+              <li data-base="3" data-u="spoon">砂糖<span class="q">大さじ1</span></li>
+              <li data-base="3" data-u="spoon">ごま油<span class="q">大さじ1</span></li>
+            </ul>
+            <p class="tip">レッスンでは4人分を作って、全員で分けます。しいたけの戻し汁は、だし汁の一部に使います。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="price-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="price-title" class="rv">コースと料金</h2>
+        <p>料金はすべて税込、材料費と試食代を含みます。</p>
+      </div>
+      <ul class="price-list">
+        <li><h3>体験レッスン</h3><span class="price">3,850円</span><p>初めての方は1回だけこちらの料金で。今月の献立を作ります。</p></li>
+        <li><h3>単発レッスン</h3><span class="price">4,950円</span><p>好きな月だけ参加できます。</p></li>
+        <li><h3>月1回コース</h3><span class="price">4,620円<small>/月</small></span><p>半年で、だし、煮物、焼き物、汁物、ごはん物をひと通り。</p></li>
+        <li><h3>作り置きレッスン</h3><span class="price">6,380円</span><p>3時間で5品。保存容器ごと持ち帰れます(容器代込み)。</p></li>
+      </ul>
+      <p class="price-note">持ち物はエプロン、三角巾、手拭きタオル。キャンセルは前日18時まで無料です。</p>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" aria-labelledby="ig-title">
+    <div class="wrap ig-wrap">
+      <div>
+      <div class="sec-head" style="margin-bottom:var(--s3)">
+        <h2 id="ig-title" class="rv">教室の様子は、Instagramで</h2>
+      </div>
+      <div class="ig-head">
+        <a class="ig-account" href="#ig" data-ig>
+          <svg class="ig-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+          @saji_cooking
+        </a>
+        <p>毎回の献立と、次の日程をここで先にお知らせしています。</p>
+      </div>
+      </div>
+      <div class="tiles" id="tiles">
+        <a class="tile" href="img/cooking_dish-1600.jpg" data-cap="11月の筑前煮"><img class="rv" src="img/cooking_dish-800.jpg" alt="器に盛った筑前煮" width="800" height="800" loading="lazy"></a>
+        <a class="tile" href="img/cooking_veg-1600.jpg" data-cap="この日のれんこんとごぼう"><img class="rv" src="img/cooking_veg-800.jpg" alt="ざるに並んだ根菜と青菜" width="800" height="800" loading="lazy"></a>
+        <a class="tile c2" href="img/cooking_tools-1600.jpg" data-cap="計量スプーンは家にあるもので"><img class="rv" src="img/cooking_tools-800.jpg" alt="計量スプーンと木べらの拡大" width="800" height="800" loading="lazy"></a>
+        <a class="tile c3" href="img/cooking_hero-1600.jpg" data-cap="教室のキッチン"><img class="rv" src="img/cooking_hero-800.jpg" alt="教室のキッチンの調理台" width="800" height="457" loading="lazy"></a>
+        <a class="tile c2" href="img/cooking_veg-1600.jpg" data-cap="青菜はさっとゆでて"><img class="rv" src="img/cooking_veg-800.jpg" alt="青菜の拡大" width="800" height="800" loading="lazy"></a>
+        <a class="tile c3" href="img/cooking_dish-1600.jpg" data-cap="照りが出たら火を止める"><img class="rv" src="img/cooking_dish-800.jpg" alt="筑前煮の照りの拡大" width="800" height="800" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" aria-labelledby="voice-title">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="voice-title" class="rv">通っている方の声</h2></div>
+      <div class="voices">
+        <blockquote>だしを取るのが面倒だと思っていたのに、10分でできると分かって、週末に作るようになりました。<cite>M.K さん(30代)</cite></blockquote>
+        <blockquote>4人なので、分からない所をその場で聞けます。<cite>Y.T さん(50代)</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec info" aria-labelledby="info-title">
+    <div class="wrap info-grid">
+      <div>
+        <div class="sec-head"><h2 id="info-title" class="rv">教室の場所と時間</h2></div>
+        <dl>
+          <dt>住所</dt><dd>福岡市 匙ヶ丘2丁目0-0<br>(自宅のため、詳しい場所はご予約の後にお送りします)</dd>
+          <dt>電話</dt><dd><a href="tel:0920000000">092-000-0000</a></dd>
+          <dt>レッスン</dt><dd>午前の回 10:00〜13:00<br>金曜 夜の回 18:30〜21:00</dd>
+          <dt>お休み</dt><dd>日曜、月曜</dd>
+          <dt>駐車場</dt><dd>1台分あります(予約の時にお知らせください)</dd>
+        </dl>
+      </div>
+      <figure class="map">
+        <svg viewBox="0 0 360 240" role="img" aria-labelledby="map-t">
+          <title id="map-t">略図。匙ヶ丘公園の東側、匙ヶ丘小学校の向かいに教室があります</title>
+          <path class="m-road" d="M0 128H360"/>
+          <path class="m-road2" d="M196 0V240"/>
+          <path class="m-road2" d="M0 40H196"/>
+          <rect class="m-block" x="20" y="60" width="150" height="52" rx="4"/>
+          <text class="m-txt" x="95" y="91" text-anchor="middle">匙ヶ丘公園</text>
+          <rect class="m-block" x="214" y="150" width="128" height="72" rx="4"/>
+          <text class="m-txt" x="278" y="191" text-anchor="middle">匙ヶ丘小学校</text>
+          <path class="m-pin" d="M240 112c-9 0-15-7-15-15 0-11 15-25 15-25s15 14 15 25c0 8-6 15-15 15z" transform="translate(0,-8)"/>
+          <circle cx="240" cy="89" r="5" fill="var(--card)"/>
+          <text class="m-pin-txt" x="258" y="95">匙(教室)</text>
+          <text class="m-txt m-small" x="8" y="230">略図です</text>
+        </svg>
+        <figcaption><p>匙ヶ丘公園の角を東へ。小学校の正門の向かい、白い外壁の家です。</p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec end grid-bg" aria-labelledby="end-title">
+    <div class="wrap">
+      <div class="card end-card">
+        <div>
+          <h2 id="end-title" class="rv">まずは体験レッスンから</h2>
+          <p>空いている日をDMで送ってください。献立と持ち物をお返事します。</p>
+        </div>
+        <div class="btns">
+          <a class="btn btn-main" href="#ig" data-ig><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>InstagramのDMで予約</a>
+          <a class="btn btn-sub" href="tel:0920000000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>電話する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">料理教室 匙(さじ) 福岡市 匙ヶ丘2丁目0-0</div>
+</footer>
+
+<div class="fixbar" id="fixbar">
+  <a class="btn btn-main" href="#ig" data-ig>DMで予約</a>
+  <a class="btn btn-sub" href="tel:0920000000">電話する</a>
+</div>
+
+<dialog class="lb" id="lb" aria-label="写真を大きく見る">
+  <img id="lb-img" src="" alt="">
+  <div class="lb-bar"><span id="lb-cap"></span><button type="button" class="lb-close" id="lb-close">閉じる</button></div>
+</dialog>
+
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+
+  /* 見出しと写真の表示(1回だけ) */
+  var rv=document.querySelectorAll('.rv');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')});}
+
+  /* 固定バー: 最初のボタンが見えている間は隠す */
+  var bar=document.getElementById('fixbar'),cta=document.getElementById('hero-cta');
+  if('IntersectionObserver' in window&&bar&&cta){
+    new IntersectionObserver(function(es){bar.classList.toggle('hide',es[0].isIntersecting)}).observe(cta);
+  }
+
+  /* Instagramリンク: 見本のため */
+  var toast=document.getElementById('toast'),tm;
+  document.querySelectorAll('[data-ig]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      toast.textContent='見本のため実在のアカウントはありません';
+      toast.classList.add('show');clearTimeout(tm);
+      tm=setTimeout(function(){toast.classList.remove('show')},2800);
+    });
+  });
+
+  /* 写真の拡大 */
+  var lb=document.getElementById('lb'),li=document.getElementById('lb-img'),lc=document.getElementById('lb-cap');
+  if(lb&&typeof lb.showModal==='function'){
+    document.querySelectorAll('.tile').forEach(function(t){
+      t.addEventListener('click',function(ev){
+        ev.preventDefault();
+        li.src=t.getAttribute('href');li.alt=t.querySelector('img').alt;lc.textContent=t.dataset.cap||'';
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){lb.close()});
+    lb.addEventListener('click',function(ev){if(ev.target===lb)lb.close()});
+  }
+
+  /* 分量計算 */
+  function frac(v){
+    var w=Math.floor(v+1e-9),r=Math.round((v-w)*4)/4,f={0.25:'1/4',0.5:'1/2',0.75:'3/4'}[r];
+    if(r===1){w+=1;f=null}
+    if(!f)return String(w);
+    return w?w+'と'+f:f;
+  }
+  function fmt(base,u,step,n){
+    var v=base*n/4;
+    if(u==='g'){return Math.max(5,Math.round(v/(v>=100?10:5))*(v>=100?10:5))+'g'}
+    if(u==='ml'){return Math.max(10,Math.round(v/10)*10)+'ml'}
+    if(u==='spoon'){ /* 小さじ換算で持つ。大さじ1未満は小さじで */
+      if(v>=3){return '大さじ'+frac(Math.max(1,Math.round(v/3*2)/2))}
+      return '小さじ'+frac(Math.max(.5,Math.round(v*2)/2));
+    }
+    var s=step||1,q=Math.max(s,Math.round(v/s)*s);
+    return (s<1?frac(q):String(q))+u;
+  }
+  var items=document.querySelectorAll('[data-base]'),cnt=document.getElementById('ing-count');
+  document.querySelectorAll('#serve input').forEach(function(r){
+    r.addEventListener('change',function(){
+      var n=+r.value;
+      cnt.textContent=n+'人分';
+      items.forEach(function(it){
+        var q=it.querySelector('.q');
+        q.textContent=fmt(+it.dataset.base,it.dataset.u,+it.dataset.step||0,n);
+        q.classList.toggle('changed',n!==4);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

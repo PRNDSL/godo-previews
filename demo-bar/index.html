@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bar YOTAKA | 夜鷹通のカウンター8席のバー</title>
+<meta name="description" content="福岡市夜鷹通のオーセンティックバー YOTAKA。カウンター8席、20時から翌3時。チャージ770円、2杯で3,500円前後が目安。ひとりでも予約なしでも。">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&family=Hina+Mincho&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* デザイントークン。両モードとも暗い地(ボルドーの夜)。ダークはさらに沈める */
+:root{
+  color-scheme: dark;
+  --bg:#34121b;
+  --bg2:#290d14;
+  --ink:#f2e8e3;
+  --mute:#cdb8b2;
+  --line:#5f3039;
+  --accent:#c4a46c;      /* 真鍮。光らせない */
+  --on-accent:#22090f;
+  --strip-bg:#16060a;
+  --strip-ink:#eadcd6;
+  --ph:#4a2a31;          /* 写真が来るまでの下地 */
+  --f-head:"Hina Mincho","BIZ UDPMincho",serif;
+  --f-body:"BIZ UDPMincho","Hina Mincho",serif;
+  --f-en:"Cormorant Garamond",serif;
+  --r:2px;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1f0a10; --bg2:#170609; --line:#4a232b; --strip-bg:#0d0305;
+    --mute:#c7b1ab; --ph:#3a1d23;
+  }
+}
+[data-theme="dark"]{
+  --bg:#1f0a10; --bg2:#170609; --line:#4a232b; --strip-bg:#0d0305;
+  --mute:#c7b1ab; --ph:#3a1d23;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--f-body); font-size:15px; line-height:1.95; letter-spacing:.03em;
+  overflow-wrap:anywhere;
+}
+img{display:block; max-width:100%; height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.sp-only{display:inline}
+@media (min-width:768px){ .sp-only{display:none} }
+
+/* 制作見本の帯 */
+.strip{margin:0; background:var(--strip-bg); color:var(--strip-ink); font-size:12px; line-height:1.6; text-align:center; padding:var(--s1) var(--s2)}
+
+/* ファーストビュー */
+.hero{position:relative; text-align:center}
+.hero-photo{position:relative; height:50svh; min-height:300px; max-height:760px; background:var(--ph)}
+.hero-photo img{width:100%; height:100%; object-fit:cover; object-position:50% 45%; filter:brightness(.8)}
+.hero-photo::after{content:""; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,0) 45%, var(--bg) 100%)}
+.hero-note{position:absolute; right:var(--s2); top:var(--s1); z-index:1; font-size:11px; color:var(--mute); margin:0}
+.hero-text{position:relative; margin-top:-72px; padding:0 var(--s3)}
+.logo{font-family:var(--f-en); font-weight:300; font-size:44px; line-height:1; letter-spacing:.32em; margin:0 0 var(--s2); padding-left:.32em; color:var(--accent)}
+.logo small{display:block; font-family:var(--f-body); font-size:11px; letter-spacing:.3em; color:var(--mute); margin-top:var(--s1); padding-left:0}
+.hero h1{font-family:var(--f-head); font-weight:400; font-size:25px; line-height:1.6; letter-spacing:.06em; margin:0 0 var(--s2)}
+.hero .lead{color:var(--mute); margin:0 auto; max-width:30em; font-size:14px}
+.hero .lead strong{color:var(--ink); font-weight:700}
+
+.cta{display:flex; flex-wrap:wrap; gap:var(--s1) var(--s2); justify-content:center; padding:var(--s3) var(--s3) 0}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:var(--s1); min-height:48px; padding:0 var(--s3); border-radius:var(--r); text-decoration:none; font-size:14px; font-weight:700; letter-spacing:.08em; white-space:nowrap; border:1px solid var(--accent)}
+.btn-main{background:var(--accent); color:var(--on-accent)}
+.btn-sub{color:var(--ink)}
+.btn svg{flex:none}
+.cta .btn{flex:1 1 200px; max-width:280px}
+
+@media (max-width:359px){ .hero h1{font-size:22px} .logo{font-size:38px} }
+@media (min-width:768px){
+  .hero-photo{height:62vh; min-height:420px}
+  .hero-text{margin-top:-140px}
+  .logo{font-size:64px}
+  .hero h1{font-size:32px}
+  .hero .lead{font-size:15px}
+}
+
+/* セクション共通 */
+section{padding:var(--s7) var(--s3) 0}
+.wrap{max-width:1040px; margin:0 auto}
+.narrow{max-width:640px; margin:0 auto}
+.sec-h{font-family:var(--f-head); font-weight:400; font-size:23px; line-height:1.6; letter-spacing:.08em; text-align:center; margin:0 0 var(--s4)}
+.sec-h::after{content:""; display:block; width:32px; height:1px; background:var(--accent); margin:var(--s2) auto 0}
+.sec-lead{color:var(--mute); text-align:center; margin:0 auto var(--s4); max-width:32em}
+@media (min-width:768px){ .sec-h{font-size:28px} }
+
+/* はじめての方へ */
+.first{display:grid; gap:var(--s4)}
+.figure-row{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.figure{padding:var(--s3) var(--s1); text-align:center}
+.figure + .figure{border-left:1px solid var(--line)}
+.figure dt{font-size:13px; color:var(--mute); margin-bottom:var(--s1)}
+.figure dd{margin:0; font-family:var(--f-head); font-size:30px; line-height:1.3; color:var(--accent)}
+.figure dd span{font-size:15px; color:var(--ink); margin-left:2px}
+.figure dd.fig-note{margin:var(--s1) 0 0; font-family:var(--f-body); font-size:12px; line-height:1.7; color:var(--mute)}
+.notes{list-style:none; margin:0; padding:0}
+.notes li{padding:var(--s2) 0; border-bottom:1px solid var(--line); display:grid; grid-template-columns:7em 1fr; gap:var(--s2)}
+.notes b{font-weight:700; color:var(--accent); font-size:14px}
+@media (min-width:900px){
+  .first{grid-template-columns:5fr 6fr; align-items:start; gap:var(--s6)}
+}
+
+/* 今夜の一杯 */
+.tonight{display:grid; gap:var(--s4)}
+.tonight-photo{margin:0 calc(var(--s3) * -1); background:var(--ph)}
+.tonight-photo img{width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 40%; filter:brightness(.85)}
+.card{border:1px solid var(--accent); outline:1px solid var(--line); outline-offset:4px; padding:var(--s4) var(--s3); border-radius:var(--r)}
+fieldset{border:0; margin:0 0 var(--s3); padding:0}
+legend{font-size:13px; color:var(--mute); margin-bottom:var(--s1); padding:0}
+.choices{display:grid; grid-template-columns:1fr 1fr; gap:var(--s1)}
+.choices label{position:relative}
+.choices input{position:absolute; opacity:0; inset:0; margin:0; cursor:pointer}
+.choices span{display:flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--line); border-radius:var(--r); font-size:14px; transition:background-color .2s, border-color .2s}
+.choices input:checked + span{border-color:var(--accent); background:var(--accent); color:var(--on-accent); font-weight:700}
+.choices input:focus-visible + span{outline:2px solid var(--accent); outline-offset:2px}
+.result{border-top:1px solid var(--line); padding-top:var(--s3); margin-top:var(--s1)}
+.result-label{font-size:12px; color:var(--mute); margin:0}
+.result-name{font-family:var(--f-head); font-weight:400; font-size:21px; line-height:1.5; margin:var(--s1) 0}
+.result-desc{margin:0 0 var(--s2)}
+.result-price{display:flex; justify-content:space-between; align-items:baseline; gap:var(--s2); font-size:13px; color:var(--mute); margin:0}
+.result-price b{font-family:var(--f-head); font-weight:400; font-size:22px; color:var(--accent)}
+.age{font-size:11px; color:var(--mute); margin:var(--s3) 0 0; line-height:1.7}
+@media (min-width:900px){
+  .tonight{grid-template-columns:5fr 6fr; gap:var(--s6); align-items:center}
+  .tonight-photo{margin:0}
+  .tonight-photo img{aspect-ratio:3/4}
+  .card{padding:var(--s5)}
+  .result-name{font-size:26px}
+  .choices{grid-template-columns:repeat(4,1fr)}
+}
+
+/* お品書き */
+.band{margin:0 calc(var(--s3) * -1) var(--s5); background:var(--ph)}
+.band img{width:100%; height:220px; object-fit:cover; object-position:50% 55%; filter:brightness(.75)}
+@media (min-width:768px){ .band img{height:340px} }
+.menu{display:grid; gap:var(--s5)}
+.menu h3{font-family:var(--f-head); font-weight:400; font-size:19px; letter-spacing:.08em; margin:0 0 var(--s1); padding-bottom:var(--s1); border-bottom:1px solid var(--accent)}
+.menu h4{font-size:12px; font-weight:400; color:var(--mute); letter-spacing:.2em; margin:0}
+.menu .grp{padding-top:var(--s3)}
+.menu ul{list-style:none; margin:0; padding:0}
+.menu li{display:flex; align-items:baseline; gap:var(--s1); padding:var(--s1) 0}
+.menu li .n{flex:0 1 auto}
+.menu li::after{content:""; order:1; flex:1 1 var(--s2); min-width:var(--s2); border-bottom:1px dotted var(--line); transform:translateY(-4px)}
+.menu li .p{order:2; flex:none; color:var(--accent); font-variant-numeric:tabular-nums}
+.menu .memo{font-size:12px; color:var(--mute); line-height:1.8; margin:var(--s2) 0 0}
+@media (min-width:768px){
+  .menu{grid-template-columns:3fr 2fr; gap:var(--s5) var(--s6)}
+  .menu .cocktail .cols{columns:2; column-gap:var(--s5)}
+  .menu .cocktail .grp{break-inside:avoid}
+}
+
+/* 店のこと */
+.story p{margin:0 0 var(--s2)}
+.story .sign{text-align:right; color:var(--mute); font-size:13px}
+.voices{list-style:none; margin:var(--s5) 0 0; padding:0; display:grid; gap:var(--s3)}
+.voices li{border-left:1px solid var(--accent); padding:var(--s1) 0 var(--s1) var(--s3)}
+.voices p{margin:0}
+.voices small{display:block; color:var(--mute); font-size:12px; margin-top:var(--s1)}
+@media (min-width:768px){ .voices{grid-template-columns:1fr 1fr; gap:var(--s5)} }
+
+/* Instagram */
+.ig-head{display:flex; justify-content:center; margin-bottom:var(--s3)}
+.ig-account{display:inline-flex; align-items:center; gap:var(--s1); text-decoration:none; font-size:15px; letter-spacing:.04em; padding:var(--s1) var(--s2); border-bottom:1px solid var(--accent)}
+.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:3px; max-width:720px; margin:0 auto}
+.tile{display:block; position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--ph); border-radius:var(--r)}
+.tile img{width:100%; height:100%; object-fit:cover; transition:filter .3s}
+.tile:hover img{filter:brightness(1.1)}
+.t-a img{object-position:15% 50%}
+.t-b img{object-position:85% 50%}
+.t-c img{object-position:50% 30%}
+.t-d img{transform:scale(1.5); transform-origin:60% 40%}
+.toast{position:fixed; left:50%; bottom:88px; transform:translateX(-50%); background:var(--strip-bg); color:var(--strip-ink); border:1px solid var(--line); font-size:12px; padding:var(--s1) var(--s2); border-radius:var(--r); opacity:0; pointer-events:none; transition:opacity .25s; z-index:30; white-space:nowrap}
+.toast.show{opacity:1}
+@media (min-width:768px){ .toast{bottom:var(--s4)} }
+
+dialog#lb{padding:0; border:0; background:transparent; max-width:min(92vw,900px); max-height:90vh; overflow:visible}
+dialog#lb::backdrop{background:rgba(10,3,5,.88)}
+#lb img{max-height:82vh; width:auto; max-width:100%; margin:0 auto; border-radius:var(--r)}
+#lb-close{position:absolute; top:-48px; right:0; min-height:40px; padding:0 var(--s2); background:transparent; color:var(--strip-ink); border:1px solid var(--line); border-radius:var(--r); font:inherit; font-size:13px; cursor:pointer}
+
+/* 店の情報 */
+.info{display:grid; gap:var(--s4)}
+.info dl{margin:0}
+.info dl div{display:grid; grid-template-columns:6em 1fr; gap:var(--s2); padding:var(--s2) 0; border-bottom:1px solid var(--line)}
+.info dt{color:var(--mute); font-size:13px}
+.info dd{margin:0}
+.info dd small{display:block; color:var(--mute); font-size:12px; line-height:1.8}
+.map{border:1px solid var(--line); border-radius:var(--r); background:var(--bg2)}
+.map svg{display:block; width:100%; max-width:400px; height:auto; margin:0 auto}
+.map figcaption{font-size:12px; color:var(--mute); padding:var(--s1) var(--s2) var(--s2)}
+@media (min-width:900px){ .info{grid-template-columns:3fr 2fr; gap:var(--s6); align-items:start} }
+
+/* 最下部 */
+.last{padding-bottom:var(--s7); text-align:center}
+.last p{color:var(--mute); margin:0 auto var(--s1); max-width:30em}
+.last .cta{padding-top:var(--s3)}
+footer{background:var(--bg2); text-align:center; padding:var(--s4) var(--s3) calc(var(--s4) + 72px); font-size:12px; color:var(--mute)}
+footer .logo{font-size:24px; margin-bottom:var(--s1)}
+@media (min-width:768px){ footer{padding-bottom:var(--s4)} }
+
+/* スマホ下の固定バー */
+.fixbar{position:fixed; left:0; right:0; bottom:0; z-index:20; display:grid; grid-template-columns:1fr 1fr; gap:var(--s1); padding:var(--s1); background:var(--strip-bg); border-top:1px solid var(--line)}
+.fixbar .btn{padding:0 var(--s1); font-size:13px; letter-spacing:.04em}
+@media (min-width:768px){ .fixbar{display:none} }
+
+/* 動き: JSがクラスを付けた時だけ隠す */
+.js .rv{opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease}
+.js .rv.in{opacity:1; transform:none}
+@media (prefers-reduced-motion: reduce){
+  .js .rv{opacity:1; transform:none; transition:none}
+  *{transition:none !important; scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body>
+
+<p class="strip">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="hero">
+  <div class="hero-photo">
+    <img class="rv" src="img/bar_hero-1600.jpg" srcset="img/bar_hero-800.jpg 800w, img/bar_hero-1600.jpg 1600w" sizes="100vw" alt="照明を落としたカウンターと、奥の棚に並ぶ酒瓶" width="1600" height="914" fetchpriority="high">
+    <p class="hero-note">写真はイメージです</p>
+  </div>
+  <div class="hero-text">
+    <p class="logo">YOTAKA<small>夜鷹通のバー</small></p>
+    <h1 class="rv">夜鷹通の二階、<br>八席だけのカウンター。</h1>
+    <p class="lead">20時から翌3時まで。ひとりでも、予約なしでも。<br><strong>チャージ770円</strong>、2杯で3,500円前後が目安です。</p>
+  </div>
+  <div class="cta">
+    <a class="btn btn-main" href="#ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>InstagramのDMで予約</a>
+    <a class="btn btn-sub" href="tel:092-000-0000"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>電話する</a>
+  </div>
+</header>
+
+<main>
+  <section id="first">
+    <div class="wrap">
+      <h2 class="sec-h rv">はじめての方へ</h2>
+      <p class="sec-lead">バーの扉は開けにくいもの。先にお金と決まりごとを書いておきます。</p>
+      <div class="first">
+        <dl class="figure-row">
+          <div class="figure">
+            <dt>チャージ(お一人)</dt>
+            <dd>770<span>円</span></dd>
+            <dd class="fig-note">チェイサーと小さなおつまみ付き</dd>
+          </div>
+          <div class="figure">
+            <dt>予算の目安</dt>
+            <dd>3,500<span>円前後</span></dd>
+            <dd class="fig-note">カクテル2杯とチャージで</dd>
+          </div>
+        </dl>
+        <ul class="notes">
+          <li><b>注文のしかた</b><span>名前を知らなくても大丈夫です。「甘め」「さっぱり」など、好みをひとこと伝えてください。</span></li>
+          <li><b>ひとりで</b><span>お客様の半分ほどがおひとりです。端の席もあります。</span></li>
+          <li><b>服装</b><span>決まりはありません。仕事帰りのままどうぞ。</span></li>
+          <li><b>たばこ</b><span>店内は禁煙です。入口の横に灰皿があります。</span></li>
+          <li><b>お支払い</b><span>現金、各種カード、QR決済が使えます。</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="tonight">
+    <div class="wrap tonight">
+      <figure class="tonight-photo" style="margin-top:0;margin-bottom:0">
+        <img class="rv" src="img/bar_cocktail-1600.jpg" srcset="img/bar_cocktail-800.jpg 800w, img/bar_cocktail-1600.jpg 1600w" sizes="(min-width:900px) 440px, 100vw" alt="カウンターに置かれた、細いグラスのカクテル" width="1600" height="2800" loading="lazy">
+      </figure>
+      <div>
+        <h2 class="sec-h rv">今夜の一杯</h2>
+        <p class="sec-lead">気分と好きな味を選ぶと、バーテンダーのおすすめが出ます。そのまま注文に使ってください。</p>
+        <form class="card" id="pick" onsubmit="return false">
+          <fieldset>
+            <legend>今の気分</legend>
+            <div class="choices">
+              <label><input type="radio" name="mood" value="sweet"><span>甘め</span></label>
+              <label><input type="radio" name="mood" value="dry" checked><span>すっきり</span></label>
+              <label><input type="radio" name="mood" value="strong"><span>強め</span></label>
+              <label><input type="radio" name="mood" value="zero"><span>ノンアルコール</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>好きな味</legend>
+            <div class="choices">
+              <label><input type="radio" name="taste" value="citrus" checked><span>柑橘</span></label>
+              <label><input type="radio" name="taste" value="herb"><span>ハーブ</span></label>
+              <label><input type="radio" name="taste" value="coffee"><span>コーヒー</span></label>
+              <label><input type="radio" name="taste" value="fruit"><span>果物</span></label>
+            </div>
+          </fieldset>
+          <div class="result" aria-live="polite">
+            <p class="result-label">おすすめ</p>
+            <p class="result-name" id="r-name">ジンリッキー</p>
+            <p class="result-desc" id="r-desc">ジンに生のライムを搾って炭酸で割ります。甘さはほとんどなく、一杯目に向いています。</p>
+            <p class="result-price"><span id="r-base">ジンベース/やや軽め</span><b id="r-price">1,210円</b></p>
+          </div>
+          <p class="age">お酒は20歳になってから。お車でお越しの方にはノンアルコールをお出しします。</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <figure class="band" style="margin-top:0">
+        <img class="rv" src="img/bar_whisky-1600.jpg" srcset="img/bar_whisky-800.jpg 800w, img/bar_whisky-1600.jpg 1600w" sizes="100vw" alt="氷を入れたウイスキーのグラス" width="1600" height="1600" loading="lazy">
+      </figure>
+      <h2 class="sec-h rv">お品書き</h2>
+      <p class="sec-lead">価格はすべて税込です。チャージ770円が別にかかります。</p>
+      <div class="menu">
+        <div class="cocktail">
+          <h3>カクテル</h3>
+          <div class="cols">
+            <div class="grp"><h4>甘め</h4><ul>
+              <li><span class="n">サイドカー</span><span class="p">1,430</span></li>
+              <li><span class="n">グラスホッパー</span><span class="p">1,430</span></li>
+              <li><span class="n">コーヒー酒のミルク割り</span><span class="p">1,210</span></li>
+              <li><span class="n">ラフランスのカクテル</span><span class="p">1,650</span></li>
+            </ul></div>
+            <div class="grp"><h4>すっきり</h4><ul>
+              <li><span class="n">ジンリッキー</span><span class="p">1,210</span></li>
+              <li><span class="n">モヒート</span><span class="p">1,430</span></li>
+              <li><span class="n">コーヒートニック</span><span class="p">1,320</span></li>
+              <li><span class="n">ソルティドッグ</span><span class="p">1,210</span></li>
+            </ul></div>
+            <div class="grp"><h4>強め</h4><ul>
+              <li><span class="n">ギムレット</span><span class="p">1,430</span></li>
+              <li><span class="n">ネグローニ</span><span class="p">1,540</span></li>
+              <li><span class="n">エスプレッソマティーニ</span><span class="p">1,540</span></li>
+              <li><span class="n">ジャックローズ</span><span class="p">1,430</span></li>
+            </ul></div>
+            <div class="grp"><h4>ノンアルコール</h4><ul>
+              <li><span class="n">柚子とトニック</span><span class="p">880</span></li>
+              <li><span class="n">ミントとライムのソーダ</span><span class="p">880</span></li>
+              <li><span class="n">エスプレッソトニック</span><span class="p">770</span></li>
+              <li><span class="n">ラフランスのスカッシュ</span><span class="p">990</span></li>
+            </ul></div>
+          </div>
+          <p class="memo">季節の果物のカクテルは、仕入れによって内容と価格が変わります。</p>
+        </div>
+        <div>
+          <h3>ウイスキー</h3>
+          <ul>
+            <li><span class="n">ハイボール</span><span class="p">990</span></li>
+            <li><span class="n">スコッチ シングルモルト</span><span class="p">1,100〜</span></li>
+            <li><span class="n">国産ウイスキー</span><span class="p">1,320〜</span></li>
+          </ul>
+          <p class="memo">30mlでの価格です。棚の瓶を指さして聞いてもらって構いません。</p>
+          <h3 style="margin-top:var(--s5)">おつまみ</h3>
+          <ul>
+            <li><span class="n">ナッツとドライフルーツ</span><span class="p">660</span></li>
+            <li><span class="n">自家製レーズンバター</span><span class="p">770</span></li>
+            <li><span class="n">チーズ3種</span><span class="p">1,100</span></li>
+            <li><span class="n">チョコレート</span><span class="p">550</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story">
+    <div class="narrow">
+      <h2 class="sec-h rv">店のこと</h2>
+      <div class="story">
+        <p>夜鷹通の古いビルの二階。看板は、階段の下にある小さな真鍮の札だけです。</p>
+        <p>十五年、ホテルのバーでカウンターに立ってから、この店を開きました。八席なのは、ひとりで目が届く数だからです。氷は毎日店で割り、柑橘は注文を受けてから搾ります。</p>
+        <p>静かに飲みたい方も、少し話したい方も、どちらも歓迎です。</p>
+        <p class="sign">店主 有馬 恭平</p>
+      </div>
+      <ul class="voices">
+        <li><p>初めてで緊張していたけれど、好みを伝えたら一杯ずつ説明してくれて安心できました。</p><small>K.M さん 30代</small></li>
+        <li><p>仕事帰りにひとりで寄れる店。チャージが先に分かるのがありがたい。</p><small>T.S さん 40代</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="ig">
+    <div class="wrap">
+      <h2 class="sec-h rv">店の投稿</h2>
+      <p class="sec-lead">季節のカクテルと、その日の空席をお知らせしています。</p>
+      <div class="ig-head">
+        <a class="ig-account" href="#ig"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>@bar_yotaka</a>
+      </div>
+      <div class="grid">
+        <a class="tile t-a" href="img/bar_hero-1600.jpg"><img class="rv" src="img/bar_hero-800.jpg" alt="カウンターの左端の席" width="800" height="457" loading="lazy"></a>
+        <a class="tile" href="img/bar_whisky-1600.jpg"><img class="rv" src="img/bar_whisky-800.jpg" alt="ウイスキーのグラス" width="800" height="800" loading="lazy"></a>
+        <a class="tile t-c" href="img/bar_cocktail-1600.jpg"><img class="rv" src="img/bar_cocktail-800.jpg" alt="季節のカクテル" width="800" height="1400" loading="lazy"></a>
+        <a class="tile" href="img/bar_tools-1600.jpg"><img class="rv" src="img/bar_tools-800.jpg" alt="シェーカーとバースプーン" width="800" height="800" loading="lazy"></a>
+        <a class="tile t-b" href="img/bar_hero-1600.jpg"><img class="rv" src="img/bar_hero-800.jpg" alt="奥の棚に並ぶ酒瓶" width="800" height="457" loading="lazy"></a>
+        <a class="tile t-d" href="img/bar_tools-1600.jpg"><img class="rv" src="img/bar_tools-800.jpg" alt="バー道具の手元" width="800" height="800" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="access">
+    <div class="wrap">
+      <h2 class="sec-h rv">店の情報</h2>
+      <div class="info">
+        <dl>
+          <div><dt>店名</dt><dd>Bar YOTAKA</dd></div>
+          <div><dt>住所</dt><dd>福岡市 夜鷹通 2丁目0-0 2階<small>階段の下の真鍮の札が目印です</small></dd></div>
+          <div><dt>電話</dt><dd><a href="tel:092-000-0000">092-000-0000</a></dd></div>
+          <div><dt>営業時間</dt><dd>20:00〜翌3:00<small>ラストオーダー 2:30</small></dd></div>
+          <div><dt>定休日</dt><dd>日曜日(月曜が祝日の時は営業)</dd></div>
+          <div><dt>席</dt><dd>カウンター8席<small>3名以上はDMで先にご連絡ください</small></dd></div>
+        </dl>
+        <figure class="map" style="margin:0">
+          <svg viewBox="0 0 300 240" role="img" aria-labelledby="map-t">
+            <title id="map-t">略図。夜鷹通公園の角から通りに入り、郵便局の向かいのビル二階</title>
+            <path d="M0 140 H300" stroke="var(--line)" stroke-width="16"/>
+            <path d="M96 0 V240" stroke="var(--line)" stroke-width="12"/>
+            <path d="M212 0 V140" stroke="var(--line)" stroke-width="8"/>
+            <rect x="12" y="24" width="72" height="96" fill="none" stroke="var(--mute)" stroke-width="1" stroke-dasharray="3 3"/>
+            <text x="48" y="68" text-anchor="middle" font-size="15" fill="var(--mute)" font-family="BIZ UDPMincho, serif">夜鷹通</text>
+            <text x="48" y="88" text-anchor="middle" font-size="15" fill="var(--mute)" font-family="BIZ UDPMincho, serif">公園</text>
+            <rect x="180" y="160" width="108" height="64" fill="none" stroke="var(--mute)" stroke-width="1"/>
+            <text x="234" y="188" text-anchor="middle" font-size="15" fill="var(--mute)" font-family="BIZ UDPMincho, serif">夜鷹通</text>
+            <text x="234" y="208" text-anchor="middle" font-size="15" fill="var(--mute)" font-family="BIZ UDPMincho, serif">郵便局</text>
+            <rect x="224" y="84" width="40" height="40" fill="var(--accent)"/>
+            <text x="244" y="70" text-anchor="middle" font-size="15" fill="var(--ink)" font-family="BIZ UDPMincho, serif">当店(2階)</text>
+            <path d="M96 228 V140 H244 V124" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="5 4"/>
+          </svg>
+          <figcaption>公園の角から通りに入り、郵便局の向かいのビルの二階です。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="last" id="reserve">
+    <div class="narrow">
+      <h2 class="sec-h rv">ご予約とお問い合わせ</h2>
+      <p>予約なしでも入れます。満席が心配な日は、DMか電話で空きを聞いてください。</p>
+      <p>営業中の電話は手が離せないことがあります。つながらない時はDMが確実です。</p>
+      <div class="cta">
+        <a class="btn btn-main" href="#ig"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>InstagramのDMで予約</a>
+        <a class="btn btn-sub" href="tel:092-000-0000"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>電話する</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="logo">YOTAKA</p>
+  <p style="margin:0">福岡市 夜鷹通 2丁目0-0 2階<br>20:00〜翌3:00 日曜定休</p>
+</footer>
+
+<nav class="fixbar" aria-label="予約">
+  <a class="btn btn-main" href="#ig">DMで予約</a>
+  <a class="btn btn-sub" href="tel:092-000-0000">電話する</a>
+</nav>
+
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+<dialog id="lb" aria-label="写真の拡大">
+  <button type="button" id="lb-close">閉じる</button>
+  <img id="lb-img" src="" alt="">
+</dialog>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  // 見出しと写真をスクロールで1回だけ表示
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){ io.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // Instagramのリンクは見本なので案内だけ出す
+  var toast = document.getElementById('toast'), tt;
+  document.querySelectorAll('a[href="#ig"]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      toast.textContent = '見本のため実在のアカウントはありません';
+      toast.classList.add('show');
+      clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+    });
+  });
+
+  // 今夜の一杯
+  var D = {
+    sweet:{
+      citrus:['サイドカー','ブランデーにオレンジのリキュールとレモン。角の取れた甘さで、香りがふわっと立ちます。','ブランデーベース/中くらい','1,430円'],
+      herb:['グラスホッパー','ミントとカカオのリキュールに生クリーム。チョコミントのような食後の一杯です。','リキュールベース/軽め','1,430円'],
+      coffee:['コーヒー酒のミルク割り','店で漬けた自家製のコーヒー酒を冷たい牛乳で。甘さは控えめにもできます。','自家製リキュール/軽め','1,210円'],
+      fruit:['ラフランスのカクテル','熟したラフランスをその場でつぶして作ります。今の時期だけの果物の一杯です。','ウォッカベース/やや軽め','1,650円']
+    },
+    dry:{
+      citrus:['ジンリッキー','ジンに生のライムを搾って炭酸で割ります。甘さはほとんどなく、一杯目に向いています。','ジンベース/やや軽め','1,210円'],
+      herb:['モヒート','ラムとミントの葉、ライム、炭酸。葉は注文ごとに軽くつぶして香りを出します。','ラムベース/やや軽め','1,430円'],
+      coffee:['コーヒートニック','エスプレッソとトニックウォーターに少しのジン。苦みと炭酸で口がすっと締まります。','ジンベース/軽め','1,320円'],
+      fruit:['ソルティドッグ','グレープフルーツを搾ってウォッカと。グラスのふちに塩をつけます。','ウォッカベース/やや軽め','1,210円']
+    },
+    strong:{
+      citrus:['ギムレット','ジンとライムだけをしっかりシェイク。短いグラスで、冷たいうちにどうぞ。','ジンベース/強め','1,430円'],
+      herb:['ネグローニ','ジン、ベルモット、ほろ苦いリキュールを同じ量で。ハーブの苦みが残る大人の一杯です。','ジンベース/強め','1,540円'],
+      coffee:['エスプレッソマティーニ','淹れたてのエスプレッソとウォッカ。表面に細かい泡がのります。','ウォッカベース/強め','1,540円'],
+      fruit:['ジャックローズ','りんごのブランデーにライムとざくろのシロップ。きれいな赤色の一杯です。','ブランデーベース/強め','1,430円']
+    },
+    zero:{
+      citrus:['柚子とトニック','柚子の果汁とトニックウォーター。お酒が飲めない日の一杯目にどうぞ。','ノンアルコール','880円'],
+      herb:['ミントとライムのソーダ','モヒートからお酒を抜いたもの。作り方は同じで、香りもそのままです。','ノンアルコール','880円'],
+      coffee:['エスプレッソトニック','エスプレッソをトニックウォーターに浮かべます。夜でも頼む方が多い一杯です。','ノンアルコール','770円'],
+      fruit:['ラフランスのスカッシュ','つぶしたラフランスを炭酸で割ります。甘さは果物の分だけです。','ノンアルコール','990円']
+    }
+  };
+  var f = document.getElementById('pick');
+  var out = {n:document.getElementById('r-name'), d:document.getElementById('r-desc'), b:document.getElementById('r-base'), p:document.getElementById('r-price')};
+  function upd(){
+    var m = f.querySelector('input[name=mood]:checked').value;
+    var t = f.querySelector('input[name=taste]:checked').value;
+    var r = D[m][t];
+    out.n.textContent = r[0]; out.d.textContent = r[1]; out.b.textContent = r[2]; out.p.textContent = r[3];
+  }
+  f.addEventListener('change', upd);
+
+  // 写真の拡大
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img');
+  if (typeof lb.showModal === 'function') {
+    document.querySelectorAll('.tile').forEach(function(a){
+      a.addEventListener('click', function(ev){
+        ev.preventDefault();
+        var im = a.querySelector('img');
+        lbImg.src = a.getAttribute('href'); lbImg.alt = im.alt;
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click', function(){ lb.close(); });
+    lb.addEventListener('click', function(ev){ if (ev.target === lb) lb.close(); });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>眉サロン lumi（ルミ）｜福岡市 鈴懸台の眉スタイリングとアイブロウラミネーション</title>
+<meta name="description" content="福岡市 鈴懸台の眉サロン「lumi」。2人で営む完全予約制。眉スタイリング、アイブロウラミネーション、眉ティント、まつげパーマ。予約はInstagramのDMかお電話で。10:00〜19:00、火曜定休。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=IBM+Plex+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* トークン: 色 / 字体 / 余白 / 角丸 / 影 */
+:root{
+  --bg:#ffffff; --bg-2:#f6f5f5; --ink:#2b2427; --ink-2:#675d61; --line:#e3dcde; --line-2:#cbbfc3;
+  --rose:#9a5a64; --on-rose:#ffffff; --rose-soft:#f4eced;
+  --band:#2b2427; --on-band:#ffffff;
+  --f-head:"Shippori Mincho","Yu Mincho","Hiragino Mincho ProN",serif;
+  --f-body:"IBM Plex Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-latin:"Italiana","Times New Roman",serif;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s8:64px; --s10:80px; --s12:96px; --s16:128px;
+  --r:2px; --shadow:none;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c191a; --bg-2:#232021; --ink:#efe8ea; --ink-2:#b9adb1; --line:#3a3436; --line-2:#54494d;
+    --rose:#d9a3ac; --on-rose:#1c191a; --rose-soft:#2c2426;
+    --band:#0f0d0e; --on-band:#efe8ea;
+    color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#1c191a; --bg-2:#232021; --ink:#efe8ea; --ink-2:#b9adb1; --line:#3a3436; --line-2:#54494d;
+  --rose:#d9a3ac; --on-rose:#1c191a; --rose-soft:#2c2426;
+  --band:#0f0d0e; --on-band:#efe8ea;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-weight:300;font-size:15px;line-height:2;letter-spacing:.04em}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--f-head);font-weight:400;letter-spacing:.06em;line-height:1.6;margin:0}
+p{margin:0}
+a{color:inherit}
+strong{font-weight:500}
+:focus-visible{outline:1px solid var(--rose);outline-offset:4px}
+.wrap{width:min(100% - 48px, 1120px);margin-inline:auto}
+.sp-only{display:inline}
+@media (min-width:600px){.sp-only{display:none}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 制作見本の帯 */
+.band{background:var(--band);color:var(--on-band);font-size:12px;line-height:1.6;text-align:center;padding:var(--s1) var(--s2);letter-spacing:.04em}
+
+/* 店名 */
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s2);padding-block:var(--s3) var(--s2)}
+.logo{display:flex;align-items:baseline;gap:12px;text-decoration:none}
+.logo b{font-family:var(--f-latin);font-weight:400;font-size:34px;line-height:1;letter-spacing:.08em}
+.logo span{font-family:var(--f-head);font-size:12px;color:var(--ink-2);letter-spacing:.16em}
+.top-ig{font-size:12px;color:var(--ink-2);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.top-ig:hover{color:var(--rose)}
+
+/* ボタン */
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 var(--s3);font-family:var(--f-body);font-weight:400;font-size:14px;letter-spacing:.08em;text-decoration:none;border:1px solid var(--rose);border-radius:var(--r);white-space:nowrap;flex:1 1 200px;transition:background-color .2s,color .2s}
+.btn-main{background:var(--rose);color:var(--on-rose)}
+.btn-main:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn-sub{background:transparent;color:var(--rose)}
+.btn-sub:hover{background:var(--rose-soft)}
+.btn svg{flex:none}
+.ig-icon{width:16px;height:16px}
+
+/* ファーストビュー: 1枚の写真を細い柱に割る */
+.hero{padding-bottom:var(--s6)}
+.pillars{position:relative;height:clamp(220px,60vw,400px);margin-top:var(--s1)}
+@media (min-width:600px){.pillars{height:min(44vw,400px)}}
+.pillars{--g:10px;display:grid;grid-template-columns:repeat(5,1fr);column-gap:var(--g);container-type:inline-size}
+.pl{position:relative;overflow:hidden;height:100%}
+/* 5本とも同じ写真。柱ごとに写真の位置をずらし、1枚の写真を割ったように見せる */
+.pl img{position:absolute;top:0;height:100%;width:100cqw;max-width:none;object-fit:cover;object-position:50% 55%;
+  left:calc(var(--i) * -1 * ((100cqw - 4 * var(--g)) / 5 + var(--g)))}
+/* 柱の上端を互い違いに */
+.pl:nth-child(2),.pl:nth-child(4){clip-path:inset(clamp(24px,7vw,56px) 0 0 0)}
+.pl:nth-child(3){clip-path:inset(0 0 clamp(16px,4vw,32px) 0)}
+.photo-note{font-size:11px;color:var(--ink-2);text-align:right;margin-top:6px;letter-spacing:.06em}
+.hero-body{display:grid;gap:var(--s2);margin-top:var(--s3)}
+.hero h1{font-size:clamp(23px,6.4vw,40px);line-height:1.6}
+.hero-lead{color:var(--ink-2);max-width:34em}
+.hero .btns{margin-top:var(--s1)}
+@media (min-width:900px){
+  .pillars{--g:16px}
+  .hero-body{grid-template-columns:1.1fr 1fr;column-gap:var(--s8);align-items:end;margin-top:var(--s6)}
+  .hero-body .hero-text{display:grid;gap:var(--s2)}
+}
+
+/* セクション共通 */
+section{padding-block:var(--s8)}
+@media (min-width:900px){section{padding-block:var(--s12)}}
+.sec-head{display:grid;gap:var(--s1);margin-bottom:var(--s5)}
+.sec-head h2{font-size:clamp(21px,5.2vw,30px)}
+.sec-head p{color:var(--ink-2);max-width:36em}
+.rule{border:0;border-top:1px solid var(--line);margin-block:0}
+
+/* 店のこと + 目の線画 */
+.about{display:grid;gap:var(--s5)}
+.eye-art{width:100%;max-width:420px;color:var(--ink)}
+.eye-art .rose{stroke:var(--rose)}
+.about-text{display:grid;gap:var(--s2)}
+.staff{list-style:none;margin:var(--s2) 0 0;padding:0;border-top:1px solid var(--line)}
+.staff li{display:grid;grid-template-columns:auto 1fr;column-gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.staff b{font-family:var(--f-head);font-weight:400;font-size:17px}
+.staff small{grid-column:1/-1;color:var(--ink-2);font-size:13px;line-height:1.8}
+.staff em{font-style:normal;color:var(--ink-2);font-size:13px;align-self:center}
+@media (min-width:900px){
+  .about{grid-template-columns:5fr 6fr;column-gap:var(--s12);align-items:center}
+}
+
+/* 縦長の柱写真 */
+.colonnade{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start;padding-block:0}
+.colonnade figure{margin:0;aspect-ratio:1/2.4;overflow:hidden}
+.colonnade figure:nth-child(2){margin-top:var(--s6)}
+.colonnade figure:nth-child(3){margin-top:var(--s3)}
+.colonnade img{width:100%;height:100%;object-fit:cover}
+.colonnade figure:nth-child(1) img{object-position:40% 50%}
+.colonnade figure:nth-child(2) img{object-position:60% 50%}
+.colonnade figure:nth-child(3) img{object-position:50% 50%}
+@media (min-width:900px){
+  .colonnade{grid-template-columns:1fr 1fr 1fr 2fr;gap:24px}
+  .colonnade figure{aspect-ratio:1/1.9}
+  .colonnade .col-text{display:block;align-self:end;padding-left:var(--s4);border-left:1px solid var(--line)}
+}
+.col-text{display:none;font-family:var(--f-head);font-size:20px;line-height:2.1;color:var(--ink-2)}
+
+/* 眉デザイン診断 */
+.diag{background:var(--bg-2);border-block:1px solid var(--line)}
+.diag-grid{display:grid;gap:var(--s5)}
+.q{border:0;margin:0 0 var(--s4);padding:0;min-width:0}
+.q legend{font-family:var(--f-head);font-size:16px;padding:0;margin-bottom:12px}
+.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.choices label{position:relative;display:flex;align-items:center;justify-content:center;min-height:48px;padding:0 8px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--bg);font-size:14px;cursor:pointer;text-align:center;line-height:1.4;transition:border-color .2s,color .2s}
+.choices.four{grid-template-columns:repeat(2,1fr)}
+@media (min-width:600px){.choices.four{grid-template-columns:repeat(4,1fr)}}
+.choices input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.choices label:hover{border-color:var(--rose)}
+.choices label:has(input:checked){border-color:var(--rose);color:var(--rose);box-shadow:inset 0 0 0 1px var(--rose)}
+.choices label:has(input:focus-visible){outline:1px solid var(--rose);outline-offset:3px}
+.result{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:var(--s3)}
+.result .eye-art{max-width:none;margin-bottom:var(--s2)}
+.result-kicker{font-size:12px;color:var(--ink-2);letter-spacing:.1em}
+.result-name{font-family:var(--f-head);font-size:26px;line-height:1.5;color:var(--rose);margin-top:2px}
+.result dl{display:grid;grid-template-columns:auto 1fr;gap:4px var(--s2);margin:var(--s2) 0;font-size:14px}
+.result dt{color:var(--ink-2)}
+.result dd{margin:0}
+.result-note{font-size:14px;line-height:1.9;padding-top:var(--s2);border-top:1px solid var(--line)}
+.result-menu{font-size:13px;color:var(--ink-2);margin-top:12px}
+.diag-small{font-size:12px;color:var(--ink-2);margin-top:var(--s2)}
+@media (min-width:900px){
+  .diag-grid{grid-template-columns:1fr 1fr;column-gap:var(--s8);align-items:start}
+  .result{padding:var(--s4)}
+}
+
+/* メニュー */
+.menu-groups{display:grid;gap:var(--s6)}
+.menu-group h3{font-size:18px;padding-bottom:12px;border-bottom:1px solid var(--ink)}
+.menu-group .sub{font-size:13px;color:var(--ink-2);margin-top:12px}
+.price-list{list-style:none;margin:0;padding:0}
+.price-list li{display:grid;grid-template-columns:1fr auto;column-gap:var(--s2);align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.price-list .nm{line-height:1.6}
+.price-list .nm small{display:block;font-size:12px;color:var(--ink-2)}
+.price-list .yen{font-family:var(--f-head);font-size:18px;white-space:nowrap}
+.price-list .yen small{font-family:var(--f-body);font-size:11px;margin-left:2px;color:var(--ink-2)}
+.first{margin-top:var(--s5);padding:var(--s3);border:1px solid var(--rose);border-radius:var(--r);display:grid;gap:4px}
+.first b{font-family:var(--f-head);font-weight:400;font-size:17px;color:var(--rose)}
+.first p{font-size:14px}
+@media (min-width:900px){
+  .menu-groups{grid-template-columns:3fr 2fr;column-gap:var(--s10)}
+}
+
+/* Instagram */
+.ig-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2);margin-bottom:var(--s3)}
+.ig-acc{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:15px;letter-spacing:.06em}
+.ig-acc .ig-icon{width:22px;height:22px;color:var(--rose)}
+.ig-acc:hover{color:var(--rose)}
+.ig-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.ig-grid a{display:block;aspect-ratio:1;overflow:hidden;position:relative}
+.ig-grid img{width:100%;height:100%;object-fit:cover;transition:opacity .3s}
+.ig-grid a:hover img{opacity:.85}
+.ig-grid .z img{transform:scale(1.6)}
+#ig{display:none;font-size:12px;color:var(--ink-2);margin-top:12px}
+#ig:target{display:block}
+@media (min-width:900px){.ig-grid{gap:8px}.ig-sec{display:grid;grid-template-columns:1fr 2fr;column-gap:var(--s8);align-items:start}.ig-head{flex-direction:column;align-items:flex-start}#ig{grid-column:2}}
+
+/* 拡大 */
+.lb{border:0;padding:0;background:transparent;max-width:min(92vw,880px);width:100%;overflow:visible}
+.lb::backdrop{background:rgba(20,16,18,.82)}
+.lb img{width:100%;height:auto;max-height:80vh;object-fit:contain;background:var(--bg-2)}
+.lb-close{position:absolute;top:-48px;right:0;min-width:44px;min-height:44px;background:transparent;border:1px solid rgba(255,255,255,.6);border-radius:var(--r);color:#fff;font:inherit;font-size:13px;padding:0 12px;cursor:pointer}
+.lb-close:focus-visible{outline:1px solid #fff;outline-offset:3px}
+
+/* 小さな知らせ */
+.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);max-width:calc(100% - 32px);background:var(--ink);color:var(--bg);font-size:12px;line-height:1.6;padding:10px 16px;border-radius:var(--r);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:60;text-align:center}
+.toast.on{opacity:1;visibility:visible}
+@media (min-width:900px){.toast{bottom:32px}}
+
+/* お客様の声・よくある質問 */
+.voice{margin:0;padding:var(--s3) 0 var(--s3) var(--s3);border-left:1px solid var(--rose)}
+.voice p{font-family:var(--f-head);font-size:16px;line-height:2}
+.voice footer{font-size:12px;color:var(--ink-2);margin-top:var(--s1)}
+.faq{margin-top:var(--s6);border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:var(--s2) 32px var(--s2) 0;position:relative;font-family:var(--f-head);font-size:15px;line-height:1.7}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:4px;top:50%;width:12px;height:1px;background:var(--ink);box-shadow:none}
+.faq summary::before{content:"";position:absolute;right:9.5px;top:calc(50% - 5.5px);width:1px;height:12px;background:var(--ink);transition:transform .2s}
+.faq details[open] summary::before{transform:scaleY(0)}
+.faq details p{padding:0 0 var(--s2);color:var(--ink-2);font-size:14px}
+.talk{display:grid;gap:var(--s5)}
+@media (min-width:900px){.talk{grid-template-columns:4fr 7fr;column-gap:var(--s10);align-items:start}.faq{margin-top:0}}
+
+/* 店の情報 */
+.info{display:grid;gap:var(--s5)}
+.info dl{margin:0;display:grid;grid-template-columns:5.5em 1fr;border-top:1px solid var(--line)}
+.info dt,.info dd{padding:14px 0;border-bottom:1px solid var(--line);margin:0}
+.info dt{color:var(--ink-2);font-size:13px}
+.info dd{font-size:14px}
+.info dd a{text-decoration-thickness:1px;text-underline-offset:4px}
+.map{width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--bg)}
+.flow{list-style:none;margin:var(--s3) 0 0;padding:0;counter-reset:none}
+.flow li{position:relative;padding:0 0 var(--s2) var(--s3);font-size:14px;border-left:1px solid var(--line-2);margin-left:4px}
+.flow li::before{content:"";position:absolute;left:-4px;top:10px;width:7px;height:7px;border:1px solid var(--rose);border-radius:50%;background:var(--bg)}
+.flow li:last-child{padding-bottom:0}
+.flow b{font-weight:500}
+@media (min-width:900px){.info{grid-template-columns:1fr 1fr;column-gap:var(--s10);align-items:start}}
+
+/* 最下部 */
+.closing{text-align:center;padding-block:var(--s12)}
+.closing .lumi{font-family:var(--f-latin);font-size:56px;line-height:1;letter-spacing:.1em;color:var(--rose)}
+.closing h2{font-size:clamp(20px,5vw,28px);margin-top:var(--s3)}
+.closing p{color:var(--ink-2);margin-top:12px}
+.closing .btns{max-width:560px;margin:var(--s4) auto 0}
+.foot{border-top:1px solid var(--line);padding-block:var(--s4);font-size:12px;color:var(--ink-2);text-align:center;line-height:1.8}
+
+/* スマホ下の固定バー */
+.fixbar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:1.4fr 1fr;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
+.fixbar .btn{min-height:48px;font-size:13px;padding:0 8px;flex:none}
+body{padding-bottom:72px}
+@media (min-width:900px){.fixbar{display:none}body{padding-bottom:0}}
+
+/* 動き: 見出しと写真だけ、1回 */
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<p class="band">このページは制作見本です。<br class="sp-only">店名や住所、電話番号は架空です</p>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="cam" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></symbol>
+  <symbol id="tel" viewBox="0 0 24 24"><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.4v3a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 4.6 5.6a2 2 0 0 1 2-2.1z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="wrap top">
+  <a class="logo" href="#top" id="top" aria-label="眉サロン lumi"><b>lumi</b><span>眉サロン</span></a>
+  <a class="top-ig" href="#ig"><svg class="ig-icon" aria-hidden="true"><use href="#cam"/></svg>@lumi_eye</a>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="pillars rv">
+      <span class="pl" style="--i:0"><img src="img/matsuge_hero-1600.jpg" srcset="img/matsuge_hero-800.jpg 800w, img/matsuge_hero-1600.jpg 1600w" sizes="(min-width:1168px) 1120px, calc(100vw - 48px)" alt="白い施術ベッドと小さな観葉植物のある、明るい施術室" width="1600" height="914" fetchpriority="high"></span>
+      <span class="pl" style="--i:1" aria-hidden="true"><img src="img/matsuge_hero-1600.jpg" srcset="img/matsuge_hero-800.jpg 800w, img/matsuge_hero-1600.jpg 1600w" sizes="(min-width:1168px) 1120px, calc(100vw - 48px)" alt="" width="1600" height="914"></span>
+      <span class="pl" style="--i:2" aria-hidden="true"><img src="img/matsuge_hero-1600.jpg" srcset="img/matsuge_hero-800.jpg 800w, img/matsuge_hero-1600.jpg 1600w" sizes="(min-width:1168px) 1120px, calc(100vw - 48px)" alt="" width="1600" height="914"></span>
+      <span class="pl" style="--i:3" aria-hidden="true"><img src="img/matsuge_hero-1600.jpg" srcset="img/matsuge_hero-800.jpg 800w, img/matsuge_hero-1600.jpg 1600w" sizes="(min-width:1168px) 1120px, calc(100vw - 48px)" alt="" width="1600" height="914"></span>
+      <span class="pl" style="--i:4" aria-hidden="true"><img src="img/matsuge_hero-1600.jpg" srcset="img/matsuge_hero-800.jpg 800w, img/matsuge_hero-1600.jpg 1600w" sizes="(min-width:1168px) 1120px, calc(100vw - 48px)" alt="" width="1600" height="914"></span>
+    </div>
+    <p class="photo-note">写真はイメージです</p>
+    <div class="hero-body">
+      <div class="hero-text">
+        <h1 class="rv">顔の形から、<br>似合う眉の線を。</h1>
+      </div>
+      <div class="hero-text">
+        <p class="hero-lead">鈴懸台の眉サロンです。2人で営む完全予約制。最初の15分で顔の形となりたい印象をうかがい、眉の下書きを一緒に決めます。</p>
+        <div class="btns">
+          <a class="btn btn-main" href="#ig"><svg class="ig-icon" aria-hidden="true"><use href="#cam"/></svg>InstagramのDMで予約</a>
+          <a class="btn btn-sub" href="tel:092-000-0000"><svg class="ig-icon" aria-hidden="true"><use href="#tel"/></svg>電話する</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule wrap">
+
+  <section class="wrap" aria-labelledby="about-h">
+    <div class="about">
+      <svg class="eye-art" viewBox="0 -24 240 154" role="img" aria-label="細い線で描いた、眉と目もとのイラスト">
+        <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+          <path d="M40 66 Q120 -6 202 64" stroke-opacity=".45"/>
+          <path d="M30 84 Q120 22 210 84"/>
+          <path d="M30 84 Q120 124 210 84"/>
+          <circle cx="120" cy="82" r="20"/>
+          <circle cx="120" cy="82" r="7" stroke-opacity=".6"/>
+        </g>
+        <path d="M46.0 19.7 L49.7 18.2 L53.4 16.9 L57.0 15.5 L60.7 14.2 L64.4 13.0 L68.1 12.3 L71.8 11.6 L75.4 10.9 L79.1 10.3 L82.8 9.7 L86.5 9.1 L90.2 8.5 L93.8 8.0 L97.5 7.5 L101.2 7.0 L104.9 6.5 L108.6 6.1 L112.3 5.6 L115.9 5.2 L119.6 4.9 L123.3 4.5 L127.0 4.2 L130.7 3.9 L134.3 3.6 L138.0 3.3 L141.7 3.1 L145.4 2.9 L149.1 2.7 L152.5 2.6 L155.3 2.7 L158.0 2.9 L160.7 3.2 L163.4 3.5 L166.1 3.9 L168.8 4.4 L171.5 5.0 L174.2 5.6 L176.9 6.4 L179.6 7.2 L182.3 8.1 L185.0 9.0 L187.8 10.1 L190.5 11.2 L193.2 12.4 L195.9 13.7 L198.6 15.0 L201.3 16.5 L204.0 18.0 L204.0 22.0 L201.3 20.9 L198.6 19.8 L195.9 18.8 L193.2 17.8 L190.5 17.0 L187.8 16.2 L185.0 15.5 L182.3 14.9 L179.6 14.4 L176.9 13.9 L174.2 13.5 L171.5 13.2 L168.8 13.0 L166.1 12.9 L163.4 12.8 L160.7 12.8 L158.0 12.9 L155.3 13.1 L152.5 13.3 L149.1 13.6 L145.4 13.8 L141.7 14.0 L138.0 14.3 L134.3 14.6 L130.7 14.9 L127.0 15.3 L123.3 15.7 L119.6 16.1 L115.9 16.5 L112.3 16.9 L108.6 17.4 L104.9 17.9 L101.2 18.4 L97.5 19.0 L93.8 19.5 L90.2 20.1 L86.5 20.7 L82.8 21.4 L79.1 22.0 L75.4 22.7 L71.8 23.4 L68.1 24.2 L64.4 24.9 L60.7 25.3 L57.0 25.5 L53.4 25.8 L49.7 26.0 L46.0 26.3 Z" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1" stroke-linejoin="round"/><g fill="none" stroke-width="1" stroke-linecap="round" style="stroke:var(--rose)"><path d="M48.8 26.6 l1.8 -8.9"/><path d="M53.0 25.3 l0.7 -8.0"/><path d="M56.8 26.2 l0.5 -11.3"/><path d="M59.4 25.6 l2.7 -11.7"/><path d="M62.8 24.2 l3.1 -10.5"/><path d="M66.9 25.2 l2.4 -13.9"/><path d="M70.5 23.3 l2.4 -11.5"/><path d="M73.3 22.2 l4.3 -10.8"/><path d="M76.6 22.7 l5.1 -13.1"/><path d="M81.3 20.7 l2.9 -10.4"/><path d="M84.1 20.7 l4.7 -11.6"/><path d="M86.9 20.1 l6.5 -11.6"/><path d="M91.6 18.4 l4.5 -9.4"/><path d="M94.9 19.3 l5.3 -12.2"/><path d="M98.1 17.9 l6.3 -10.4"/><path d="M101.8 16.6 l6.1 -8.7"/><path d="M105.1 17.6 l6.9 -11.7"/><path d="M109.4 15.9 l5.8 -9.3"/><path d="M112.4 15.3 l7.2 -8.8"/><path d="M115.4 15.6 l8.5 -10.2"/><path d="M120.3 14.2 l6.0 -8.2"/><path d="M123.1 14.4 l7.8 -9.4"/><path d="M126.2 13.8 l8.8 -8.7"/><path d="M130.9 12.7 l6.9 -7.2"/><path d="M133.7 13.6 l8.6 -9.5"/><path d="M137.5 12.4 l8.3 -7.7"/><path d="M141.4 11.6 l8.0 -6.6"/><path d="M144.2 12.5 l9.7 -8.7"/><path d="M148.7 11.3 l7.7 -6.7"/><path d="M150.9 11.0 l8.8 -6.2"/><path d="M153.0 11.1 l9.8 -6.4"/><path d="M157.1 10.5 l7.2 -5.0"/><path d="M158.9 10.9 l8.9 -5.5"/><path d="M161.7 10.6 l8.9 -4.4"/><path d="M165.3 10.4 l7.1 -3.4"/><path d="M167.1 11.3 l8.8 -4.3"/><path d="M170.5 11.1 l7.4 -2.9"/><path d="M173.4 11.3 l7.0 -2.2"/><path d="M175.5 12.1 l8.2 -2.7"/><path d="M179.3 12.4 l6.1 -1.9"/><path d="M181.7 13.0 l6.7 -1.4"/><path d="M184.2 13.7 l7.0 -1.2"/><path d="M187.9 14.6 l5.1 -0.9"/><path d="M190.1 15.5 l6.2 -0.8"/><path d="M193.1 16.4 l5.5 -0.3"/><path d="M196.4 17.5 l4.4 -0.1"/><path d="M198.7 18.8 l5.3 -0.2"/></g>
+      </svg>
+      <div class="about-text">
+        <h2 id="about-h" class="rv">眉の線ひとつで、<br>顔の印象は変わる。</h2>
+        <p>同じ「きりっと」でも、丸顔と面長では似合う眉山の位置も角度も違います。lumiでは下書きを鏡で見ていただき、納得してから整えます。</p>
+        <p>ベッドは2台、仕切りのある半個室。毛抜きが苦手な方は、ワックスだけで仕上げることもできます。</p>
+        <ul class="staff">
+          <li><b>森下 紗耶</b><em>眉の施術歴 9年</em><small>眉スタイリングとアイブロウラミネーションを担当</small></li>
+          <li><b>江藤 みのり</b><em>眉の施術歴 6年</em><small>眉ティントの色合わせと、まつげパーマを担当</small></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap colonnade">
+    <figure class="rv"><img src="img/matsuge_tools-800.jpg" srcset="img/matsuge_tools-800.jpg 800w, img/matsuge_tools-1600.jpg 1600w" sizes="(min-width:900px) 18vw, 31vw" alt="大理石の台に置かれたツイーザーと小さなガラス皿" width="800" height="800" loading="lazy"></figure>
+    <figure class="rv"><img src="img/matsuge_room-800.jpg" srcset="img/matsuge_room-800.jpg 800w, img/matsuge_room-1600.jpg 1600w" sizes="(min-width:900px) 18vw, 31vw" alt="鏡とドライフラワーを置いたサロンの一角" width="800" height="800" loading="lazy"></figure>
+    <figure class="rv"><img src="img/matsuge_detail-800.jpg" srcset="img/matsuge_detail-800.jpg 800w, img/matsuge_detail-1600.jpg 1600w" sizes="(min-width:900px) 18vw, 31vw" alt="白いトレーに丸めた淡いピンクのタオルとユーカリ" width="800" height="800" loading="lazy"></figure>
+    <p class="col-text" aria-hidden="true">下書きは、<br>鏡を見ながら<br>何度でも直せます。</p>
+  </div>
+
+  <section class="diag" id="shindan" aria-labelledby="diag-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="diag-h" class="rv">眉デザイン診断</h2>
+        <p>顔の形と、なりたい印象を選んでください。lumiでよくご提案する眉の形と、合うメニューが出ます。</p>
+      </div>
+      <div class="diag-grid">
+        <form id="diag-form" onsubmit="return false">
+          <fieldset class="q">
+            <legend>顔の形</legend>
+            <div class="choices four">
+              <label><input type="radio" name="face" value="maru" checked>丸顔</label>
+              <label><input type="radio" name="face" value="omonaga">面長</label>
+              <label><input type="radio" name="face" value="base">ベース型</label>
+              <label><input type="radio" name="face" value="gyaku">逆三角</label>
+            </div>
+          </fieldset>
+          <fieldset class="q">
+            <legend>なりたい印象</legend>
+            <div class="choices">
+              <label><input type="radio" name="mood" value="yasashiku">やさしく</label>
+              <label><input type="radio" name="mood" value="kiritto">きりっと</label>
+              <label><input type="radio" name="mood" value="natural" checked>ナチュラル</label>
+            </div>
+          </fieldset>
+          <p class="diag-small">顔の形が分からない時は、当日いっしょに鏡で確かめます。</p>
+        </form>
+        <div class="result" aria-live="polite">
+          <svg class="eye-art" id="diag-eye" viewBox="0 -24 240 154" role="img" aria-label="選んだ形の眉と目もとの線画">
+            <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+              <path d="M40 66 Q120 -6 202 64" stroke-opacity=".45"/>
+              <path d="M30 84 Q120 22 210 84"/>
+              <path d="M30 84 Q120 124 210 84"/>
+              <circle cx="120" cy="82" r="20"/>
+              <circle cx="120" cy="82" r="7" stroke-opacity=".6"/>
+            </g>
+            <g id="brow"><path d="M46.0 18.7 L49.5 17.5 L52.9 16.3 L56.4 15.2 L59.9 14.1 L63.4 13.1 L66.8 12.6 L70.3 12.1 L73.8 11.6 L77.3 11.1 L80.7 10.6 L84.2 10.2 L87.7 9.7 L91.1 9.3 L94.6 8.9 L98.1 8.5 L101.6 8.2 L105.0 7.8 L108.5 7.4 L112.0 7.1 L115.4 6.8 L118.9 6.5 L122.4 6.2 L125.9 5.9 L129.3 5.7 L132.8 5.4 L136.3 5.2 L139.8 5.0 L143.2 4.8 L146.6 4.6 L149.6 4.6 L152.6 4.8 L155.7 5.0 L158.7 5.2 L161.7 5.6 L164.7 6.0 L167.8 6.5 L170.8 7.0 L173.8 7.6 L176.8 8.3 L179.8 9.1 L182.9 10.0 L185.9 10.9 L188.9 11.9 L191.9 13.0 L194.9 14.1 L198.0 15.3 L201.0 16.6 L204.0 18.0 L204.0 22.0 L201.0 21.0 L198.0 20.1 L194.9 19.2 L191.9 18.4 L188.9 17.7 L185.9 17.1 L182.9 16.5 L179.8 16.0 L176.8 15.6 L173.8 15.2 L170.8 14.9 L167.8 14.7 L164.7 14.6 L161.7 14.5 L158.7 14.5 L155.7 14.6 L152.6 14.8 L149.6 15.0 L146.6 15.3 L143.2 15.6 L139.8 15.8 L136.3 16.1 L132.8 16.4 L129.3 16.7 L125.9 17.0 L122.4 17.3 L118.9 17.6 L115.4 18.0 L112.0 18.4 L108.5 18.7 L105.0 19.1 L101.6 19.6 L98.1 20.0 L94.6 20.4 L91.1 20.9 L87.7 21.3 L84.2 21.8 L80.7 22.3 L77.3 22.8 L73.8 23.4 L70.3 23.9 L66.8 24.4 L63.4 25.0 L59.9 25.1 L56.4 25.2 L52.9 25.2 L49.5 25.3 L46.0 25.3 Z" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1" stroke-linejoin="round"/><g fill="none" stroke-width="1" stroke-linecap="round" style="stroke:var(--rose)"><path d="M48.5 25.8 l1.9 -8.9"/><path d="M52.6 24.8 l0.8 -8.0"/><path d="M56.2 25.9 l0.5 -11.3"/><path d="M58.5 25.4 l2.8 -11.7"/><path d="M61.8 24.3 l3.2 -10.5"/><path d="M65.6 25.5 l2.4 -13.9"/><path d="M69.1 23.7 l2.5 -11.5"/><path d="M71.6 22.8 l4.4 -10.7"/><path d="M74.7 23.5 l5.1 -13.0"/><path d="M79.2 21.7 l3.0 -10.4"/><path d="M81.8 21.8 l4.7 -11.6"/><path d="M84.4 21.3 l6.5 -11.5"/><path d="M88.9 19.8 l4.6 -9.3"/><path d="M91.9 20.8 l5.3 -12.2"/><path d="M94.9 19.4 l6.4 -10.3"/><path d="M98.5 18.2 l6.1 -8.7"/><path d="M101.5 19.3 l7.0 -11.7"/><path d="M105.6 17.7 l5.8 -9.3"/><path d="M108.4 17.1 l7.2 -8.8"/><path d="M111.2 17.5 l8.5 -10.2"/><path d="M115.9 16.2 l6.0 -8.2"/><path d="M118.5 16.4 l7.9 -9.4"/><path d="M121.4 15.8 l8.8 -8.7"/><path d="M125.9 14.8 l6.9 -7.2"/><path d="M128.5 15.7 l8.6 -9.6"/><path d="M132.1 14.5 l8.3 -7.7"/><path d="M135.8 13.7 l7.9 -6.6"/><path d="M138.4 14.6 l9.6 -8.8"/><path d="M142.8 13.4 l7.6 -6.8"/><path d="M145.3 13.0 l8.7 -6.3"/><path d="M147.8 13.1 l9.7 -6.6"/><path d="M152.1 12.4 l7.1 -5.1"/><path d="M154.3 12.7 l8.8 -5.7"/><path d="M157.3 12.4 l8.7 -4.6"/><path d="M161.2 12.1 l7.0 -3.6"/><path d="M163.4 12.9 l8.6 -4.6"/><path d="M167.1 12.6 l7.3 -3.2"/><path d="M170.4 12.7 l6.9 -2.6"/><path d="M172.8 13.5 l8.1 -3.1"/><path d="M176.8 13.7 l6.0 -2.2"/><path d="M179.5 14.1 l6.6 -1.8"/><path d="M182.4 14.8 l6.9 -1.6"/><path d="M186.4 15.4 l5.1 -1.3"/><path d="M188.9 16.3 l6.1 -1.3"/><path d="M192.2 17.0 l5.4 -0.7"/><path d="M195.8 17.9 l4.4 -0.5"/><path d="M198.4 19.1 l5.2 -0.6"/></g></g>
+          </svg>
+          <p class="result-kicker">おすすめの眉の形</p>
+          <p class="result-name" id="r-name">ナチュラルアーチ</p>
+          <dl>
+            <dt>眉山の位置</dt><dd id="r-peak">黒目の外側の上</dd>
+            <dt>太さ</dt><dd id="r-width">今の太さを残す</dd>
+          </dl>
+          <p class="result-note" id="r-note">いまの眉の流れを生かし、眉山の位置だけ外側へ整えます。丸みを少し抑えるだけで、顔がすっきり見えます。</p>
+          <p class="result-menu" id="r-menu">合うメニュー: 眉スタイリング 4,950円</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="menu" aria-labelledby="menu-h">
+    <div class="sec-head">
+      <h2 id="menu-h" class="rv">メニューと料金</h2>
+      <p>料金はすべて税込です。所要時間はカウンセリングを含みます。</p>
+    </div>
+    <div class="menu-groups">
+      <div class="menu-group">
+        <h3>眉</h3>
+        <p class="sub">形を決めてから、ワックスと毛抜きで整えます</p>
+        <ul class="price-list">
+          <li><span class="nm">眉スタイリング<small>ワックスと毛抜きで形を整える 約45分</small></span><span class="yen">4,950<small>円</small></span></li>
+          <li><span class="nm">眉スタイリング＋眉ティント<small>色を2週間ほど残す 約60分</small></span><span class="yen">6,380<small>円</small></span></li>
+          <li><span class="nm">アイブロウラミネーション<small>毛流れを上向きにそろえる眉のパーマ 約60分</small></span><span class="yen">6,820<small>円</small></span></li>
+          <li><span class="nm">ラミネーション＋眉ティント<small>約75分</small></span><span class="yen">8,690<small>円</small></span></li>
+          <li><span class="nm">眉ワックスのみ<small>形はそのまま、眉まわりのうぶ毛だけ 約20分</small></span><span class="yen">2,750<small>円</small></span></li>
+          <li><span class="nm">眉のお直し<small>前回から6週間以内 約30分</small></span><span class="yen">3,630<small>円</small></span></li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <h3>まつげ</h3>
+        <p class="sub">眉と一緒に整えたい方に、パーマだけ</p>
+        <ul class="price-list">
+          <li><span class="nm">まつげパーマ<small>トリートメント込み 約60分</small></span><span class="yen">5,170<small>円</small></span></li>
+          <li><span class="nm">眉スタイリング＋まつげパーマ<small>約100分</small></span><span class="yen">9,460<small>円</small></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="first">
+      <b>はじめての方へ</b>
+      <p>初回は全メニュー550円引きです。DMで「はじめて」とひとこと添えてください。</p>
+    </div>
+  </section>
+
+  <hr class="rule wrap">
+
+  <section class="wrap ig-sec" aria-labelledby="ig-h">
+    <div class="ig-head">
+      <h2 id="ig-h" class="rv" style="font-size:clamp(21px,5.2vw,30px)">整えた眉は、<br class="sp-only">投稿で見られます</h2>
+      <a class="ig-acc" href="#ig"><svg class="ig-icon" aria-hidden="true"><use href="#cam"/></svg>@lumi_eye</a>
+    </div>
+    <ul class="ig-grid" id="ig-grid">
+      <li><a href="img/matsuge_tools-1600.jpg" data-alt="ツイーザーとガラス皿"><img class="rv" src="img/matsuge_tools-800.jpg" alt="ツイーザーとガラス皿" width="800" height="800" loading="lazy"></a></li>
+      <li><a href="img/matsuge_hero-1600.jpg" data-alt="施術ベッドのある部屋"><img class="rv" src="img/matsuge_hero-800.jpg" alt="施術ベッドのある部屋" width="800" height="457" loading="lazy" style="object-position:30% 50%"></a></li>
+      <li><a href="img/matsuge_detail-1600.jpg" data-alt="丸めたピンクのタオル"><img class="rv" src="img/matsuge_detail-800.jpg" alt="丸めたピンクのタオル" width="800" height="800" loading="lazy"></a></li>
+      <li class="z"><a href="img/matsuge_room-1600.jpg" data-alt="鏡とドライフラワー"><img class="rv" src="img/matsuge_room-800.jpg" alt="鏡とドライフラワーの寄り" width="800" height="800" loading="lazy" style="object-position:60% 40%"></a></li>
+      <li class="z"><a href="img/matsuge_tools-1600.jpg" data-alt="ガラスの小皿とツイーザー"><img class="rv" src="img/matsuge_tools-800.jpg" alt="ガラスの小皿とツイーザーの寄り" width="800" height="800" loading="lazy" style="object-position:30% 60%"></a></li>
+      <li><a href="img/matsuge_hero-1600.jpg" data-alt="窓辺の植物と施術ベッド"><img class="rv" src="img/matsuge_hero-800.jpg" alt="窓辺の植物と施術ベッド" width="800" height="457" loading="lazy" style="object-position:80% 50%"></a></li>
+    </ul>
+    <p id="ig" role="note">見本のため実在のアカウントはありません</p>
+  </section>
+
+  <section class="wrap" aria-labelledby="talk-h">
+    <div class="talk">
+      <div>
+        <h2 id="talk-h" class="rv sec-head" style="font-size:clamp(21px,5.2vw,30px);margin-bottom:var(--s4)">はじめての方から<br>よく聞かれること</h2>
+        <blockquote class="voice">
+          <p>自分で描くと左右がそろわず、毎朝時間がかかっていました。形を整えてもらってからは、なぞるだけで済みます。</p>
+          <footer>M.T さん　40代</footer>
+        </blockquote>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>どれくらいの間隔で通えばいいですか</summary>
+          <p>4〜6週間ごとが目安です。毛が伸びて形がぼやけてきた頃が整えどきです。</p>
+        </details>
+        <details>
+          <summary>眉を伸ばしてから行くべきですか</summary>
+          <p>2〜3週間ほど抜かずに来ていただくと、選べる形が広がります。抜いたばかりでも大丈夫です。</p>
+        </details>
+        <details>
+          <summary>アイブロウラミネーションとは</summary>
+          <p>眉の毛流れを上向きにそろえて固定する、パーマのようなメニューです。毛が下向きに生えている方、ふんわり立体的な眉にしたい方に向いています。持ちは4〜6週間ほどです。</p>
+        </details>
+        <details>
+          <summary>キャンセルはいつまでですか</summary>
+          <p>前日までにDMかお電話でご連絡ください。当日のキャンセルは料金の50％をいただいています。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap">
+
+  <section class="wrap" id="access" aria-labelledby="info-h">
+    <div class="sec-head">
+      <h2 id="info-h" class="rv">お店の場所と予約</h2>
+    </div>
+    <div class="info">
+      <div>
+        <dl>
+          <dt>住所</dt><dd>福岡市 鈴懸台2丁目0-0<br>リーフ鈴懸 2階</dd>
+          <dt>電話</dt><dd><a href="tel:092-000-0000">092-000-0000</a></dd>
+          <dt>営業時間</dt><dd>10:00〜19:00<br>最終受付 18:00</dd>
+          <dt>定休日</dt><dd>火曜日、第3水曜日</dd>
+          <dt>駐車場</dt><dd>建物裏に1台分（予約時にお知らせください）</dd>
+        </dl>
+        <ol class="flow" aria-label="予約の流れ">
+          <li><b>DMかお電話で</b>　希望の日時とメニューをお送りください</li>
+          <li><b>当日中にお返事</b>　空いている時間をご案内して、予約が確定します</li>
+          <li><b>前日にご連絡</b>　時間の確認を1通お送りします</li>
+        </ol>
+      </div>
+      <svg class="map" viewBox="0 0 320 220" role="img" aria-label="略図: 鈴懸台公園の東、鈴懸台郵便局の向かいの建物の2階">
+        <g fill="none" stroke="var(--line-2)" stroke-width="1">
+          <path d="M0 120 H320"/>
+          <path d="M0 132 H320"/>
+          <path d="M150 0 V220"/>
+          <path d="M162 0 V220"/>
+        </g>
+        <rect x="24" y="24" width="104" height="80" fill="none" stroke="var(--ink-2)" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="76" y="68" text-anchor="middle" font-size="13" fill="var(--ink-2)" font-family="IBM Plex Sans JP, sans-serif">鈴懸台公園</text>
+        <rect x="184" y="152" width="100" height="44" fill="none" stroke="var(--ink-2)" stroke-width="1"/>
+        <text x="234" y="179" text-anchor="middle" font-size="13" fill="var(--ink-2)" font-family="IBM Plex Sans JP, sans-serif">鈴懸台郵便局</text>
+        <rect x="184" y="40" width="72" height="64" fill="none" stroke="var(--rose)" stroke-width="1.5"/>
+        <circle cx="220" cy="64" r="4" fill="var(--rose)"/>
+        <text x="220" y="90" text-anchor="middle" font-size="14" fill="var(--rose)" font-family="Italiana, serif" letter-spacing="1">lumi</text>
+        <text x="300" y="20" text-anchor="end" font-size="12" fill="var(--ink-2)" font-family="IBM Plex Sans JP, sans-serif">↑ 北</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="closing">
+    <div class="wrap">
+      <p class="lumi" aria-hidden="true">lumi</p>
+      <h2 class="rv">ご予約は、DMかお電話で。</h2>
+      <p>「はじめて」と添えていただければ、<br class="sp-only">初回の料金でご案内します。</p>
+      <div class="btns">
+        <a class="btn btn-main" href="#ig"><svg class="ig-icon" aria-hidden="true"><use href="#cam"/></svg>InstagramのDMで予約</a>
+        <a class="btn btn-sub" href="tel:092-000-0000"><svg class="ig-icon" aria-hidden="true"><use href="#tel"/></svg>電話する</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  眉サロン lumi　福岡市 鈴懸台2丁目0-0<br>
+  このページは制作見本です
+</footer>
+
+<nav class="fixbar" aria-label="予約">
+  <a class="btn btn-main" href="#ig"><svg class="ig-icon" aria-hidden="true"><use href="#cam"/></svg>DMで予約</a>
+  <a class="btn btn-sub" href="tel:092-000-0000"><svg class="ig-icon" aria-hidden="true"><use href="#tel"/></svg>電話する</a>
+</nav>
+
+<dialog class="lb" id="lb" aria-label="写真の拡大">
+  <button type="button" class="lb-close" id="lb-close">閉じる</button>
+  <img id="lb-img" src="img/matsuge_detail-800.jpg" alt="" width="1600" height="1600">
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script id="browgen">
+/* 眉の形: 眉頭H、眉山P、眉尻T と、それぞれの太さ。中心線を2本の曲線でつなぎ、上下に太さを振って輪郭を作る */
+var BROW = {
+  straight:      {H:[46,22],P:[150,16],T:[204,20],b:[1,-1],t:[9,8,3]},
+  softStraight:  {H:[46,22],P:[148,16],T:[206,21],b:[2,0], t:[10,9,3.5]},
+  boldStraight:  {H:[46,22],P:[150,15],T:[204,19],b:[0,-1],t:[12,11,4]},
+  slightUp:      {H:[46,23],P:[150,16],T:[204,14],b:[1,1], t:[9,8,3]},
+  naturalArch:   {H:[46,22],P:[146,10],T:[204,20],b:[3,2], t:[9,8,3]},
+  softArch:      {H:[46,23],P:[132,8], T:[202,22],b:[6,5], t:[9,8,3]},
+  softArchOuter: {H:[46,23],P:[152,8], T:[204,20],b:[5,3], t:[9,8,3]},
+  lowArch:       {H:[46,22],P:[140,13],T:[204,21],b:[3,2], t:[9,8,3.5]},
+  angled:        {H:[46,24],P:[158,4], T:[204,16],b:[-1,-1],t:[8,7,2.5],sharp:1},
+  angledArch:    {H:[46,23],P:[154,4], T:[204,18],b:[3,0], t:[9,8,3],sharp:1}
+};
+function browSvg(key){
+  var s = BROW[key], pts = [], N = 48;
+  function q(a, c, b, u){ var v = 1 - u; return [v*v*a[0] + 2*v*u*c[0] + u*u*b[0], v*v*a[1] + 2*v*u*c[1] + u*u*b[1]]; }
+  var c1 = [(s.H[0]+s.P[0])/2, (s.H[1]+s.P[1])/2 - s.b[0]];
+  var c2 = [(s.P[0]+s.T[0])/2, (s.P[1]+s.T[1])/2 - s.b[1]];
+  if (!s.sharp){ var r = (s.T[0]-s.P[0]) / (s.P[0]-s.H[0]); c2 = [s.P[0] + (s.P[0]-c1[0])*r, s.P[1] + (s.P[1]-c1[1])*r]; } /* 角のない形は眉山でなめらかにつなぐ */
+  for (var k = 0; k <= N; k++){
+    var g = k / N, p, th;
+    if (g <= 0.6){ var u = g / 0.6; p = q(s.H, c1, s.P, u); th = s.t[0] + (s.t[1]-s.t[0])*u; }
+    else { var w = (g - 0.6) / 0.4; p = q(s.P, c2, s.T, w); th = s.t[1] + (s.t[2]-s.t[1])*w; }
+    if (g < 0.1) th *= 0.55 + 4.5*g; /* 眉頭は細く入る */
+    pts.push([p[0], p[1], th * 1.35, g]);
+  }
+  var up = pts.map(function(p){ return p[0].toFixed(1) + ' ' + (p[1] - p[2]/2).toFixed(1); });
+  var lo = pts.slice().reverse().map(function(p){ return p[0].toFixed(1) + ' ' + (p[1] + p[2]/2).toFixed(1); });
+  var outline = '<path d="M' + up.join(' L') + ' L' + lo.join(' L') + ' Z" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1" stroke-linejoin="round"/>';
+  /* 毛の線: 眉頭は立ち気味、眉尻へ向かって寝かせる */
+  var hairs = '';
+  for (var i = 1; i < N; i += 1){
+    var a = pts[i], b = pts[i+1];
+    var dx = b[0]-a[0], dy = b[1]-a[1], l = Math.sqrt(dx*dx+dy*dy); dx /= l; dy /= l;
+    var lean = 0.08 + 2.2*Math.pow(a[3], 1.2) + 0.12*Math.sin(i*1.7);
+    var hx = dx*lean, hy = dy*lean - 1, hl = Math.sqrt(hx*hx+hy*hy); hx /= hl; hy /= hl;
+    var len = a[2] * (1.05 + 0.15 * Math.sin(i * 2.3));
+    var x0 = a[0] - hx*len/2, y0 = a[1] - hy*len/2;
+    hairs += '<path d="M' + x0.toFixed(1) + ' ' + y0.toFixed(1) + ' l' + (hx*len).toFixed(1) + ' ' + (hy*len).toFixed(1) + '"/>';
+  }
+  return outline + '<g fill="none" stroke-width="1" stroke-linecap="round" style="stroke:var(--rose)">' + hairs + '</g>';
+}
+</script>
+<script>
+(function(){
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  /* 眉デザイン診断: [名前, 眉山の位置, 太さ, 説明, 合うメニュー, 形] */
+  var DATA = {
+    maru: {
+      yasashiku: ['ふんわりアーチ眉', '黒目の外側の上', '今の太さを残す', '丸みを残しながら、眉山を少し外側に置きます。顔の丸さはやわらげて、表情はやさしいままに。', '眉スタイリング＋眉ティント 6,380円', 'softArchOuter'],
+      kiritto:   ['上がり眉', '白目の外側の上', '眉尻へ向けて細く', '眉頭から眉山へまっすぐ上げ、眉山で角を作ります。縦の線ができて、顔がすっきり見えます。', '眉スタイリング 4,950円', 'angled'],
+      natural:   ['ナチュラルアーチ', '黒目の外側の上', '今の太さを残す', 'いまの眉の流れを生かし、眉山の位置だけ外側へ整えます。丸みを少し抑えるだけで、顔がすっきり見えます。', '眉スタイリング 4,950円', 'naturalArch']
+    },
+    omonaga: {
+      yasashiku: ['ふんわり平行眉', 'ほとんど作らない', 'やや太め', '角度をつけずに横へ長めに。毛流れを上向きにそろえて、やわらかく見せます。', 'アイブロウラミネーション 6,820円', 'softStraight'],
+      kiritto:   ['太めストレート', 'ほとんど作らない', '太め', '太さを残した平行の眉。縦の長さが気にならず、意志のある顔つきになります。', '眉スタイリング＋眉ティント 6,380円', 'boldStraight'],
+      natural:   ['ナチュラルストレート', 'ほとんど作らない', '今の太さを残す', 'ほぼ平行で、眉尻だけ少し下げます。顔の縦の長さを目立たせません。', '眉スタイリング 4,950円', 'straight']
+    },
+    base: {
+      yasashiku: ['丸みアーチ', '黒目の真上より少し外', '今の太さを残す', '全体にゆるいカーブをつけた眉。あごまわりの角ばりと釣り合って、やわらかい印象になります。', 'ラミネーション＋眉ティント 8,690円', 'softArch'],
+      kiritto:   ['角度アーチ', '白目の外側の上', '眉尻へ向けて細く', 'アーチの中に角度を作り、眉山を高めに。輪郭の強さに負けない眉です。', '眉スタイリング＋眉ティント 6,380円', 'angledArch'],
+      natural:   ['ゆるアーチ', '黒目の外側の上', '今の太さを残す', 'ゆるやかなカーブで、眉尻を少し長めに。毛の量はそのまま、形だけ整えます。', '眉スタイリング 4,950円', 'naturalArch']
+    },
+    gyaku: {
+      yasashiku: ['ふんわり平行眉', 'ほとんど作らない', 'やや太め', '平行寄りで太さを残し、眉尻を長めに。おでこの広さとあご先の細さの釣り合いをとります。', 'アイブロウラミネーション 6,820円', 'softStraight'],
+      kiritto:   ['ゆる上がりストレート', '眉尻の手前', '今の太さを残す', '平行を基本に、眉尻へ向けてわずかに上げます。角を作らないので、強く見えすぎません。', '眉スタイリング 4,950円', 'slightUp'],
+      natural:   ['低めアーチ', '黒目の外側の上', '今の太さを残す', '眉山を低めに置いたゆるいカーブ。あご先のシャープさと合わせて、穏やかに見せます。', '眉スタイリング 4,950円', 'lowArch']
+    }
+  };
+  var form = document.getElementById('diag-form');
+  var brow = document.getElementById('brow');
+  function pick(name){ var el = form.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : null; }
+  function render(){
+    var f = pick('face') || 'maru', m = pick('mood') || 'natural';
+    var d = DATA[f][m];
+    document.getElementById('r-name').textContent = d[0];
+    document.getElementById('r-peak').textContent = d[1];
+    document.getElementById('r-width').textContent = d[2];
+    document.getElementById('r-note').textContent = d[3];
+    document.getElementById('r-menu').textContent = '合うメニュー: ' + d[4];
+    brow.innerHTML = browSvg(d[5]);
+  }
+  form.addEventListener('change', render);
+  render();
+
+  /* 見本のIGリンク */
+  var toast = document.getElementById('toast'), tid;
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href="#ig"]');
+    if (!a) return;
+    e.preventDefault();
+    toast.textContent = '見本のため実在のアカウントはありません';
+    toast.classList.add('on');
+    clearTimeout(tid);
+    tid = setTimeout(function(){ toast.classList.remove('on'); }, 2600);
+  });
+
+  /* 投稿の拡大 */
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img');
+  if (lb && typeof lb.showModal === 'function'){
+    document.getElementById('ig-grid').addEventListener('click', function(e){
+      var a = e.target.closest('a');
+      if (!a) return;
+      e.preventDefault();
+      lbImg.src = a.getAttribute('href');
+      lbImg.alt = a.getAttribute('data-alt') || '';
+      lb.showModal();
+    });
+    document.getElementById('lb-close').addEventListener('click', function(){ lb.close(); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) lb.close(); });
+  }
+
+  /* 見出しと写真を1回だけ浮かせる */
+  var items = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches){
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {rootMargin:'0px 0px -8% 0px'});
+  items.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

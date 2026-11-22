@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>キッチンカー HAPPA(ハッパ)| ロコモコとレモネード 今週の出店場所</title>
+<meta name="description" content="福岡市 帆待浜を拠点にしたキッチンカー HAPPA。ロコモコと自家製レモネード。曜日ごとの出店場所と時間、メニューと値段、イベント出店やケータリングの相談はInstagramのDMで。">
+<meta name="theme-color" content="#14853c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=M+PLUS+2:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 方針: 公園やマルシェでHAPPAを見かけた人、検索で来た人、イベント主催者向けの「今日どこにいて、何がいくらか」が分かるページ。
+   屋台のテントの楽しい手触り。日よけ(上)→窓(写真)→カウンター(緑の棚)の並びで車の売り場を見立てる */
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f2f5f2;
+  --ink:#1b2a1f;
+  --ink-soft:#46564a;
+  --accent:#14853c;        /* アクセント1色(葉っぱの緑) */
+  --on-accent:#ffffff;
+  --stripe-light:#ffffff;
+  --line:#1b2a1f;          /* 線は文字色で太めに引く(手描きの札) */
+  --line-soft:#cfdad1;
+  --photo-bg:#c8d0ca;
+  --band-bg:#1b2a1f; --band-ink:#ffffff;
+  --font-head:"Mochiy Pop One","Hiragino Maru Gothic ProN",sans-serif;
+  --font-body:"M PLUS 2","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+  --r-s:8px; --r-m:16px;    /* 角丸は8と16の2段だけ */
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121a14; --bg-soft:#1a241c; --ink:#e7eee8; --ink-soft:#b6c4b9;
+    --accent:#4cc777; --on-accent:#0f1a12; --stripe-light:#eef3ee;
+    --line:#e7eee8; --line-soft:#33443a; --photo-bg:#3a463e;
+    --band-bg:#e7eee8; --band-ink:#121a14; color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#121a14; --bg-soft:#1a241c; --ink:#e7eee8; --ink-soft:#b6c4b9;
+  --accent:#4cc777; --on-accent:#0f1a12; --stripe-light:#eef3ee;
+  --line:#e7eee8; --line-soft:#33443a; --photo-bg:#3a463e;
+  --band-bg:#e7eee8; --band-ink:#121a14; color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-weight:500;font-size:16px;line-height:1.8;letter-spacing:.02em;overflow-wrap:anywhere}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{margin:0;font-family:var(--font-head);font-weight:400;line-height:1.4;letter-spacing:.02em}
+p,ul,ol,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+.sp-only{display:inline}
+@media (min-width:768px){.sp-only{display:none}}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 var(--s4)}
+@media (max-width:359px){.wrap{padding:0 var(--s3)}}
+.sec{padding:var(--s7) 0}
+@media (min-width:768px){.sec{padding:var(--s8) 0}}
+.sec-title{font-size:clamp(26px,6.4vw,40px);margin-bottom:var(--s3)}
+.lead{color:var(--ink-soft);max-width:36em}
+
+/* 制作見本の帯 */
+.demo-band{background:var(--band-bg);color:var(--band-ink);font-size:13px;line-height:1.6;text-align:center;padding:var(--s2) var(--s3)}
+
+/* 日よけ: 緑と白のストライプ+波の縁 */
+.awning{position:relative;z-index:2}
+.awning-cloth{height:32px;background:repeating-linear-gradient(90deg,var(--accent) 0 32px,var(--stripe-light) 32px 64px)}
+.awning-edge{height:16px;margin-bottom:-16px;position:relative;
+  background:
+    radial-gradient(circle at 16px 0,var(--accent) 15.5px,transparent 16px) 0 0/64px 16px repeat-x,
+    radial-gradient(circle at 16px 0,var(--stripe-light) 15.5px,transparent 16px) 32px 0/64px 16px repeat-x}
+
+/* ファーストビュー: 窓(写真)とカウンター */
+.window{position:relative;background:var(--photo-bg)}
+.window img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 55%}
+@media (min-width:768px){.window img{aspect-ratio:auto;height:clamp(320px,50vh,540px)}}
+.photo-note{position:absolute;right:var(--s2);bottom:var(--s2);font-size:11px;line-height:1.4;background:rgba(27,42,31,.72);color:#fff;padding:2px var(--s2);border-radius:var(--r-s)}
+.counter{border-top:8px solid var(--accent);padding:var(--s4) 0 var(--s5)}
+.counter-in{display:grid;gap:var(--s3)}
+.today-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--s2);font-size:14px;line-height:1.6;color:var(--ink-soft)}
+.today-line b{font-family:var(--font-head);font-weight:400;font-size:15px;color:var(--ink)}
+.today-line a{color:var(--accent);font-weight:700}
+.hero-title .logo{display:block;font-size:clamp(52px,16vw,96px);line-height:1;color:var(--accent);letter-spacing:.04em}
+.hero-title .sub{display:block;font-size:clamp(15px,4.6vw,24px);margin-top:var(--s2)}
+.hero-desc{color:var(--ink-soft);max-width:30em}
+.cta{display:grid;gap:var(--s2)}
+.btn{display:flex;align-items:center;justify-content:center;gap:var(--s2);min-height:52px;padding:var(--s2) var(--s4);border-radius:var(--r-s);font-weight:700;font-size:16px;text-decoration:none;border:2px solid var(--line);line-height:1.3;text-align:center}
+.btn-main{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn-sub{background:var(--bg);color:var(--ink)}
+.btn svg{flex:none}
+@media (min-width:768px){
+  .counter{padding:var(--s5) 0 var(--s6)}
+  .counter-in{grid-template-columns:auto minmax(0,1fr);align-items:start;column-gap:var(--s6)}
+  .hero-title{grid-row:1/4;align-self:center}
+  .hero-title .logo{font-size:clamp(64px,9vw,104px)}
+  .today-line,.hero-desc,.counter .cta{grid-column:2}
+  .counter .cta{grid-template-columns:1fr 1fr;max-width:560px}
+}
+@media (min-width:768px) and (max-width:1023px){.counter .cta{grid-template-columns:1fr}}
+
+/* 仕掛け: 今週どこにいる? */
+.where{background:var(--bg-soft)}
+.where-head{display:grid;gap:var(--s2);margin-bottom:var(--s4)}
+.days{display:none}
+.js .days{display:grid;grid-template-columns:repeat(7,1fr);gap:var(--s1);margin-bottom:var(--s3)}
+.day-tab{appearance:none;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:var(--r-s);padding:var(--s2) 0;cursor:pointer;display:grid;justify-items:center;line-height:1.2;min-height:56px;align-content:center;position:relative}
+.day-tab .d{font-family:var(--font-head);font-size:17px}
+.day-tab .date{font-size:11px;color:var(--ink-soft);margin-top:2px}
+.day-tab.off .d{color:var(--ink-soft)}
+.day-tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.day-tab[aria-selected="true"] .date,.day-tab[aria-selected="true"].off .d{color:var(--on-accent)}
+.day-tab .now{position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:11px;line-height:1;background:var(--ink);color:var(--bg);padding:3px 6px;border-radius:var(--r-s);white-space:nowrap}
+.day-list{display:grid;gap:var(--s3)}
+.js .day-panel{display:none}
+.js .day-panel.is-active{display:grid}
+.day-panel{display:grid;gap:var(--s2);background:var(--bg);border:2px solid var(--line);border-radius:var(--r-m);padding:var(--s4)}
+.day-panel .dp-day{font-family:var(--font-head);font-size:15px;color:var(--accent)}
+.day-panel .dp-place{font-family:var(--font-head);font-size:clamp(22px,5.6vw,32px);line-height:1.35}
+.day-panel .dp-time{font-size:clamp(24px,6vw,34px);font-weight:700;letter-spacing:.04em;line-height:1.2}
+.day-panel .dp-note{color:var(--ink-soft);font-size:15px}
+.day-panel.closed .dp-place{color:var(--ink-soft)}
+.where-foot{display:grid;gap:var(--s3);margin-top:var(--s4)}
+.where-foot p{font-size:14px;color:var(--ink-soft)}
+.catering{border-top:2px dashed var(--line-soft);padding-top:var(--s4);display:grid;gap:var(--s2)}
+.catering h3{font-size:20px}
+.catering ul{display:grid;gap:var(--s1);font-size:15px}
+.catering li{padding-left:1.1em;position:relative}
+.catering li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+@media (min-width:768px){
+  .where-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:var(--s6);align-items:start}
+  .where-foot{margin-top:0}
+  .catering{border-top:0;padding-top:0;border-left:2px dashed var(--line-soft);padding-left:var(--s5)}
+}
+
+/* 品書き: 車の横に掛けた札 */
+.boards{display:grid;gap:var(--s5)}
+.board{border:2px solid var(--line);border-radius:var(--r-m);overflow:hidden;background:var(--bg)}
+.board-photo{background:var(--photo-bg)}
+.board-photo img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.board-body{padding:var(--s4)}
+.board h3{font-size:24px;margin-bottom:var(--s2)}
+.items li{display:flex;align-items:baseline;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--line-soft)}
+.items li:last-child{border-bottom:0}
+.items .nm{flex:1 1 auto;min-width:0}
+.items .nm small{display:block;font-size:13px;color:var(--ink-soft);line-height:1.5}
+.items .pr{flex:none;font-weight:700;font-size:18px;white-space:nowrap}
+.items .pr span{font-size:13px;font-weight:500}
+.set{margin-top:var(--s5);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2) var(--s4);background:var(--accent);color:var(--on-accent);border-radius:var(--r-m);padding:var(--s4)}
+.set b{font-family:var(--font-head);font-weight:400;font-size:20px}
+.set .pr{font-size:26px;font-weight:700;white-space:nowrap}
+.set .pr span{font-size:14px;font-weight:500}
+.menu-note{margin-top:var(--s3);font-size:13px;color:var(--ink-soft)}
+@media (min-width:768px){
+  .boards{grid-template-columns:minmax(0,5fr) minmax(0,4fr);align-items:start}
+  .board:nth-child(2){margin-top:var(--s7)}
+}
+
+/* Instagram */
+.ig-head{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2) var(--s3);margin-bottom:var(--s4)}
+.ig-account{display:inline-flex;align-items:center;gap:var(--s2);font-weight:700;font-size:18px;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px}
+.ig-head p{font-size:14px;color:var(--ink-soft);flex-basis:100%}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.tile{display:block;aspect-ratio:1;overflow:hidden;background:var(--photo-bg);position:relative}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.tile:hover img{transform:scale(1.03)}
+.tile.zoom img{transform:scale(1.6);transform-origin:40% 60%}
+.tile.zoom:hover img{transform:scale(1.64)}
+dialog.lb{border:0;padding:0;background:transparent;width:100%;max-width:min(92vw,880px);color:#fff}
+dialog.lb::backdrop{background:rgba(18,26,20,.86)}
+.lb img{width:100%;max-height:78vh;object-fit:contain;background:var(--photo-bg);border-radius:var(--r-s)}
+.lb-bar{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding-top:var(--s2)}
+.lb-cap{font-size:14px}
+.lb-close{appearance:none;font:inherit;font-weight:700;background:#fff;color:#1b2a1f;border:0;border-radius:var(--r-s);min-height:44px;padding:0 var(--s4);cursor:pointer}
+
+/* お客様の声 */
+.voices{display:grid;gap:var(--s3);margin-top:var(--s6)}
+@media (min-width:768px){
+  .ig-wrap{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);column-gap:var(--s6);align-items:start}
+  .ig-wrap .grid{grid-column:2;grid-row:1/3;max-width:none}
+  .ig-wrap .voices{grid-column:1;grid-row:2;margin-top:var(--s4)}
+}
+.voice{margin:0;border-left:4px solid var(--accent);padding:var(--s1) 0 var(--s1) var(--s3)}
+.voice p{font-size:16px}
+.voice cite{display:block;font-style:normal;font-size:13px;color:var(--ink-soft);margin-top:var(--s1)}
+
+
+/* 店の情報 */
+.info{background:var(--bg-soft)}
+.info-grid{display:grid;gap:var(--s5)}
+.info dl{display:grid;gap:0}
+.info dl div{display:grid;grid-template-columns:5em 1fr;gap:var(--s2);padding:var(--s3) 0;border-bottom:1px solid var(--line-soft)}
+.info dt{font-weight:700}
+.info dd small{display:block;font-size:13px;color:var(--ink-soft)}
+.map{background:var(--bg);border:2px solid var(--line);border-radius:var(--r-m);padding:var(--s2)}
+.map svg{display:block;width:100%;height:auto}
+.map .hand{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.map .thin{stroke-width:1.6}
+.map .sea{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.map .lbl{font-family:var(--font-head);fill:var(--ink);font-size:16px}
+.map .lbl-s{font-family:var(--font-body);fill:var(--ink-soft);font-size:15px;font-weight:700}
+.map .pin{fill:var(--accent)}
+.map .pin-hole{fill:var(--bg)}
+.map-cap{font-size:13px;color:var(--ink-soft);padding:var(--s1) var(--s2) var(--s1)}
+@media (min-width:768px){.info-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s6);align-items:start}}
+
+/* 最下部 */
+.last{text-align:center}
+.last .sec-title{margin-bottom:var(--s2)}
+.last .cta{max-width:420px;margin:var(--s4) auto 0}
+footer{border-top:2px solid var(--line-soft);padding:var(--s4) 0;font-size:13px;color:var(--ink-soft);text-align:center}
+footer .logo-s{font-family:var(--font-head);color:var(--accent);font-size:18px}
+
+/* スマホ下の固定バー */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);padding:var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom));background:var(--bg);border-top:2px solid var(--line)}
+.dock .btn{min-height:48px;font-size:15px;padding:var(--s1) var(--s2)}
+body{padding-bottom:72px}
+@media (min-width:768px){.dock{display:none}body{padding-bottom:0}}
+
+.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:30;width:max-content;max-width:calc(100vw - 32px);background:var(--ink);color:var(--bg);font-size:13px;padding:var(--s2) var(--s3);border-radius:var(--r-s);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+@media (min-width:768px){.toast{bottom:32px}}
+
+/* 動き: 見出しと写真だけ、1回。JSがクラスを付けてから隠す */
+.rv-on .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv-on .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .rv-on .rv{opacity:1;transform:none;transition:none}
+  .tile img,.toast{transition:none}
+  .tile:hover img{transform:none}
+  .tile.zoom:hover img{transform:scale(1.6)}
+}
+</style>
+</head>
+<body>
+
+<p class="demo-band">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="awning" aria-hidden="true">
+  <div class="awning-cloth"></div>
+  <div class="awning-edge"></div>
+</header>
+
+<main>
+<section class="fv" aria-labelledby="fv-title">
+  <div class="window">
+    <img src="img/kitchencar_hero-1600.jpg" srcset="img/kitchencar_hero-800.jpg 800w, img/kitchencar_hero-1600.jpg 1600w" sizes="100vw" alt="公園の芝生の横に止まった緑のキッチンカーと、注文を待つお客さん" width="1600" height="914" fetchpriority="high">
+    <span class="photo-note">写真はイメージです</span>
+  </div>
+  <div class="counter">
+    <div class="wrap counter-in">
+      <h1 class="hero-title" id="fv-title"><span class="logo">HAPPA</span><span class="sub">ロコモコとレモネードのキッチンカー</span></h1>
+      <p class="today-line" id="today-line"><b>出店場所は曜日ごとに変わります</b><a href="#where">今週の予定を見る</a></p>
+      <p class="hero-desc">粗びきハンバーグのロコモコと、国産レモンを皮ごと漬けた自家製レモネード。お昼どきの公園で待っています。</p>
+      <div class="cta">
+        <a class="btn btn-main" href="#ig" data-ig><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>InstagramのDMで相談</a>
+        <a class="btn btn-sub" href="tel:0920000000"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>電話する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec where" id="where" aria-labelledby="where-title">
+  <div class="wrap where-grid">
+    <div>
+      <div class="where-head">
+        <h2 class="sec-title rv" id="where-title">今週どこにいる?</h2>
+        <p class="lead">毎週だいたい同じ場所をまわっています。曜日を押すと、その日の出店場所と時間が出ます。</p>
+      </div>
+      <div class="days" role="tablist" aria-label="曜日を選ぶ" id="days"></div>
+      <ol class="day-list" id="day-list">
+        <li class="day-panel" data-day="1" data-off="1" id="day-1">
+          <span class="dp-day">月曜</span>
+          <span class="dp-place">お休み</span>
+          <span class="dp-note">仕込みと買い出しの日です。DMの返事はこの日にまとめてしています。</span>
+        </li>
+        <li class="day-panel" data-day="2" id="day-2">
+          <span class="dp-day">火曜</span>
+          <span class="dp-place">帆待浜市民センター前</span>
+          <span class="dp-time">11:00〜14:00</span>
+          <span class="dp-note">平日のお昼。駐車場の入口側に止まっています。</span>
+        </li>
+        <li class="day-panel" data-day="3" id="day-3">
+          <span class="dp-day">水曜</span>
+          <span class="dp-place">帆待浜公園 東口</span>
+          <span class="dp-time">11:00〜14:30</span>
+          <span class="dp-note">芝生広場で食べられます。レジャーシートがあると便利です。</span>
+        </li>
+        <li class="day-panel" data-day="4" id="day-4">
+          <span class="dp-day">木曜</span>
+          <span class="dp-place">帆待浜市民センター前</span>
+          <span class="dp-time">11:00〜14:00</span>
+          <span class="dp-note">火曜と同じ場所です。電話で頼んでおくと待たずに受け取れます。</span>
+        </li>
+        <li class="day-panel" data-day="5" id="day-5">
+          <span class="dp-day">金曜</span>
+          <span class="dp-place">帆待浜漁港 夕方の部</span>
+          <span class="dp-time">16:30〜19:30</span>
+          <span class="dp-note">金曜だけ夕方です。持ち帰りの方が多い日です。</span>
+        </li>
+        <li class="day-panel" data-day="6" id="day-6">
+          <span class="dp-day">土曜</span>
+          <span class="dp-place">帆待浜公園 週末マルシェ</span>
+          <span class="dp-time">10:00〜15:00</span>
+          <span class="dp-note">ほかのお店も並ぶ日です。お昼の前後は少し並びます。</span>
+        </li>
+        <li class="day-panel" data-day="0" id="day-0">
+          <span class="dp-day">日曜</span>
+          <span class="dp-place">帆待浜の海辺広場</span>
+          <span class="dp-time">11:00〜16:00</span>
+          <span class="dp-note">雨や強い風の日はお休みします。当日の朝にストーリーズでお知らせします。</span>
+        </li>
+      </ol>
+    </div>
+    <div class="where-foot">
+      <p>天気やイベントの都合で変わる日があります。出かける前に、Instagramのストーリーズを見てもらうのが確実です。</p>
+      <div class="catering">
+        <h3 class="rv">イベント出店とケータリング</h3>
+        <p>マルシェ、運動会、会社のお昼会などに車ごと伺います。相談はInstagramのDMへ。</p>
+        <ul>
+          <li>ケータリングは30食から。ロコモコ弁当 <span style="white-space:nowrap">1食 980円</span></li>
+          <li>イベント出店は売上歩合か出店料、どちらでも</li>
+          <li>電源がない会場でも発電機を持っていきます</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu" id="menu" aria-labelledby="menu-title">
+  <div class="wrap">
+    <h2 class="sec-title rv" id="menu-title">品書き</h2>
+    <p class="lead">値段はすべて税込です。ごはんの大盛りは無料。</p>
+    <div class="boards" style="margin-top:var(--s5)">
+      <article class="board">
+        <div class="board-photo rv"><img src="img/kitchencar_food-800.jpg" srcset="img/kitchencar_food-800.jpg 800w, img/kitchencar_food-1600.jpg 1600w" sizes="(min-width:768px) 560px, 100vw" alt="紙の器に盛ったロコモコ。ハンバーグの上に目玉焼き" width="1600" height="1600" loading="lazy"></div>
+        <div class="board-body">
+          <h3>ロコモコ</h3>
+          <ul class="items">
+            <li><span class="nm">ロコモコ<small>粗びきハンバーグ、目玉焼き、グレイビーソース</small></span><span class="pr">880<span>円</span></span></li>
+            <li><span class="nm">チーズロコモコ<small>とろけるチーズを2枚</small></span><span class="pr">1,030<span>円</span></span></li>
+            <li><span class="nm">アボカドロコモコ<small>アボカド半分とわさびマヨ</small></span><span class="pr">1,080<span>円</span></span></li>
+            <li><span class="nm">こどもロコモコ<small>小さめのハンバーグ、小学生まで</small></span><span class="pr">580<span>円</span></span></li>
+            <li><span class="nm">目玉焼きをもう1個</span><span class="pr">+120<span>円</span></span></li>
+          </ul>
+        </div>
+      </article>
+      <article class="board">
+        <div class="board-photo rv"><img src="img/kitchencar_drink-800.jpg" srcset="img/kitchencar_drink-800.jpg 800w, img/kitchencar_drink-1600.jpg 1600w" sizes="(min-width:768px) 460px, 100vw" alt="カップに入った自家製レモネードと輪切りのレモン" width="1600" height="1600" loading="lazy"></div>
+        <div class="board-body">
+          <h3>レモネード</h3>
+          <ul class="items">
+            <li><span class="nm">自家製レモネード<small>レモンを皮ごと漬けたシロップ</small></span><span class="pr">430<span>円</span></span></li>
+            <li><span class="nm">炭酸レモネード</span><span class="pr">480<span>円</span></span></li>
+            <li><span class="nm">はちみつレモネード<small>寒い日はホットもできます</small></span><span class="pr">520<span>円</span></span></li>
+            <li><span class="nm">大きいカップに変更</span><span class="pr">+100<span>円</span></span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <div class="set">
+      <b>ロコモコと<br class="sp-only">レモネードのセット</b>
+      <span class="pr">1,250<span>円</span></span>
+    </div>
+    <p class="menu-note">売り切れたら早めに閉めることがあります。支払いは現金、交通系IC、PayPayが使えます。</p>
+  </div>
+</section>
+
+<section class="sec ig" id="ig" aria-labelledby="ig-title">
+  <div class="wrap ig-wrap">
+    <div class="ig-text">
+    <h2 class="sec-title rv" id="ig-title">Instagramで<br>毎朝お知らせ</h2>
+    <div class="ig-head">
+      <a class="ig-account" href="#ig" data-ig><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>@happa_kitchencar</a>
+      <p>その日の出店場所と売り切れは、ストーリーズで出しています。写真を押すと大きく見られます。</p>
+    </div>
+    </div>
+    <div class="grid" id="grid">
+      <a class="tile" href="img/kitchencar_food-1600.jpg" data-cap="今日のロコモコ、目玉焼きは半熟で"><img src="img/kitchencar_food-800.jpg" alt="ロコモコを上から" width="800" height="800" loading="lazy"></a>
+      <a class="tile" href="img/kitchencar_hero-1600.jpg" data-cap="水曜は公園の東口にいます"><img src="img/kitchencar_hero-800.jpg" alt="公園に止まったキッチンカー" width="800" height="457" loading="lazy" style="object-position:30% 50%"></a>
+      <a class="tile" href="img/kitchencar_drink-1600.jpg" data-cap="レモネードのシロップ、仕込み直しました"><img src="img/kitchencar_drink-800.jpg" alt="レモネードのカップ" width="800" height="800" loading="lazy"></a>
+      <a class="tile" href="img/kitchencar_market-1600.jpg" data-cap="土曜の週末マルシェ、今週も出ます"><img src="img/kitchencar_market-800.jpg" alt="マルシェに並ぶテントとお客さん" width="800" height="457" loading="lazy" style="object-position:75% 50%"></a>
+      <a class="tile zoom" href="img/kitchencar_food-1600.jpg" data-cap="チーズロコモコ、チーズは2枚"><img src="img/kitchencar_food-800.jpg" alt="ロコモコの目玉焼きを近くから" width="800" height="800" loading="lazy"></a>
+      <a class="tile" href="img/kitchencar_market-1600.jpg" data-cap="夕方の部は持ち帰りが多めです"><img src="img/kitchencar_market-800.jpg" alt="夕方のマルシェの様子" width="800" height="457" loading="lazy" style="object-position:15% 50%"></a>
+    </div>
+    <div class="voices">
+      <blockquote class="voice"><p>公園で見つけて、翌週も同じ曜日に行きました。レモネードの酸っぱさがちょうどいいです。</p><cite>M.K.さん 30代</cite></blockquote>
+      <blockquote class="voice"><p>地域のマルシェに出てもらいました。列ができても手際がよくて助かりました。</p><cite>S.T.さん 40代 イベント主催</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="sec info" id="info" aria-labelledby="info-title">
+  <div class="wrap info-grid">
+    <div>
+      <h2 class="sec-title rv" id="info-title">お店のこと</h2>
+      <dl>
+        <div><dt>店名</dt><dd>キッチンカー HAPPA(ハッパ)<small>店主 片桐 陽介。ひとりで焼いています</small></dd></div>
+        <div><dt>拠点</dt><dd>福岡市帆待浜2丁目0-0<small>仕込み場のため、ここでの販売はしていません</small></dd></div>
+        <div><dt>電話</dt><dd><a href="tel:0920000000">092-000-0000</a><small>出店中は出られないことがあります。DMが確実です</small></dd></div>
+        <div><dt>出店時間</dt><dd>11:00〜14:00ごろ<small>曜日で変わります。金曜は夕方の部</small></dd></div>
+        <div><dt>定休日</dt><dd>月曜<small>雨や強い風の日もお休みします</small></dd></div>
+      </dl>
+    </div>
+    <figure class="map" style="margin:0">
+      <svg viewBox="0 0 360 280" role="img" aria-labelledby="map-t">
+        <title id="map-t">帆待浜の略図。海沿いに海辺広場、北に帆待浜公園、その間に帆待浜市民センター</title>
+        <!-- 道(手描き風に少し揺らす) -->
+        <path class="hand" d="M8 150 C70 146 120 156 180 150 S290 144 352 150"/>
+        <path class="hand" d="M184 14 C180 60 188 100 182 150 S178 210 186 236"/>
+        <path class="hand thin" d="M8 52 C60 50 120 56 176 52"/>
+        <!-- 海 -->
+        <path class="sea" d="M8 250 q16 -10 32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0"/>
+        <path class="sea" d="M24 268 q16 -10 32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0 t32 0"/>
+        <!-- 帆待浜公園(木) -->
+        <path class="hand thin" d="M220 36 C252 28 300 30 330 40 C338 64 334 96 326 116 C292 122 250 120 222 112 C214 88 214 60 220 36Z"/>
+        <circle class="hand thin" cx="250" cy="66" r="10"/><path class="hand thin" d="M250 76 v12"/>
+        <circle class="hand thin" cx="276" cy="58" r="8"/><path class="hand thin" d="M276 66 v10"/>
+        <text class="lbl" x="232" y="108">帆待浜公園</text>
+        <!-- 帆待浜市民センター(建物) -->
+        <path class="hand thin" d="M84 98 L150 96 L152 136 L86 138 Z"/>
+        <path class="hand thin" d="M104 138 v-14 h12 v14"/>
+        <text class="lbl" x="22" y="84">帆待浜市民センター</text>
+        <!-- 海辺広場 -->
+        <text class="lbl-s" x="214" y="230">海辺広場(日曜)</text>
+        <!-- HAPPAの仕込み場 -->
+        <g transform="translate(36 204)">
+          <path class="pin" d="M0 -26 C-12 -26 -18 -18 -18 -10 C-18 2 0 18 0 18 C0 18 18 2 18 -10 C18 -18 12 -26 0 -26Z"/>
+          <circle class="pin-hole" cx="0" cy="-10" r="6"/>
+        </g>
+        <text class="lbl-s" x="60" y="196">仕込み場</text><text class="lbl-s" x="60" y="214">(販売なし)</text>
+      </svg>
+      <figcaption class="map-cap">略図です。出店場所は上の「今週どこにいる?」で確かめてください。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec last" aria-labelledby="last-title">
+  <div class="wrap">
+    <h2 class="sec-title rv" id="last-title">取り置きも<br class="sp-only">イベントの相談も</h2>
+    <p class="lead" style="margin:0 auto">10食以上のまとめ買いは前日までにDMか電話で。出店中は手が離せないので、DMのほうが早く返せます。</p>
+    <div class="cta">
+      <a class="btn btn-main" href="#ig" data-ig><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>InstagramのDMで相談</a>
+      <a class="btn btn-sub" href="tel:0920000000"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>電話する</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span class="logo-s">HAPPA</span><br>キッチンカー 福岡市帆待浜</div>
+</footer>
+
+<nav class="dock" aria-label="連絡する">
+  <a class="btn btn-main" href="#ig" data-ig><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>DMで相談</a>
+  <a class="btn btn-sub" href="tel:0920000000">電話する</a>
+</nav>
+
+<dialog class="lb" id="lb" aria-label="写真を大きく見る">
+  <img id="lb-img" src="" alt="">
+  <div class="lb-bar"><span class="lb-cap" id="lb-cap"></span><button class="lb-close" id="lb-close" type="button">閉じる</button></div>
+</dialog>
+
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+
+  /* 今週どこにいる? */
+  var names=['日','月','火','水','木','金','土'];
+  var order=[1,2,3,4,5,6,0];
+  var now=new Date(), today=now.getDay();
+  var monday=new Date(now); monday.setDate(now.getDate()-((today+6)%7));
+  var days=document.getElementById('days');
+  var tabs={};
+  order.forEach(function(d,i){
+    var p=document.getElementById('day-'+d);
+    var dt=new Date(monday); dt.setDate(monday.getDate()+i);
+    var b=document.createElement('button');
+    b.type='button'; b.className='day-tab'+(p.dataset.off?' off':'');
+    b.id='tab-'+d; b.setAttribute('role','tab');
+    b.setAttribute('aria-controls','day-'+d); b.dataset.day=d;
+    b.innerHTML=(d===today?'<span class="now">今日</span>':'')+'<span class="d">'+names[d]+'</span><span class="date">'+(dt.getMonth()+1)+'/'+dt.getDate()+'</span>';
+    p.setAttribute('role','tabpanel'); p.setAttribute('aria-labelledby','tab-'+d); p.tabIndex=0;
+    days.appendChild(b); tabs[d]=b;
+  });
+  function select(d,focus){
+    order.forEach(function(x){
+      var on=x===d;
+      tabs[x].setAttribute('aria-selected',on?'true':'false');
+      tabs[x].tabIndex=on?0:-1;
+      document.getElementById('day-'+x).classList.toggle('is-active',on);
+    });
+    if(focus) tabs[d].focus();
+  }
+  days.addEventListener('click',function(e){var b=e.target.closest('.day-tab'); if(b) select(+b.dataset.day);});
+  days.addEventListener('keydown',function(e){
+    var i=order.indexOf(+document.activeElement.dataset.day); if(i<0) return;
+    if(e.key==='ArrowRight'){select(order[(i+1)%7],true);e.preventDefault();}
+    if(e.key==='ArrowLeft'){select(order[(i+6)%7],true);e.preventDefault();}
+  });
+  select(today);
+  /* ファーストビューの1行を今日の予定に */
+  var tp=document.getElementById('day-'+today), tl=document.getElementById('today-line');
+  var place=tp.querySelector('.dp-place').textContent, time=tp.querySelector('.dp-time');
+  tl.innerHTML=tp.dataset.off
+    ? '<span>今日('+names[today]+')は</span><b>お休みです</b><a href="#where">ほかの曜日を見る</a>'
+    : '<span>今日('+names[today]+')は</span><b>'+place+'</b><span>'+time.textContent+'</span><a href="#where">今週の予定</a>';
+
+  /* スクロールで1回だけ */
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    root.classList.add('rv-on');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+  }
+
+  /* 写真を大きく */
+  var lb=document.getElementById('lb'), li=document.getElementById('lb-img'), lc=document.getElementById('lb-cap');
+  if(lb.showModal){
+    document.getElementById('grid').addEventListener('click',function(e){
+      var a=e.target.closest('.tile'); if(!a) return; e.preventDefault();
+      li.src=a.getAttribute('href'); li.alt=a.querySelector('img').alt; lc.textContent=a.dataset.cap||'';
+      lb.showModal();
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){lb.close();});
+    lb.addEventListener('click',function(e){if(e.target===lb) lb.close();});
+  }
+
+  /* 見本のためIGは無し */
+  var toast=document.getElementById('toast'), tm;
+  document.querySelectorAll('[data-ig]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      toast.textContent='見本のため実在のアカウントはありません';
+      toast.classList.add('show'); clearTimeout(tm);
+      tm=setTimeout(function(){toast.classList.remove('show');},2800);
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ゲストハウス 旅籠浜|築90年の古民家の宿(制作見本)</title>
+<meta name="description" content="福岡市旅籠浜の古民家ゲストハウス。個室3室とドミトリー、朝ごはんあり。海まで歩いて三分。宿泊料金の計算、チェックインの流れ、アクセスをまとめています。(制作見本)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&family=Spectral:wght@400;600&family=Zen+Old+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* 決めたトークン: 色4+藍 / 字体(見出し Zen Old Mincho、本文 Shippori Antique、英字は Spectral 1つ) / 余白8の倍数 / 角丸2px 1種 / 影なし */
+:root{
+  color-scheme: light;
+  --bg:#ffffff;
+  --bg-soft:#f2f4f6;
+  --ink:#18212d;
+  --muted:#4a5562;
+  --line:#d3d9e0;
+  --ai:#1f3d63;          /* 藍(アクセント1色) */
+  --ai-text:#1f3d63;     /* 地の上に置く藍の文字 */
+  --on-ai:#ffffff;
+  --r:2px;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px;
+  --f-head:"Spectral","Zen Old Mincho",serif;
+  --f-body:"Spectral","Shippori Antique",sans-serif;
+  --wrap:min(100% - 40px, 1080px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#0e1319; --bg-soft:#151c25; --ink:#e6eaef; --muted:#a8b2be; --line:#2b3644;
+    --ai:#24497a; --ai-text:#9dbde3; --on-ai:#ffffff;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#0e1319; --bg-soft:#151c25; --ink:#e6eaef; --muted:#a8b2be; --line:#2b3644;
+  --ai:#24497a; --ai-text:#9dbde3; --on-ai:#ffffff;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.85;font-variant-numeric:lining-nums;padding-bottom:72px}
+@media (min-width:900px){body{padding-bottom:0}}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--ai-text)}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--ai-text);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;letter-spacing:.02em;line-height:1.45;margin:0}
+p{margin:0}
+.wrap{width:var(--wrap);margin-inline:auto}
+.sp-only{display:inline}
+@media (min-width:600px){.sp-only{display:none}}
+
+/* 制作見本の帯 */
+.demo{background:var(--bg-soft);color:var(--ink);font-size:13px;line-height:1.6;text-align:center;padding:10px 16px;border-bottom:1px solid var(--line)}
+
+/* ヘッダー */
+.head{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);width:var(--wrap);margin-inline:auto;padding:var(--s1) 0;min-height:56px}
+.logo{font-family:var(--f-head);font-size:22px;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:.08em;line-height:1.2}
+.logo small{display:block;font-family:var(--f-body);font-size:11px;letter-spacing:.12em;color:var(--muted);font-weight:400}
+.nav{display:none;gap:var(--s3);margin-left:auto;font-size:14px}
+.nav a{color:var(--ink);text-decoration:none}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+@media (min-width:900px){.nav{display:flex}}
+.lang{display:flex;border:1px solid var(--ai-text);border-radius:var(--r);overflow:hidden;flex:none}
+.lang[hidden]{display:none}
+.lang button{font:inherit;font-size:13px;line-height:1;padding:9px 12px;border:0;background:transparent;color:var(--ai-text);cursor:pointer;min-height:36px}
+.lang button[aria-pressed="true"]{background:var(--ai);color:var(--on-ai)}
+
+/* 手ぬぐい柄(七宝)の帯 */
+.tenugui{height:32px;background-color:var(--ai);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.8' stroke-width='1'%3E%3Ccircle cx='0' cy='0' r='8'/%3E%3Ccircle cx='16' cy='0' r='8'/%3E%3Ccircle cx='0' cy='16' r='8'/%3E%3Ccircle cx='16' cy='16' r='8'/%3E%3Ccircle cx='8' cy='8' r='8'/%3E%3C/g%3E%3C/svg%3E");background-size:16px 16px;background-position:center}
+.fringe{height:8px;background:repeating-linear-gradient(90deg,var(--ai) 0 2px,transparent 2px 5px)}
+
+/* ファーストビュー: 写真を全幅、藍の手ぬぐいを上から垂らす */
+.hero{position:relative}
+.hero-photo img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 60%;background:var(--bg-soft)}
+.cloth{background:var(--ai);color:var(--on-ai)}
+.cloth-in{padding:var(--s4) 20px var(--s3)}
+.kicker{font-size:13px;letter-spacing:.1em;opacity:.92}
+.hero h1{font-size:clamp(27px,7.4vw,40px);margin:var(--s1) 0 var(--s2);font-weight:700}
+.hero .lead{font-size:15px;line-height:1.8;max-width:30em}
+.hero .cta{margin-top:var(--s3)}
+@media (min-width:900px){
+  .hero-photo img{aspect-ratio:auto;height:clamp(520px,74vh,660px)}
+  .cloth{position:absolute;top:0;right:max(24px,calc((100% - 1080px)/2));width:400px;background:transparent}
+  .cloth-in{background:var(--ai);padding:var(--s5) var(--s4) var(--s4)}
+  .cloth{width:440px}
+  .hero h1{font-size:36px}
+  html[lang="en"] .hero h1{font-size:30px}
+}
+html[lang="en"] .hero h1{font-size:clamp(23px,6.2vw,32px);line-height:1.3}
+
+/* ボタン(2種だけ) */
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 20px;border-radius:var(--r);font-size:15px;font-weight:700;text-decoration:none;line-height:1.3;white-space:nowrap;border:1.5px solid transparent}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-dm{background:var(--ai);color:var(--on-ai);border-color:var(--ai)}
+.btn-tel{background:transparent;color:var(--ai-text);border-color:var(--ai-text)}
+.cloth .btn-dm{background:var(--on-ai);color:#1f3d63;border-color:var(--on-ai)}
+.cloth .btn-tel{color:var(--on-ai);border-color:var(--on-ai)}
+.btn:hover{filter:brightness(1.08)}
+
+/* セクション */
+section{padding:var(--s6) 0}
+.h2{font-size:clamp(22px,5.6vw,30px);margin-bottom:var(--s3)}
+.h2 span{display:inline-block;background:var(--ai);color:var(--on-ai);padding:4px 14px 6px;border-radius:var(--r)}
+.sub{color:var(--muted);font-size:15px;max-width:36em}
+
+/* 宿のこと */
+.about{display:grid;gap:var(--s4)}
+.about-text p+p{margin-top:var(--s2)}
+.about figure{margin:0}
+.about img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 40%;border-radius:var(--r);background:var(--bg-soft)}
+.host{margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+@media (min-width:900px){
+  .about{grid-template-columns:5fr 7fr;align-items:center;gap:var(--s6)}
+  .about img{aspect-ratio:3/4;max-height:620px}
+}
+
+/* お部屋と料金 + 計算 */
+.rooms{background:var(--bg-soft)}
+.price-grid{display:grid;gap:var(--s4)}
+.plist{list-style:none;margin:0;padding:0;display:grid;gap:var(--s2)}
+.plist li{background:var(--bg);border-top:3px solid var(--ai);border-radius:var(--r);padding:var(--s3) 20px}
+.plist h3{font-size:19px}
+.plist .desc{font-size:14px;color:var(--muted);margin:4px 0 12px}
+.plist dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px var(--s2);font-size:15px}
+.plist dt{color:var(--muted)}
+.plist dd{margin:0;text-align:right;font-weight:600}
+.pnote{font-size:13px;color:var(--muted);margin-top:var(--s2)}
+
+.calc{background:var(--bg);border:1.5px solid var(--ai-text);border-radius:var(--r);padding:var(--s3) 20px}
+.calc h3{font-size:20px;margin-bottom:var(--s2)}
+.calc fieldset{border:0;margin:0 0 var(--s2);padding:0}
+.calc legend,.calc label.lbl{display:block;font-size:14px;color:var(--muted);margin-bottom:6px;padding:0}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{position:relative;flex:1 1 0;min-width:0}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 10px;border:1.5px solid var(--line);border-radius:var(--r);font-size:15px;text-align:center;line-height:1.3}
+.seg input:checked+span{border-color:var(--ai);background:var(--ai);color:var(--on-ai)}
+.seg input:focus-visible+span{outline:3px solid var(--ai-text);outline-offset:2px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-bottom:var(--s2)}
+.calc select{width:100%;min-height:44px;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:var(--r);padding:6px 10px}
+.result{margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid var(--line)}
+.result .total{font-family:var(--f-head);font-size:34px;font-weight:600;line-height:1.3;color:var(--ai-text)}
+.result .total small{font-size:15px;color:var(--muted);font-family:var(--f-body);font-weight:400;margin-left:6px}
+.result ul{list-style:none;margin:var(--s1) 0 0;padding:0;font-size:14px;color:var(--muted)}
+.result li{display:flex;justify-content:space-between;gap:var(--s2);padding:4px 0;border-bottom:1px dashed var(--line)}
+.result li span:last-child{white-space:nowrap}
+.result .per{margin-top:var(--s1);font-size:14px}
+@media (min-width:900px){
+  .price-grid{grid-template-columns:1fr 1fr;align-items:start;gap:var(--s5)}
+  .calc{padding:var(--s4)}
+}
+
+/* 朝ごはん */
+.bf{display:grid;gap:var(--s4)}
+.bf figure{margin:0}
+.bf img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--r);background:var(--bg-soft)}
+.bf dl{display:grid;grid-template-columns:auto 1fr;gap:6px var(--s3);margin:var(--s3) 0 0;font-size:15px}
+.bf dt{color:var(--muted)}
+.bf dd{margin:0}
+@media (min-width:900px){.bf{grid-template-columns:7fr 5fr;align-items:center;gap:var(--s6)}.bf figure{order:2}}
+
+/* インスタ */
+.ig-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2);margin-bottom:var(--s3)}
+.ig-acc{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-body);font-size:16px;font-weight:600;color:var(--ai-text);text-decoration:none;min-height:44px}
+.ig-acc svg{width:22px;height:22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.tile{display:block;position:relative;aspect-ratio:1;overflow:hidden;border-radius:var(--r);background:var(--bg-soft)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.tile:hover img{transform:scale(1.03)}
+.t2 img{object-position:50% 30%}
+.t3 img{object-position:50% 15%}
+.t4 img{object-position:20% 50%}
+.t5 img{object-position:85% 80%;transform:scale(1.6);transform-origin:85% 80%}
+.t6 img{object-position:30% 70%;transform:scale(1.5);transform-origin:30% 70%}
+.t5:hover img{transform:scale(1.65)}
+.t6:hover img{transform:scale(1.55)}
+.caption{font-size:12px;color:var(--muted);margin-top:var(--s1)}
+.ig-note{display:none;font-size:13px;color:var(--muted);margin-top:var(--s1)}
+.ig-note:target{display:block}
+@media (min-width:900px){.grid{gap:8px;max-width:840px}}
+
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,960px);width:100%}
+dialog.lb::backdrop{background:rgba(10,14,20,.86)}
+dialog.lb img{width:100%;max-height:82vh;object-fit:contain;background:#1a2230;border-radius:var(--r)}
+.lb-close{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;border-radius:var(--r);background:#ffffff;color:#18212d;font-size:24px;line-height:1;cursor:pointer}
+
+/* 泊まる前に */
+.stay{background:var(--bg-soft)}
+.flow{list-style:none;margin:0 0 var(--s4);padding:0;display:grid;gap:0}
+.flow li{display:grid;grid-template-columns:88px 1fr;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.flow li:first-child{border-top:1px solid var(--line)}
+.flow b{font-family:var(--f-head);font-size:18px;color:var(--ai-text);font-weight:600;line-height:1.5}
+.flow strong{display:block;font-size:16px}
+.flow p{font-size:14px;color:var(--muted)}
+.facts{display:grid;gap:0;margin:0}
+.facts div{display:grid;grid-template-columns:7em 1fr;gap:var(--s2);padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0}
+.voice{margin-top:var(--s5);display:grid;gap:var(--s3)}
+.voice blockquote{margin:0;padding-left:var(--s2);border-left:3px solid var(--ai)}
+.voice p{font-size:15px}
+.voice cite{display:block;font-style:normal;font-size:13px;color:var(--muted);margin-top:4px}
+@media (min-width:900px){
+  .stay-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start}
+  .voice{grid-template-columns:1fr 1fr}
+}
+
+/* アクセス */
+.access{display:grid;gap:var(--s4)}
+.map{width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--bg)}
+.map .road{stroke:var(--line);stroke-width:10;fill:none;stroke-linecap:round}
+.map .sea{fill:var(--bg-soft)}
+.map .wave{stroke:var(--ai-text);stroke-width:1.2;fill:none;opacity:.6}
+.map text{font-family:var(--f-body);fill:var(--ink);font-size:15px}
+.map .lm{fill:var(--bg);stroke:var(--muted);stroke-width:1.5}
+.map .pin{fill:var(--ai)}
+.map .pin-t{fill:var(--on-ai);font-size:15px;font-family:var(--f-head);font-weight:700}
+.info{margin:0}
+.info div{display:grid;grid-template-columns:6.5em 1fr;gap:var(--s2);padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.info div:first-child{border-top:1px solid var(--line)}
+.info dt{color:var(--muted)}
+.info dd{margin:0}
+@media (min-width:900px){.access{grid-template-columns:1fr 1fr;align-items:start;gap:var(--s5)}}
+
+/* 最下部 */
+.last{text-align:left;padding:var(--s6) 0}
+.last h2{font-size:clamp(22px,5.6vw,30px);margin-bottom:var(--s2)}
+.last .cta{margin-top:var(--s3)}
+footer{background:var(--ai);color:var(--on-ai);font-size:13px;padding:var(--s3) 0 var(--s4)}
+footer p+p{margin-top:4px;opacity:.9}
+
+/* スマホ下の固定バー */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:3fr 2fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
+.bar .btn{padding:10px 8px;font-size:14px;min-height:46px}
+@media (min-width:900px){.bar{display:none}}
+
+/* 小さく出る知らせ */
+.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:30;max-width:calc(100% - 32px);background:var(--ink);color:var(--bg);font-size:13px;line-height:1.5;padding:10px 16px;border-radius:var(--r);opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+@media (min-width:900px){.toast{bottom:32px}}
+
+/* 動き: 見出しと写真だけ、1回 */
+.rv{transition:opacity .6s ease,transform .6s ease}
+.js .rv:not(.in){opacity:0;transform:translateY(20px)}
+@media (prefers-reduced-motion: reduce){
+  .js .rv:not(.in){opacity:1;transform:none}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<p class="demo">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="head">
+  <a class="logo" href="#top" id="top">旅籠浜<small data-i18n="logoSub">ゲストハウス</small></a>
+  <nav class="nav" aria-label="ページ内">
+    <a href="#rooms" data-i18n="navRooms">お部屋と料金</a>
+    <a href="#breakfast" data-i18n="navBf">朝ごはん</a>
+    <a href="#stay" data-i18n="navStay">泊まる前に</a>
+    <a href="#access" data-i18n="navAccess">アクセス</a>
+  </nav>
+  <div class="lang" role="group" aria-label="言語 / Language" hidden>
+    <button type="button" data-lang="ja" aria-pressed="true">日本語</button>
+    <button type="button" data-lang="en" aria-pressed="false" lang="en">English</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding:0" aria-labelledby="h1">
+  <div class="hero-photo">
+    <img src="img/guesthouse_hero-1600.jpg" srcset="img/guesthouse_hero-800.jpg 800w, img/guesthouse_hero-1600.jpg 1600w" sizes="100vw" alt="路地に面した木造二階建ての古民家の外観" width="1600" height="914" fetchpriority="high">
+  </div>
+  <div class="cloth">
+    <div class="cloth-in">
+      <p class="kicker" data-i18n="kicker">築90年の古民家の宿</p>
+      <h1 id="h1" data-i18n="h1">海まで歩いて三分、<br>古い家で眠る。</h1>
+      <p class="lead" data-i18n="lead">旅籠浜の路地にある昭和初期の木造の家を、少しずつ直した小さな宿です。個室が3つと、ドミトリーがあります。</p>
+      <div class="cta">
+        <a class="btn btn-dm" href="#ig" data-ig><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="ctaDm">InstagramのDMで予約</span></a>
+        <a class="btn btn-tel" href="tel:0920000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span data-i18n="ctaTel">電話する</span></a>
+      </div>
+    </div>
+    <div class="tenugui" aria-hidden="true"></div>
+    <div class="fringe" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-about">
+  <div class="wrap about">
+    <figure>
+      <img class="rv" src="img/guesthouse_entrance-1600.jpg" srcset="img/guesthouse_entrance-800.jpg 800w, img/guesthouse_entrance-1600.jpg 1600w" sizes="(min-width: 900px) 420px, 100vw" alt="藍ののれんが掛かった格子戸の玄関" width="1600" height="2800" loading="lazy">
+    </figure>
+    <div class="about-text">
+      <h2 class="h2 rv" id="h-about"><span data-i18n="hAbout">宿のこと</span></h2>
+      <p data-i18n="about1">玄関の格子戸を開けると、土間と縁側、小さな坪庭。柱や欄間は建てた頃のものをそのまま残しています。</p>
+      <p data-i18n="about2">泊まる方の半分ほどは海外からのお客様です。英語の案内書きと、近所の手描き地図を用意しています。夕方は海岸を散歩して、夜は居間でお茶をどうぞ。</p>
+      <p class="host" data-i18n="host">宿の主人 浦田 真帆。チェックインの時に、近所の銭湯と晩ごはんの店をお伝えします。</p>
+    </div>
+  </div>
+</section>
+
+<section class="rooms" id="rooms" aria-labelledby="h-rooms">
+  <div class="wrap">
+    <h2 class="h2 rv" id="h-rooms"><span data-i18n="hRooms">お部屋と料金</span></h2>
+    <p class="sub" data-i18n="roomsSub">料金は1泊あたり、税込です。布団、タオル、浴衣は料金に入っています。</p>
+    <div class="price-grid" style="margin-top:var(--s4)">
+      <div>
+        <ul class="plist">
+          <li>
+            <h3 data-i18n="pPrivate">個室(和室)3室</h3>
+            <p class="desc" data-i18n="pPrivateD">6畳と8畳の和室。1室に3名まで。鍵つき。</p>
+            <dl>
+              <dt data-i18n="p1">1名で</dt><dd data-i18n="p1v">6,400円</dd>
+              <dt data-i18n="p2">2名で</dt><dd data-i18n="p2v">8,900円</dd>
+              <dt data-i18n="p3">3名で</dt><dd data-i18n="p3v">11,700円</dd>
+            </dl>
+          </li>
+          <li>
+            <h3 data-i18n="pDorm">ドミトリー(男女共用6床)</h3>
+            <p class="desc" data-i18n="pDormD">カーテンと読書灯、鍵つきロッカーつきの2段ベッド。</p>
+            <dl>
+              <dt data-i18n="d1">1名</dt><dd data-i18n="d1v">3,300円</dd>
+            </dl>
+          </li>
+          <li>
+            <h3 data-i18n="pBf">朝ごはん</h3>
+            <p class="desc" data-i18n="pBfD">前の晩21時までにお申し込みください。</p>
+            <dl>
+              <dt data-i18n="b1">1名</dt><dd data-i18n="b1v">770円</dd>
+            </dl>
+          </li>
+        </ul>
+        <p class="pnote" data-i18n="pnote">このほかに、福岡市の宿泊税が1名1泊200円かかります。</p>
+      </div>
+
+      <form class="calc" id="calc" aria-labelledby="h-calc" onsubmit="return false">
+        <h3 id="h-calc" data-i18n="hCalc">宿泊料金を計算する</h3>
+        <fieldset>
+          <legend data-i18n="cRoom">お部屋</legend>
+          <div class="seg">
+            <label><input type="radio" name="room" value="private" checked><span data-i18n="cPrivate">個室</span></label>
+            <label><input type="radio" name="room" value="dorm"><span data-i18n="cDorm">ドミトリー</span></label>
+          </div>
+        </fieldset>
+        <div class="row2">
+          <div>
+            <label class="lbl" for="people" data-i18n="cPeople">人数</label>
+            <select id="people" name="people">
+              <option value="1">1</option><option value="2" selected>2</option><option value="3">3</option>
+            </select>
+          </div>
+          <div>
+            <label class="lbl" for="nights" data-i18n="cNights">泊数</label>
+            <select id="nights" name="nights">
+              <option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option>
+            </select>
+          </div>
+        </div>
+        <fieldset>
+          <legend data-i18n="cBf">朝ごはん</legend>
+          <div class="seg">
+            <label><input type="radio" name="bf" value="1" checked><span data-i18n="cBfYes">あり</span></label>
+            <label><input type="radio" name="bf" value="0"><span data-i18n="cBfNo">なし</span></label>
+          </div>
+        </fieldset>
+        <div class="result" aria-live="polite">
+          <p class="total" id="total">—</p>
+          <ul id="detail"><li><span data-i18n="noJs">料金は左の表で計算できます。8泊以上はDMでご相談ください。</span><span></span></li></ul>
+          <p class="per" id="per"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="breakfast" aria-labelledby="h-bf">
+  <div class="wrap bf">
+    <div>
+      <h2 class="h2 rv" id="h-bf"><span data-i18n="hBf">朝ごはん</span></h2>
+      <p data-i18n="bf1">朝は居間のちゃぶ台で。焼き魚、だし巻き卵、味噌汁と、近所の農家さんのお米。ごはんのおかわりは自由です。肉や魚を食べない方は、前の日にお知らせください。</p>
+      <dl>
+        <dt data-i18n="bfT">時間</dt><dd data-i18n="bfTv">7:30〜9:00</dd>
+        <dt data-i18n="bfP">料金</dt><dd data-i18n="bfPv">1名 770円</dd>
+        <dt data-i18n="bfR">申込み</dt><dd data-i18n="bfRv">前の晩21時まで</dd>
+      </dl>
+    </div>
+    <figure>
+      <img class="rv" src="img/guesthouse_breakfast-1600.jpg" srcset="img/guesthouse_breakfast-800.jpg 800w, img/guesthouse_breakfast-1600.jpg 1600w" sizes="(min-width: 900px) 440px, 100vw" alt="焼き魚とだし巻き卵、味噌汁が並んだ朝ごはんのお膳" width="1600" height="1600" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="h-ig" style="padding-top:0">
+  <div class="wrap">
+    <div class="ig-head">
+      <h2 class="h2 rv" id="h-ig" style="margin:0"><span data-i18n="hIg">宿の毎日</span></h2>
+      <a class="ig-acc" href="#ig" data-ig><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>@hatagohama_gh</a>
+    </div>
+    <div class="grid">
+      <a class="tile t1" href="img/guesthouse_room-1600.jpg" data-lb><img class="rv" src="img/guesthouse_room-800.jpg" alt="障子越しの光が入る和室" width="800" height="800" loading="lazy"></a>
+      <a class="tile t2" href="img/guesthouse_breakfast-1600.jpg" data-lb><img class="rv" src="img/guesthouse_breakfast-800.jpg" alt="朝ごはんのお膳" width="800" height="800" loading="lazy"></a>
+      <a class="tile t3" href="img/guesthouse_entrance-1600.jpg" data-lb><img class="rv" src="img/guesthouse_entrance-800.jpg" alt="玄関ののれん" width="800" height="1400" loading="lazy"></a>
+      <a class="tile t4" href="img/guesthouse_hero-1600.jpg" data-lb><img class="rv" src="img/guesthouse_hero-800.jpg" alt="古民家の外観" width="800" height="457" loading="lazy"></a>
+      <a class="tile t5" href="img/guesthouse_room-1600.jpg" data-lb><img class="rv" src="img/guesthouse_room-800.jpg" alt="和室の床の間の近く" width="800" height="800" loading="lazy"></a>
+      <a class="tile t6" href="img/guesthouse_breakfast-1600.jpg" data-lb><img class="rv" src="img/guesthouse_breakfast-800.jpg" alt="お膳の焼き魚" width="800" height="800" loading="lazy"></a>
+    </div>
+    <p class="caption" data-i18n="cap">写真はイメージです</p>
+    <p class="ig-note" id="ig" data-i18n="igNote">見本のため実在のアカウントはありません</p>
+  </div>
+</section>
+
+<section class="stay" id="stay" aria-labelledby="h-stay">
+  <div class="wrap">
+    <h2 class="h2 rv" id="h-stay"><span data-i18n="hStay">泊まる前に</span></h2>
+    <div class="stay-grid">
+      <ol class="flow">
+        <li><b>DM</b><div><strong data-i18n="f1">InstagramのDMで空きを確認</strong><p data-i18n="f1d">日にち、人数、お部屋を送ってください。その日のうちにお返事します。</p></div></li>
+        <li><b>16:00</b><div><strong data-i18n="f2">チェックイン(21:00まで)</strong><p data-i18n="f2d">遅くなりそうな時はDMでひと言ください。荷物は昼から預かれます。</p></div></li>
+        <li><b>10:00</b><div><strong data-i18n="f3">チェックアウト</strong><p data-i18n="f3d">お支払いはチェックインの時に、現金かカードで。</p></div></li>
+      </ol>
+      <dl class="facts">
+        <div><dt data-i18n="k1">共用の設備</dt><dd data-i18n="k1v">シャワー2、トイレ2、台所(22時まで)</dd></div>
+        <div><dt data-i18n="k2">洗濯機</dt><dd data-i18n="k2v">1回300円、洗剤つき</dd></div>
+        <div><dt data-i18n="k3">貸し自転車</dt><dd data-i18n="k3v">1日500円</dd></div>
+        <div><dt data-i18n="k4">門限</dt><dd data-i18n="k4v">なし(玄関は暗証番号)</dd></div>
+        <div><dt data-i18n="k5">キャンセル</dt><dd data-i18n="k5v">前日50%、当日100%</dd></div>
+      </dl>
+    </div>
+    <div class="voice">
+      <blockquote><p data-i18n="v1">障子越しの朝の光で目が覚めました。縁側で飲んだお茶が忘れられません。</p><cite data-i18n="v1c">K.T.さん 30代</cite></blockquote>
+      <blockquote><p data-i18n="v2">手描きの地図のおかげで、地元の人しか行かない食堂に行けました。</p><cite data-i18n="v2c">A.L.さん 20代(海外からのお客様)</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="access" aria-labelledby="h-access">
+  <div class="wrap">
+    <h2 class="h2 rv" id="h-access"><span data-i18n="hAccess">アクセス</span></h2>
+    <div class="access">
+      <svg class="map" viewBox="0 0 360 260" role="img" aria-labelledby="map-t">
+        <title id="map-t">旅籠浜の宿の位置の略図。旅籠浜公園の東、旅籠浜小学校の南。海まで歩いて三分。</title>
+        <path class="sea" d="M0 196 C60 186 120 204 180 194 S300 186 360 198 V260 H0Z"/>
+        <path class="wave" d="M20 222 q10 -6 20 0 t20 0 M120 232 q10 -6 20 0 t20 0 M250 224 q10 -6 20 0 t20 0"/>
+        <path class="road" d="M0 120 H360"/>
+        <path class="road" d="M206 0 V186"/>
+        <rect class="lm" x="28" y="34" width="120" height="62" rx="2"/>
+        <text x="88" y="70" text-anchor="middle" data-i18n="mPark">旅籠浜公園</text>
+        <rect class="lm" x="232" y="20" width="112" height="70" rx="2"/>
+        <text x="288" y="60" text-anchor="middle" data-i18n="mSchool">旅籠浜小学校</text>
+        <rect class="pin" x="226" y="134" width="70" height="34" rx="2"/>
+        <text class="pin-t" x="261" y="157" text-anchor="middle" data-i18n="mInn">宿</text>
+        <text x="300" y="246" text-anchor="middle" data-i18n="mSea">海</text>
+        <text x="64" y="112" data-i18n="mWalk">海まで歩いて三分</text>
+      </svg>
+      <dl class="info">
+        <div><dt data-i18n="iAddr">住所</dt><dd data-i18n="iAddrV">福岡市旅籠浜2丁目0-0</dd></div>
+        <div><dt data-i18n="iTel">電話</dt><dd><a href="tel:0920000000">092-000-0000</a></dd></div>
+        <div><dt data-i18n="iIn">受付</dt><dd data-i18n="iInV">16:00〜21:00</dd></div>
+        <div><dt data-i18n="iOff">休み</dt><dd data-i18n="iOffV">不定休(Instagramでお知らせします)</dd></div>
+        <div><dt data-i18n="iPark">駐車場</dt><dd data-i18n="iParkV">なし(近くにコインパーキング)</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="last" aria-labelledby="h-last" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <h2 class="rv" id="h-last" data-i18n="hLast">空き状況は、DMでお気軽に。</h2>
+    <p class="sub" data-i18n="lastSub">英語でのお問い合わせにも、同じ日のうちにお返事します。</p>
+    <div class="cta">
+      <a class="btn btn-dm" href="#ig" data-ig><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="ctaDm">InstagramのDMで予約</span></a>
+      <a class="btn btn-tel" href="tel:0920000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span data-i18n="ctaTel">電話する</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="tenugui" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <p data-i18n="foot1">ゲストハウス 旅籠浜 福岡市旅籠浜2丁目0-0</p>
+    <p data-i18n="foot2">このページは制作見本です。</p>
+  </div>
+</footer>
+
+<div class="bar" aria-label="予約">
+  <a class="btn btn-dm" href="#ig" data-ig><span data-i18n="ctaDmS">DMで予約</span></a>
+  <a class="btn btn-tel" href="tel:0920000000"><span data-i18n="ctaTel">電話する</span></a>
+</div>
+
+<dialog class="lb" id="lb" aria-label="写真を大きく表示">
+  <img id="lb-img" src="" alt="">
+  <button class="lb-close" id="lb-close" type="button" aria-label="閉じる">×</button>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+
+  var EN={
+    logoSub:'Guesthouse',navRooms:'Rooms & rates',navBf:'Breakfast',navStay:'Before you stay',navAccess:'Access',
+    kicker:'A 90-year-old wooden house',
+    h1:'Three minutes to the sea,<br>a night in an old house.',
+    lead:'A small guesthouse in a 1930s wooden home on a quiet lane in Hatagohama, restored bit by bit. Three private rooms and a dormitory.',
+    ctaDm:'Book via Instagram DM',ctaTel:'Call us',ctaDmS:'Book via DM',
+    hAbout:'The house',
+    about1:'Slide open the lattice door to find an earthen entry, a veranda and a tiny courtyard garden. The pillars and carved transoms are original.',
+    about2:'About half of our guests come from abroad. We have guides in English and a hand-drawn map of the neighborhood. Walk the beach at dusk, then have tea in the living room.',
+    host:'Your host, Maho Urata. At check-in she will point you to the local bathhouse and good places for dinner.',
+    hRooms:'Rooms & rates',roomsSub:'Prices are per night, tax included. Futon, towels and yukata are included.',
+    pPrivate:'Private rooms (tatami), 3 rooms',pPrivateD:'6 or 8 tatami mats. Up to 3 guests per room. Lockable.',
+    p1:'1 guest',p1v:'¥6,400',p2:'2 guests',p2v:'¥8,900',p3:'3 guests',p3v:'¥11,700',
+    pDorm:'Dormitory (mixed, 6 beds)',pDormD:'Bunk beds with curtain, reading light and a locker.',d1:'Per guest',d1v:'¥3,300',
+    pBf:'Breakfast',pBfD:'Please order by 9 pm the night before.',b1:'Per guest',b1v:'¥770',
+    pnote:'Fukuoka City accommodation tax of ¥200 per guest per night is added.',
+    hCalc:'Estimate your stay',cRoom:'Room',cPrivate:'Private',cDorm:'Dormitory',cPeople:'Guests',cNights:'Nights',cBf:'Breakfast',cBfYes:'Yes',cBfNo:'No',
+    noJs:'Use the rates on the left. For 8 nights or more, send us a DM.',
+    hBf:'Breakfast',
+    bf1:'Served at the low table in the living room: grilled fish, rolled omelet, miso soup and rice from a nearby farm, with free refills. Vegetarian on request the day before.',
+    bfT:'Time',bfTv:'7:30 – 9:00',bfP:'Price',bfPv:'¥770 per guest',bfR:'Order by',bfRv:'9 pm the night before',
+    hIg:'Days at the inn',cap:'Photos are for illustration.',igNote:'This is a sample page, so the account does not exist.',
+    hStay:'Before you stay',
+    f1:'Check availability by Instagram DM',f1d:'Send us your dates, number of guests and room type. We reply the same day.',
+    f2:'Check-in (until 21:00)',f2d:'Running late? Just send a DM. Luggage drop-off from noon.',
+    f3:'Check-out',f3d:'Pay at check-in, cash or card.',
+    k1:'Shared',k1v:'2 showers, 2 toilets, kitchen (until 22:00)',k2:'Laundry',k2v:'¥300 per load, detergent included',k3:'Bicycle',k3v:'¥500 per day',k4:'Curfew',k4v:'None (keypad entry)',k5:'Cancellation',k5v:'50% the day before, 100% on the day',
+    v1:'I woke up to morning light through the paper screens. I still remember the tea on the veranda.',v1c:'K.T., 30s',
+    v2:'Thanks to the hand-drawn map, we found a diner only locals know.',v2c:'A.L., 20s (guest from abroad)',
+    hAccess:'Access',mPark:'Hatagohama Park',mSchool:'Elementary School',mInn:'Inn',mSea:'Sea',mWalk:'3 min walk to the sea',
+    iAddr:'Address',iAddrV:'2-0-0 Hatagohama, Fukuoka City',iTel:'Phone',iIn:'Check-in',iInV:'16:00 – 21:00',iOff:'Closed',iOffV:'Irregular (announced on Instagram)',iPark:'Parking',iParkV:'None (coin parking nearby)',
+    hLast:'Ask us about availability by DM.',lastSub:'We reply to messages in English the same day, too.',
+    foot1:'Guesthouse Hatagohama, 2-0-0 Hatagohama, Fukuoka City',foot2:'This is a sample page.'
+  };
+  var nodes=[].slice.call(document.querySelectorAll('[data-i18n]'));
+  var JA=nodes.map(function(n){return n.innerHTML});
+  var lang='ja';
+
+  /* 料金計算 */
+  var PRIVATE={1:6400,2:8900,3:11700}, DORM=3300, BF=770, TAX=200;
+  var form=document.getElementById('calc');
+  var people=document.getElementById('people');
+  function yen(n){return lang==='en'?'¥'+n.toLocaleString('en-US'):n.toLocaleString('ja-JP')+'円'}
+  function setPeopleOptions(max){
+    var cur=Math.min(+people.value||1,max);
+    people.innerHTML='';
+    for(var i=1;i<=max;i++){var o=document.createElement('option');o.value=i;o.textContent=i;if(i===cur)o.selected=true;people.appendChild(o)}
+  }
+  function calc(){
+    var room=form.room.value, p=+people.value, n=+form.nights.value, bf=form.bf.value==='1';
+    var stay=room==='private'?PRIVATE[p]*n:DORM*p*n;
+    var meal=bf?BF*p*n:0, tax=TAX*p*n, total=stay+meal+tax;
+    var en=lang==='en', rows=[];
+    if(room==='private') rows.push([en?'Private room, '+p+' guest'+(p>1?'s':'')+' × '+n+' night'+(n>1?'s':''):'個室 '+p+'名 '+yen(PRIVATE[p])+' × '+n+'泊', yen(stay)]);
+    else rows.push([en?'Dorm bed × '+p+' guest'+(p>1?'s':'')+' × '+n+' night'+(n>1?'s':''):'ドミトリー '+yen(DORM)+' × '+p+'名 × '+n+'泊', yen(stay)]);
+    if(bf) rows.push([en?'Breakfast × '+(p*n):'朝ごはん '+yen(BF)+' × '+(p*n)+'食', yen(meal)]);
+    rows.push([en?'Accommodation tax':'宿泊税 '+yen(TAX)+' × '+p+'名 × '+n+'泊', yen(tax)]);
+    document.getElementById('total').innerHTML=yen(total)+'<small>'+(en?'total, tax incl.':'合計(税込)')+'</small>';
+    document.getElementById('detail').innerHTML=rows.map(function(r){return '<li><span>'+r[0]+'</span><span>'+r[1]+'</span></li>'}).join('');
+    document.getElementById('per').textContent=(en?'About ':'1名1泊あたり 約')+yen(Math.round(total/p/n))+(en?' per guest per night':'');
+  }
+  form.addEventListener('change',function(e){
+    if(e.target.name==='room') setPeopleOptions(e.target.value==='private'?3:4);
+    calc();
+  });
+
+  /* 日本語 / English */
+  var langBox=document.querySelector('.lang');
+  langBox.hidden=false;
+  function setLang(l){
+    lang=l;
+    nodes.forEach(function(n,i){var k=n.getAttribute('data-i18n');n.innerHTML=(l==='en'&&EN[k]!=null)?EN[k]:JA[i]});
+    root.lang=l;
+    langBox.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l?'true':'false')});
+    document.title=l==='en'?'Guesthouse Hatagohama | A 90-year-old wooden house by the sea (sample)':'ゲストハウス 旅籠浜|築90年の古民家の宿(制作見本)';
+    calc();
+    try{localStorage.setItem('hatago-lang',l)}catch(e){}
+  }
+  langBox.addEventListener('click',function(e){var b=e.target.closest('button');if(b)setLang(b.dataset.lang)});
+  var saved=null;try{saved=localStorage.getItem('hatago-lang')}catch(e){}
+  setLang(saved==='en'?'en':'ja');
+
+  /* Instagramは見本なので小さく知らせる */
+  var toast=document.getElementById('toast'), tt;
+  document.querySelectorAll('[data-ig]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      toast.textContent=lang==='en'?EN.igNote:'見本のため実在のアカウントはありません';
+      toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},2600);
+    });
+  });
+
+  /* 写真を大きく */
+  var lb=document.getElementById('lb'), lbImg=document.getElementById('lb-img');
+  if(typeof lb.showModal==='function'){
+    document.querySelectorAll('[data-lb]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        e.preventDefault();
+        lbImg.src=a.getAttribute('href');lbImg.alt=a.querySelector('img').alt;
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){lb.close()});
+    lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+  }
+
+  /* 見出しと写真を1回だけ */
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+</body>
+</html>

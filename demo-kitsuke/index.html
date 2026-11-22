@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>着付けとヘアセット つむぎ|成人式・卒業式の早朝着付け(制作見本)</title>
+<meta name="description" content="福岡市紬町の着付けとヘアセットの店つむぎ。成人式の振袖、卒業式の袴、七五三、結婚式参列、浴衣。朝4時半からの早朝対応と出張着付け。式の開始時刻から来店時刻がわかります。(制作見本)">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Murecho:wght@400;500;600&family=Zen+Old+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#ffffff;
+  --bg-2:#f6f5f5;
+  --ink:#2b2326;
+  --ink-2:#5e5357;
+  --line:#e2dcdd;
+  --accent:#b3262d;      /* 紅 */
+  --accent-ink:#ffffff;
+  --pattern:#b3262d;
+  --pattern-op:.28;
+  --ph:#d9d6d7;
+  --notice-bg:#2b2326;
+  --notice-ink:#ffffff;
+  --f-head:"Zen Old Mincho", "Hiragino Mincho ProN", serif;
+  --f-body:"Murecho", "Hiragino Sans", sans-serif;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px;
+  --r:2px;
+  --shadow:0 1px 2px rgba(43,35,38,.08);
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#1b1618;
+    --bg-2:#241e20;
+    --ink:#f1ebec;
+    --ink-2:#c3b8bb;
+    --line:#3d3437;
+    --accent:#e2666b;
+    --accent-ink:#1b1618;
+    --pattern:#e2666b;
+    --pattern-op:.3;
+    --ph:#3a3235;
+    --notice-bg:#f1ebec;
+    --notice-ink:#1b1618;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#1b1618;
+  --bg-2:#241e20;
+  --ink:#f1ebec;
+  --ink-2:#c3b8bb;
+  --line:#3d3437;
+  --accent:#e2666b;
+  --accent-ink:#1b1618;
+  --pattern:#e2666b;
+  --pattern-op:.3;
+  --ph:#3a3235;
+  --notice-bg:#f1ebec;
+  --notice-ink:#1b1618;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.85;letter-spacing:.02em;overflow-wrap:anywhere}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;letter-spacing:.06em;margin:0;line-height:1.4}
+p{margin:0}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--s3)}
+@media (max-width:400px){.wrap{padding:0 var(--s2)}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 制作見本の帯 */
+.notice{background:var(--notice-bg);color:var(--notice-ink);font-size:12px;line-height:1.5;text-align:center;padding:var(--s1) var(--s2)}
+
+/* ヘッダー */
+.top{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding-top:var(--s1);padding-bottom:var(--s1)}
+.logo{display:flex;align-items:baseline;gap:var(--s1);text-decoration:none;flex-wrap:wrap}
+.logo small{font-size:12px;color:var(--ink-2);letter-spacing:.08em}
+.logo b{font-family:var(--f-head);font-size:24px;letter-spacing:.16em;font-weight:700}
+.cam{display:inline-flex;align-items:center;gap:var(--s1);font-size:13px;text-decoration:none;color:var(--ink-2);padding:var(--s1) 0}
+.cam svg{width:22px;height:22px;flex:none}
+@media (max-width:420px){.cam span{display:none}}
+
+/* 和柄の帯(麻の葉、この1種類だけ) */
+.asanoha{display:block;width:100%;height:24px;color:var(--pattern)}
+.asanoha rect{opacity:var(--pattern-op)}
+
+/* ファーストビュー */
+.hero{position:relative}
+.hero-photo{position:relative;height:clamp(260px,75vw,560px);background:var(--ph)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.img-note{position:absolute;left:var(--s1);bottom:var(--s1);font-size:11px;line-height:1.4;padding:2px 6px;background:rgba(27,22,24,.62);color:#fff;border-radius:var(--r)}
+.tanzaku{position:absolute;right:var(--s2);top:var(--s2);z-index:2;background:var(--bg);border-top:3px solid var(--accent);padding:var(--s3) var(--s2) var(--s2);display:flex;flex-direction:column;align-items:center;gap:var(--s2);box-shadow:var(--shadow)}
+.tanzaku h1{writing-mode:vertical-rl;text-orientation:mixed;font-size:clamp(22px,7vw,27px);line-height:1.55;letter-spacing:.12em;font-weight:700}
+.hanko{width:28px;height:28px;border:1.5px solid var(--accent);color:var(--accent);font-family:var(--f-head);font-size:16px;line-height:1;display:grid;place-items:center;border-radius:var(--r)}
+.hero-text{padding-top:var(--s2);padding-bottom:var(--s3)}
+.kicker{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.1em;padding-right:132px;min-height:72px}
+.lead{margin-top:var(--s1);max-width:30em;color:var(--ink)}
+.cta{display:flex;gap:var(--s1);margin-top:var(--s3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);min-height:52px;padding:0 var(--s2);border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap;border:1.5px solid var(--accent);flex:1 1 0}
+.btn svg{width:20px;height:20px;flex:none}
+.btn .long{display:none}
+@media (min-width:480px){.btn .long{display:inline}}
+.btn-main{background:var(--accent);color:var(--accent-ink)}
+.btn-sub{background:transparent;color:var(--accent)}
+.btn:hover{filter:brightness(1.06)}
+
+@media (min-width:768px){
+  .tanzaku{right:max(var(--s4), calc((100% - var(--wrap)) / 2 + var(--s3)));top:var(--s5);padding:var(--s4) var(--s3) var(--s3)}
+  .tanzaku h1{font-size:40px}
+  .hero-photo{height:min(54vh,560px);min-height:340px}
+  .hero-text{padding-top:var(--s3);padding-right:calc(var(--s3) + 190px)}
+  .kicker{padding-right:0;min-height:0}
+  .btn{flex:0 0 auto;padding:0 var(--s3)}
+}
+@media (min-width:1100px){
+  .hero-text{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s2) var(--s5);align-items:end;padding-right:calc(var(--s3) + 200px)}
+  .kicker{grid-column:1/-1}
+  .lead{margin-top:0}
+  .cta{margin-top:0}
+}
+
+/* 各セクション共通 */
+section{padding:var(--s6) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s3);align-items:end;margin-bottom:var(--s4)}
+.sec-head h2{writing-mode:vertical-rl;text-orientation:mixed;font-size:26px;letter-spacing:.14em;grid-column:2;grid-row:1;border-right:3px solid var(--accent);padding-right:var(--s1);line-height:1.3}
+.sec-head p{grid-column:1;grid-row:1;color:var(--ink-2);font-size:15px;max-width:26em}
+@media (min-width:768px){
+  section{padding:var(--s7) 0}
+  .sec-head h2{font-size:32px}
+  .sec-head{gap:var(--s4)}
+  .sec-head p{justify-self:end}
+}
+
+/* つむぎのこと */
+.about-grid{display:grid;gap:var(--s4)}
+.about-photo{background:var(--ph);aspect-ratio:4/5;overflow:hidden}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.facts{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.facts li{display:grid;grid-template-columns:4.5em minmax(0,1fr);gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.facts b{font-family:var(--f-head);color:var(--accent);font-weight:700}
+.owner{margin-top:var(--s3);font-size:15px;color:var(--ink-2)}
+.voice{margin-top:var(--s4);padding-left:var(--s2);border-left:2px solid var(--line)}
+.voice p{font-family:var(--f-head);font-size:17px;line-height:1.8}
+.voice cite{display:block;margin-top:var(--s1);font-style:normal;font-size:13px;color:var(--ink-2)}
+@media (min-width:640px){
+  .about-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start;gap:var(--s5)}
+  .about-photo{aspect-ratio:3/4}
+}
+
+/* 仕掛け:行事から段取り */
+.plan{background:var(--bg-2)}
+.planner{display:grid;gap:var(--s4)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-weight:600;margin-bottom:var(--s1);padding:0}
+.events{display:flex;flex-wrap:wrap;gap:var(--s1)}
+.events label{position:relative;cursor:pointer}
+.events input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.events span{display:block;padding:var(--s1) var(--s2);border:1px solid var(--line);background:var(--bg);border-radius:var(--r);font-size:15px}
+.events input:checked + span{border-color:var(--accent);color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);font-weight:600}
+.events input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.time-row{margin-top:var(--s3)}
+.time-row label{display:block;font-weight:600;margin-bottom:var(--s1)}
+select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:var(--s1) var(--s2);min-height:48px;min-width:10em}
+.result{background:var(--bg);border-top:3px solid var(--accent);padding:var(--s3)}
+.result .come{font-family:var(--f-head);font-size:15px;color:var(--ink-2)}
+.result .come strong{display:block;font-size:34px;line-height:1.3;color:var(--accent);letter-spacing:.06em}
+.result dl{margin:var(--s3) 0 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s1) var(--s2);font-size:15px}
+.result dt{color:var(--ink-2)}
+.result dd{margin:0;font-weight:500}
+.result .warn{margin-top:var(--s2);font-size:14px;color:var(--accent);font-weight:600}
+.result .warn:empty{display:none}
+.result .how{margin-top:var(--s2);font-size:13px;color:var(--ink-2)}
+@media (min-width:768px){
+  .planner{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s5);align-items:start}
+}
+
+/* 料金 */
+.menu-list{list-style:none;margin:0;padding:0}
+.menu-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.menu-list li:first-child{border-top:1px solid var(--line)}
+.menu-list h3{font-size:17px;letter-spacing:.04em}
+.menu-list .price{font-family:var(--f-head);font-size:19px;font-weight:700;text-align:right;white-space:nowrap}
+.menu-list .price small{font-size:12px;font-family:var(--f-body);font-weight:400;color:var(--ink-2);margin-left:2px}
+.menu-list .desc{grid-column:1/-1;font-size:14px;color:var(--ink-2)}
+.menu-cols{display:grid;gap:var(--s5)}
+.menu-cols h3.group{font-size:15px;color:var(--accent);margin-bottom:var(--s2);letter-spacing:.1em}
+.menu-note{margin-top:var(--s3);font-size:14px;color:var(--ink-2)}
+@media (min-width:860px){
+  .menu-cols{grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:var(--s6)}
+}
+
+/* インスタ */
+.ig-head{display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);flex-wrap:wrap}
+.ig-head a{display:inline-flex;align-items:center;gap:var(--s1);font-weight:600;text-decoration:none;font-size:16px}
+.ig-head a svg{width:26px;height:26px;color:var(--accent)}
+.ig-head span{font-size:14px;color:var(--ink-2)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;max-width:760px}
+.tile{display:block;aspect-ratio:1/1;overflow:hidden;background:var(--ph);padding:0;border:0;cursor:zoom-in}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.tile:hover img{transform:scale(1.03)}
+.t2 img{object-position:50% 20%}
+.t4 img{object-position:80% 50%;transform:scale(1.35)}
+.t4:hover img{transform:scale(1.38)}
+.t6 img{object-position:50% 85%}
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,880px);width:100%;color:#fff}
+dialog.lb::backdrop{background:rgba(20,16,18,.82)}
+.lb figure{margin:0}
+.lb img{width:100%;max-height:78vh;object-fit:contain;background:var(--ph)}
+.lb figcaption{font-size:13px;margin-top:var(--s1)}
+.lb-close{position:absolute;top:var(--s1);right:var(--s1);background:#fff;color:#2b2326;border:0;border-radius:var(--r);font:inherit;font-size:14px;padding:var(--s1) var(--s2);cursor:pointer}
+
+/* 店の情報 */
+.info-grid{display:grid;gap:var(--s4)}
+.info dl{margin:0}
+.info dl div{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.info dl div:first-child{border-top:1px solid var(--line)}
+.info dt{color:var(--ink-2);font-size:14px}
+.info dd{margin:0}
+.map{border:1px solid var(--line);background:var(--bg-2)}
+.map svg{display:block;width:100%;height:auto}
+.map p{font-size:13px;color:var(--ink-2);padding:var(--s1) var(--s2)}
+@media (min-width:768px){
+  .info-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s5);align-items:start}
+}
+
+/* 最下部のご予約 */
+.last{text-align:left}
+.last-box{display:grid;gap:var(--s3)}
+.last-box p{max-width:32em}
+.last .cta{margin-top:0}
+@media (min-width:768px){.last-box{grid-template-columns:minmax(0,1fr) auto;align-items:end}}
+footer{padding:var(--s4) 0 var(--s5);font-size:13px;color:var(--ink-2);border-top:1px solid var(--line)}
+
+/* スマホ下の固定バー */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:var(--s1);padding:var(--s1);background:var(--bg);border-top:1px solid var(--line);transition:transform .25s}
+.bar .btn{min-height:48px;flex:1 1 0;padding:0 var(--s1);font-size:14px}
+.bar.away{transform:translateY(110%)}
+body{padding-bottom:72px}
+@media (min-width:768px){.bar{display:none}body{padding-bottom:0}}
+
+/* 見本のお知らせ */
+.toast{position:fixed;left:50%;bottom:88px;transform:translate(-50%,8px);z-index:30;background:var(--ink);color:var(--bg);font-size:13px;padding:var(--s1) var(--s2);border-radius:var(--r);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (min-width:768px){.toast{bottom:var(--s4)}}
+
+/* 動き:見出しと写真だけ、1回 */
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  .tile img,.bar,.toast{transition:none}
+}
+</style>
+</head>
+<body>
+<p class="notice">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="asa" width="24" height="41.57" patternUnits="userSpaceOnUse">
+      <path fill="none" stroke="currentColor" stroke-width=".9" d="M-12 20.78L0 0M-12 20.78L0 13.86M-12 20.78L0 27.71M-12 20.78L0 41.57M-12 20.78L12 20.78M0 0L0 13.86M0 0L12 6.93M0 0L12 20.78M0 0L24 0M0 13.86L12 20.78M0 27.71L0 41.57M0 27.71L12 20.78M0 41.57L12 20.78M0 41.57L12 34.64M0 41.57L24 41.57M12 6.93L12 20.78M12 6.93L24 0M12 20.78L12 34.64M12 20.78L24 0M12 20.78L24 13.86M12 20.78L24 27.71M12 20.78L24 41.57M12 20.78L36 20.78M12 34.64L24 41.57M24 0L24 13.86M24 0L36 20.78M24 13.86L36 20.78M24 27.71L24 41.57M24 27.71L36 20.78M24 41.57L36 20.78"/>
+    </pattern>
+    <symbol id="i-cam" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 3.5h3l1.4 4.2-2 1.3a11 11 0 0 0 6 6l1.3-2 4.2 1.4v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="wrap top">
+  <a class="logo" href="#"><small>着付けとヘアセット</small><b>つむぎ</b></a>
+  <a class="cam" href="#ig"><svg aria-hidden="true"><use href="#i-cam"/></svg><span>@tsumugi_kitsuke</span><span class="sr">Instagram</span></a>
+</header>
+
+<main>
+<div class="hero">
+  <div class="hero-photo">
+    <img class="rv" src="img/kitsuke_hero-1600.jpg" srcset="img/kitsuke_hero-800.jpg 800w, img/kitsuke_hero-1600.jpg 1600w" sizes="100vw" alt="振袖の帯を後ろで結んでいるところ" width="1600" height="914" fetchpriority="high">
+    <span class="img-note">写真はイメージです</span>
+  </div>
+  <div class="tanzaku">
+    <h1 class="rv">晴れの日の朝を、<br>きちんと結ぶ。</h1>
+    <span class="hanko" aria-hidden="true">紬</span>
+  </div>
+  <div class="wrap hero-text">
+    <p class="kicker">成人式 卒業式 結婚式<br>朝4時半から承ります</p>
+    <p class="lead">振袖と袴の着付けにヘアセットまで、ひとりで一度に。苦しくない締め方で、式の最後まで着崩れしにくく仕上げます。</p>
+    <div class="cta">
+      <a class="btn btn-main" href="#ig"><svg aria-hidden="true"><use href="#i-cam"/></svg><span><span class="long">Instagramの</span>DMで予約</span></a>
+      <a class="btn btn-sub" href="tel:092-000-0000"><svg aria-hidden="true"><use href="#i-tel"/></svg>電話する</a>
+    </div>
+  </div>
+  <svg class="asanoha" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#asa)"/></svg>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rv">早朝の支度</h2>
+      <p>成人式の朝は、まだ暗いうちから始まります。眠い時間でも慌てないよう、来店からお見送りまでの段取りを先にお伝えしています。</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo"><img class="rv" src="img/kitsuke_kimono-1600.jpg" srcset="img/kitsuke_kimono-800.jpg 800w, img/kitsuke_kimono-1600.jpg 1600w" sizes="(min-width:1120px) 470px, (min-width:640px) 42vw, 92vw" alt="衣桁に掛けた振袖" width="1600" height="2800" loading="lazy"></div>
+      <div>
+        <ul class="facts">
+          <li><b>早朝</b><span>朝4時半から。成人式の前後は2か月前から予約が埋まり始めます</span></li>
+          <li><b>出張</b><span>ご自宅や式場の控室へ伺います。福岡市内は出張料3,300円から</span></li>
+          <li><b>持ち物</b><span>足りない小物はこちらで用意できます。髪飾りの貸し出しは無料</span></li>
+          <li><b>席</b><span>着付け室1室、鏡の前で家族の方も一緒に待てます</span></li>
+        </ul>
+        <p class="owner">着付けは店主の野中千代が担当します。着付け歴19年、ヘアセットも同じ手で通して行うので、衿元と髪の高さの釣り合いまで見て仕上げます。</p>
+        <blockquote class="voice">
+          <p>朝5時でも手が早くて、写真のあとまで帯が苦しくなかった。</p>
+          <cite>M.K さん 20代</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plan" id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rv">行事から段取り</h2>
+      <p>行事と式の開始時刻を選ぶと、合うプランと料金、何時にお店へ来ればいいかが出ます。</p>
+    </div>
+    <form class="planner" id="planner" onsubmit="return false">
+      <div>
+        <fieldset>
+          <legend>行事</legend>
+          <div class="events">
+            <label><input type="radio" name="ev" value="seijin" checked><span>成人式</span></label>
+            <label><input type="radio" name="ev" value="hakama"><span>卒業式の袴</span></label>
+            <label><input type="radio" name="ev" value="753"><span>七五三</span></label>
+            <label><input type="radio" name="ev" value="wedding"><span>結婚式参列</span></label>
+            <label><input type="radio" name="ev" value="yukata"><span>夏祭りの浴衣</span></label>
+          </div>
+        </fieldset>
+        <div class="time-row">
+          <label for="start">式やお出かけの開始時刻</label>
+          <select id="start" name="start">
+            <option value="420">7:00</option><option value="450">7:30</option>
+            <option value="480">8:00</option><option value="510">8:30</option>
+            <option value="540">9:00</option><option value="570">9:30</option>
+            <option value="600" selected>10:00</option><option value="630">10:30</option>
+            <option value="660">11:00</option><option value="690">11:30</option>
+            <option value="720">12:00</option><option value="750">12:30</option>
+            <option value="780">13:00</option><option value="810">13:30</option>
+            <option value="840">14:00</option><option value="870">14:30</option>
+            <option value="900">15:00</option><option value="930">15:30</option>
+            <option value="960">16:00</option><option value="990">16:30</option>
+            <option value="1020">17:00</option><option value="1050">17:30</option>
+            <option value="1080">18:00</option><option value="1110">18:30</option>
+            <option value="1140">19:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="result" id="result" aria-live="polite">
+        <p class="come">この時刻にご来店ください<strong id="r-come">7時30分</strong></p>
+        <dl>
+          <dt>プラン</dt><dd id="r-plan">振袖の着付けとヘアセット</dd>
+          <dt>所要時間</dt><dd id="r-dur">約90分</dd>
+          <dt>料金</dt><dd id="r-price">14,300円+早朝料金1,650円=15,950円</dd>
+        </dl>
+        <p class="warn" id="r-warn">9時より前のご来店は早朝料金がかかります。</p>
+        <p class="how">お店を出てから会場で落ち着くまでの60分を見込んだ時刻です。会場が遠い時はDMで教えてください。</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rv">着付けの料金</h2>
+      <p>料金はすべて税込です。小物の不足分は当日お貸しできます。</p>
+    </div>
+    <div class="menu-cols">
+      <div>
+        <h3 class="group">着付けとヘアセット</h3>
+        <ul class="menu-list">
+          <li><h3>振袖</h3><span class="price">14,300<small>円</small></span><p class="desc">成人式、前撮り。約90分</p></li>
+          <li><h3>卒業式の袴</h3><span class="price">9,680<small>円</small></span><p class="desc">着物と袴。約70分</p></li>
+          <li><h3>留袖、訪問着</h3><span class="price">11,550<small>円</small></span><p class="desc">結婚式の参列、お茶会。約80分</p></li>
+          <li><h3>七五三のお子さま</h3><span class="price">6,380<small>円</small></span><p class="desc">3歳の被布も同じ料金。約50分</p></li>
+          <li><h3>浴衣</h3><span class="price">5,170<small>円</small></span><p class="desc">まとめ髪つき。約40分</p></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="group">単品とその他</h3>
+        <ul class="menu-list">
+          <li><h3>着付けのみ 振袖</h3><span class="price">8,800<small>円</small></span></li>
+          <li><h3>着付けのみ 袴</h3><span class="price">5,280<small>円</small></span></li>
+          <li><h3>着付けのみ 浴衣</h3><span class="price">3,080<small>円</small></span></li>
+          <li><h3>ヘアセットのみ</h3><span class="price">4,620<small>円</small></span></li>
+          <li><h3>早朝料金</h3><span class="price">1,650<small>円〜</small></span><p class="desc">7時から9時前は1,650円、7時前は3,300円</p></li>
+          <li><h3>出張料 福岡市内</h3><span class="price">3,300<small>円〜</small></span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="menu-note">成人式の当日はご予約順に時刻を決めています。前撮りと当日を両方ご予約の方は、当日の料金から1,100円引きです。</p>
+  </div>
+</section>
+
+<section id="insta">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rv">日々の着付け</h2>
+      <p>帯の結び方や髪飾りの合わせは、Instagramに毎週のせています。写真を押すと大きく見られます。</p>
+    </div>
+    <div class="ig-head">
+      <a href="#ig"><svg aria-hidden="true"><use href="#i-cam"/></svg>@tsumugi_kitsuke</a>
+      <span>着付けとヘアセット つむぎ</span>
+    </div>
+    <div class="grid" id="grid">
+      <a class="tile t1" href="img/kitsuke_obi-1600.jpg" data-cap="ふくら雀の変わり結び"><img class="rv" src="img/kitsuke_obi-800.jpg" srcset="img/kitsuke_obi-800.jpg 800w, img/kitsuke_obi-1600.jpg 1600w" sizes="(min-width:800px) 252px, 31vw" alt="結び終えた振袖の帯" width="800" height="800" loading="lazy"></a>
+      <a class="tile t2" href="img/kitsuke_kimono-1600.jpg" data-cap="今年の前撮りの振袖"><img class="rv" src="img/kitsuke_kimono-800.jpg" srcset="img/kitsuke_kimono-800.jpg 800w, img/kitsuke_kimono-1600.jpg 1600w" sizes="(min-width:800px) 252px, 31vw" alt="振袖の衿元と柄" width="800" height="1400" loading="lazy"></a>
+      <a class="tile t3" href="img/kitsuke_kanzashi-1600.jpg" data-cap="貸し出し用のかんざし"><img class="rv" src="img/kitsuke_kanzashi-800.jpg" srcset="img/kitsuke_kanzashi-800.jpg 800w, img/kitsuke_kanzashi-1600.jpg 1600w" sizes="(min-width:800px) 252px, 31vw" alt="漆塗りのかんざしと髪飾り" width="800" height="800" loading="lazy"></a>
+      <a class="tile t4" href="img/kitsuke_hero-1600.jpg" data-cap="帯締めの色合わせ"><img class="rv" src="img/kitsuke_hero-800.jpg" srcset="img/kitsuke_hero-800.jpg 800w, img/kitsuke_hero-1600.jpg 1600w" sizes="(min-width:800px) 340px, 42vw" alt="帯締めを結ぶ手元" width="800" height="457" loading="lazy"></a>
+      <a class="tile t5" href="img/kitsuke_kanzashi-1600.jpg" data-cap="袴に合わせる髪飾り"><img class="rv" src="img/kitsuke_kanzashi-800.jpg" alt="袴に合わせたつまみ細工の髪飾り" width="800" height="800" loading="lazy"></a>
+      <a class="tile t6" href="img/kitsuke_kimono-1600.jpg" data-cap="裾の柄"><img class="rv" src="img/kitsuke_kimono-800.jpg" alt="振袖の裾の柄" width="800" height="1400" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+<dialog class="lb" id="lb" aria-label="写真の拡大">
+  <figure><img id="lb-img" src="img/kitsuke_obi-800.jpg" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-close" id="lb-close" type="button">閉じる</button>
+</dialog>
+
+<section id="access" class="info">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rv">お店の場所</h2>
+      <p>紬町公園の北側、白いのれんの一軒家です。店の前に車を1台停められます。</p>
+    </div>
+    <div class="info-grid">
+      <dl>
+        <div><dt>住所</dt><dd>福岡市紬町2丁目0-0</dd></div>
+        <div><dt>電話</dt><dd><a href="tel:092-000-0000">092-000-0000</a></dd></div>
+        <div><dt>営業時間</dt><dd>9:00〜18:00<br>早朝は4:30から予約のみ</dd></div>
+        <div><dt>定休日</dt><dd>火曜日<br>成人式の前後と3月は休まず営業</dd></div>
+        <div><dt>駐車場</dt><dd>1台(店の前)</dd></div>
+      </dl>
+      <figure class="map" style="margin:0">
+        <svg viewBox="0 0 360 240" role="img" aria-label="略図:紬町公園の北、紬町小学校の西にお店があります">
+          <rect width="360" height="240" fill="none"/>
+          <path d="M0 150H360" stroke="var(--line)" stroke-width="14"/>
+          <path d="M150 0V240" stroke="var(--line)" stroke-width="10"/>
+          <path d="M150 70H360" stroke="var(--line)" stroke-width="6"/>
+          <rect x="24" y="166" width="104" height="58" rx="2" fill="none" stroke="var(--ink-2)" stroke-dasharray="4 3"/>
+          <text x="76" y="200" text-anchor="middle" font-size="15" fill="var(--ink-2)" font-family="Murecho, sans-serif">紬町公園</text>
+          <rect x="196" y="88" width="132" height="48" rx="2" fill="none" stroke="var(--ink-2)"/>
+          <text x="262" y="117" text-anchor="middle" font-size="15" fill="var(--ink-2)" font-family="Murecho, sans-serif">紬町小学校</text>
+          <circle cx="112" cy="122" r="9" fill="var(--accent)"/>
+          <text x="112" y="104" text-anchor="middle" font-size="16" font-weight="600" fill="var(--accent)" font-family="Murecho, sans-serif">つむぎ</text>
+          <path d="M330 28v-14m0 0l-5 7m5-7l5 7" stroke="var(--ink-2)" stroke-width="1.5" fill="none"/>
+          <text x="330" y="44" text-anchor="middle" font-size="12" fill="var(--ink-2)" font-family="Murecho, sans-serif">北</text>
+        </svg>
+        <p>略図です。正確な場所はご予約のときにお送りします。</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="last" id="reserve">
+  <svg class="asanoha" aria-hidden="true" focusable="false" style="margin-top:calc(-1 * var(--s6));margin-bottom:var(--s6)"><rect width="100%" height="100%" fill="url(#asa)"/></svg>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rv">ご予約</h2>
+      <p>行事の日付と式の開始時刻、着る物(振袖、袴など)を添えて送ってください。空いている時刻をお返しします。</p>
+    </div>
+    <div class="last-box">
+      <p>DMの返信は当日中に。成人式と卒業式の時期は、お電話のほうが早くつながります。</p>
+      <div class="cta">
+        <a class="btn btn-main" href="#ig"><svg aria-hidden="true"><use href="#i-cam"/></svg><span><span class="long">Instagramの</span>DMで予約</span></a>
+        <a class="btn btn-sub" href="tel:092-000-0000"><svg aria-hidden="true"><use href="#i-tel"/></svg>電話する</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">着付けとヘアセット つむぎ 福岡市紬町2丁目0-0</div>
+</footer>
+
+<div class="bar" id="bar">
+  <a class="btn btn-main" href="#ig"><svg aria-hidden="true"><use href="#i-cam"/></svg>DMで予約</a>
+  <a class="btn btn-sub" href="tel:092-000-0000"><svg aria-hidden="true"><use href="#i-tel"/></svg>電話する</a>
+</div>
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+<script>
+(function(){
+  var doc = document.documentElement;
+  doc.classList.add('js');
+
+  // 見出しと写真:スクロールで1回だけ
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){ io.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // Instagramの見本リンク
+  var toast = document.getElementById('toast'), tt;
+  document.querySelectorAll('a[href="#ig"]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      toast.textContent = '見本のため実在のアカウントはありません';
+      toast.classList.add('show');
+      clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+    });
+  });
+
+  // 写真の拡大
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap');
+  if (lb && typeof lb.showModal === 'function') {
+    document.querySelectorAll('.tile').forEach(function(t){
+      t.addEventListener('click', function(ev){
+        ev.preventDefault();
+        var im = t.querySelector('img');
+        lbImg.src = t.getAttribute('href');
+        lbImg.alt = im.alt;
+        lbCap.textContent = t.dataset.cap || '';
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click', function(){ lb.close(); });
+    lb.addEventListener('click', function(ev){ if (ev.target === lb) lb.close(); });
+  }
+
+  // 行事から段取り
+  var PLANS = {
+    seijin:  {name:'振袖の着付けとヘアセット', price:14300, dur:90},
+    hakama:  {name:'卒業式の袴の着付けとヘアセット', price:9680, dur:70},
+    '753':   {name:'七五三のお子さまの着付けとヘアセット', price:6380, dur:50},
+    wedding: {name:'留袖か訪問着の着付けとヘアセット', price:11550, dur:80},
+    yukata:  {name:'浴衣の着付けとまとめ髪', price:5170, dur:40}
+  };
+  var BUFFER = 60, EARLIEST = 270; // 4:30
+  var f = document.getElementById('planner');
+  var $ = function(id){ return document.getElementById(id); };
+  var yen = function(n){ return n.toLocaleString('ja-JP') + '円'; };
+  var hm = function(m){ var h = Math.floor(m/60), mm = m%60; return h + '時' + (mm ? mm + '分' : ''); };
+  function calc(){
+    var ev = f.querySelector('input[name="ev"]:checked').value;
+    var p = PLANS[ev];
+    var start = +$('start').value;
+    var come = Math.floor((start - p.dur - BUFFER) / 10) * 10;
+    var early = come < 420 ? 3300 : (come < 540 ? 1650 : 0);
+    $('r-plan').textContent = p.name;
+    $('r-dur').textContent = '約' + p.dur + '分';
+    if (come < EARLIEST) {
+      $('r-come').textContent = 'ご相談ください';
+      $('r-price').textContent = yen(p.price) + '+早朝料金';
+      $('r-warn').textContent = '4時半より前のご来店は承っていません。出張着付けか、前日のご相談をDMでどうぞ。';
+      return;
+    }
+    $('r-come').textContent = hm(come);
+    $('r-price').textContent = early ? yen(p.price) + '+早朝料金' + yen(early) + '=' + yen(p.price + early) : yen(p.price);
+    $('r-warn').textContent = early ? (come < 420 ? '7時前のご来店は早朝料金3,300円がかかります。' : '9時より前のご来店は早朝料金1,650円がかかります。') : '';
+  }
+  f.addEventListener('change', calc);
+  calc();
+
+  // 固定バー:上と下のボタンが見えている間は隠す
+  var bar = $('bar'), ctas = document.querySelectorAll('main .cta'), seen = new Set();
+  if ('IntersectionObserver' in window) {
+    var bo = new IntersectionObserver(function(es){
+      es.forEach(function(e){ e.isIntersecting ? seen.add(e.target) : seen.delete(e.target); });
+      bar.classList.toggle('away', seen.size > 0);
+    });
+    ctas.forEach(function(c){ bo.observe(c); });
+  }
+})();
+</script>
+</body>
+</html>

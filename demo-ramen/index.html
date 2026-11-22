@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>豚骨ラーメン 麦生(むぎお)| 麦生通 カウンター9席 夜は翌1時まで</title>
+<meta name="description" content="福岡市 麦生通の豚骨ラーメン、麦生(むぎお)。カウンター9席、替え玉150円。昼11:00〜15:00、夜18:00〜翌1:00、水曜定休。混み具合の目安と麺の硬さの頼み方も載せています。">
+<meta name="theme-color" content="#c8321e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* 方針: Googleで探して初めて来る人向けの、博多の豚骨ラーメン店の一枚ページ。のれんの勢いと券売機の分かりやすさ。参考は個人店の店先と食券機 */
+:root{
+  --bg:#ffffff;
+  --surface:#f3f3f2;      /* ごく薄い灰 */
+  --ink:#221e1c;          /* 墨 */
+  --ink-soft:#5a534e;
+  --line:#d9d6d3;
+  --accent:#c8321e;       /* 朱 1色 */
+  --on-accent:#ffffff;
+  --cloth:#c8321e;        /* のれん(ダークでも同じ) */
+  --photo-bg:#c7c5c2;
+  --btn2-ink:#221e1c;
+  --brush:"Yuji Syuku","Hiragino Mincho ProN","Yu Mincho",serif;
+  --font:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px;
+  --r:4px;                /* 角丸は4pxの1体系(のれんは布なので0) */
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#171514; --surface:#221f1d; --ink:#efebe6; --ink-soft:#b8b0a9; --line:#3a3532;
+    --accent:#e0553d; --on-accent:#1a1210; --photo-bg:#3b3836; --btn2-ink:#efebe6;
+    color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#171514; --surface:#221f1d; --ink:#efebe6; --ink-soft:#b8b0a9; --line:#3a3532;
+  --accent:#e0553d; --on-accent:#1a1210; --photo-bg:#3b3836; --btn2-ink:#efebe6;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.sec{padding:var(--s7) 0}
+@media (min-width:768px){.sec{padding:var(--s8) 0}}
+.h2{font-family:var(--brush);font-weight:400;font-size:clamp(30px,7vw,48px);line-height:1.3;letter-spacing:.02em}
+.sec-lead{margin-top:var(--s3);color:var(--ink-soft);max-width:36em}
+
+/* 制作見本の帯 */
+.demo-band{background:var(--ink);color:var(--bg);font-size:13px;line-height:1.5;text-align:center;padding:var(--s2) var(--s3)}
+
+/* のれん */
+.door{padding-top:var(--s3)}
+.rod{height:10px;background:var(--ink);border-radius:var(--r)}
+.noren{position:relative;margin:0 auto;width:calc(100% - 2*clamp(12px,4vw,32px));max-width:860px;height:clamp(150px,40vw,250px);background:var(--cloth);color:#fff;display:grid;grid-template-columns:1fr 1fr}
+.noren::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:rgba(0,0,0,.18)}
+.noren::after{content:"";position:absolute;left:50%;top:30%;bottom:0;width:10px;margin-left:-5px;background:var(--bg)}
+.noren span{display:flex;align-items:center;justify-content:center;font-family:var(--brush);font-size:clamp(76px,22vw,150px);line-height:1;padding-top:var(--s2)}
+.noren small{position:absolute;right:var(--s3);top:var(--s2);font-size:12px;font-weight:700;letter-spacing:.2em;writing-mode:vertical-rl}
+.hero-txt{padding:var(--s4) 0 var(--s5)}
+.catch{font-family:var(--brush);font-size:clamp(28px,9vw,64px);line-height:1.3;letter-spacing:.02em}
+.hero-txt .desc{margin-top:var(--s3);max-width:30em}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s4);max-width:520px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:52px;padding:0 var(--s3);border-radius:var(--r);font-weight:700;font-size:16px;text-decoration:none;line-height:1.3;text-align:center;white-space:nowrap}
+.btn svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2}
+.btn-main{background:var(--accent);color:var(--on-accent)}
+.btn-sub{border:2px solid var(--ink);color:var(--btn2-ink);background:transparent}
+.btn .long{display:none}
+@media (min-width:400px){.btn .long{display:inline}}
+@media (min-width:768px){
+  .door{padding-top:var(--s5)}
+  .hero-txt{text-align:center;padding:var(--s5) 0 var(--s6)}
+  .hero-txt .desc{margin-left:auto;margin-right:auto}
+  .cta{margin-left:auto;margin-right:auto}
+}
+
+/* 器の写真 */
+.bowl{position:relative;background:var(--photo-bg)}
+.bowl img{width:100%;aspect-ratio:1600/914;object-fit:cover}
+.photo-note{position:absolute;right:var(--s2);bottom:var(--s2);font-size:12px;line-height:1.4;background:rgba(20,18,17,.72);color:#fff;padding:2px var(--s2);border-radius:var(--r)}
+
+/* 券売機 */
+.ticket-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:var(--s3)}
+.machine{margin-top:var(--s5);background:var(--surface);padding:var(--s3);border-radius:var(--r);border-top:8px solid var(--ink)}
+.tickets{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.tk{display:flex;flex-direction:column;justify-content:space-between;min-height:96px;padding:var(--s2) var(--s2) var(--s2) var(--s3);background:var(--bg);border:2px solid var(--ink);border-radius:var(--r);box-shadow:inset 0 -4px 0 rgba(0,0,0,.12)}
+.tk b{font-size:clamp(14px,4vw,16px);line-height:1.4}
+.tk .p{align-self:flex-end;font-weight:900;font-size:22px;line-height:1.2;font-variant-numeric:tabular-nums}
+.tk .p small{font-size:12px;font-weight:700;margin-left:2px}
+.tk em{font-style:normal;font-size:12px;color:var(--ink-soft);line-height:1.4}
+.tk.main{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.tk.main em{color:inherit}
+.tk.drink{background:var(--surface)}
+.tk.wide{grid-column:1/-1}
+.machine-note{margin-top:var(--s3);font-size:14px;color:var(--ink-soft)}
+@media (min-width:600px){.tickets{grid-template-columns:repeat(3,1fr)}.tk.wide{grid-column:auto}}
+@media (min-width:1000px){.tickets{grid-template-columns:repeat(4,1fr)}.machine{padding:var(--s4)}}
+
+/* 店の話 */
+.story{display:grid;gap:var(--s5);align-items:center}
+.story figure{margin:0;background:var(--photo-bg)}
+.story img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:40% 50%}
+.story p+p{margin-top:var(--s3)}
+.story .who{font-size:14px;color:var(--ink-soft)}
+@media (min-width:900px){
+  .story{grid-template-columns:7fr 5fr;gap:var(--s6)}
+  .story img{aspect-ratio:1600/914}
+}
+
+/* 混み具合 */
+.crowd{background:var(--surface)}
+.days{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);gap:var(--s1);max-width:560px}
+.day{width:100%;min-height:48px;font:inherit;font-weight:700;font-size:16px;border:2px solid var(--ink);border-radius:var(--r);background:var(--bg);color:var(--ink);cursor:pointer;padding:0}
+.day[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.day.off{border-style:dashed;color:var(--ink-soft)}
+.chart-box{margin-top:var(--s4);background:var(--bg);border-radius:var(--r);padding:var(--s2);max-width:560px}
+@media (min-width:600px){.chart-box{padding:var(--s4)}}
+.chart-box svg{display:block;width:100%;height:auto}
+.chart-box .cb{fill:var(--ink-soft)}
+.chart-box .cb.hi{fill:var(--accent)}
+.chart-box .base{stroke:var(--ink);stroke-width:2}
+.chart-box text{fill:var(--ink);font-family:var(--font);font-size:15px;font-weight:700}
+.chart-box .grp{fill:var(--ink-soft)}
+.verdict{margin-top:var(--s3);font-weight:900;font-size:19px;line-height:1.5}
+.legend{margin-top:var(--s2);font-size:13px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3)}
+.legend i{display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-1px;background:var(--ink-soft)}
+.legend i.hi{background:var(--accent)}
+.fallback{margin-top:var(--s4);padding:0;list-style:none}
+.fallback li{padding:var(--s1) 0;border-bottom:1px solid var(--line)}
+.js .fallback{display:none}
+.no-js-hide{display:none}
+.js .no-js-hide{display:block}
+.js .days.no-js-hide{display:grid}
+
+/* 麺の硬さ */
+.katasa{display:grid;gap:var(--s5);margin-top:var(--s7);align-items:start}
+.katasa figure{margin:0;background:var(--photo-bg);max-width:420px}
+.katasa img{width:100%;aspect-ratio:16/10;object-fit:cover}
+@media (min-width:900px){.katasa img{aspect-ratio:1}}
+.scale{list-style:none;margin:var(--s4) 0 0;padding:0}
+.scale li{display:grid;grid-template-columns:6.5em 1fr;gap:var(--s3);padding:var(--s3) 0;border-top:1px solid var(--line)}
+.scale li:last-child{border-bottom:1px solid var(--line)}
+.scale b{font-family:var(--brush);font-weight:400;font-size:22px;line-height:1.3}
+.scale li.rec b{color:var(--accent)}
+.scale span{font-size:15px}
+.scale small{display:block;color:var(--ink-soft);font-size:13px}
+@media (min-width:900px){.katasa{grid-template-columns:5fr 7fr;gap:var(--s6)}}
+
+/* Instagram */
+.ig-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:var(--s3)}
+.ig-account{display:inline-flex;align-items:center;gap:var(--s2);font-weight:900;font-size:18px;text-decoration:none;padding:var(--s2) 0}
+.ig-account svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2}
+.ig-note{display:none;font-size:13px;color:var(--ink-soft);margin-top:var(--s2)}
+#ig:target .ig-note{display:block}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:var(--s4)}
+.tile{position:relative;display:block;aspect-ratio:1;overflow:hidden;background:var(--photo-bg)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile .z1{transform:scale(1.6);transform-origin:50% 55%}
+.tile .z2{transform:scale(1.5);transform-origin:50% 20%}
+@media (min-width:768px){.ig-grid{gap:6px}}
+
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,820px);width:100%}
+dialog.lb::backdrop{background:rgba(20,18,17,.85)}
+.lb figure{margin:0;background:var(--bg);border-radius:var(--r);overflow:hidden}
+.lb img{width:100%;max-height:72vh;object-fit:contain;background:var(--photo-bg)}
+.lb figcaption{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding:var(--s2) var(--s3);font-size:14px;color:var(--ink)}
+.lb-close{font:inherit;font-weight:700;min-height:44px;padding:0 var(--s4);border-radius:var(--r);border:2px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer}
+
+/* 声 */
+.voices{display:grid;gap:var(--s4);margin-top:var(--s5)}
+.voice{margin:0;border-top:3px solid var(--ink);padding-top:var(--s3)}
+.voice p{font-family:var(--brush);font-size:21px;line-height:1.6}
+.voice cite{display:block;margin-top:var(--s2);font-style:normal;font-size:14px;color:var(--ink-soft)}
+@media (min-width:768px){.voices{grid-template-columns:1fr 1fr;gap:var(--s6)}}
+
+/* 店の情報 */
+.info-grid{display:grid;gap:var(--s5);margin-top:var(--s5)}
+.info dl{margin:0;display:grid;grid-template-columns:5em 1fr;gap:var(--s3)}
+.info dt{font-weight:700;color:var(--ink-soft)}
+.info dd{margin:0}
+.map{border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;background:var(--bg)}
+.map svg{display:block;width:100%;height:auto}
+.map .road{fill:var(--surface)}
+.map .road-main{fill:var(--line)}
+.map .blk{fill:none;stroke:var(--line);stroke-width:2}
+.map .park{fill:var(--line);opacity:.6}
+.map text{fill:var(--ink);font-family:var(--font);font-weight:700;font-size:16px}
+.map .pin{fill:var(--accent)}
+.map .pin-t{fill:var(--accent);font-size:18px}
+@media (min-width:900px){.info-grid{grid-template-columns:5fr 6fr;gap:var(--s6);align-items:start}}
+
+/* 最下部 */
+.last{background:var(--cloth);color:#fff;text-align:center}
+.last .h2{font-size:clamp(30px,8vw,56px)}
+.last p{margin-top:var(--s3)}
+.last .cta{margin:var(--s5) auto 0}
+.last .btn-main{background:#fff;color:#8f2214}
+.last .btn-sub{border-color:#fff;color:#fff}
+footer{padding:var(--s5) 0 calc(var(--s5) + 76px);text-align:center;font-size:13px;color:var(--ink-soft)}
+@media (min-width:768px){footer{padding-bottom:var(--s5)}}
+
+/* スマホ下の固定バー */
+.fixbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);padding:var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom));background:var(--bg);border-top:2px solid var(--ink)}
+.fixbar .btn{min-height:48px}
+@media (min-width:768px){.fixbar{display:none}}
+
+.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:30;max-width:calc(100% - 32px);background:var(--ink);color:var(--bg);font-size:13px;padding:var(--s2) var(--s3);border-radius:var(--r);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+@media (min-width:768px){.toast{bottom:var(--s5)}}
+
+/* スクロールで1回(JSがrv-onを付けた時だけ隠す) */
+.rv-on .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv-on .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv-on .rv{opacity:1;transform:none;transition:none}
+  .toast{transition:none}
+}
+</style>
+</head>
+<body>
+<p class="demo-band">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cam" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".6"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 3.5h4l1.6 4.2-2.3 1.5a11 11 0 0 0 6.5 6.5l1.5-2.3 4.2 1.6v4a2 2 0 0 1-2.1 2A17 17 0 0 1 3 5.6a2 2 0 0 1 2-2.1z"/></symbol>
+</svg>
+
+<header class="door">
+  <div class="rod" aria-hidden="true"></div>
+  <h1 class="noren"><span aria-hidden="true">麦</span><span aria-hidden="true">生</span><small aria-hidden="true">とんこつ</small><span class="vh">豚骨ラーメン 麦生(むぎお)</span></h1>
+</header>
+
+<main>
+  <section class="hero-txt" aria-label="店の紹介">
+    <div class="wrap">
+      <p class="catch">替え玉は、<br>二玉目からが本番。</p>
+      <p class="desc">麦生通の角、カウンター9席。豚骨を18時間炊いた白いスープに、極細のストレート麺。夜は翌1時まで開けています。</p>
+      <div class="cta">
+        <a class="btn btn-main js-ig" href="#ig"><svg aria-hidden="true"><use href="#i-cam"/></svg><span><span class="long">Instagramの</span>DMで予約</span></a>
+        <a class="btn btn-sub" href="tel:092-000-0000"><svg aria-hidden="true"><use href="#i-tel"/></svg>電話する</a>
+      </div>
+    </div>
+  </section>
+
+  <figure class="bowl" style="margin:0">
+    <img class="rv" src="img/ramen_hero-1600.jpg" srcset="img/ramen_hero-800.jpg 800w, img/ramen_hero-1600.jpg 1600w" sizes="100vw" alt="湯気の立つ豚骨ラーメン。白いスープにチャーシューと青ねぎ、きくらげ" width="1600" height="914">
+    <figcaption class="photo-note">写真はイメージです</figcaption>
+  </figure>
+
+  <section class="sec" aria-labelledby="menu-h">
+    <div class="wrap">
+      <div class="ticket-head">
+        <h2 class="h2 rv" id="menu-h">食券はこちら</h2>
+        <p class="sec-lead" style="margin-top:0">入ってすぐ左の券売機で。替え玉は席で店員に声をかけてください。</p>
+      </div>
+      <div class="machine">
+        <ul class="tickets">
+          <li class="tk main"><b>ラーメン</b><span class="p">730<small>円</small></span></li>
+          <li class="tk main"><b>味玉ラーメン</b><em>初めての方に</em><span class="p">850<small>円</small></span></li>
+          <li class="tk main"><b>ねぎラーメン</b><span class="p">830<small>円</small></span></li>
+          <li class="tk main"><b>チャーシュー麺</b><span class="p">1,030<small>円</small></span></li>
+          <li class="tk"><b>替え玉</b><em>席で口頭でも</em><span class="p">150<small>円</small></span></li>
+          <li class="tk"><b>半替え玉</b><span class="p">100<small>円</small></span></li>
+          <li class="tk"><b>味付け玉子</b><span class="p">120<small>円</small></span></li>
+          <li class="tk"><b>焼き餃子 7個</b><span class="p">380<small>円</small></span></li>
+          <li class="tk"><b>ご飯</b><span class="p">160<small>円</small></span></li>
+          <li class="tk"><b>明太子ご飯</b><span class="p">330<small>円</small></span></li>
+          <li class="tk drink"><b>瓶ビール</b><em>夜のみ</em><span class="p">650<small>円</small></span></li>
+          <li class="tk drink"><b>烏龍茶</b><span class="p">220<small>円</small></span></li>
+        </ul>
+        <p class="machine-note">表示はすべて税込。券売機は現金と交通系ICが使えます。紅しょうが、辛子高菜、すりごまは卓上に。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="story-h" style="padding-top:0">
+    <div class="wrap story">
+      <figure><img class="rv" src="img/ramen_kitchen-1600.jpg" srcset="img/ramen_kitchen-800.jpg 800w, img/ramen_kitchen-1600.jpg 1600w" sizes="(min-width:900px) 620px, 100vw" alt="厨房の大きな寸胴鍋で豚骨スープを炊いているところ" width="1600" height="914" loading="lazy"></figure>
+      <div>
+        <h2 class="h2 rv" id="story-h">寸胴は、<br>火を止めない。</h2>
+        <p class="sec-lead">屋台で12年炊いてきたスープを、そのまま店に持ってきました。骨は朝と夕方の2回足して、継ぎ足しで18時間。白く濁るまで強火で炊くので、匂いはしっかり、後口は軽めです。</p>
+        <p>麺は細さ0.9ミリの低加水。15秒で上がる硬さが基本です。</p>
+        <p class="who">店主 宇佐川 健</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec crowd" aria-labelledby="crowd-h">
+    <div class="wrap">
+      <h2 class="h2 rv" id="crowd-h">並ばずに食べたい日は</h2>
+      <p class="sec-lead">曜日を選ぶと、時間ごとの混み具合の目安が出ます。</p>
+
+      <ul class="days no-js-hide" id="days" aria-label="曜日を選ぶ"></ul>
+      <div class="chart-box no-js-hide" id="chart-box">
+        <div id="chart" role="img" aria-labelledby="verdict"></div>
+        <p class="verdict" id="verdict" aria-live="polite"></p>
+        <p class="legend"><span><i class="hi"></i>並ぶことが多い</span><span><i></i>座れることが多い</span><span>あくまで目安です。雨の日や連休は変わります</span></p>
+      </div>
+
+      <ul class="fallback" id="fallback">
+        <li>月曜 空いている目安は14時台と18時台</li>
+        <li>火曜 空いている目安は14時台と18時台</li>
+        <li>水曜 定休日</li>
+        <li>木曜 空いている目安は18時台</li>
+        <li>金曜 空いている目安は14時台と18時台</li>
+        <li>土曜 空いている目安は18時台</li>
+        <li>日曜 空いている目安は0時台</li>
+      </ul>
+
+      <div class="katasa">
+        <figure><img class="rv" src="img/ramen_noodle-1600.jpg" srcset="img/ramen_noodle-800.jpg 800w, img/ramen_noodle-1600.jpg 1600w" sizes="(min-width:900px) 420px, 100vw" alt="箸で持ち上げた極細のストレート麺" width="1600" height="1600" loading="lazy"></figure>
+        <div>
+          <h3 class="h2 rv" style="font-size:clamp(26px,6vw,38px)">麺の硬さの頼み方</h3>
+          <p class="sec-lead">食券を渡すときに一言どうぞ。何も言わなければ「普通」で出します。</p>
+          <ol class="scale">
+            <li><b>粉おとし</b><span>湯にくぐらせるだけ。粉っぽさが残る芯の強さ<small>常連向け</small></span></li>
+            <li><b>ハリガネ</b><span>数秒で上げる。ぱきっと折れる歯ざわり</span></li>
+            <li class="rec"><b>バリカタ</b><span>しっかり硬め。替え玉はこれが一番人気<small>替え玉におすすめ</small></span></li>
+            <li class="rec"><b>カタ</b><span>少し硬め。スープを吸っても伸びにくい<small>初めてならここから</small></span></li>
+            <li><b>普通</b><span>店の基本の茹で加減</span></li>
+            <li><b>やわ</b><span>柔らかめ。お子さんやゆっくり食べたい方に</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ig" aria-labelledby="ig-h">
+    <div class="wrap">
+      <div class="ig-head">
+        <h2 class="h2 rv" id="ig-h">仕込みの様子は、<br>毎日ここに。</h2>
+        <a class="ig-account js-ig" href="#ig"><svg aria-hidden="true"><use href="#i-cam"/></svg>@ramen_mugio</a>
+      </div>
+      <p class="ig-note">見本のため実在のアカウントはありません</p>
+      <div class="ig-grid">
+        <a class="tile" href="img/ramen_hero-1600.jpg" data-cap="仕込み終わり。今日も白く炊けました"><img src="img/ramen_hero-800.jpg" alt="豚骨ラーメンの器" width="800" height="457" loading="lazy" style="object-position:50% 50%"></a>
+        <a class="tile" href="img/ramen_noodle-1600.jpg" data-cap="0.9ミリの極細麺"><img src="img/ramen_noodle-800.jpg" alt="持ち上げた細麺" width="800" height="800" loading="lazy"></a>
+        <a class="tile" href="img/ramen_kitchen-1600.jpg" data-cap="18時間目の寸胴"><img src="img/ramen_kitchen-800.jpg" alt="厨房の寸胴鍋" width="800" height="457" loading="lazy" style="object-position:30% 50%"></a>
+        <a class="tile" href="img/ramen_gyoza-1600.jpg" data-cap="焼き餃子は7個で380円"><img src="img/ramen_gyoza-800.jpg" alt="焼き目のついた餃子" width="800" height="800" loading="lazy"></a>
+        <a class="tile" href="img/ramen_hero-1600.jpg" data-cap="スープの表面、脂の粒"><img class="z1" src="img/ramen_hero-800.jpg" alt="スープの表面の寄り" width="800" height="457" loading="lazy"></a>
+        <a class="tile" href="img/ramen_gyoza-1600.jpg" data-cap="羽根はぱりっと"><img class="z2" src="img/ramen_gyoza-800.jpg" alt="餃子の羽根の寄り" width="800" height="800" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="voice-h" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="h2 rv" id="voice-h">お客様の声</h2>
+      <div class="voices">
+        <blockquote class="voice"><p>仕事終わりの0時過ぎでも替え玉まで頼めるのが助かる。</p><cite>M.K(30代)</cite></blockquote>
+        <blockquote class="voice"><p>匂いはしっかり豚骨なのに、飲み干しても重くない。</p><cite>S.O(50代)</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="info-h" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="h2 rv" id="info-h">お店の場所と営業時間</h2>
+      <div class="info-grid">
+        <div class="info">
+          <dl>
+            <dt>店名</dt><dd>豚骨ラーメン 麦生(むぎお)</dd>
+            <dt>住所</dt><dd>福岡市 麦生通2丁目0-0</dd>
+            <dt>電話</dt><dd><a href="tel:092-000-0000">092-000-0000</a></dd>
+            <dt>昼</dt><dd>11:00〜15:00(最終注文 14:45)</dd>
+            <dt>夜</dt><dd>18:00〜翌1:00(最終注文 0:45)</dd>
+            <dt>定休日</dt><dd>水曜</dd>
+            <dt>席</dt><dd>カウンター9席</dd>
+            <dt>駐車場</dt><dd>なし(近くにコインパーキングがあります)</dd>
+          </dl>
+        </div>
+        <div class="map">
+          <svg viewBox="0 0 360 240" role="img" aria-labelledby="map-t">
+            <title id="map-t">略図: 麦生通の南側の角。通りの向かいに麦生公園、同じ並びにコインランドリー</title>
+            <rect class="road-main" x="0" y="96" width="360" height="34"/>
+            <rect class="road" x="236" y="0" width="22" height="240"/>
+            <rect class="park" x="40" y="16" width="160" height="66" rx="4"/>
+            <text x="120" y="55" text-anchor="middle">麦生公園</text>
+            <rect class="blk" x="40" y="146" width="160" height="70" rx="4"/>
+            <text x="120" y="187" text-anchor="middle">コインランドリー</text>
+            <rect class="pin" x="272" y="144" width="72" height="44" rx="4"/>
+            <text x="308" y="172" text-anchor="middle" style="fill:var(--on-accent)">麦生</text>
+            <text class="pin-t" x="308" y="214" text-anchor="middle">ここ</text>
+            <text x="12" y="119">麦生通</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec last" aria-labelledby="last-h">
+    <div class="wrap">
+      <h2 class="h2" id="last-h">今夜も、翌1時まで。</h2>
+      <p>席の空きや今日の仕込みは、DMか電話で気軽にどうぞ。</p>
+      <div class="cta">
+        <a class="btn btn-main js-ig" href="#ig"><svg aria-hidden="true"><use href="#i-cam"/></svg><span><span class="long">Instagramの</span>DMで予約</span></a>
+        <a class="btn btn-sub" href="tel:092-000-0000"><svg aria-hidden="true"><use href="#i-tel"/></svg>電話する</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>豚骨ラーメン 麦生(制作見本)</footer>
+
+<nav class="fixbar" aria-label="予約と電話">
+  <a class="btn btn-main js-ig" href="#ig">DMで予約</a>
+  <a class="btn btn-sub" href="tel:092-000-0000">電話する</a>
+</nav>
+
+<dialog class="lb" id="lb" aria-label="写真を大きく見る">
+  <figure>
+    <img id="lb-img" alt="">
+    <figcaption><span id="lb-cap"></span><button class="lb-close" type="button" id="lb-close">閉じる</button></figcaption>
+  </figure>
+</dialog>
+
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+
+  // 混み具合の目安(0〜10)。11,12,13,14時台 / 18,19,20,21,22,23,0時台
+  var hours=[11,12,13,14,18,19,20,21,22,23,0];
+  var data={
+    1:[3,8,6,2,2,4,5,4,3,4,3],
+    2:[3,7,6,2,2,4,5,4,3,3,2],
+    3:null,
+    4:[3,8,6,3,2,5,6,5,4,4,3],
+    5:[4,9,7,3,3,5,7,6,6,8,7],
+    6:[6,9,9,6,4,6,8,7,7,9,8],
+    0:[6,10,8,5,4,6,7,5,4,3,2]
+  };
+  var names=['日','月','火','水','木','金','土'];
+  var order=[1,2,3,4,5,6,0];
+  var daysEl=document.getElementById('days'),chart=document.getElementById('chart'),verdict=document.getElementById('verdict');
+  var btns=[];
+  order.forEach(function(d){
+    var li=document.createElement('li');
+    var b=document.createElement('button');
+    b.type='button';b.className='day'+(data[d]?'':' off');b.textContent=names[d];
+    b.setAttribute('aria-label',names[d]+'曜日'+(data[d]?'':'(定休日)'));
+    b.dataset.day=d;
+    b.addEventListener('click',function(){show(d)});
+    li.appendChild(b);daysEl.appendChild(li);btns.push(b);
+  });
+  function show(d){
+    btns.forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.day===d)});
+    var v=data[d];
+    if(!v){chart.innerHTML='';verdict.textContent=names[d]+'曜日は定休日です。';return;}
+    var W=320,H=204,top=34,base=156,slot=26,bw=18,gap=24,x0=10,svg='';
+    svg+='<text class="grp" x="'+x0+'" y="20">昼</text>';
+    svg+='<text class="grp" x="'+(x0+4*slot+gap)+'" y="20">夜</text>';
+    v.forEach(function(n,i){
+      var x=x0+i*slot+(i>=4?gap:0),h=Math.max(6,(base-top)*n/10);
+      svg+='<rect class="cb'+(n>=7?' hi':'')+'" x="'+x+'" y="'+(base-h)+'" width="'+bw+'" height="'+h+'" rx="2"/>';
+      svg+='<text x="'+(x+bw/2)+'" y="'+(base+22)+'" text-anchor="middle">'+hours[i]+'</text>';
+    });
+    svg+='<line class="base" x1="'+x0+'" x2="'+(x0+11*slot+gap-8)+'" y1="'+base+'" y2="'+base+'"/>';
+    svg+='<text class="grp" x="'+(x0+11*slot+gap-8)+'" y="'+(base+44)+'" text-anchor="end">時台</text>';
+    chart.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" aria-hidden="true">'+svg+'</svg>';
+    var min=Math.min.apply(null,v),hs=[];
+    v.forEach(function(n,i){if(n===min&&hs.length<2)hs.push(hours[i]+'時台')});
+    var busy=[];v.forEach(function(n,i){if(n>=8)busy.push(hours[i]+'時台')});
+    verdict.textContent=names[d]+'曜日は'+hs.join('と')+'が空いています。'+(busy.length?busy.slice(0,2).join('と')+'は並ぶことが多いです。':'');
+  }
+  var t=new Date().getDay();
+  show(data[t]?t:4);
+
+  // Instagramのリンク(見本なので実在しない)
+  var toast=document.getElementById('toast'),tm;
+  document.querySelectorAll('.js-ig').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      toast.textContent='見本のため実在のアカウントはありません';
+      toast.classList.add('show');clearTimeout(tm);
+      tm=setTimeout(function(){toast.classList.remove('show')},2800);
+    });
+  });
+
+  // 投稿の拡大
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),last;
+  if(lb.showModal){
+    document.querySelectorAll('.tile').forEach(function(tl){
+      tl.addEventListener('click',function(e){
+        e.preventDefault();last=tl;
+        lbImg.src=tl.getAttribute('href');lbImg.alt=tl.querySelector('img').alt;lbCap.textContent=tl.dataset.cap||'';
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){lb.close()});
+    lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+    lb.addEventListener('close',function(){if(last)last.focus()});
+  }
+
+  // スクロールで1回だけ表示
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    document.documentElement.classList.add('rv-on');
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }
+})();
+</script>
+</body>
+</html>

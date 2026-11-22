@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>フェイシャルサロン 奏(そう)| 月見坂の一日四名までの個人サロン</title>
+<meta name="description" content="福岡市 月見坂のフェイシャルサロン奏。施術室は一つ、一日四名まで。乾燥や毛穴、くすみ、たるみの悩みから選べるコースと料金、予約の方法、場所をまとめています。">
+<meta name="theme-color" content="#2b211c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600&family=Zen+Kaku+Gothic+Antique:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* 方針: 肌の手入れを急がずに任せたい30〜50代の女性向けの、一日四名の個人フェイシャルサロンの案内ページ。
+   ホテルのスパのような手触り(焦げ茶の面と白、真鍮の細い線、広い行間)。写真は画面幅いっぱい、文字は写真の外。参考はホテルのスパの館内案内 */
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f6f5f4;        /* ごく薄い灰 */
+  --deep:#2b211c;           /* 焦げ茶の面 */
+  --on-deep:#f3eee9;
+  --on-deep-soft:#cfc3b8;
+  --ink:#2a221e;
+  --ink-soft:#5f544d;
+  --line:#e2dcd6;
+  --brass:#b0915f;          /* アクセント1色(真鍮)。線と面 */
+  --brass-ink:#7a5f3c;      /* 同じ真鍮を白地の文字用に濃くしたもの */
+  --brass-on-deep:#c8aa78;  /* 同じ真鍮を焦げ茶の上の文字用に */
+  --btn-ink:#231a15;
+  --photo-bg:#cdc6bf;
+  --f-head:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic Antique","Hiragino Sans","Yu Gothic",sans-serif;
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:32px; --s6:48px; --s7:64px; --s8:96px; --s9:128px;
+  --r:2px;                  /* 角丸はこれ1つ */
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1613; --bg-soft:#231c18; --deep:#2f2520; --on-deep:#f1ebe5; --on-deep-soft:#cbbfb3;
+    --ink:#ece5de; --ink-soft:#c2b7ad; --line:#43372f;
+    --brass:#c2a370; --brass-ink:#cdb07f; --brass-on-deep:#cdb07f; --btn-ink:#1f1712; --photo-bg:#4a413a;
+    color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#1c1613; --bg-soft:#231c18; --deep:#2f2520; --on-deep:#f1ebe5; --on-deep-soft:#cbbfb3;
+  --ink:#ece5de; --ink-soft:#c2b7ad; --line:#43372f;
+  --brass:#c2a370; --brass-ink:#cdb07f; --brass-on-deep:#cdb07f; --btn-ink:#1f1712; --photo-bg:#4a413a;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:2;letter-spacing:.04em;overflow-wrap:anywhere}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:var(--r)}
+h1,h2,h3{font-family:var(--f-head);font-weight:600;letter-spacing:.06em;margin:0;line-height:1.6}
+p{margin:0}
+.sp-only{display:inline}
+@media (min-width:768px){.sp-only{display:none}body{font-size:16px}}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 var(--s4)}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 制作見本の帯 */
+.demo-band{background:#14100d;color:#f3eee9;font-size:12px;line-height:1.6;text-align:center;padding:var(--s2) var(--s3);letter-spacing:.02em}
+
+/* ヘッダー */
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding:var(--s3) var(--s4);background:var(--bg)}
+.logo{display:flex;align-items:baseline;gap:var(--s3);text-decoration:none}
+.logo b{font-family:var(--f-head);font-weight:600;font-size:28px;line-height:1;letter-spacing:0}
+.logo span{font-size:12px;color:var(--ink-soft);letter-spacing:.12em}
+.head-tel{display:none;font-size:13px;color:var(--ink-soft);text-decoration:none;letter-spacing:.08em}
+.head-tel b{font-family:var(--f-head);font-weight:400;font-size:17px;color:var(--ink);margin-left:var(--s2)}
+@media (min-width:768px){.head-tel{display:block}.site-head{padding:var(--s3) var(--s5)}}
+
+/* 写真(画面幅いっぱい) */
+.bleed{margin:0;background:var(--photo-bg);overflow:hidden}
+.bleed img{width:100%;height:100%;object-fit:cover}
+.hero-photo{aspect-ratio:16/9}
+.hero-photo img{object-position:50% 60%}
+@media (min-width:768px){.hero-photo{aspect-ratio:auto;height:clamp(320px,calc(100svh - 440px),680px)}}
+@media (min-width:1024px){.hero-photo{height:clamp(320px,calc(100svh - 300px),680px)}}
+
+/* ファーストビュー下の焦げ茶の面 */
+.hero-panel{background:var(--deep);color:var(--on-deep);padding:var(--s4) var(--s4) var(--s5)}
+.hero-panel .note{display:block;max-width:1120px;margin-left:auto !important;margin-right:auto !important;text-align:right;font-size:11px;color:var(--on-deep-soft);margin:calc(var(--s2) * -1) 0 var(--s2)}
+.hero-panel h1{font-size:24px;line-height:1.6;letter-spacing:.08em}
+.hero-panel h1::before{content:"";display:block;width:32px;height:1px;background:var(--brass);margin-bottom:var(--s3)}
+.hero-panel p.lead{margin-top:var(--s2);color:var(--on-deep-soft);font-size:14px;line-height:1.9}
+.cta{display:flex;gap:var(--s2);margin-top:var(--s4);flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:52px;padding:0 var(--s4);border-radius:var(--r);font-size:15px;font-weight:500;letter-spacing:.08em;text-decoration:none;white-space:nowrap;flex:1 1 140px;transition:background-color .2s,color .2s}
+.btn-main{background:var(--brass);color:var(--btn-ink);border:1px solid var(--brass)}
+.btn-main:hover{background:transparent;color:var(--brass-on-deep)}
+.btn-sub{border:1px solid currentColor;color:var(--on-deep)}
+.btn-sub:hover{background:var(--on-deep);color:var(--deep)}
+.btn svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+@media (min-width:768px){
+  .hero-panel{padding:var(--s5) var(--s5) var(--s6)}
+  .hero-inner{max-width:1120px;margin:0 auto}
+  .hero-panel h1{font-size:30px}
+  .hero-panel p.lead{font-size:15px}
+  .cta{max-width:480px}
+}
+@media (min-width:1024px){
+  .hero-inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s6);align-items:end}
+  .hero-panel h1{font-size:34px}
+  .hero-panel p.lead{margin-top:0}
+}
+
+/* 共通のセクション */
+section{padding:var(--s8) 0}
+.sec-head{display:flex;flex-direction:column;gap:var(--s3)}
+.sec-head h2{font-size:22px;line-height:1.7}
+.sec-head h2::after{content:"";display:block;width:32px;height:1px;background:var(--brass);margin-top:var(--s3)}
+.sec-head p{color:var(--ink-soft)}
+@media (min-width:900px){
+  .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.9fr);gap:var(--s7);align-items:start}
+  .sec-head{position:sticky;top:var(--s5)}
+  .sec-head h2{font-size:28px}
+}
+.two{display:grid;gap:var(--s5)}
+.text-col{max-width:34em}
+.text-col p+p{margin-top:var(--s4)}
+
+/* サロンについて */
+.about .owner{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:var(--s1) var(--s4);font-size:14px}
+.about .owner dt{color:var(--brass-ink)}
+.about .owner dd{margin:0}
+.plant-photo{aspect-ratio:4/5}
+.plant-photo img{object-position:50% 45%}
+@media (min-width:768px){.plant-photo{aspect-ratio:21/8}.plant-photo img{object-position:50% 40%}}
+
+/* 仕掛け: 悩みから選ぶ */
+.finder{background:var(--bg-soft)}
+.worries{border:0;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.worries legend{font-size:14px;color:var(--ink-soft);margin-bottom:var(--s3);padding:0}
+.worry input{position:absolute;opacity:0;width:1px;height:1px}
+.worry span{display:flex;flex-direction:column;gap:2px;min-height:76px;justify-content:center;padding:var(--s2) var(--s3);background:var(--bg);border:1px solid var(--line);border-radius:var(--r);cursor:pointer;transition:background-color .2s,border-color .2s,color .2s;position:relative}
+.worry b{font-family:var(--f-head);font-weight:600;font-size:18px;letter-spacing:.1em}
+.worry small{font-size:12px;color:var(--ink-soft);line-height:1.6}
+.worry span::after{content:"";position:absolute;top:var(--s2);right:var(--s2);width:14px;height:14px;border:1px solid var(--line);border-radius:var(--r)}
+.worry input:checked+span{background:var(--deep);border-color:var(--deep);color:var(--on-deep)}
+.worry input:checked+span small{color:var(--on-deep-soft)}
+.worry input:checked+span::after{background:var(--brass);border-color:var(--brass);box-shadow:inset 0 0 0 3px var(--deep)}
+.worry input:focus-visible+span{outline:2px solid var(--brass);outline-offset:3px}
+@media (min-width:600px){.worries{grid-template-columns:repeat(4,1fr)}}
+.finder-ui{display:none}
+.js .finder-ui{display:block}
+.js .finder-static{display:none}
+.result{margin-top:var(--s5);background:var(--bg);border-top:1px solid var(--brass);padding:var(--s4)}
+.result .empty{color:var(--ink-soft);font-size:14px}
+.result h3{font-size:22px}
+.result .meta{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s4);margin-top:var(--s2);font-size:14px;color:var(--ink-soft)}
+.result .meta b{font-family:var(--f-head);font-weight:600;font-size:20px;color:var(--ink);margin-left:var(--s1)}
+.result .why{margin-top:var(--s3);font-size:14px}
+.flow{list-style:none;margin:var(--s4) 0 0;padding:0;counter-reset:f}
+.flow li{display:grid;grid-template-columns:1fr auto;gap:var(--s3);padding:var(--s2) 0 var(--s2) var(--s4);border-left:1px solid var(--line);position:relative;font-size:14px}
+.flow li::before{content:"";position:absolute;left:-4px;top:50%;width:7px;height:7px;margin-top:-3px;background:var(--bg);border:1px solid var(--brass);border-radius:50%}
+.flow li:first-child::before{background:var(--brass)}
+.flow li span:last-child{color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.result .hint{margin-top:var(--s4);font-size:13px;color:var(--ink-soft)}
+.finder-static{margin-top:var(--s4);display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s4);font-size:14px}
+.finder-static dt{font-family:var(--f-head);font-weight:600}
+.finder-static dd{margin:0}
+
+/* コースと料金 */
+.menu-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.menu-list li{display:grid;grid-template-columns:1fr auto;gap:var(--s1) var(--s4);padding:var(--s4) 0;border-bottom:1px solid var(--line)}
+.menu-list h3{font-size:18px;letter-spacing:.08em}
+.menu-list .for{grid-column:1/-1;font-size:13px;color:var(--ink-soft);line-height:1.8}
+.menu-list .price{font-family:var(--f-head);font-size:20px;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu-list .price small{display:block;font-family:var(--f-body);font-size:12px;color:var(--ink-soft)}
+.menu-sub{margin-top:var(--s5);display:grid;gap:var(--s2);font-size:14px}
+.menu-sub div{display:flex;justify-content:space-between;gap:var(--s3);border-bottom:1px dotted var(--line);padding-bottom:var(--s2)}
+.menu-sub .tag{color:var(--brass-ink)}
+.first{margin-top:var(--s5);padding:var(--s4);border:1px solid var(--brass);border-radius:var(--r)}
+.first h3{font-size:17px}
+.first p{margin-top:var(--s2);font-size:14px}
+.tax{margin-top:var(--s3);font-size:12px;color:var(--ink-soft)}
+
+.cream-photo{aspect-ratio:4/3}
+.cream-photo img{object-position:50% 50%}
+@media (min-width:768px){.cream-photo{aspect-ratio:21/7}}
+
+/* お客様の声 */
+.voice blockquote{margin:0;padding:var(--s4) 0;border-bottom:1px solid var(--line);font-family:var(--f-head);font-size:18px;line-height:2}
+.voice blockquote:first-child{border-top:1px solid var(--line)}
+.voice cite{display:block;margin-top:var(--s2);font-family:var(--f-body);font-style:normal;font-size:13px;color:var(--ink-soft)}
+
+/* Instagram */
+.ig{background:var(--bg-soft)}
+.ig-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s5)}
+.ig-handle{display:inline-flex;align-items:center;gap:var(--s2);font-size:15px;text-decoration:none;letter-spacing:.06em;border-bottom:1px solid var(--brass);padding-bottom:2px}
+.ig-handle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;list-style:none;margin:0;padding:0}
+.ig-grid a{display:block;aspect-ratio:1/1;overflow:hidden;background:var(--photo-bg)}
+.ig-grid img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.ig-grid a:hover img{opacity:.85}
+.ig-grid .z1 img{transform:scale(1.5);transform-origin:30% 60%}
+.ig-grid .z2 img{transform:scale(1.7);transform-origin:60% 40%}
+@media (min-width:768px){.ig-grid{gap:8px}}
+dialog.lb{padding:0;border:0;background:transparent;max-width:min(92vw,960px);width:100%}
+dialog.lb::backdrop{background:rgba(20,16,13,.86)}
+dialog.lb img{width:100%;height:auto;max-height:80svh;object-fit:contain;background:var(--photo-bg)}
+dialog.lb .lb-bar{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);padding-top:var(--s2);color:#f3eee9;font-size:13px}
+dialog.lb button{font:inherit;color:#f3eee9;background:transparent;border:1px solid #f3eee9;border-radius:var(--r);min-height:44px;padding:0 var(--s4);cursor:pointer}
+
+/* 初めての方へ */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:var(--s5)}
+.steps li{display:grid;grid-template-columns:72px 1fr;gap:var(--s3);align-items:start}
+.steps .when{font-family:var(--f-head);color:var(--brass-ink);font-size:14px;border-top:1px solid var(--brass);padding-top:var(--s2)}
+.steps h3{font-size:17px}
+.steps p{font-size:14px;color:var(--ink-soft);margin-top:var(--s1)}
+
+/* 店の情報 */
+.info-grid{display:grid;gap:var(--s5)}
+.info-list{margin:0;display:grid;grid-template-columns:auto 1fr;font-size:14px;border-top:1px solid var(--line)}
+.info-list dt,.info-list dd{padding:var(--s3) 0;border-bottom:1px solid var(--line);margin:0}
+.info-list dt{color:var(--brass-ink);padding-right:var(--s4);white-space:nowrap}
+.info-list a{text-decoration:none;border-bottom:1px solid var(--brass)}
+.map{margin:0;border:1px solid var(--line);background:var(--bg)}
+.map svg{display:block;width:100%;height:auto}
+.map figcaption{font-size:12px;color:var(--ink-soft);padding:var(--s2) var(--s3);border-top:1px solid var(--line)}
+@media (min-width:900px){.info-grid{grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start}}
+
+/* 最後の面 */
+.closing{background:var(--deep);color:var(--on-deep);padding:var(--s8) 0 var(--s7)}
+.closing h2{font-size:24px;line-height:1.8}
+.closing h2::before{content:"";display:block;width:32px;height:1px;background:var(--brass);margin-bottom:var(--s3)}
+.closing p{margin-top:var(--s3);color:var(--on-deep-soft);font-size:14px}
+.closing .cta{max-width:440px}
+.closing .tel{margin-top:var(--s4);font-size:13px;color:var(--on-deep-soft)}
+.closing .tel b{font-family:var(--f-head);font-weight:400;font-size:18px;color:var(--on-deep);margin-left:var(--s2)}
+.site-foot{background:var(--deep);color:var(--on-deep-soft);font-size:12px;border-top:1px solid rgba(243,238,233,.14);padding:var(--s4) 0}
+.site-foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2)}
+@media (min-width:900px){.closing .wrap{display:grid;grid-template-columns:1fr auto;gap:var(--s6);align-items:end}.closing h2{font-size:30px}}
+
+/* スマホ下の固定バー */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:var(--s2);padding:var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom));background:var(--deep);border-top:1px solid rgba(243,238,233,.14)}
+.sticky .btn{min-height:46px;font-size:14px;padding:0 var(--s3)}
+body{padding-bottom:64px}
+.js .sticky{transform:translateY(110%);transition:transform .3s ease}
+.js .sticky.on{transform:none}
+@media (min-width:768px){.sticky{display:none}body{padding-bottom:0}}
+
+/* 見本のお知らせ */
+.toast{position:fixed;left:50%;bottom:80px;z-index:30;transform:translateX(-50%);max-width:calc(100% - 32px);background:#14100d;color:#f3eee9;font-size:12px;padding:var(--s2) var(--s3);border-radius:var(--r);border:1px solid var(--brass);opacity:0;pointer-events:none;transition:opacity .2s;text-align:center}
+.toast.show{opacity:1}
+@media (min-width:768px){.toast{bottom:var(--s5)}}
+
+/* 動き: 見出しと写真だけ、1回 */
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition:none !important;animation:none !important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<p class="demo-band">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="site-head">
+  <a class="logo" href="#top" id="top" aria-label="フェイシャルサロン 奏 トップへ"><b>奏</b><span>フェイシャルサロン</span></a>
+  <a class="head-tel" href="tel:0920000000">ご予約<b>092-000-0000</b></a>
+</header>
+
+<main>
+  <figure class="bleed hero-photo">
+    <img src="img/esthe_hero-1600.jpg" srcset="img/esthe_hero-800.jpg 800w, img/esthe_hero-1600.jpg 1600w" sizes="100vw" alt="間接照明の落ち着いた施術室。白いベッドと木の棚" width="1600" height="914" fetchpriority="high">
+  </figure>
+  <div class="hero-panel">
+    <small class="note">写真はイメージです</small>
+    <div class="hero-inner">
+      <h1>一日四名だけの、<br>静かなフェイシャル。</h1>
+      <div>
+        <p class="lead">月見坂の個人サロンです。施術室は一つ、最初から最後まで同じ一人が担当します。</p>
+        <div class="cta">
+          <a class="btn btn-main" href="#ig" data-demo><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg>InstagramのDMで予約</a>
+          <a class="btn btn-sub" href="tel:0920000000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>電話する</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="about" aria-labelledby="h-about">
+    <div class="wrap two">
+      <div class="sec-head"><h2 id="h-about" class="rv">次の方と<br>重ならない時間割</h2></div>
+      <div class="text-col">
+        <p>住宅街の静かな通りにある、施術室が一つだけのサロンです。ご予約は一日四名まで。前の方と顔を合わせないよう、お一人ごとに三十分の間を空けています。</p>
+        <p>最初の十五分は、肌の様子と普段のお手入れを伺う時間です。機械に頼りすぎず、手で温めてほぐすことを大切にしています。帰りにお化粧を直せる鏡台も用意しました。</p>
+        <dl class="owner">
+          <dt>担当</dt><dd>高森 奈央(エステ歴14年)</dd>
+          <dt>施術室</dt><dd>完全個室一室、ベッド一台</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <figure class="bleed plant-photo rv">
+    <img src="img/esthe_plant-1600.jpg" srcset="img/esthe_plant-800.jpg 800w, img/esthe_plant-1600.jpg 1600w" sizes="100vw" alt="窓辺に置いた観葉植物の葉" width="1600" height="2800" loading="lazy">
+  </figure>
+
+  <section class="finder" aria-labelledby="h-finder">
+    <div class="wrap two">
+      <div class="sec-head">
+        <h2 id="h-finder" class="rv">肌の悩みから<br>コースを選ぶ</h2>
+        <p>気になることを選ぶと、合うコースと時間、料金、当日の流れが出ます。いくつ選んでも大丈夫です。</p>
+      </div>
+      <div>
+        <div class="finder-ui">
+          <fieldset class="worries">
+            <legend>いま気になること(複数選べます)</legend>
+            <label class="worry"><input type="checkbox" name="w" value="dry"><span><b>乾燥</b><small>夕方につっぱる</small></span></label>
+            <label class="worry"><input type="checkbox" name="w" value="pore"><span><b>毛穴</b><small>小鼻の黒ずみ</small></span></label>
+            <label class="worry"><input type="checkbox" name="w" value="dull"><span><b>くすみ</b><small>顔色が沈んで見える</small></span></label>
+            <label class="worry"><input type="checkbox" name="w" value="sag"><span><b>たるみ</b><small>輪郭がぼやける</small></span></label>
+          </fieldset>
+          <div class="result" id="result" aria-live="polite">
+            <p class="empty">上から一つ以上選んでください。</p>
+          </div>
+        </div>
+        <dl class="finder-static">
+          <dt>乾燥</dt><dd>うるおい集中(75分)</dd>
+          <dt>毛穴</dt><dd>毛穴のお掃除(80分)</dd>
+          <dt>くすみ</dt><dd>透明感(75分)</dd>
+          <dt>たるみ</dt><dd>引き上げの手技(90分)</dd>
+          <dt>二つ以上</dt><dd>奏のフルコース(120分)</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" aria-labelledby="h-menu">
+    <div class="wrap two">
+      <div class="sec-head">
+        <h2 id="h-menu" class="rv">コースと料金</h2>
+        <p>どのコースもカウンセリングとお化粧直しの時間を含みます。</p>
+      </div>
+      <div>
+        <ul class="menu-list">
+          <li><h3>うるおい集中</h3><p class="price">9,680円<small>75分</small></p><p class="for">乾燥やつっぱりに。蒸しタオルで温めてから、保湿の手技とパックを重ねます。</p></li>
+          <li><h3>毛穴のお掃除</h3><p class="price">10,780円<small>80分</small></p><p class="for">小鼻やあごの詰まりに。酵素洗顔と吸引のあと、引き締めのパックで仕上げます。</p></li>
+          <li><h3>透明感</h3><p class="price">10,340円<small>75分</small></p><p class="for">くすみに。古い角質をやさしく落とし、流れに沿って血色を戻します。</p></li>
+          <li><h3>引き上げの手技</h3><p class="price">12,650円<small>90分</small></p><p class="for">輪郭のたるみに。首と肩をほぐしてから、筋に沿って手で持ち上げます。</p></li>
+          <li><h3>奏のフルコース</h3><p class="price">16,280円<small>120分</small></p><p class="for">悩みが二つ以上の方に。選んだ悩みに合わせて手技を組み、首とデコルテまで行います。</p></li>
+        </ul>
+        <div class="menu-sub">
+          <div><span>目元の集中パック</span><span class="tag">+1,650円 15分</span></div>
+          <div><span>首とデコルテ(フルコース以外に追加)</span><span class="tag">+2,750円 20分</span></div>
+        </div>
+        <div class="first">
+          <h3>初めての方へ</h3>
+          <p>どのコースも初回は1,980円引きです。予約の時に「初めて」とお伝えください。</p>
+        </div>
+        <p class="tax">価格はすべて税込です。</p>
+      </div>
+    </div>
+  </section>
+
+  <figure class="bleed cream-photo rv">
+    <img src="img/esthe_cream-1600.jpg" srcset="img/esthe_cream-800.jpg 800w, img/esthe_cream-1600.jpg 1600w" sizes="100vw" alt="石の台に置いたクリームの容器" width="1600" height="1600" loading="lazy">
+  </figure>
+
+  <section class="voice" aria-labelledby="h-voice">
+    <div class="wrap two">
+      <div class="sec-head"><h2 id="h-voice" class="rv">お客様の声</h2></div>
+      <div class="text-col">
+        <blockquote>毎回同じ方に見てもらえるので、前回からの肌の変化を覚えていてくれるのが助かります。<cite>S.K さん 40代</cite></blockquote>
+        <blockquote>待合で誰とも会わないので、すっぴんで帰っても気になりませんでした。<cite>M.T さん 30代</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="ig" id="ig" aria-labelledby="h-ig">
+    <div class="wrap">
+      <div class="ig-head">
+        <div class="sec-head"><h2 id="h-ig" class="rv">空き状況はInstagramで</h2></div>
+        <a class="ig-handle" href="#ig" data-demo><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg>@sou_facial</a>
+      </div>
+      <ul class="ig-grid" aria-label="Instagramの投稿(写真を押すと大きく見られます)">
+        <li><a href="img/esthe_hero-1600.jpg" data-alt="施術室のベッドまわり"><img src="img/esthe_hero-800.jpg" alt="施術室のベッドまわり" width="800" height="457" loading="lazy" style="object-position:28% 50%"></a></li>
+        <li><a href="img/esthe_cream-1600.jpg" data-alt="クリームの容器"><img src="img/esthe_cream-800.jpg" alt="クリームの容器" width="800" height="800" loading="lazy"></a></li>
+        <li><a href="img/esthe_plant-1600.jpg" data-alt="窓辺の観葉植物"><img src="img/esthe_plant-800.jpg" alt="窓辺の観葉植物" width="800" height="1400" loading="lazy" style="object-position:50% 30%"></a></li>
+        <li class="z1"><a href="img/esthe_towel-1600.jpg" data-alt="たたんだタオル"><img src="img/esthe_towel-800.jpg" alt="たたんだタオル" width="800" height="800" loading="lazy"></a></li>
+        <li><a href="img/esthe_hero-1600.jpg" data-alt="間接照明の棚"><img src="img/esthe_hero-800.jpg" alt="間接照明の棚" width="800" height="457" loading="lazy" style="object-position:85% 50%"></a></li>
+        <li class="z2"><a href="img/esthe_cream-1600.jpg" data-alt="クリームの質感"><img src="img/esthe_cream-800.jpg" alt="クリームの質感" width="800" height="800" loading="lazy"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="steps-sec" aria-labelledby="h-steps">
+    <div class="wrap two">
+      <div class="sec-head">
+        <h2 id="h-steps" class="rv">ご予約から<br>当日まで</h2>
+        <p>手ぶらで来ていただけます。</p>
+      </div>
+      <ol class="steps">
+        <li><span class="when">ご予約</span><div><h3>DMか電話で、希望の日時を</h3><p>InstagramのDMにコース名と希望日を二つほど送ってください。施術中は電話に出られないことがあります。</p></div></li>
+        <li><span class="when">前日</span><div><h3>確認のご連絡</h3><p>前日の夕方に、時間の確認を一通お送りします。変更は前日18時までなら無料です。</p></div></li>
+        <li><span class="when">当日</span><div><h3>五分前を目安に</h3><p>メイク落としや着替えはこちらで用意しています。施術後はお茶を一杯どうぞ。</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="info" aria-labelledby="h-info" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" style="position:static;margin-bottom:var(--s5)"><h2 id="h-info" class="rv">場所と営業日</h2></div>
+      <div class="info-grid">
+        <dl class="info-list">
+          <dt>住所</dt><dd>福岡市 月見坂3丁目0-0<br>月見坂ハイツ 201</dd>
+          <dt>電話</dt><dd><a href="tel:0920000000">092-000-0000</a></dd>
+          <dt>営業時間</dt><dd>10:00〜19:00(最終受付 17:00)</dd>
+          <dt>定休日</dt><dd>水曜日、第3日曜日</dd>
+          <dt>お支払い</dt><dd>現金、クレジットカード、QR決済</dd>
+          <dt>お車</dt><dd>近くのコインパーキングをご利用ください</dd>
+        </dl>
+        <figure class="map">
+          <svg viewBox="0 0 320 210" role="img" aria-labelledby="map-t">
+            <title id="map-t">略図: 月見坂通りから一本入った角。向かいに月見坂中央公園、手前にことぶき書店</title>
+            <rect width="320" height="210" fill="var(--bg-soft)"/>
+            <path d="M0 130 H320" stroke="var(--line)" stroke-width="22"/>
+            <path d="M178 0 V210" stroke="var(--line)" stroke-width="14"/>
+            <rect x="196" y="18" width="108" height="78" rx="2" fill="none" stroke="var(--ink-soft)" stroke-width="1"/>
+            <text x="250" y="61" text-anchor="middle" font-size="13" fill="var(--ink-soft)">月見坂中央公園</text>
+            <rect x="30" y="152" width="96" height="40" rx="2" fill="none" stroke="var(--ink-soft)" stroke-width="1"/>
+            <text x="78" y="177" text-anchor="middle" font-size="13" fill="var(--ink-soft)">ことぶき書店</text>
+            <rect x="130" y="72" width="34" height="34" rx="2" fill="var(--deep)"/>
+            <text x="147" y="95" text-anchor="middle" font-size="15" fill="var(--on-deep)" font-family="Zen Old Mincho, serif">奏</text>
+            <path d="M147 106 V114" stroke="var(--brass)" stroke-width="1.5"/>
+            <text x="14" y="122" font-size="12" fill="var(--ink-soft)">月見坂通り</text>
+            <text x="122" y="94" text-anchor="end" font-size="12" fill="var(--brass-ink)">ハイツの2階</text>
+          </svg>
+          <figcaption>月見坂通りの書店の角を曲がってすぐ。公園の向かいの建物の2階です。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="h-close">
+    <div class="wrap">
+      <div>
+        <h2 id="h-close" class="rv">肌を休ませる時間を、<br>ひと枠どうぞ。</h2>
+        <p>空いている枠はInstagramのストーリーでお知らせしています。</p>
+      </div>
+      <div>
+        <div class="cta">
+          <a class="btn btn-main" href="#ig" data-demo><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg>InstagramのDMで予約</a>
+          <a class="btn btn-sub" href="tel:0920000000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>電話する</a>
+        </div>
+        <p class="tel">お電話<b>092-000-0000</b></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap"><span>フェイシャルサロン 奏</span><span>制作見本のため架空の店舗です</span></div>
+</footer>
+
+<nav class="sticky" aria-label="予約">
+  <a class="btn btn-main" href="#ig" data-demo>DMで予約</a>
+  <a class="btn btn-sub" href="tel:0920000000">電話する</a>
+</nav>
+
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+<dialog class="lb" id="lb" aria-label="写真を大きく表示">
+  <img id="lb-img" src="" alt="">
+  <div class="lb-bar"><span id="lb-cap"></span><button type="button" id="lb-close">閉じる</button></div>
+</dialog>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+
+  /* 見本のお知らせ */
+  var toast=document.getElementById('toast'),tid;
+  document.querySelectorAll('[data-demo]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      toast.textContent='見本のため実在のアカウントはありません';
+      toast.classList.add('show');
+      clearTimeout(tid);tid=setTimeout(function(){toast.classList.remove('show')},2600);
+    });
+  });
+
+  /* 肌の悩みからコースを選ぶ */
+  var C={
+    dry:{name:'うるおい集中',min:75,price:9680,why:'乾燥',flow:[['カウンセリング',15],['クレンジングと蒸しタオル',15],['保湿の手技とイオン導入',25],['保湿パック',15],['仕上げとお化粧直し',5]]},
+    pore:{name:'毛穴のお掃除',min:80,price:10780,why:'毛穴',flow:[['カウンセリング',15],['クレンジング',10],['酵素洗顔と吸引',20],['引き締めの手技',15],['鎮静パック',15],['仕上げとお化粧直し',5]]},
+    dull:{name:'透明感',min:75,price:10340,why:'くすみ',flow:[['カウンセリング',15],['クレンジング',10],['角質のお手入れ',15],['流れに沿う手技',20],['ビタミンパック',10],['仕上げとお化粧直し',5]]},
+    sag:{name:'引き上げの手技',min:90,price:12650,why:'たるみ',flow:[['カウンセリング',15],['クレンジング',10],['首と肩のほぐし',15],['筋に沿って持ち上げる手技',30],['引き締めパック',15],['仕上げとお化粧直し',5]]}
+  };
+  var FULL={name:'奏のフルコース',min:120,price:16280};
+  var res=document.getElementById('result');
+  function yen(n){return n.toLocaleString('ja-JP')+'円'}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function render(){
+    var sel=[].slice.call(document.querySelectorAll('.worries input:checked')).map(function(i){return i.value});
+    if(!sel.length){res.innerHTML='<p class="empty">上から一つ以上選んでください。</p>';return}
+    var c,why,flow;
+    if(sel.length===1){c=C[sel[0]];why=c.why+'が気になる方に合わせたコースです。';flow=c.flow}
+    else{
+      c=FULL;
+      var words=sel.map(function(k){return C[k].why});
+      why=words.join('と')+'をまとめて整えます。手技の配分は当日の肌を見て決めます。';
+      flow=[['カウンセリング',15],['クレンジングと蒸しタオル',15],[words.join('と')+'に合わせた手技',40],['首とデコルテ',20],['悩みに合わせたパック',20],['仕上げとお茶',10]];
+    }
+    var h='<h3>'+esc(c.name)+'</h3>'+
+      '<p class="meta"><span>時間<b>'+c.min+'分</b></span><span>料金<b>'+yen(c.price)+'</b></span><span>初回<b>'+yen(c.price-1980)+'</b></span></p>'+
+      '<p class="why">'+esc(why)+'</p><ol class="flow">';
+    flow.forEach(function(f){h+='<li><span>'+esc(f[0])+'</span><span>'+f[1]+'分</span></li>'});
+    h+='</ol><p class="hint">予約のDMに「'+esc(c.name)+'」と書いていただくと、話が早く進みます。</p>';
+    res.innerHTML=h;
+  }
+  document.querySelectorAll('.worries input').forEach(function(i){i.addEventListener('change',render)});
+  render();
+
+  /* 固定バーはファーストビューのボタンが見えなくなってから */
+  var bar=document.querySelector('.sticky'),heroCta=document.querySelector('.hero-panel .cta');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){bar.classList.toggle('on',!es[0].isIntersecting)}).observe(heroCta);
+  }else{bar.classList.add('on')}
+
+  /* 投稿の拡大 */
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),opener=null;
+  if(lb&&typeof lb.showModal==='function'){
+    document.querySelectorAll('.ig-grid a').forEach(function(a){
+      a.addEventListener('click',function(e){
+        e.preventDefault();opener=a;
+        lbImg.src=a.getAttribute('href');lbImg.alt=a.dataset.alt||'';lbCap.textContent=a.dataset.alt||'';
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){lb.close()});
+    lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+    lb.addEventListener('close',function(){if(opener)opener.focus()});
+  }
+
+  /* 見出しと写真をスクロールで1回だけ */
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+</body>
+</html>

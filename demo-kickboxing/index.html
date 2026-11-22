@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>キックボクシングジム BANG｜福岡市 霧笛町 はじめてでも手ぶらで体験</title>
+<meta name="description" content="福岡市霧笛町のキックボクシングジムBANG。会員の7割が初心者。女性クラスとキッズクラスあり、グローブ貸し出しで手ぶら体験OK。1回50分、体験1,650円。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --surface:#f4f4f2;
+  --ink:#1f1d1a;
+  --muted:#57534c;
+  --line:#e2e0db;
+  --yellow:#ffd23f;
+  --on-yellow:#1f1d1a;
+  --btn-bg:#1f1d1a;
+  --btn-ink:#ffffff;
+  --sticker:#ffffff;
+  --f-head:"Dela Gothic One", "Zen Maru Gothic", sans-serif;
+  --f-body:"Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px;
+  --r-s:12px; --r-l:28px; --r-round:50%;
+  --shadow:none;
+  --tilt:-3deg;
+  --wrap:1120px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#171614; --surface:#23211e; --ink:#f3f1ec; --muted:#bdb8ae; --line:#3a3732;
+    --btn-bg:#ffd23f; --btn-ink:#1f1d1a; --sticker:#f3f1ec;
+    color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#171614; --surface:#23211e; --ink:#f3f1ec; --muted:#bdb8ae; --line:#3a3732;
+  --btn-bg:#ffd23f; --btn-ink:#1f1d1a; --sticker:#f3f1ec;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-weight:500;font-size:16px;line-height:1.8;overflow-wrap:anywhere}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-head);font-weight:400;letter-spacing:.02em;line-height:1.35;margin:0}
+p{margin:0}
+.en{font-family:var(--f-head);font-weight:400;letter-spacing:.02em}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--s3)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.sp-only{display:inline}
+@media (min-width:768px){.sp-only{display:none}}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 制作見本の帯 */
+.demo-band{background:var(--ink);color:var(--bg);font-size:13px;line-height:1.6;text-align:center;padding:var(--s1) var(--s2)}
+
+/* ファーストビュー */
+.hero{background:var(--yellow);color:var(--on-yellow);padding:var(--s3) 0 0;position:relative}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);font-size:14px;font-weight:700}
+.ig-link{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:14px;padding:4px 0}
+.ig-link svg{width:22px;height:22px;flex:none}
+.hero-body{text-align:center;padding-top:var(--s2)}
+.brand{font-family:var(--f-head);font-size:clamp(64px,23vw,210px);white-space:nowrap;line-height:.9;letter-spacing:.01em;margin:0 0 var(--s2)}
+.hero h1{font-size:clamp(28px,8vw,48px);line-height:1.3}
+.hero-lead{font-size:16px;max-width:30em;margin:var(--s2) auto 0;font-weight:700}
+.hero-photo{position:relative;max-width:760px;margin:var(--s4) auto 0;padding:0 var(--s2);transform:translateY(var(--s5));z-index:1}
+.sticker{background:var(--sticker);padding:8px;border-radius:var(--r-l);transform:rotate(var(--tilt));border:2px solid var(--ink)}
+.sticker img{border-radius:calc(var(--r-l) - 8px);width:100%;object-fit:cover;background:#bdbdbd}
+.hero-photo .sticker img{aspect-ratio:16/10}
+.stamp{position:absolute;display:grid;place-content:center;text-align:center;width:112px;height:112px;border-radius:var(--r-round);background:var(--yellow);color:var(--on-yellow);border:3px solid var(--ink);font-family:var(--f-head);line-height:1.15;z-index:2}
+.stamp small{font-size:14px;display:block}
+.stamp b{font-weight:400;font-size:24px;display:block;white-space:nowrap}
+.stamp b span{font-size:.6em}
+.stamp i{font-style:normal;font-size:13px}
+.hero-photo .stamp{right:0;top:-40px}
+.photo-note{font-size:12px;color:var(--muted);text-align:right;margin-top:var(--s1)}
+
+/* 予約ボタン */
+.cta{padding:calc(var(--s5) + var(--s4)) 0 var(--s5);text-align:center}
+.cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);min-height:56px;padding:var(--s2) var(--s4);border-radius:var(--r-s);font-weight:700;font-size:17px;text-decoration:none;white-space:nowrap;border:2px solid var(--ink);transition:transform .2s,background-color .2s}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-main{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)}
+.btn-sub{background:transparent;color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.cta-note{font-size:14px;color:var(--muted);margin-top:var(--s2)}
+
+section{padding:var(--s6) 0}
+.sec-head{font-size:clamp(26px,6.4vw,40px);margin-bottom:var(--s3)}
+.sec-lead{max-width:36em;color:var(--muted)}
+
+/* はじめての人へ */
+.first-grid{display:grid;gap:var(--s5);align-items:start}
+.stamps{list-style:none;margin:0;padding:0;display:grid;gap:var(--s4)}
+.stamps li{display:grid;grid-template-columns:120px 1fr;justify-items:start;gap:var(--s3);align-items:center}
+.stamps .stamp{position:static;width:104px;height:104px;justify-self:center}
+.stamps li > div{justify-self:stretch}
+.stamps li:nth-child(2) .stamp{width:120px;height:120px}
+.stamps h3{font-size:18px;margin-bottom:4px}
+@media (max-width:400px){.stamps li{grid-template-columns:104px 1fr;gap:var(--s2)}.stamps li:nth-child(2) .stamp{width:104px;height:104px}}
+.stamps div p{color:var(--muted);font-size:15px}
+.first-photo{max-width:260px;justify-self:center;width:100%}
+.first-photo .sticker img{aspect-ratio:4/5}
+
+/* 体験の50分 */
+.trial{background:var(--yellow);color:var(--on-yellow);border-radius:var(--r-l);padding:var(--s5) var(--s3);margin:0 var(--s2)}
+.trial .sec-lead{color:var(--on-yellow)}
+.trial-grid{display:grid;gap:var(--s5);align-items:center}
+.trial-photo{max-width:240px;width:100%;justify-self:center;margin:0}
+.trial-photo .sticker img{aspect-ratio:1}
+.flow{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;gap:0;max-width:640px}
+.flow li{display:grid;grid-template-columns:72px 1fr;gap:var(--s2);padding:var(--s2) 0;border-top:2px solid var(--on-yellow)}
+.flow li:last-child{border-bottom:2px solid var(--on-yellow)}
+.flow .t{font-family:var(--f-head);font-size:18px}
+.flow b{display:block;font-size:17px}
+.flow span{font-size:15px}
+
+/* 時間割 */
+.tt-controls[hidden],[hidden]{display:none !important}
+.tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:var(--s2)}
+.tab{font:inherit;font-family:var(--f-head);font-size:20px;min-height:56px;border:2px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:var(--r-s);cursor:pointer;position:relative;padding:4px 0}
+.tab[aria-selected="true"]{background:var(--yellow);color:var(--on-yellow)}
+.tab .today{display:block;font-family:var(--f-body);font-weight:700;font-size:11px;line-height:1}
+.filters{display:flex;flex-wrap:wrap;gap:var(--s1);margin-bottom:var(--s3)}
+.chip{font:inherit;font-weight:700;font-size:15px;min-height:44px;padding:0 var(--s2);border-radius:var(--r-s);border:2px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.tt-status{font-weight:700;margin-bottom:var(--s2)}
+.tt-closed{background:var(--surface);border-radius:var(--r-s);padding:var(--s2);margin-bottom:var(--s2);font-weight:700}
+.tt-day + .tt-day{margin-top:var(--s4)}
+.tt-day h3{font-size:22px;margin-bottom:var(--s2)}
+.js-tt .tt-day h3{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.js-tt .tt-day + .tt-day{margin-top:0}
+.cls-list{list-style:none;margin:0;padding:0;display:grid;gap:var(--s2)}
+.cls{display:grid;grid-template-columns:auto 1fr;gap:var(--s2);align-items:start;background:var(--surface);border-radius:var(--r-l);padding:var(--s3)}
+.cls-time{font-family:var(--f-head);font-size:24px;line-height:1.1;min-width:84px}
+.cls-time small{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+.cls-name{font-weight:700;font-size:18px;line-height:1.5}
+.cls-meta{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s1);font-size:14px;color:var(--muted);margin-top:4px}
+.cls-note{font-size:15px;margin-top:var(--s1)}
+.tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 10px;border-radius:var(--r-s);border:2px solid var(--ink);color:var(--ink)}
+.tag-first{background:var(--yellow);color:var(--on-yellow);border-color:var(--yellow)}
+.tt-empty{background:var(--surface);border-radius:var(--r-l);padding:var(--s3);font-weight:700}
+
+/* 料金 */
+.price-wrap{display:grid;gap:var(--s5);align-items:start}
+.price-list{list-style:none;margin:0;padding:0}
+.price-list li{display:flex;align-items:baseline;gap:var(--s2);padding:var(--s2) 0;border-bottom:2px solid var(--line)}
+.price-list .name{font-weight:700;font-size:17px;flex:1 1 0;min-width:0}
+.price-list .name small{display:block;font-weight:500;font-size:14px;color:var(--muted)}
+.price-list .yen{font-family:var(--f-head);font-size:24px;white-space:nowrap}
+.price-list .yen small{font-family:var(--f-body);font-weight:700;font-size:14px;margin-left:2px}
+.price-list .pick{background:var(--yellow);color:var(--on-yellow);border-radius:var(--r-s);padding:var(--s2);border-bottom:0;margin-bottom:var(--s1)}
+.price-list .pick .name small{color:var(--on-yellow)}
+.price-notes{font-size:14px;color:var(--muted);margin-top:var(--s2)}
+.price-photo{max-width:240px;width:100%;justify-self:center}
+.price-photo .sticker img{aspect-ratio:1}
+
+/* スタッフ */
+.staff{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
+.staff li{display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s3);align-items:start;padding-bottom:var(--s3);border-bottom:2px solid var(--line)}
+.mono{width:72px;height:72px;border-radius:var(--r-round);background:var(--yellow);color:var(--on-yellow);display:grid;place-content:center;font-family:var(--f-head);font-size:30px}
+.staff li.boss .mono{width:96px;height:96px;font-size:40px}
+.staff .role{font-size:14px;font-weight:700;color:var(--muted)}
+.staff h3{font-size:22px}
+.staff h3 small{display:block;font-family:var(--f-body);font-weight:700;font-size:13px;color:var(--muted);letter-spacing:.08em}
+.staff p.txt{font-size:15px;margin-top:var(--s1)}
+
+/* 声 */
+.voices{display:grid;gap:var(--s3)}
+.voice{margin:0;border-left:8px solid var(--yellow);padding:var(--s1) 0 var(--s1) var(--s3)}
+.voice p{font-family:var(--f-head);font-size:20px;line-height:1.55}
+.voice footer{font-size:14px;color:var(--muted);margin-top:var(--s1)}
+
+/* インスタ */
+.ig-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2);margin-bottom:var(--s3)}
+.ig-head .ig-link{font-size:18px;font-weight:700}
+.ig-head .ig-link svg{width:28px;height:28px}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;border-radius:var(--r-l);overflow:hidden;border:2px solid var(--ink)}
+.ig-grid a{display:block;aspect-ratio:1;background:#bdbdbd}
+.ig-grid img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.ig-grid a:hover img{opacity:.85}
+.ig-grid a:focus-visible{outline-offset:-4px}
+.ig-msg{display:none;font-size:13px;color:var(--muted);margin-top:var(--s1)}
+.ig-msg:target,.ig-msg.show{display:block}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:var(--bg);font-size:13px;padding:var(--s1) var(--s2);border-radius:var(--r-s);z-index:30;max-width:calc(100% - 32px);text-align:center}
+@media (min-width:768px){.toast{bottom:32px}}
+.lightbox{border:0;padding:0;background:transparent;max-width:min(92vw,720px);width:100%}
+.lightbox::backdrop{background:rgba(23,22,20,.86)}
+.lightbox img{width:100%;max-height:80vh;object-fit:contain;border-radius:var(--r-s);background:#bdbdbd}
+.lb-close{display:block;margin:var(--s2) auto 0;font:inherit;font-weight:700;font-size:16px;min-height:48px;padding:0 var(--s4);border-radius:var(--r-s);border:2px solid var(--yellow);background:var(--yellow);color:var(--on-yellow);cursor:pointer}
+
+/* 場所 */
+.access{display:grid;gap:var(--s4);align-items:start}
+.info{margin:0;display:grid;gap:0}
+.info div{display:grid;grid-template-columns:5.5em 1fr;gap:var(--s2);padding:var(--s2) 0;border-bottom:2px solid var(--line)}
+.info dt{font-weight:700}
+.info dd{margin:0}
+.map{background:var(--surface);border-radius:var(--r-l);padding:var(--s2)}
+.map svg{width:100%;height:auto;display:block}
+.map .road{stroke:var(--line);stroke-width:14;fill:none;stroke-linecap:round}
+.map .lbl{fill:var(--ink);font-family:var(--f-body);font-weight:700;font-size:15px}
+.map .lbl-s{fill:var(--muted);font-family:var(--f-body);font-weight:700;font-size:14px}
+.map .land{fill:var(--bg);stroke:var(--muted);stroke-width:2}
+.map .en-svg{font-family:var(--f-head);font-weight:400;font-size:18px}
+.map .gym{fill:var(--yellow);stroke:var(--ink);stroke-width:3}
+
+/* 最下部 */
+.last{background:var(--yellow);color:var(--on-yellow);text-align:center;padding:var(--s6) 0}
+.last .btn-main{background:var(--on-yellow);color:#fff;border-color:var(--on-yellow)}
+.last .btn-sub{color:var(--on-yellow);border-color:var(--on-yellow)}
+.last .cta-note{color:var(--on-yellow)}
+.last .brand{font-size:clamp(64px,18vw,140px);margin-bottom:var(--s2)}
+footer.site{padding:var(--s4) 0 calc(var(--s4) + 80px);font-size:13px;color:var(--muted);text-align:center}
+@media (min-width:768px){footer.site{padding-bottom:var(--s4)}}
+
+/* スマホ下の固定バー */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;gap:var(--s1);padding:var(--s1) var(--s1) calc(var(--s1) + env(safe-area-inset-bottom));background:var(--bg);border-top:2px solid var(--ink)}
+.bar .btn{min-height:52px;padding:0 var(--s1);font-size:15px}
+@media (min-width:768px){.bar{display:none}}
+
+/* 動き(JSがクラスを付けた時だけ隠す) */
+.js .rv{opacity:0;translate:0 20px;transition:opacity .6s ease,translate .6s ease}
+.js .rv.in{opacity:1;translate:0 0}
+@media (prefers-reduced-motion: reduce){
+  .js .rv{opacity:1;translate:none;transition:none}
+  .btn,.ig-grid img{transition:none}
+  .btn:hover{transform:none}
+}
+
+@media (min-width:768px){
+  .wrap{padding:0 var(--s5)}
+  section{padding:var(--s7) 0}
+  .hero-photo .stamp{right:-24px;top:-48px;width:140px;height:140px}
+  .hero-photo .stamp b{font-size:28px}
+  .first-grid{grid-template-columns:1.3fr 1fr;gap:var(--s6)}
+  .first-photo{margin-top:var(--s5)}
+  .trial{padding:var(--s6) var(--s6);margin:0 var(--s5)}
+  .trial-grid{grid-template-columns:1.6fr 1fr;gap:var(--s6)}
+  .trial-photo{max-width:320px}
+  .tab{font-size:22px}
+  .cls-list{grid-template-columns:1fr 1fr}
+  .price-wrap{grid-template-columns:1.4fr 1fr;gap:var(--s6)}
+  .price-photo{margin-top:var(--s6)}
+  .staff{grid-template-columns:1fr 1fr;column-gap:var(--s5)}
+  .staff li.boss{grid-column:1 / -1}
+  .voices{grid-template-columns:1.2fr 1fr;gap:var(--s5)}
+  .access{grid-template-columns:1fr 1fr;gap:var(--s5)}
+  .ig-grid{gap:6px}
+}
+@media (min-width:1100px){
+  .trial{max-width:calc(var(--wrap) - var(--s5));margin:0 auto}
+}
+</style>
+</head>
+<body>
+<p class="demo-band">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <span>福岡市 霧笛町のキックボクシングジム</span>
+      <a class="ig-link" href="#ig" data-ig aria-label="Instagram @bang_kickboxing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+    <div class="hero-body">
+      <p class="brand" aria-hidden="true">BANG</p>
+      <h1 class="rv"><span class="visually-hidden">キックボクシングジム BANG </span>はじめてでも、<br>ちゃんと楽しい。</h1>
+      <p class="hero-lead">会員の7割は、<br class="sp-only">ここで初めてグローブをつけた人。<br>手ぶらで来て、50分動いて帰るだけ。</p>
+    </div>
+    <div class="hero-photo rv">
+      <div class="sticker">
+        <img src="img/k_hero-1600.jpg" srcset="img/k_hero-800.jpg 800w, img/k_hero-1600.jpg 1600w" sizes="(min-width:800px) 740px, 92vw" alt="リングとサンドバッグが並ぶ明るいジムの中" width="1600" height="914" fetchpriority="high">
+      </div>
+      <p class="stamp"><small>体験</small><b>1,650<span>円</span></b><i>グローブ貸出</i></p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="cta">
+    <div class="wrap">
+      <p class="photo-note">写真はイメージです</p>
+      <div class="cta-row" style="margin-top:16px">
+        <a class="btn btn-main" href="#ig" data-ig>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+          <span><span class="en">DM</span>で体験を予約</span>
+        </a>
+        <a class="btn btn-sub" href="tel:092-000-0000">電話する 092-000-0000</a>
+      </div>
+      <p class="cta-note"><span class="en">DM</span>には「体験希望」と、来たい曜日だけ送ってください。</p>
+    </div>
+  </div>
+
+  <section aria-labelledby="h-first">
+    <div class="wrap first-grid">
+      <div>
+        <h2 class="sec-head rv" id="h-first">運動が久しぶりでも、<br>大丈夫な理由</h2>
+        <ul class="stamps">
+          <li>
+            <p class="stamp" aria-hidden="true"><b>7割</b><i>初心者</i></p>
+            <div><h3>まわりも、ほぼ初心者</h3><p>強そうな人ばかり、ということはありません。会社帰りの人、子どもを送ったあとの人が多いジムです。</p></div>
+          </li>
+          <li>
+            <p class="stamp" aria-hidden="true"><small>1回</small><b>50分</b></p>
+            <div><h3>ちょうどいい長さ</h3><p>準備運動からミット打ち、ストレッチまで50分。終わったあとに予定を入れても間に合います。</p></div>
+          </li>
+          <li>
+            <p class="stamp" aria-hidden="true"><b>0円</b><i>グローブ</i></p>
+            <div><h3>道具は全部、貸します</h3><p>グローブとバンテージは貸し出し。動きやすい服と飲み物だけ持ってきてください。更衣室とシャワーもあります。</p></div>
+          </li>
+        </ul>
+      </div>
+      <figure class="first-photo rv" style="margin:0">
+        <div class="sticker">
+          <img src="img/k_bag-800.jpg" srcset="img/k_bag-800.jpg 800w, img/k_bag-1600.jpg 1600w" sizes="(min-width:768px) 360px, 90vw" alt="天井から下がる黒いサンドバッグ" width="800" height="1400" loading="lazy">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <div class="trial" role="region" aria-labelledby="h-trial">
+   <div class="trial-grid">
+   <div>
+    <h2 class="sec-head rv" id="h-trial">体験の日の50分</h2>
+    <p class="sec-lead">はじめての日は、トレーナーが1人つきます。殴られることはありません。</p>
+    <ol class="flow">
+      <li><span class="t">0分</span><p><b>受付と着替え</b><span>名前を書いて、更衣室へ。</span></p></li>
+      <li><span class="t">5分</span><p><b>バンテージを巻く</b><span>巻き方はトレーナーが一緒にやります。</span></p></li>
+      <li><span class="t">10分</span><p><b>構えとパンチ</b><span>鏡の前でワンツーとキックの形だけ。</span></p></li>
+      <li><span class="t">30分</span><p><b>ミット打ち</b><span>トレーナーが持つミットを3分ずつ。ここが一番楽しいところです。</span></p></li>
+      <li><span class="t">45分</span><p><b>ストレッチと相談</b><span>続けるかどうかは、その場で決めなくて大丈夫。</span></p></li>
+    </ol>
+   </div>
+   <figure class="trial-photo rv">
+     <div class="sticker">
+       <img src="img/k_wraps-800.jpg" srcset="img/k_wraps-800.jpg 800w, img/k_wraps-1600.jpg 1600w" sizes="(min-width:768px) 320px, 240px" alt="体験で使うバンテージと縄跳び" width="800" height="800" loading="lazy">
+     </div>
+   </figure>
+   </div>
+  </div>
+
+  <section aria-labelledby="h-tt" id="timetable">
+    <div class="wrap">
+      <h2 class="sec-head rv" id="h-tt">クラスの時間割</h2>
+      <p class="sec-lead" style="margin-bottom:24px">どのクラスも1回50分。はじめての人は「はじめて」か「女性」のクラスがおすすめです。</p>
+
+      <div class="tt-controls" hidden>
+        <div class="tabs" role="tablist" aria-label="曜日">
+          <button class="tab" role="tab" type="button" data-day="1" aria-controls="day-1">月</button>
+          <button class="tab" role="tab" type="button" data-day="2" aria-controls="day-2">火</button>
+          <button class="tab" role="tab" type="button" data-day="3" aria-controls="day-3">水</button>
+          <button class="tab" role="tab" type="button" data-day="4" aria-controls="day-4">木</button>
+          <button class="tab" role="tab" type="button" data-day="5" aria-controls="day-5">金</button>
+          <button class="tab" role="tab" type="button" data-day="6" aria-controls="day-6">土</button>
+        </div>
+        <div class="filters" role="group" aria-label="クラスの種類で絞り込む">
+          <button class="chip" type="button" data-cat="all" aria-pressed="true">すべて</button>
+          <button class="chip" type="button" data-cat="first" aria-pressed="false">はじめて</button>
+          <button class="chip" type="button" data-cat="women" aria-pressed="false">女性</button>
+          <button class="chip" type="button" data-cat="kids" aria-pressed="false">キッズ</button>
+          <button class="chip" type="button" data-cat="general" aria-pressed="false">一般</button>
+        </div>
+        <p class="tt-closed" hidden>今日(日曜)はお休みです。月曜のクラスを出しています。</p>
+        <p class="tt-status" aria-live="polite"></p>
+      </div>
+
+      <div class="tt-days">
+        <div class="tt-day" id="day-1" data-day="1" role="tabpanel">
+          <h3>月曜</h3>
+          <ul class="cls-list">
+            <li class="cls" data-cat="women"><p class="cls-time">10:30<small>〜11:20</small></p><div><p class="cls-name">女性クラス</p><p class="cls-meta"><span class="tag">女性</span>担当 宇野</p><p class="cls-note">音楽に合わせてパンチとキック。汗をかきたい人に。</p></div></li>
+            <li class="cls" data-cat="first"><p class="cls-time">12:00<small>〜12:50</small></p><div><p class="cls-name">はじめてクラス</p><p class="cls-meta"><span class="tag tag-first">はじめて</span>担当 樫山</p><p class="cls-note">構えとワンツーから。昼休みに来る人もいます。</p></div></li>
+            <li class="cls" data-cat="kids"><p class="cls-time">17:00<small>〜17:50</small></p><div><p class="cls-name">キッズクラス(小学生)</p><p class="cls-meta"><span class="tag">キッズ</span>担当 平嶋</p><p class="cls-note">マット運動と縄跳びも入ります。相手を打つ練習はしません。</p></div></li>
+            <li class="cls" data-cat="first"><p class="cls-time">19:00<small>〜19:50</small></p><div><p class="cls-name">はじめてクラス</p><p class="cls-meta"><span class="tag tag-first">はじめて</span>担当 平嶋</p><p class="cls-note">仕事帰りの人が多い時間。体験もこの時間が一番人気です。</p></div></li>
+            <li class="cls" data-cat="general"><p class="cls-time">20:15<small>〜21:05</small></p><div><p class="cls-name">一般クラス</p><p class="cls-meta"><span class="tag">一般</span>担当 樫山</p><p class="cls-note">ミット打ち多め。慣れてきた人向け。</p></div></li>
+          </ul>
+        </div>
+        <div class="tt-day" id="day-2" data-day="2" role="tabpanel">
+          <h3>火曜</h3>
+          <ul class="cls-list">
+            <li class="cls" data-cat="first"><p class="cls-time">10:30<small>〜11:20</small></p><div><p class="cls-name">はじめてクラス</p><p class="cls-meta"><span class="tag tag-first">はじめて</span>担当 宇野</p><p class="cls-note">午前は女性の参加が多めです。</p></div></li>
+            <li class="cls" data-cat="kids"><p class="cls-time">18:00<small>〜18:50</small></p><div><p class="cls-name">キッズクラス(小学生)</p><p class="cls-meta"><span class="tag">キッズ</span>担当 平嶋</p><p class="cls-note">学校帰りに来られる時間です。</p></div></li>
+            <li class="cls" data-cat="women"><p class="cls-time">19:30<small>〜20:20</small></p><div><p class="cls-name">女性クラス</p><p class="cls-meta"><span class="tag">女性</span>担当 宇野</p><p class="cls-note">夜の女性クラス。最後の10分は体幹トレーニング。</p></div></li>
+            <li class="cls" data-cat="general"><p class="cls-time">20:45<small>〜21:35</small></p><div><p class="cls-name">一般クラス</p><p class="cls-meta"><span class="tag">一般</span>担当 樫山</p><p class="cls-note">コンビネーションを覚える日。スパーリングはありません。</p></div></li>
+          </ul>
+        </div>
+        <div class="tt-day" id="day-3" data-day="3" role="tabpanel">
+          <h3>水曜</h3>
+          <ul class="cls-list">
+            <li class="cls" data-cat="women"><p class="cls-time">11:00<small>〜11:50</small></p><div><p class="cls-name">女性クラス</p><p class="cls-meta"><span class="tag">女性</span>担当 宇野</p><p class="cls-note">はじめての人も一緒に参加できます。</p></div></li>
+            <li class="cls" data-cat="kids"><p class="cls-time">17:00<small>〜17:50</small></p><div><p class="cls-name">キッズクラス(年中〜小2)</p><p class="cls-meta"><span class="tag">キッズ</span>担当 平嶋</p><p class="cls-note">小さい子向け。保護者の見学ができます。</p></div></li>
+            <li class="cls" data-cat="first"><p class="cls-time">19:00<small>〜19:50</small></p><div><p class="cls-name">はじめてクラス</p><p class="cls-meta"><span class="tag tag-first">はじめて</span>担当 樫山</p><p class="cls-note">キックの蹴り方を中心に。</p></div></li>
+            <li class="cls" data-cat="general"><p class="cls-time">20:15<small>〜21:05</small></p><div><p class="cls-name">一般クラス</p><p class="cls-meta"><span class="tag">一般</span>担当 平嶋</p><p class="cls-note">サンドバッグを使った持久系。</p></div></li>
+          </ul>
+        </div>
+        <div class="tt-day" id="day-4" data-day="4" role="tabpanel">
+          <h3>木曜</h3>
+          <ul class="cls-list">
+            <li class="cls" data-cat="first"><p class="cls-time">10:30<small>〜11:20</small></p><div><p class="cls-name">はじめてクラス</p><p class="cls-meta"><span class="tag tag-first">はじめて</span>担当 樫山</p><p class="cls-note">ゆっくり進む午前のクラス。</p></div></li>
+            <li class="cls" data-cat="women"><p class="cls-time">12:00<small>〜12:50</small></p><div><p class="cls-name">女性クラス</p><p class="cls-meta"><span class="tag">女性</span>担当 宇野</p><p class="cls-note">お昼の50分。シャワーを浴びても13時台に出られます。</p></div></li>
+            <li class="cls" data-cat="general"><p class="cls-time">19:00<small>〜19:50</small></p><div><p class="cls-name">一般クラス</p><p class="cls-meta"><span class="tag">一般</span>担当 平嶋</p><p class="cls-note">ミット打ちとディフェンスの練習。</p></div></li>
+            <li class="cls" data-cat="first"><p class="cls-time">20:15<small>〜21:05</small></p><div><p class="cls-name">はじめてクラス</p><p class="cls-meta"><span class="tag tag-first">はじめて</span>担当 樫山</p><p class="cls-note">遅めの時間に来たい人に。</p></div></li>
+          </ul>
+        </div>
+        <div class="tt-day" id="day-5" data-day="5" role="tabpanel">
+          <h3>金曜</h3>
+          <ul class="cls-list">
+            <li class="cls" data-cat="women"><p class="cls-time">10:30<small>〜11:20</small></p><div><p class="cls-name">女性クラス</p><p class="cls-meta"><span class="tag">女性</span>担当 宇野</p><p class="cls-note">週の終わりにすっきりしたい人に。</p></div></li>
+            <li class="cls" data-cat="kids"><p class="cls-time">17:00<small>〜17:50</small></p><div><p class="cls-name">キッズクラス(小学生)</p><p class="cls-meta"><span class="tag">キッズ</span>担当 平嶋</p><p class="cls-note">月に1回、縄跳びの記録会があります。</p></div></li>
+            <li class="cls" data-cat="first"><p class="cls-time">19:00<small>〜19:50</small></p><div><p class="cls-name">はじめてクラス</p><p class="cls-meta"><span class="tag tag-first">はじめて</span>担当 平嶋</p><p class="cls-note">金曜の夜は体験の人が多めです。</p></div></li>
+            <li class="cls" data-cat="general"><p class="cls-time">20:15<small>〜21:05</small></p><div><p class="cls-name">一般クラス</p><p class="cls-meta"><span class="tag">一般</span>担当 樫山</p><p class="cls-note">ミット打ち中心。スパーリングはありません。</p></div></li>
+          </ul>
+        </div>
+        <div class="tt-day" id="day-6" data-day="6" role="tabpanel">
+          <h3>土曜</h3>
+          <ul class="cls-list">
+            <li class="cls" data-cat="kids"><p class="cls-time">10:00<small>〜10:50</small></p><div><p class="cls-name">キッズクラス(年中〜小6)</p><p class="cls-meta"><span class="tag">キッズ</span>担当 平嶋</p><p class="cls-note">土曜は年中さんから小6まで一緒です。</p></div></li>
+            <li class="cls" data-cat="first"><p class="cls-time">11:15<small>〜12:05</small></p><div><p class="cls-name">はじめてクラス</p><p class="cls-meta"><span class="tag tag-first">はじめて</span>担当 樫山</p><p class="cls-note">キッズの保護者がそのまま参加することも。</p></div></li>
+            <li class="cls" data-cat="women"><p class="cls-time">13:00<small>〜13:50</small></p><div><p class="cls-name">女性クラス</p><p class="cls-meta"><span class="tag">女性</span>担当 宇野</p><p class="cls-note">土曜だけ来る人が多いクラス。</p></div></li>
+            <li class="cls" data-cat="general"><p class="cls-time">14:15<small>〜15:05</small></p><div><p class="cls-name">一般クラス</p><p class="cls-meta"><span class="tag">一般</span>担当 樫山</p><p class="cls-note">会長が全員のミットを持つ日。</p></div></li>
+          </ul>
+        </div>
+      </div>
+      <p class="tt-empty" hidden></p>
+      <p class="cta-note" style="text-align:left">日曜と祝日はお休みです。クラスのない時間はサンドバッグを自由に使えます(会員のみ)。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-price" style="background:var(--surface)">
+    <div class="wrap price-wrap">
+      <div>
+        <h2 class="sec-head rv" id="h-price">料金(税込)</h2>
+        <ul class="price-list">
+          <li class="pick"><span class="name">体験 1回<small>グローブとバンテージの貸し出し込み</small></span><span class="yen">1,650<small>円</small></span></li>
+          <li><span class="name">入会金<small>体験した日に入会すると0円</small></span><span class="yen">5,500<small>円</small></span></li>
+          <li><span class="name">月謝 通い放題<small>全クラスに出られます</small></span><span class="yen">10,780<small>円</small></span></li>
+          <li><span class="name">月謝 週1回<small>月4回まで</small></span><span class="yen">6,380<small>円</small></span></li>
+          <li><span class="name">女性 通い放題<small>女性クラスとはじめてクラス</small></span><span class="yen">8,580<small>円</small></span></li>
+          <li><span class="name">キッズ 週1回<small>年中〜小学6年生</small></span><span class="yen">4,950<small>円</small></span></li>
+          <li><span class="name">回数券 4回<small>2か月有効、入会金なし</small></span><span class="yen">8,140<small>円</small></span></li>
+        </ul>
+        <p class="price-notes">バンテージを自分用に買う場合は990円。兄弟姉妹でキッズに入る場合、2人目は月謝から1,100円引きです。</p>
+      </div>
+      <figure class="price-photo rv" style="margin:0">
+        <div class="sticker">
+          <img src="img/k_gloves-800.jpg" srcset="img/k_gloves-800.jpg 800w, img/k_gloves-1600.jpg 1600w" sizes="(min-width:768px) 320px, 80vw" alt="貸し出し用の赤いボクシンググローブ" width="800" height="800" loading="lazy">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-staff">
+    <div class="wrap">
+      <h2 class="sec-head rv" id="h-staff">教える3人</h2>
+      <ul class="staff">
+        <li class="boss">
+          <span class="mono" aria-hidden="true">樫</span>
+          <div>
+            <p class="role">会長</p>
+            <h3>樫山 剛志<small>かしやま つよし</small></h3>
+            <p class="txt">元プロキックボクサー。ウェルター級で通算24戦15勝。引退後の2015年に<span class="en">BANG</span>を開きました。「強くなるより、続けられる方が大事」が口ぐせです。</p>
+          </div>
+        </li>
+        <li>
+          <span class="mono" aria-hidden="true">宇</span>
+          <div>
+            <p class="role">トレーナー 女性クラス担当</p>
+            <h3>宇野 早紀<small>うの さき</small></h3>
+            <p class="txt">フィットネス指導歴8年。自分も運動が苦手だったので、最初の一歩の重さを知っています。</p>
+          </div>
+        </li>
+        <li>
+          <span class="mono" aria-hidden="true">平</span>
+          <div>
+            <p class="role">トレーナー キッズ担当</p>
+            <h3>平嶋 大和<small>ひらしま やまと</small></h3>
+            <p class="txt">アマチュアで試合経験あり。キッズクラスでは縄跳びの回数を数えるのが一番うるさい人です。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-voice" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="sec-head rv" id="h-voice">通っている人の声</h2>
+      <div class="voices">
+        <blockquote class="voice"><p>運動は学生のとき以来。<br>最初の50分で、もう笑っていました。</p><footer><span class="en">M.T</span>さん 30代</footer></blockquote>
+        <blockquote class="voice"><p>娘のキッズクラスの日に、<br>私も女性クラスへ。</p><footer><span class="en">K.S</span>さん 40代</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-ig" style="padding-top:0">
+    <div class="wrap">
+      <div class="ig-head">
+        <h2 class="sec-head rv" id="h-ig" style="margin:0">練習の様子はインスタで</h2>
+        <a class="ig-link" href="#ig" data-ig>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+          <span class="en">@bang_kickboxing</span>
+        </a>
+      </div>
+      <p class="ig-msg" id="ig" role="status">見本のため実在のアカウントはありません</p>
+      <div class="ig-grid">
+        <a href="img/k_gloves-1600.jpg" data-lb><img src="img/k_gloves-800.jpg" alt="赤いグローブ" width="800" height="800" loading="lazy"></a>
+        <a href="img/k_hero-1600.jpg" data-lb><img src="img/k_hero-800.jpg" alt="ジムのリング" width="800" height="457" loading="lazy" style="object-position:30% 50%"></a>
+        <a href="img/k_wraps-1600.jpg" data-lb><img src="img/k_wraps-800.jpg" alt="バンテージと縄跳び" width="800" height="800" loading="lazy"></a>
+        <a href="img/k_bag-1600.jpg" data-lb><img src="img/k_bag-800.jpg" alt="サンドバッグ" width="800" height="1400" loading="lazy" style="object-position:50% 25%"></a>
+        <a href="img/k_mitts-1600.jpg" data-lb><img src="img/k_mitts-800.jpg" alt="ミットとグローブ" width="800" height="800" loading="lazy"></a>
+        <a href="img/k_hero-1600.jpg" data-lb><img src="img/k_hero-800.jpg" alt="並んだサンドバッグ" width="800" height="457" loading="lazy" style="object-position:85% 50%"></a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-access" style="padding-top:0">
+    <div class="wrap access">
+      <div>
+        <h2 class="sec-head rv" id="h-access">場所と営業時間</h2>
+        <dl class="info">
+          <div><dt>住所</dt><dd>福岡市 霧笛町2丁目0-0 霧笛ビル1階</dd></div>
+          <div><dt>電話</dt><dd><a href="tel:092-000-0000">092-000-0000</a></dd></div>
+          <div><dt>平日</dt><dd>10:00〜22:00</dd></div>
+          <div><dt>土曜</dt><dd>10:00〜17:00</dd></div>
+          <div><dt>休み</dt><dd>日曜と祝日</dd></div>
+          <div><dt>駐車場</dt><dd>ビル裏に2台(空いていなければ近くのコインパーキングへ)</dd></div>
+        </dl>
+      </div>
+      <figure class="map" style="margin:0">
+        <svg viewBox="0 0 360 260" role="img" aria-labelledby="map-t">
+          <title id="map-t">略図。霧笛町公園の南、むてき商店街の入口の角にBANGがあります</title>
+          <path class="road" d="M0 150 H360"/>
+          <path class="road" d="M200 0 V260"/>
+          <rect class="land" x="24" y="24" width="140" height="92" rx="12"/>
+          <text class="lbl-s" x="94" y="76" text-anchor="middle">霧笛町公園</text>
+          <rect class="land" x="236" y="184" width="104" height="56" rx="12"/>
+          <text class="lbl-s" x="288" y="217" text-anchor="middle">むてき商店街</text>
+          <rect class="gym" x="216" y="76" width="96" height="52" rx="12"/>
+          <text class="lbl en-svg" x="264" y="109" text-anchor="middle">BANG</text>
+          <text class="lbl-s" x="24" y="186">表通り</text>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <div class="last">
+    <div class="wrap">
+      <p class="brand" aria-hidden="true">BANG</p>
+      <h2 class="sec-head rv">まずは50分、<br class="sp-only">打ってみませんか</h2>
+      <div class="cta-row">
+        <a class="btn btn-main" href="#ig" data-ig>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+          <span><span class="en">DM</span>で体験を予約</span>
+        </a>
+        <a class="btn btn-sub" href="tel:092-000-0000">電話する 092-000-0000</a>
+      </div>
+      <p class="cta-note">体験 1,650円。動きやすい服と飲み物だけ持ってきてください。</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site">キックボクシングジム <span class="en">BANG</span> 福岡市 霧笛町</footer>
+
+<nav class="bar" aria-label="予約">
+  <a class="btn btn-main" href="#ig" data-ig><span><span class="en">DM</span>で予約</span></a>
+  <a class="btn btn-sub" href="tel:092-000-0000">電話する</a>
+</nav>
+
+<dialog class="lightbox" aria-label="写真の拡大">
+  <img src="" alt="">
+  <button class="lb-close" type="button">閉じる</button>
+</dialog>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  // スクロールで1回だけ表示
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){ io.observe(el); });
+  } else {
+    rv.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // 見本のIGリンク
+  var toast;
+  document.querySelectorAll('[data-ig]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      if (!toast) { toast = document.createElement('p'); toast.className = 'toast'; toast.setAttribute('role','status'); document.body.appendChild(toast); }
+      toast.textContent = '見本のため実在のアカウントはありません';
+      toast.hidden = false;
+      clearTimeout(toast._t);
+      toast._t = setTimeout(function(){ toast.hidden = true; }, 2800);
+    });
+  });
+
+  // 写真の拡大
+  var dlg = document.querySelector('.lightbox');
+  if (dlg && dlg.showModal) {
+    var big = dlg.querySelector('img');
+    document.querySelectorAll('[data-lb]').forEach(function(a){
+      a.addEventListener('click', function(ev){
+        ev.preventDefault();
+        var im = a.querySelector('img');
+        big.src = a.getAttribute('href'); big.alt = im.alt;
+        dlg.showModal();
+      });
+    });
+    dlg.querySelector('.lb-close').addEventListener('click', function(){ dlg.close(); });
+    dlg.addEventListener('click', function(ev){ if (ev.target === dlg) dlg.close(); });
+  }
+
+  // 時間割
+  var sec = document.getElementById('timetable');
+  var controls = sec.querySelector('.tt-controls');
+  var tabs = [].slice.call(sec.querySelectorAll('.tab'));
+  var chips = [].slice.call(sec.querySelectorAll('.chip'));
+  var days = [].slice.call(sec.querySelectorAll('.tt-day'));
+  var status = sec.querySelector('.tt-status');
+  var empty = sec.querySelector('.tt-empty');
+  var names = {1:'月',2:'火',3:'水',4:'木',5:'金',6:'土'};
+  var catNames = {all:'すべて', first:'はじめて', women:'女性', kids:'キッズ', general:'一般'};
+  controls.hidden = false;
+  sec.classList.add('js-tt');
+
+  // ponytail: 祝日は判定しない(日曜だけ休み扱い)
+  var today = new Date().getDay();
+  var cur = today === 0 ? 1 : today;
+  var cat = 'all';
+  if (today === 0) sec.querySelector('.tt-closed').hidden = false;
+  else {
+    var t = tabs[today - 1];
+    var mark = document.createElement('span'); mark.className = 'today'; mark.textContent = '今日';
+    t.appendChild(mark);
+  }
+
+  function render(){
+    tabs.forEach(function(t){
+      var on = +t.dataset.day === cur;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', c.dataset.cat === cat ? 'true' : 'false'); });
+    var n = 0;
+    days.forEach(function(d){
+      var on = +d.dataset.day === cur;
+      d.hidden = !on;
+      d.querySelectorAll('.cls').forEach(function(li){
+        var show = cat === 'all' || li.dataset.cat === cat;
+        li.hidden = !show;
+        if (on && show) n++;
+      });
+    });
+    status.textContent = names[cur] + '曜のクラス' + (cat === 'all' ? '' : '(' + catNames[cat] + ')') + ' ' + n + '件';
+    if (n === 0) {
+      var other = days.filter(function(d){ return d.querySelector('.cls[data-cat="' + cat + '"]'); })
+                      .map(function(d){ return names[d.dataset.day]; });
+      empty.textContent = names[cur] + '曜は' + catNames[cat] + 'クラスがありません。' + (other.length ? other.join('、') + '曜にあります。' : '');
+      empty.hidden = false;
+    } else empty.hidden = true;
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ cur = +t.dataset.day; render(); });
+    t.addEventListener('keydown', function(ev){
+      var k = ev.key, j = null;
+      if (k === 'ArrowRight') j = (i + 1) % tabs.length;
+      else if (k === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      else if (k === 'Home') j = 0; else if (k === 'End') j = tabs.length - 1;
+      if (j === null) return;
+      ev.preventDefault(); cur = +tabs[j].dataset.day; render(); tabs[j].focus();
+    });
+  });
+  chips.forEach(function(c){ c.addEventListener('click', function(){ cat = c.dataset.cat; render(); }); });
+  render();
+})();
+</script>
+</body>
+</html>

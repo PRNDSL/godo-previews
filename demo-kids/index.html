@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<title>こども教室 わかば｜若芽台の英会話とプログラミング教室(小1〜中3)</title>
+<meta name="description" content="福岡市若芽台の小さな教室。小1〜中3の英会話とプログラミングを1クラス6人までで教えています。月謝、振替、送迎のきまりと、学年から選べるコース表。体験レッスンは無料です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700;800&family=M+PLUS+2:wght@400;500;700&family=Klee+One:wght@600&display=swap" rel="stylesheet">
+<style>
+/* ---- トークン ---- */
+:root{
+  --bg:#ffffff;
+  --paper:#f5f7f5;          /* ごく薄い灰(ノートの地) */
+  --ink:#1d2d25;            /* 緑がかった墨 */
+  --sub:#4a5b52;
+  --rule:#d3ded7;           /* 罫線 */
+  --accent:#9bc23c;         /* 若草色(面と線に使う。文字色には使わない) */
+  --on-accent:#1d2d25;
+  --board:#24392e;          /* 黒板(1か所だけ) */
+  --board-edge:#182820;
+  --chalk:#eef3ea;
+  --chalk-sub:#c3d1c6;
+  --f-head:"M PLUS 1p",sans-serif;
+  --f-body:"M PLUS 2","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-note:"Klee One","M PLUS 2",serif;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:64px;--s7:96px;
+  --r:4px;
+  --shadow:0 1px 0 var(--rule);
+  --wrap:min(100% - 40px, 1080px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121a16;--paper:#18221d;--ink:#e3ebe5;--sub:#a8b8ae;--rule:#2d3b34;
+    --accent:#9bc23c;--on-accent:#14201a;--board:#22372c;--board-edge:#0c140f;
+    --chalk:#eef3ea;--chalk-sub:#bccbbf;--shadow:0 1px 0 var(--rule);color-scheme:dark;
+  }
+}
+[data-theme="dark"]{
+  --bg:#121a16;--paper:#18221d;--ink:#e3ebe5;--sub:#a8b8ae;--rule:#2d3b34;
+  --accent:#9bc23c;--on-accent:#14201a;--board:#22372c;--board-edge:#0c140f;
+  --chalk:#eef3ea;--chalk-sub:#bccbbf;--shadow:0 1px 0 var(--rule);color-scheme:dark;
+}
+
+/* ---- 基本 ---- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.85;overflow-wrap:anywhere}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-head);font-weight:800;letter-spacing:.02em;line-height:1.4;margin:0}
+p{margin:0}
+.wrap{width:var(--wrap);margin-inline:auto}
+.sp-only{display:inline}
+@media (min-width:768px){.sp-only{display:none}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 制作見本の帯 */
+.demo-band{background:var(--ink);color:var(--bg);font-size:13px;line-height:1.6;padding:var(--s1) 20px;text-align:center}
+
+/* ヘッダー */
+.site-head{border-bottom:1px solid var(--rule)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding-block:var(--s2)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{flex:none}
+.logo b{font-family:var(--f-head);font-weight:800;font-size:20px;letter-spacing:.04em}
+.logo small{display:block;font-size:12px;color:var(--sub);line-height:1.3;letter-spacing:.02em}
+.head-tel{font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.head-tel span{color:var(--sub);font-weight:400;font-size:12px;margin-right:6px}
+@media (max-width:599px){.head-tel{display:none}.logo b{font-size:19px}.site-head .wrap{padding-block:12px}}
+
+/* ---- 黒板(ファーストビュー。暗い緑の面はここだけ) ---- */
+.board{background:var(--board);color:var(--chalk);border-bottom:10px solid var(--board-edge);position:relative;overflow:hidden}
+.board::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(60% 40% at 20% 30%,rgba(255,255,255,.035),transparent 70%),
+    radial-gradient(50% 50% at 80% 70%,rgba(255,255,255,.03),transparent 70%)}
+.board .wrap{position:relative;padding-block:var(--s5) var(--s5);display:grid;gap:var(--s3)}
+.board-label{font-family:var(--f-note);font-weight:600;font-size:15px;color:var(--chalk-sub);letter-spacing:.04em}
+.board h1{font-size:clamp(22px,6.6vw,56px);line-height:1.35;color:var(--chalk)}
+.board h1 .under{background:linear-gradient(transparent 82%,var(--accent) 82%,var(--accent) 94%,transparent 94%);padding-inline:2px}
+.board-lead{max-width:34em;color:var(--chalk-sub);font-size:16px}
+.board-lead strong{color:var(--chalk);font-weight:700}
+.ledge{position:absolute;left:0;right:0;bottom:-10px;height:10px;pointer-events:none}
+.ledge i{position:absolute;bottom:3px;height:5px;border-radius:2px;background:var(--chalk)}
+.ledge i:nth-child(1){left:12%;width:36px}
+.ledge i:nth-child(2){left:calc(12% + 48px);width:22px;background:var(--accent)}
+.sprout{position:absolute;right:max(20px,calc((100% - 1080px)/2));bottom:var(--s4);width:clamp(84px,18vw,220px);height:auto;opacity:.9}
+@media (max-width:767px){.sprout{display:none}.board .wrap{padding-block:var(--s4) var(--s5);gap:var(--s2)}}
+
+/* ボタン(2種類だけ) */
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 22px;border-radius:var(--r);font-weight:700;font-size:16px;text-decoration:none;line-height:1.3;white-space:nowrap}
+.btn-dm{background:var(--accent);color:var(--on-accent);border:2px solid var(--accent)}
+.btn-tel{border:2px solid currentColor;background:transparent}
+.board .btn-tel{color:var(--chalk)}
+.btn svg{flex:none}
+@media (max-width:480px){.cta .btn{flex:1 1 100%;white-space:normal}}
+
+/* 写真の帯 */
+.hero-photo{position:relative;background:var(--paper)}
+.hero-photo img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 45%}
+@media (min-width:768px){.hero-photo img{aspect-ratio:16/6}}
+.photo-note{font-size:12px;color:var(--sub);padding:6px 20px 0;text-align:right}
+
+/* ---- セクション共通 ---- */
+section{padding-block:var(--s6)}
+.sec-head{display:flex;align-items:baseline;gap:var(--s2);flex-wrap:wrap;padding-bottom:10px;border-bottom:2px solid var(--ink);box-shadow:0 4px 0 -2px var(--bg),0 5px 0 -2px var(--ink);margin-bottom:var(--s4)}
+.sec-head h2{font-size:clamp(22px,5.4vw,30px)}
+.sec-head p{color:var(--sub);font-size:14px}
+
+/* ノートの紙(罫線+若草の余白線) */
+.note{background-color:var(--bg);
+  background-image:
+    linear-gradient(to right,transparent 27px,var(--accent) 27px,var(--accent) 29px,transparent 29px),
+    repeating-linear-gradient(to bottom,transparent 0 31px,var(--rule) 31px 32px);
+  background-position:0 0, 0 var(--s2);
+  border:1px solid var(--rule);border-radius:var(--r);
+  padding:var(--s2) var(--s3) var(--s3) 48px;line-height:32px}
+
+/* 教室のこと */
+.about-grid{display:grid;gap:var(--s5)}
+@media (min-width:900px){.about-grid{grid-template-columns:1.25fr 1fr;gap:var(--s6)}}
+.about-text p+p{margin-top:var(--s2)}
+.about-text .big{font-family:var(--f-head);font-weight:700;font-size:20px;line-height:1.6}
+.facts{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:var(--s3) var(--s5)}
+.facts li{display:grid}
+.facts b{font-family:var(--f-head);font-weight:800;font-size:34px;line-height:1.1}
+.facts b small{font-size:15px;margin-left:2px}
+.facts span{font-size:13px;color:var(--sub)}
+@media (max-width:420px){.facts{gap:var(--s2) var(--s3)}.facts b{font-size:28px}}
+.teachers h3{font-size:17px;margin-bottom:var(--s1)}
+.teacher{padding-block:var(--s2);border-top:1px dashed var(--rule)}
+.teacher:last-child{border-bottom:1px dashed var(--rule)}
+.teacher .role{font-size:13px;color:var(--sub)}
+.teacher .name{font-family:var(--f-head);font-weight:700;font-size:19px}
+.teacher p{font-size:15px}
+
+/* ---- 仕掛け: 学年からコースを選ぶ ---- */
+.picker{background:var(--paper)}
+.picker-grid{display:grid;gap:var(--s4)}
+@media (min-width:900px){.picker-grid{grid-template-columns:1fr 1fr;align-items:start;gap:var(--s5)}}
+fieldset{border:0;margin:0 0 var(--s3);padding:0;min-width:0}
+legend{font-family:var(--f-head);font-weight:700;font-size:16px;margin-bottom:var(--s1);padding:0}
+.chips{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.chips.subj{grid-template-columns:1fr 1.5fr 1fr}
+.chips label{position:relative;display:block}
+.chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chips span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:6px 4px;border:1.5px solid var(--rule);border-radius:var(--r);background:var(--bg);font-weight:700;font-size:15px;text-align:center;line-height:1.3;cursor:pointer}
+.chips input:checked+span{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chips input:focus-visible+span{outline:3px solid var(--ink);outline-offset:2px}
+@media (max-width:359px){.chips{grid-template-columns:repeat(3,1fr)}}
+.picker-hint{font-size:13px;color:var(--sub)}
+.result{background:var(--bg)}
+.result .r-title{font-family:var(--f-note);font-weight:600;font-size:14px;color:var(--sub)}
+.result .r-course{font-family:var(--f-head);font-weight:800;font-size:22px;line-height:32px}
+.result dl{margin:0;display:grid;grid-template-columns:auto 1fr;column-gap:var(--s3)}
+.result dt{color:var(--sub);font-size:14px}
+.result dd{margin:0;font-weight:700}
+.result dd .yen{font-family:var(--f-head);font-size:22px}
+.result .r-note{font-size:13px;color:var(--sub)}
+
+/* ---- 料金表(スマホはカード) ---- */
+.price-table{width:100%;border-collapse:collapse;font-size:15px;table-layout:fixed}
+.price-table thead th:nth-child(1){width:30%}.price-table thead th:nth-child(2){width:14%}.price-table thead th:nth-child(3){width:26%}.price-table thead th:nth-child(4),.price-table thead th:nth-child(5){width:15%;text-align:right}
+.price-table caption{text-align:left;font-family:var(--f-head);font-weight:700;font-size:18px;padding:var(--s1) 0}
+.price-table th,.price-table td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+.price-table thead th{font-size:13px;color:var(--sub);font-weight:500;border-bottom:2px solid var(--ink)}
+.price-table td.num{text-align:right;white-space:nowrap;font-weight:700}
+.price-table tbody th{font-family:var(--f-head);font-weight:700}
+.price-table tr.sub-head th{background:var(--paper);font-size:14px;color:var(--ink);padding-block:8px}
+.price-table+.price-table{margin-top:var(--s4)}
+.price-notes{margin-top:var(--s3);display:grid;gap:4px;font-size:14px;color:var(--sub);padding:0;list-style:none}
+@media (max-width:699px){
+  .price-table thead{display:none}
+  .price-table caption{display:block;width:100%}
+  .price-table,.price-table tbody,.price-table tr,.price-table th,.price-table td{display:block;width:100%}
+  .price-table tbody tr{border:1px solid var(--rule);border-radius:var(--r);padding:12px 16px;margin-bottom:12px;background:var(--bg)}
+  .price-table tbody th,.price-table td{border:0;padding:2px 0}
+  .price-table tbody th{font-size:17px;margin-bottom:4px}
+  .price-table td{display:flex;justify-content:space-between;gap:var(--s2)}
+  .price-table td.num{text-align:right}
+  .price-table td::before{content:attr(data-label);color:var(--sub);font-weight:400;font-size:13px}
+}
+
+/* ---- 保護者の方へ(見開きノート) ---- */
+.parents-grid{display:grid;gap:var(--s4)}
+@media (min-width:900px){.parents-grid{grid-template-columns:1fr 1fr;gap:0}
+  .parents-grid .note:first-child{border-radius:var(--r) 0 0 var(--r);border-right:2px solid var(--ink)}
+  .parents-grid .note:last-child{border-radius:0 var(--r) var(--r) 0;border-left:0}}
+.note h3{font-size:18px;line-height:32px}
+.note h3:not(:first-child){margin-top:32px}
+.note ul{margin:0;padding-left:1.1em}
+.note li::marker{color:var(--sub)}
+.note .strong{font-weight:700}
+
+/* ---- Instagram ---- */
+.ig-head{display:flex;align-items:center;gap:12px;margin-bottom:var(--s3);flex-wrap:wrap}
+.ig-account{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:17px;text-decoration:none;border-bottom:2px solid var(--accent);line-height:1.5}
+.ig-head p{color:var(--sub);font-size:14px}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+@media (min-width:900px){.ig-grid{grid-template-columns:repeat(6,1fr);gap:8px}}
+.tile{display:block;position:relative;aspect-ratio:1;overflow:hidden;background:var(--paper);border-radius:var(--r)}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile.zoom img{transform:scale(1.45)}
+.tile.left img{object-position:15% 50%}
+.tile.right img{object-position:88% 50%}
+.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:30;max-width:calc(100% - 32px);margin:0;padding:8px 14px;border-radius:var(--r);background:var(--ink);color:var(--bg);font-size:13px;line-height:1.5;opacity:0;pointer-events:none;transition:opacity .2s}
+@media (min-width:900px){.toast{bottom:24px}}
+.toast.show{opacity:1}
+dialog#lb{border:0;padding:0;background:var(--bg);color:var(--ink);border-radius:var(--r);width:min(92vw,760px);max-height:92vh}
+dialog#lb::backdrop{background:rgba(10,16,13,.78)}
+#lb img{width:100%;max-height:72vh;object-fit:contain;background:var(--paper)}
+#lb .lb-bar{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--s2);padding:12px 16px}
+#lb p{font-size:14px}
+#lb-close{flex:none;font:inherit;font-weight:700;font-size:14px;color:var(--ink);background:transparent;border:1.5px solid var(--rule);border-radius:var(--r);padding:6px 14px;min-height:40px;cursor:pointer}
+
+/* 声 */
+.voices{display:grid;gap:var(--s3);margin-top:var(--s5)}
+@media (min-width:900px){.voices{grid-template-columns:1.2fr 1fr;align-items:start}}
+.voice{font-family:var(--f-note);font-weight:600;font-size:17px}
+.voice cite{display:block;font-family:var(--f-body);font-style:normal;font-weight:400;font-size:13px;color:var(--sub)}
+
+/* 場所 */
+.access-grid{display:grid;gap:var(--s4)}
+@media (min-width:900px){.access-grid{grid-template-columns:1fr 1.1fr;gap:var(--s5);align-items:start}}
+.info{margin:0;display:grid;grid-template-columns:auto 1fr;gap:0}
+.info dt,.info dd{padding:12px 0;border-bottom:1px solid var(--rule);margin:0}
+.info dt{color:var(--sub);font-size:14px;padding-right:var(--s3);white-space:nowrap}
+.info dd{font-weight:500}
+.map{border:1px solid var(--rule);border-radius:var(--r);background:var(--bg)}
+.map svg{display:block;width:100%;height:auto}
+.map figcaption{font-size:13px;color:var(--sub);padding:8px 12px;border-top:1px solid var(--rule)}
+
+/* 最下部の申込 */
+.final{border-top:2px solid var(--ink);padding-block:var(--s6)}
+.final h2{font-size:clamp(22px,5.4vw,30px);margin-bottom:var(--s1)}
+.final p{color:var(--sub);margin-bottom:var(--s3);max-width:36em}
+.final .btn-tel{color:var(--ink)}
+footer{border-top:1px solid var(--rule);padding-block:var(--s4) var(--s5);font-size:13px;color:var(--sub)}
+
+/* スマホ下の固定バー */
+.fixbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1.3fr 1fr;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--rule)}
+.fixbar .btn{min-height:46px;padding:8px 10px;font-size:15px;white-space:nowrap}
+.fixbar .btn-tel{color:var(--ink)}
+body{padding-bottom:72px}
+@media (min-width:900px){.fixbar{display:none}body{padding-bottom:0}}
+
+/* 動き(見出しと写真だけ、1回) */
+.js .rv:not(.in){opacity:0;transform:translateY(20px)}
+.js .rv{transition:opacity .6s ease,transform .6s ease}
+@media (prefers-reduced-motion:reduce){
+  .js .rv,.js .rv:not(.in){opacity:1;transform:none;transition:none}
+  .toast{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="demo-band" role="note">このページは制作見本です。店名や住所、電話番号は架空です</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="こども教室 わかば トップへ">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M17 18C17 10 12 6 4 6c0 8 5 12 13 12Z" fill="#9bc23c"/><path d="M17 15c0-6 4-10 12-10 0 7-4 10-12 10Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      <span><b>こども教室 わかば</b><small>若芽台の英会話とプログラミング</small></span>
+    </a>
+    <a class="head-tel" href="tel:0920000000"><span>電話</span>092-000-0000</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="board">
+    <div class="wrap">
+      <p class="board-label">小1〜中3の英会話とプログラミング</p>
+      <h1 class="rv">話してみる、作ってみる。<br>若芽台の<span class="under">放課後の教室</span></h1>
+      <p class="board-lead">1クラス<strong>6人まで</strong>。英会話は毎回ひとりずつ声に出す時間を、プログラミングは毎回ひとつ動くものを作って帰ります。<strong>体験レッスンは無料</strong>です。</p>
+      <div class="cta">
+        <a class="btn btn-dm" href="#ig" data-ig>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>
+          InstagramのDMで体験を申し込む</a>
+        <a class="btn btn-tel" href="tel:0920000000">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3c0 1-.9 1.9-2 1.8C10.6 18.6 5.4 13.4 4.8 5.5c-.1-1.1.8-2 1.8-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          電話する</a>
+      </div>
+    </div>
+    <svg class="sprout" viewBox="0 0 120 120" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 108h80" stroke="#eef3ea" stroke-width="3" stroke-dasharray="6 7"/>
+      <path d="M60 106V58" stroke="#eef3ea" stroke-width="3.5"/>
+      <path d="M60 66C60 44 46 32 22 32c0 22 14 34 38 34Z" stroke="#9bc23c" stroke-width="3.5"/>
+      <path d="M60 58c0-18 12-30 34-30 0 20-12 30-34 30Z" stroke="#eef3ea" stroke-width="3.5"/>
+      <path d="M33 42l14 14M84 38L70 50" stroke="#eef3ea" stroke-width="2" opacity=".6"/>
+    </svg>
+    <div class="ledge" aria-hidden="true"><i></i><i></i></div>
+  </div>
+
+  <figure class="hero-photo" style="margin:0">
+    <img class="rv" src="img/kids_hero-1600.jpg" srcset="img/kids_hero-800.jpg 800w, img/kids_hero-1600.jpg 1600w" sizes="100vw" alt="教室の机で、子どもたちがノートとタブレットを広げてレッスンを受けている様子" width="1600" height="914">
+    <figcaption class="photo-note">写真はイメージです</figcaption>
+  </figure>
+
+  <!-- 教室のこと -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="rv">わかばのレッスン</h2><p>若芽台小学校から歩いて4分</p></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="big">英語は「聞いて、言ってみる」を、<br class="sp-only">プログラムは「作って、動かす」を、毎回くり返します。</p>
+          <p>学校の授業より少ない人数で、ひとりずつの順番が何度も回ってくるようにしています。英会話は英検の級に合わせて家での音読カードを渡し、プログラミングは作ったものを毎月の最後に保護者の方へ見せる時間をつくっています。</p>
+          <p>宿題は1回15分で終わる量です。部活や習いごとが多いご家庭でも続けやすいようにしています。</p>
+          <ul class="facts">
+            <li><b>6<small>人</small></b><span>1クラスの上限</span></li>
+            <li><b>月4<small>回</small></b><span>どのコースも</span></li>
+            <li><b>9<small>年目</small></b><span>若芽台で開いて</span></li>
+          </ul>
+        </div>
+        <div class="teachers">
+          <h3>教える人</h3>
+          <div class="teacher">
+            <p class="role">英会話</p>
+            <p class="name">古賀 美帆</p>
+            <p>英検1級。オーストラリアで2年暮らし、帰国後は塾で中学英語を11年。</p>
+          </div>
+          <div class="teacher">
+            <p class="role">プログラミング</p>
+            <p class="name">井手 拓真</p>
+            <p>システム会社で13年。小学生向けはScratch、中学生はPythonで教えています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 仕掛け -->
+  <section class="picker" id="course">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="rv">学年からコースを選ぶ</h2><p>選ぶと、曜日と時間、月謝が出ます</p></div>
+      <div class="picker-grid">
+        <form id="picker" onsubmit="return false">
+          <fieldset>
+            <legend>お子さまの学年(4月からの学年)</legend>
+            <div class="chips">
+              <label><input type="radio" name="grade" value="1"><span>小1</span></label>
+              <label><input type="radio" name="grade" value="2"><span>小2</span></label>
+              <label><input type="radio" name="grade" value="3" checked><span>小3</span></label>
+              <label><input type="radio" name="grade" value="4"><span>小4</span></label>
+              <label><input type="radio" name="grade" value="5"><span>小5</span></label>
+              <label><input type="radio" name="grade" value="6"><span>小6</span></label>
+              <label><input type="radio" name="grade" value="7"><span>中1</span></label>
+              <label><input type="radio" name="grade" value="8"><span>中2</span></label>
+              <label><input type="radio" name="grade" value="9"><span>中3</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>習いたいもの</legend>
+            <div class="chips subj">
+              <label><input type="radio" name="subj" value="e" checked><span>英会話</span></label>
+              <label><input type="radio" name="subj" value="p"><span>プログラミング</span></label>
+              <label><input type="radio" name="subj" value="b"><span>両方</span></label>
+            </div>
+          </fieldset>
+          <p class="picker-hint">両方に通うと、月謝の合計から1,100円引きます。</p>
+        </form>
+        <div class="note result" id="result" aria-live="polite">
+          <p class="r-title">小3で英会話なら</p>
+          <p class="r-course">英会話 ジュニア</p>
+          <dl>
+            <dt>曜日と時間</dt><dd>水曜 16:30〜17:20</dd>
+            <dt>月謝</dt><dd><span class="yen">7,700</span>円</dd>
+            <dt>教材費</dt><dd>年 4,950円</dd>
+          </dl>
+          <p class="r-note">ほかに入会金 11,000円(きょうだいは半額)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料金 -->
+  <section id="price">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="rv">コースと月謝</h2><p>金額はすべて税込です</p></div>
+      <table class="price-table">
+        <caption>英会話</caption>
+        <thead><tr><th scope="col">コース</th><th scope="col">学年</th><th scope="col">曜日と時間</th><th scope="col">月謝</th><th scope="col">教材費(年)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">キッズ英会話 はじめ</th><td data-label="学年">小1〜小2</td><td data-label="曜日と時間">火曜 16:00〜16:50</td><td class="num" data-label="月謝">7,150円</td><td class="num" data-label="教材費(年)">4,400円</td></tr>
+          <tr><th scope="row">英会話 ジュニア</th><td data-label="学年">小3〜小4</td><td data-label="曜日と時間">水曜 16:30〜17:20</td><td class="num" data-label="月謝">7,700円</td><td class="num" data-label="教材費(年)">4,950円</td></tr>
+          <tr><th scope="row">英会話 スタンダード</th><td data-label="学年">小5〜小6</td><td data-label="曜日と時間">木曜 17:00〜18:00</td><td class="num" data-label="月謝">8,580円</td><td class="num" data-label="教材費(年)">5,500円</td></tr>
+          <tr><th scope="row">中学英語と英検</th><td data-label="学年">中1〜中3</td><td data-label="曜日と時間">金曜 19:00〜20:20</td><td class="num" data-label="月謝">10,450円</td><td class="num" data-label="教材費(年)">6,380円</td></tr>
+        </tbody>
+      </table>
+      <table class="price-table">
+        <caption>プログラミング</caption>
+        <thead><tr><th scope="col">コース</th><th scope="col">学年</th><th scope="col">曜日と時間</th><th scope="col">月謝</th><th scope="col">教材費(年)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">ブロックで作る</th><td data-label="学年">小1〜小3</td><td data-label="曜日と時間">土曜 10:00〜11:00</td><td class="num" data-label="月謝">8,250円</td><td class="num" data-label="教材費(年)">3,300円</td></tr>
+          <tr><th scope="row">ゲームを作る</th><td data-label="学年">小4〜小6</td><td data-label="曜日と時間">土曜 13:00〜14:20</td><td class="num" data-label="月謝">9,680円</td><td class="num" data-label="教材費(年)">3,300円</td></tr>
+          <tr><th scope="row">文字で書くプログラム</th><td data-label="学年">中1〜中3</td><td data-label="曜日と時間">水曜 19:00〜20:20</td><td class="num" data-label="月謝">11,000円</td><td class="num" data-label="教材費(年)">5,280円</td></tr>
+        </tbody>
+      </table>
+      <ul class="price-notes">
+        <li>入会金 11,000円(きょうだいで通う場合、2人目からは半額)</li>
+        <li>両方に通う場合は、月謝の合計から1,100円引きます</li>
+        <li>パソコンとタブレットは教室で貸し出します。家で用意するものはありません</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 保護者の方へ -->
+  <section class="picker" id="parents">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="rv">保護者の方へ</h2><p>月謝と振替、送迎のきまり</p></div>
+      <div class="parents-grid">
+        <div class="note">
+          <h3>月謝のお支払い</h3>
+          <ul>
+            <li>毎月27日に、翌月分を口座から引き落とします</li>
+            <li>教材費は4月にまとめて、途中入会は月割りです</li>
+            <li>5週目のある月も、レッスンは月4回です</li>
+          </ul>
+          <h3>お休みと振替</h3>
+          <ul>
+            <li class="strong">前日の18時までにDMか電話で連絡をいただければ、同じ月のうちに別の曜日へ振り替えます</li>
+            <li>振替は月2回までです</li>
+            <li>当日の発熱や体調不良は、当日の連絡でも振り替えます</li>
+          </ul>
+        </div>
+        <div class="note">
+          <h3>送り迎え</h3>
+          <ul>
+            <li>教室の前に車3台分の乗り降りの場所があります(駐車はできません)</li>
+            <li class="strong">終わったあとは、お迎えの方が来るまで教室の中で待ちます。外で1人にはしません</li>
+            <li>歩いて帰る場合は、事前に申し出てください</li>
+          </ul>
+          <h3>教室での様子</h3>
+          <ul>
+            <li>入室と退室の時刻を、その場でメールでお知らせします</li>
+            <li>毎月の最終回に、その月にやったことを1枚の紙にして渡します</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section id="ig">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="rv">教室の毎日はInstagramで</h2></div>
+      <div class="ig-head">
+        <a class="ig-account" href="#ig" data-ig>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>
+          @wakaba_kids</a>
+        <p>レッスンの様子と、空き枠のお知らせを載せています</p>
+      </div>
+      <div class="ig-grid">
+        <a class="tile left" href="img/kids_hero-1600.jpg" data-cap="水曜のジュニアクラス。今日は道案内の英語をペアで練習しました"><img class="rv" src="img/kids_hero-800.jpg" alt="ペアで英語を練習する子どもたち" width="800" height="457" loading="lazy"></a>
+        <a class="tile" href="img/kids_blocks-1600.jpg" data-cap="土曜のブロッククラス。センサーで止まる信号機ができました"><img class="rv" src="img/kids_blocks-800.jpg" alt="机の上の色とりどりのブロック" width="800" height="800" loading="lazy"></a>
+        <a class="tile" href="img/kids_books-1600.jpg" data-cap="11月の音読カード。家で3回読んだらシールを1枚"><img class="rv" src="img/kids_books-800.jpg" alt="英語の絵本とノートが重ねてある" width="800" height="800" loading="lazy"></a>
+        <a class="tile zoom" href="img/kids_desk-1600.jpg" data-cap="中学生クラスの机。Pythonで九九の表を出すところまで進みました"><img class="rv" src="img/kids_desk-800.jpg" alt="ノートと鉛筆が置かれた教室の机" width="800" height="800" loading="lazy"></a>
+        <a class="tile right" href="img/kids_hero-1600.jpg" data-cap="12月の体験レッスン、木曜にあと2席あります"><img class="rv" src="img/kids_hero-800.jpg" alt="教室のホワイトボードの前で手を挙げる子ども" width="800" height="457" loading="lazy"></a>
+        <a class="tile zoom" href="img/kids_blocks-1600.jpg" data-cap="ブロックの部品は毎回数えてから片づけます"><img class="rv" src="img/kids_blocks-800.jpg" alt="ブロックの部品を近くから写したもの" width="800" height="800" loading="lazy"></a>
+      </div>
+
+      <div class="voices">
+        <div class="note voice">
+          <p>宿題の英語の音読を、自分から聞かせてくれるようになりました。</p>
+          <cite>Y.Tさん(40代、小4の保護者)</cite>
+        </div>
+        <div class="note voice">
+          <p>家でも作ったゲームを弟に遊ばせています。</p>
+          <cite>K.Mさん(30代、小2の保護者)</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 場所 -->
+  <section class="picker" id="access">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="rv">教室の場所と受付時間</h2></div>
+      <div class="access-grid">
+        <dl class="info">
+          <dt>住所</dt><dd>福岡市若芽台2丁目0-0 若芽台ビル1階</dd>
+          <dt>電話</dt><dd><a href="tel:0920000000">092-000-0000</a></dd>
+          <dt>受付時間</dt><dd>火〜金 15:30〜20:30<br>土 9:30〜15:00</dd>
+          <dt>お休み</dt><dd>日曜、月曜、祝日</dd>
+          <dt>目印</dt><dd>若芽台小学校の正門から、公園の方へ歩いて4分</dd>
+        </dl>
+        <figure class="map" style="margin:0">
+          <svg viewBox="0 0 360 240" role="img" aria-labelledby="map-t">
+            <title id="map-t">教室までの略図。若芽台小学校の正門から若芽台公園の方へ進み、公園の角を曲がってすぐ。</title>
+            <rect width="360" height="240" fill="var(--bg)"/>
+            <path d="M0 150H360M120 0V240M268 0V240" stroke="var(--rule)" stroke-width="16"/>
+            <path d="M0 150H360M120 0V240M268 0V240" stroke="var(--bg)" stroke-width="1.5" stroke-dasharray="6 6"/>
+            <rect x="14" y="20" width="90" height="112" rx="4" fill="none" stroke="var(--sub)" stroke-width="1.5"/>
+            <text x="59" y="72" text-anchor="middle" font-size="16" fill="var(--ink)" font-family="M PLUS 2, sans-serif">若芽台</text>
+            <text x="59" y="92" text-anchor="middle" font-size="16" fill="var(--ink)" font-family="M PLUS 2, sans-serif">小学校</text>
+            <path d="M104 118h8" stroke="var(--sub)" stroke-width="3"/>
+            <text x="14" y="148" font-size="15" fill="var(--sub)" font-family="M PLUS 2, sans-serif">正門</text>
+            <rect x="136" y="20" width="118" height="112" rx="4" fill="#9bc23c" fill-opacity=".28" stroke="#9bc23c" stroke-width="1.5"/>
+            <circle cx="156" cy="40" r="8" fill="#9bc23c" fill-opacity=".7"/><circle cx="232" cy="112" r="10" fill="#9bc23c" fill-opacity=".7"/>
+            <text x="195" y="84" text-anchor="middle" font-size="16" fill="var(--ink)" font-family="M PLUS 2, sans-serif">若芽台公園</text>
+            <path d="M112 118 C130 120 128 160 160 162 H262 V176" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+            <rect x="282" y="168" width="64" height="48" rx="4" fill="var(--ink)"/>
+            <text x="314" y="198" text-anchor="middle" font-size="15" fill="var(--bg)" font-weight="700" font-family="M PLUS 1p, sans-serif">わかば</text>
+            <circle cx="268" cy="190" r="6" fill="#9bc23c" stroke="var(--ink)" stroke-width="2"/>
+            <text x="140" y="196" font-size="15" fill="var(--sub)" font-family="M PLUS 2, sans-serif">徒歩4分</text>
+          </svg>
+          <figcaption>略図です。目印と道の形は簡単にしています。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最下部 -->
+  <section class="final">
+    <div class="wrap">
+      <h2 class="rv">まずは体験レッスンから</h2>
+      <p>体験は無料、1回50分です。保護者の方も教室の後ろで見られます。空いている曜日はDMでお返事します。</p>
+      <div class="cta">
+        <a class="btn btn-dm" href="#ig" data-ig>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>
+          InstagramのDMで体験を申し込む</a>
+        <a class="btn btn-tel" href="tel:0920000000">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3c0 1-.9 1.9-2 1.8C10.6 18.6 5.4 13.4 4.8 5.5c-.1-1.1.8-2 1.8-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          電話する 092-000-0000</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">こども教室 わかば　福岡市若芽台2丁目0-0</div>
+</footer>
+
+<nav class="fixbar" aria-label="申し込み">
+  <a class="btn btn-dm" href="#ig" data-ig>DMで体験を申込む</a>
+  <a class="btn btn-tel" href="tel:0920000000">電話する</a>
+</nav>
+
+<p class="toast" id="toast" role="status"></p>
+
+<dialog id="lb" aria-label="写真を大きく見る">
+  <img id="lb-img" src="" alt="">
+  <div class="lb-bar"><p id="lb-cap"></p><button type="button" id="lb-close">閉じる</button></div>
+</dialog>
+
+<script>
+(function(){
+  var d=document;
+  d.documentElement.classList.add('js');
+
+  /* 見出しと写真の出方(1回だけ) */
+  var rv=d.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){io.observe(el);});
+  }else{rv.forEach(function(el){el.classList.add('in');});}
+
+  /* Instagramは見本なので、押したら小さく知らせる */
+  var msg='見本のため実在のアカウントはありません';
+  d.querySelectorAll('[data-ig]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      var t=d.getElementById('toast');
+      t.textContent=msg;t.classList.add('show');
+      clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},3000);
+    });
+  });
+
+  /* 写真を大きく */
+  var lb=d.getElementById('lb'),li=d.getElementById('lb-img'),lc=d.getElementById('lb-cap');
+  if(lb&&typeof lb.showModal==='function'){
+    d.querySelectorAll('.tile').forEach(function(a){
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var im=a.querySelector('img');
+        li.src=a.getAttribute('href');li.alt=im.alt;lc.textContent=a.dataset.cap||'';
+        lb.showModal();
+      });
+    });
+    d.getElementById('lb-close').addEventListener('click',function(){lb.close();});
+    lb.addEventListener('click',function(ev){if(ev.target===lb)lb.close();});
+  }
+
+  /* 学年からコースを選ぶ */
+  var C={
+    e1:{n:'キッズ英会話 はじめ',t:'火曜 16:00〜16:50',f:7150,m:4400},
+    e2:{n:'英会話 ジュニア',t:'水曜 16:30〜17:20',f:7700,m:4950},
+    e3:{n:'英会話 スタンダード',t:'木曜 17:00〜18:00',f:8580,m:5500},
+    e4:{n:'中学英語と英検',t:'金曜 19:00〜20:20',f:10450,m:6380},
+    p1:{n:'ブロックで作る',t:'土曜 10:00〜11:00',f:8250,m:3300},
+    p2:{n:'ゲームを作る',t:'土曜 13:00〜14:20',f:9680,m:3300},
+    p3:{n:'文字で書くプログラム',t:'水曜 19:00〜20:20',f:11000,m:5280}
+  };
+  function eng(g){return g<=2?C.e1:g<=4?C.e2:g<=6?C.e3:C.e4;}
+  function prog(g){return g<=3?C.p1:g<=6?C.p2:C.p3;}
+  function yen(n){return n.toLocaleString('ja-JP');}
+  var GN=['','小1','小2','小3','小4','小5','小6','中1','中2','中3'];
+  var SN={e:'英会話',p:'プログラミング',b:'英会話とプログラミングの両方'};
+  var form=d.getElementById('picker'),out=d.getElementById('result');
+  function render(){
+    var g=+form.grade.value,s=form.subj.value,list=s==='e'?[eng(g)]:s==='p'?[prog(g)]:[eng(g),prog(g)];
+    var fee=list.reduce(function(a,c){return a+c.f;},0),disc=list.length>1?1100:0;
+    var h='<p class="r-title">'+GN[g]+'で'+SN[s]+'なら</p>';
+    h+='<p class="r-course">'+list.map(function(c){return c.n;}).join('<br>＋ ')+'</p><dl>';
+    h+='<dt>曜日と時間</dt><dd>'+list.map(function(c){return c.t;}).join('<br>')+'</dd>';
+    h+='<dt>月謝</dt><dd><span class="yen">'+yen(fee-disc)+'</span>円'+(disc?'<br><small>2つで1,100円引き後</small>':'')+'</dd>';
+    h+='<dt>教材費</dt><dd>年 '+yen(list.reduce(function(a,c){return a+c.m;},0))+'円</dd></dl>';
+    h+='<p class="r-note">ほかに入会金 11,000円(きょうだいは半額)</p>';
+    out.innerHTML=h;
+  }
+  form.addEventListener('change',render);
+})();
+</script>
+</body>
+</html>

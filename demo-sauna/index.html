@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>個室サウナ SUGIRI(スギリ)| 杉霧台の完全個室サウナ 3部屋</title>
+<meta name="description" content="福岡市杉霧台の完全個室サウナ SUGIRI。90℃のサウナ室と16℃の水風呂、外気浴スペースが各部屋に。60分3,980円から。予約はInstagramのDMかお電話で。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600&family=M+PLUS+1:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* 方針: Instagramで個室サウナを知った20〜40代向けの予約前案内。北欧のミニマル(直線と細い罫線、角丸なし)。
+   トークン: 地 白 / 文字 墨 / アクセント 杉の赤茶 1色 / 英字 Josefin Sans(SUGIRIと温度の数字だけ)/ 和文 M PLUS 1 / 角丸 0 / 影なし */
+:root{
+  color-scheme:light;
+  --bg:#ffffff;
+  --surface:#f3f4f4;
+  --ink:#23211f;
+  --muted:#5b5652;
+  --line:#d6d3d0;
+  --line-strong:#23211f;
+  --accent:#94492b;
+  --on-accent:#ffffff;
+  --photo-bg:#c9c7c4;
+  --seg-rest:#e6e4e1;
+  --band-bg:#23211f;
+  --band-ink:#ffffff;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:48px;--s8:64px;--s10:80px;--s12:96px;
+  --radius:0;
+  --wrap:1120px;
+  --f-ja:"M PLUS 1",system-ui,sans-serif;
+  --f-en:"Josefin Sans","M PLUS 1",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#1b1a19;--surface:#242321;--ink:#ecebe9;--muted:#b3aea9;--line:#3d3a37;--line-strong:#ecebe9;
+    --accent:#d08a66;--on-accent:#1b1a19;--photo-bg:#3a3836;--seg-rest:#34322f;--band-bg:#ecebe9;--band-ink:#1b1a19;
+  }
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#1b1a19;--surface:#242321;--ink:#ecebe9;--muted:#b3aea9;--line:#3d3a37;--line-strong:#ecebe9;
+  --accent:#d08a66;--on-accent:#1b1a19;--photo-bg:#3a3836;--seg-rest:#34322f;--band-bg:#ecebe9;--band-ink:#1b1a19;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-ja);font-weight:400;font-size:16px;line-height:1.85;letter-spacing:.02em}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible+span{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-weight:600;line-height:1.4;letter-spacing:.02em;margin:0}
+p{margin:0}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--s3)}
+.en{font-family:var(--f-en);font-weight:600;letter-spacing:.16em}
+.nw{display:inline-block}
+.sp-only{display:inline}
+@media (min-width:720px){.sp-only{display:none}}
+
+/* 制作見本の帯 */
+.demo-band{background:var(--band-bg);color:var(--band-ink);font-size:13px;line-height:1.6;text-align:center;padding:var(--s1) var(--s2)}
+
+/* ヘッダー */
+.head{border-bottom:1px solid var(--line)}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);min-height:56px}
+.logo{display:flex;align-items:baseline;gap:12px;text-decoration:none}
+.logo .en{font-weight:600;font-size:20px;letter-spacing:.32em;padding-top:4px}
+.logo small{font-size:12px;color:var(--muted);letter-spacing:.08em}
+.nav{display:none}
+@media (min-width:720px){
+  .head .wrap{min-height:64px}
+  .nav{display:flex;gap:var(--s3);font-size:14px}
+  .nav a{text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
+  .nav a:hover{border-bottom-color:var(--ink)}
+}
+
+/* ファーストビュー */
+.hero-photo{background:var(--photo-bg);height:30vh;min-height:176px;max-height:560px;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+@media (min-width:720px){.hero-photo{height:42vh;min-height:320px}}
+.hero{border-bottom:1px solid var(--line-strong)}
+.hero-grid{display:grid;grid-template-columns:1fr}
+.hero-copy{padding:var(--s3) 0 var(--s2)}
+.kicker{font-size:13px;color:var(--muted);letter-spacing:.08em;margin-bottom:var(--s1)}
+.hero h1{font-size:26px;font-weight:600;line-height:1.45}
+.temps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 calc(var(--s3) * -1);}
+.temp{padding:var(--s2) var(--s2) var(--s2) var(--s3);border-left:1px solid var(--line)}
+.temp:first-child{border-left:0}
+.temp .num{font-family:var(--f-en);font-weight:300;font-size:40px;line-height:1;letter-spacing:-.01em;display:block}
+.temp .num .u{font-family:var(--f-ja);font-weight:300;font-size:.5em;margin-left:2px;vertical-align:.6em}
+.temp .lbl{display:block;font-size:12px;color:var(--muted);margin-top:var(--s1);line-height:1.5}
+.temp.hot .num{color:var(--accent)}
+.cta{display:flex;flex-wrap:wrap;gap:var(--s1);padding:var(--s2) 0 var(--s3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);min-height:48px;padding:0 var(--s3);font:inherit;font-size:15px;font-weight:600;text-decoration:none;border:1px solid var(--line-strong);border-radius:var(--radius);background:transparent;color:var(--ink);white-space:nowrap;flex:1 1 auto}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:hover{text-decoration:underline;text-underline-offset:4px}
+@media (min-width:720px){
+  .hero-copy{padding:var(--s5) 0 var(--s4)}
+  .hero h1{font-size:34px}
+  .temps{grid-template-columns:repeat(3,minmax(0,1fr));margin:0;border-bottom:0}
+  .temp{padding:var(--s4) var(--s3) var(--s4) var(--s4);display:flex;flex-direction:column;justify-content:flex-end}
+  .temp:first-child{padding-left:0}
+  .temp .num{font-size:80px}
+  .temp .lbl{font-size:14px;margin-top:var(--s2)}
+  .cta{padding:var(--s3) 0 0}
+  .btn{flex:0 0 auto}
+}
+@media (min-width:1000px){
+  .hero-grid{grid-template-columns:5fr 7fr;align-items:stretch}
+  .hero-copy{padding:var(--s5) var(--s5) var(--s4) 0;border-right:1px solid var(--line)}
+  .temps{border-top:0}
+  .temp{padding:var(--s5) var(--s3) var(--s4) var(--s4)}
+  .temp:first-child{border-left:0;padding-left:var(--s4)}
+  .temp .num{font-size:104px}
+}
+
+/* セクション共通 */
+.sec{padding:var(--s10) 0;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;gap:var(--s2);margin-bottom:var(--s5)}
+.sec-head h2{font-size:24px}
+.sec-head p{color:var(--muted);max-width:36em}
+@media (min-width:720px){
+  .sec{padding:var(--s12) 0}
+  .sec-head{grid-template-columns:5fr 7fr;align-items:end;gap:var(--s5)}
+  .sec-head h2{font-size:30px}
+}
+.photo-note{font-size:12px;color:var(--muted);margin-top:var(--s1)}
+
+/* 部屋 */
+.rooms{display:grid;gap:var(--s5)}
+.rooms-photo{background:var(--photo-bg);aspect-ratio:4/5;overflow:hidden}
+.rooms-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.room-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-strong)}
+.room{border-bottom:1px solid var(--line);padding:var(--s3) 0;display:grid;gap:var(--s1)}
+.room h3{font-size:19px;display:flex;align-items:baseline;justify-content:space-between;gap:var(--s2)}
+.room h3 span{font-size:13px;font-weight:400;color:var(--muted)}
+.room p{color:var(--muted);font-size:15px}
+.room dl{display:grid;grid-template-columns:repeat(2,auto);justify-content:start;gap:2px var(--s3);margin:var(--s1) 0 0;font-size:14px}
+.room dt{color:var(--muted)}
+.room dd{margin:0;font-weight:600}
+@media (min-width:720px){
+  .rooms{grid-template-columns:4fr 7fr;gap:var(--s8);align-items:start}
+  .rooms-photo{aspect-ratio:4/7}
+  .room{grid-template-columns:1fr 1fr;column-gap:var(--s4);padding:var(--s4) 0}
+  .room h3,.room p{grid-column:1}
+  .room dl{grid-column:2;grid-row:1 / span 2;align-self:start;grid-template-columns:auto auto;margin:0}
+}
+
+/* 仕掛け: ととのい時間割 */
+.plan{background:var(--surface)}
+.plan .sec-head{margin-bottom:var(--s4)}
+.plan-pick{border:0;margin:0 0 var(--s4);padding:0;min-width:0}
+.plan-pick legend{font-size:14px;color:var(--muted);margin-bottom:var(--s1);padding:0}
+.pick-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-strong)}
+.plan-pick label{position:relative;cursor:pointer;border-left:1px solid var(--line-strong)}
+.plan-pick label:first-of-type{border-left:0}
+.plan-pick input{position:absolute;opacity:0;inset:0;margin:0}
+.plan-pick span{display:block;text-align:center;padding:var(--s2) 0;font-size:15px;font-weight:600}
+.plan-pick span b{font-family:var(--f-en);font-weight:600;font-size:26px;line-height:1.1;margin-right:2px}
+.plan-pick input:checked+span{background:var(--ink);color:var(--bg)}
+.plan-out{display:grid;gap:var(--s4)}
+.plan-sum{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-strong)}
+.plan-sum div{padding:var(--s2) 0;border-bottom:1px solid var(--line)}
+.plan-sum div:nth-child(2n){padding-left:var(--s2);border-left:1px solid var(--line)}
+.plan-sum dt{font-size:13px;color:var(--muted)}
+.plan-sum dd{margin:0;font-size:15px}
+.plan-sum .big{font-family:var(--f-en);font-weight:300;font-size:44px;line-height:1.1;display:inline-block}
+.plan-sum .big+small{font-size:14px;margin-left:4px}
+.plan-chart svg{display:none;width:100%;height:auto}
+.js .plan-chart svg{display:block}
+.legend{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);list-style:none;margin:var(--s2) 0 0;padding:0;font-size:14px}
+.legend i{display:inline-block;width:16px;height:16px;vertical-align:-3px;margin-right:6px;border:1px solid var(--line-strong)}
+.legend .k-s{background:var(--accent);border-color:var(--accent)}
+.legend .k-w{background:var(--ink);border-color:var(--ink)}
+.legend .k-r{background:var(--seg-rest)}
+.legend .k-p{background:var(--bg);border-style:dashed}
+.plan-steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);font-size:15px}
+.plan-steps li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:var(--s2)}
+.plan-steps li span:last-child{white-space:nowrap;font-weight:600}
+@media (min-width:720px){.pick-row{max-width:480px}}
+@media (min-width:1000px){
+  .plan-out{grid-template-columns:4fr 8fr;gap:var(--s6);align-items:start}
+  .plan-sum{grid-column:1;grid-row:1 / span 2}
+  .plan-chart{grid-column:2}
+  .plan-steps{grid-column:2}
+}
+
+/* 料金 */
+.price-table{width:100%;border-collapse:collapse;font-size:15px}
+.price-table caption{text-align:left;font-size:13px;color:var(--muted);padding-bottom:var(--s1)}
+.price-table th,.price-table td{border-bottom:1px solid var(--line);padding:var(--s2) var(--s1);text-align:right;font-weight:400}
+.price-table thead th{font-size:13px;color:var(--muted);border-bottom:1px solid var(--line-strong)}
+.price-table th[scope="row"],.price-table thead th:first-child{text-align:left;padding-left:0}
+.price-table th[scope="row"]{font-weight:600}
+.price-table td{font-variant-numeric:tabular-nums}
+@media (max-width:719px){
+  .price-table caption{display:block}
+  .price-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .price-table,.price-table tbody,.price-table tr,.price-table th,.price-table td{display:block;width:100%}
+  .price-table tr{border-top:1px solid var(--line-strong);margin-bottom:var(--s3)}
+  .price-table th[scope="row"]{border-bottom:1px solid var(--line);padding:12px 0;font-size:17px}
+  .price-table td{display:flex;justify-content:space-between;padding:12px 0}
+  .price-table td::before{content:attr(data-l);color:var(--muted);font-size:14px}
+}
+.extras{display:grid;gap:var(--s4);margin-top:var(--s6)}
+.extras h3{font-size:16px;padding-bottom:var(--s1);border-bottom:1px solid var(--line-strong);margin-bottom:var(--s1)}
+.extras ul{list-style:none;margin:0;padding:0;font-size:15px}
+.extras li{display:flex;justify-content:space-between;gap:var(--s2);padding:10px 0;border-bottom:1px solid var(--line)}
+.extras li span:last-child{white-space:nowrap}
+@media (min-width:720px){.extras{grid-template-columns:7fr 5fr;gap:var(--s8)}}
+
+/* はじめての方へ */
+.first{display:grid;gap:0;border-top:1px solid var(--line-strong)}
+.first div{padding:var(--s3) 0;border-bottom:1px solid var(--line)}
+.first h3{font-size:17px;margin-bottom:var(--s1)}
+.first p{font-size:15px;color:var(--muted);max-width:30em}
+@media (min-width:720px){
+  .first{grid-template-columns:repeat(2,1fr);column-gap:var(--s8)}
+  .first div:nth-child(2n){margin-top:var(--s6)}
+}
+.voice{margin-top:var(--s8);display:grid;gap:var(--s4)}
+.voice blockquote{margin:0;padding-left:var(--s3);border-left:2px solid var(--accent)}
+.voice p{font-size:17px}
+.voice cite{display:block;font-style:normal;font-size:13px;color:var(--muted);margin-top:var(--s1)}
+@media (min-width:720px){.voice{grid-template-columns:1fr 1fr;gap:var(--s8)}}
+
+/* Instagram */
+.ig-top{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s3)}
+.ig-account{display:inline-flex;align-items:center;gap:var(--s1);font-weight:600;text-decoration:none;border-bottom:1px solid var(--line-strong);padding-bottom:2px}
+.ig-account svg{width:22px;height:22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.tile{display:block;aspect-ratio:1;overflow:hidden;background:var(--photo-bg)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.tile:hover img{opacity:.85}
+.t2 img{object-position:20% 50%}
+.t3 img{object-position:50% 20%}
+.t5 img{object-position:90% 70%;transform:scale(1.6);transform-origin:90% 70%}
+.t6 img{transform:scale(1.8);transform-origin:30% 40%}
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,960px);width:100%;max-height:92vh}
+dialog.lb::backdrop{background:rgba(27,26,25,.88)}
+.lb img{width:100%;max-height:80vh;object-fit:contain;background:var(--photo-bg)}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);color:#fff;font-size:14px;padding-top:var(--s1)}
+.lb-close{font:inherit;font-size:14px;background:#fff;color:#23211f;border:0;min-height:44px;padding:0 var(--s3);cursor:pointer;border-radius:var(--radius)}
+
+/* 店の情報 */
+.info{display:grid;gap:var(--s5)}
+.info dl{margin:0;border-top:1px solid var(--line-strong)}
+.info dl div{display:grid;grid-template-columns:6.5em 1fr;gap:var(--s2);padding:var(--s2) 0;border-bottom:1px solid var(--line);font-size:15px}
+.info dt{color:var(--muted)}
+.info dd{margin:0}
+.map{border:1px solid var(--line);background:var(--bg)}
+.map svg{display:block;width:100%;height:auto}
+.map figcaption{font-size:13px;color:var(--muted);padding:var(--s1) var(--s2);border-top:1px solid var(--line)}
+@media (min-width:720px){.info{grid-template-columns:1fr 1fr;gap:var(--s8);align-items:start}}
+
+/* 最下部 */
+.last{padding:var(--s10) 0}
+.last h2{font-size:24px;margin-bottom:var(--s1)}
+.last p{color:var(--muted)}
+.last .cta{max-width:560px}
+@media (min-width:720px){.last h2{font-size:30px}}
+.foot{border-top:1px solid var(--line);padding:var(--s4) 0;font-size:13px;color:var(--muted)}
+.foot .en{letter-spacing:.32em;font-weight:600;color:var(--ink)}
+
+/* スマホ下の固定バー */
+.fixbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-top:1px solid var(--line-strong)}
+.fixbar a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:56px;font-size:14px;font-weight:600;text-decoration:none}
+.fixbar a:first-child{background:var(--accent);color:var(--on-accent)}
+.fixbar svg{width:18px;height:18px}
+body{padding-bottom:57px}
+@media (min-width:720px){.fixbar{display:none}body{padding-bottom:0}}
+
+.toast{position:fixed;left:50%;bottom:72px;transform:translateX(-50%);z-index:30;width:max-content;max-width:calc(100vw - 32px);background:var(--ink);color:var(--bg);font-size:13px;padding:var(--s1) var(--s2);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+@media (min-width:720px){.toast{bottom:32px}}
+
+/* 動き: JSがクラスを付けてから隠す */
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  .tile img,.toast{transition:none}
+}
+</style>
+</head>
+<body>
+<p class="demo-band">このページは制作見本です。店名や住所、電話番号は架空です</p>
+
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="個室サウナ SUGIRI トップへ"><span class="en">SUGIRI</span><small>個室サウナ スギリ</small></a>
+    <nav class="nav" aria-label="ページ内">
+      <a href="#rooms">部屋</a><a href="#plan">時間割</a><a href="#price">料金</a><a href="#info">場所と営業時間</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="hero-photo">
+      <img class="rv" src="img/sauna_hero-1600.jpg" srcset="img/sauna_hero-800.jpg 800w, img/sauna_hero-1600.jpg 1600w" sizes="100vw" alt="杉板張りのサウナ室。ベンチと、石を積んだストーブ" width="1600" height="914" fetchpriority="high">
+    </div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">杉霧台の完全個室サウナ</p>
+        <h1 id="hero-h" class="rv">熱と冷たさを、<br>ひとりで往復する。</h1>
+        <div class="cta">
+          <a class="btn primary" href="#ig" data-ig><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>InstagramのDMで予約</a>
+          <a class="btn" href="tel:092-000-0000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>電話する</a>
+        </div>
+      </div>
+      <div class="temps" role="list">
+        <p class="temp hot" role="listitem"><span class="num">90<span class="u">℃</span></span><span class="lbl">サウナ室<br>セルフロウリュ</span></p>
+        <p class="temp" role="listitem"><span class="num">16<span class="u">℃</span></span><span class="lbl">水風呂<br>各部屋にひとつ</span></p>
+        <p class="temp" role="listitem"><span class="num">3<span class="u">室</span></span><span class="lbl">完全個室<br>外気浴つき</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="rooms" aria-labelledby="rooms-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="rooms-h" class="rv">三つの部屋</h2>
+        <p>どの部屋にもサウナ室と水風呂、外の空気に当たれる場所がついています。入口から出口まで、ほかのお客様と顔を合わせません。</p>
+      </div>
+      <div class="rooms">
+        <figure style="margin:0">
+          <div class="rooms-photo"><img class="rv" src="img/sauna_cold-800.jpg" srcset="img/sauna_cold-800.jpg 800w, img/sauna_cold-1600.jpg 1600w" sizes="(min-width:720px) 34vw, 100vw" alt="石張りの水風呂に、窓からの光が落ちている" width="800" height="1400" loading="lazy"></div>
+          <figcaption class="photo-note">写真はイメージです</figcaption>
+        </figure>
+        <ul class="room-list">
+          <li class="room">
+            <h3>一の部屋 <span>1名</span></h3>
+            <p>いちばん小さな部屋。坪庭に面した椅子で、雨の日も外気浴ができます。</p>
+            <dl><dt>サウナ</dt><dd>90℃</dd><dt>水風呂</dt><dd>16℃</dd><dt>外気浴</dt><dd>屋根つきの坪庭</dd></dl>
+          </li>
+          <li class="room">
+            <h3>二の部屋 <span>1〜2名</span></h3>
+            <p>ご夫婦やご友人とどうぞ。ベンチは寝転べる長さです。</p>
+            <dl><dt>サウナ</dt><dd>92℃</dd><dt>水風呂</dt><dd>15℃</dd><dt>外気浴</dt><dd>リクライニングチェア2脚</dd></dl>
+          </li>
+          <li class="room">
+            <h3>三の部屋 <span>1〜3名</span></h3>
+            <p>広めのウッドデッキつき。少し温度を抑えて、長く入りたい方にも。</p>
+            <dl><dt>サウナ</dt><dd>88℃</dd><dt>水風呂</dt><dd>17℃</dd><dt>外気浴</dt><dd>ウッドデッキ</dd></dl>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec plan" id="plan" aria-labelledby="plan-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="plan-h" class="rv">ととのい時間割</h2>
+        <p>利用時間を選ぶと、サウナと水風呂と外気浴を何回まわせるかの目安が出ます。はじめての方は90分がおすすめです。</p>
+      </div>
+      <fieldset class="plan-pick">
+        <legend>利用時間</legend>
+        <div class="pick-row">
+        <label><input type="radio" name="plan" value="60"><span><b>60</b>分</span></label>
+        <label><input type="radio" name="plan" value="90" checked><span><b>90</b>分</span></label>
+        <label><input type="radio" name="plan" value="120"><span><b>120</b>分</span></label>
+        </div>
+      </fieldset>
+      <div class="plan-out" aria-live="polite">
+        <dl class="plan-sum">
+          <div><dt>まわせる回数</dt><dd><span class="big" id="p-sets">4</span><small>回</small></dd></div>
+          <div><dt>料金(1名、税込)</dt><dd><span class="big" id="p-price">5,280</span><small>円</small></dd></div>
+          <div><dt>1回の中身</dt><dd id="p-one"><span class="nw">サウナ9分、</span><span class="nw">水風呂2分、</span><span class="nw">外気浴7分</span></dd></div>
+          <div><dt>2名で入ると</dt><dd id="p-two">7,760円(1部屋)</dd></div>
+        </dl>
+        <div class="plan-chart">
+          <div id="p-chart" aria-hidden="true"></div>
+          <ul class="legend" aria-hidden="true">
+            <li><i class="k-p"></i>着替えとシャワー</li>
+            <li><i class="k-s"></i>サウナ</li>
+            <li><i class="k-w"></i>水風呂</li>
+            <li><i class="k-r"></i>外気浴</li>
+          </ul>
+        </div>
+        <ol class="plan-steps" id="p-steps">
+          <li><span>着替えとシャワー</span><span>8分</span></li>
+          <li><span>サウナ、水風呂、外気浴を4回</span><span>72分</span></li>
+          <li><span>シャワーと着替え</span><span>10分</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="price" aria-labelledby="price-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="price-h" class="rv">料金</h2>
+        <p>部屋の貸切料金です。タオル2枚、ガウン、サウナハット、シャンプー類は料金に入っています。</p>
+      </div>
+      <table class="price-table">
+        <caption>税込、1部屋あたり</caption>
+        <thead><tr><th scope="col">利用時間</th><th scope="col">1名</th><th scope="col">2名</th><th scope="col">3名(三の部屋)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">60分</th><td data-l="1名">3,980円</td><td data-l="2名">5,960円</td><td data-l="3名(三の部屋)">7,940円</td></tr>
+          <tr><th scope="row">90分</th><td data-l="1名">5,280円</td><td data-l="2名">7,760円</td><td data-l="3名(三の部屋)">10,240円</td></tr>
+          <tr><th scope="row">120分</th><td data-l="1名">6,580円</td><td data-l="2名">9,460円</td><td data-l="3名(三の部屋)">12,340円</td></tr>
+        </tbody>
+      </table>
+      <div class="extras">
+        <div>
+          <h3>追加</h3>
+          <ul>
+            <li><span>延長15分(空いていれば当日でも)</span><span>990円</span></li>
+            <li><span>ロウリュ用アロマ(杉、白樺)</span><span>無料</span></li>
+            <li><span>平日10時から15時の入室</span><span>各330円引き</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>飲みもの</h3>
+          <ul>
+            <li><span>経口補水液</span><span>250円</span></li>
+            <li><span>水出しほうじ茶</span><span>380円</span></li>
+            <li><span>自家製ジンジャーエール</span><span>480円</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="first-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="first-h" class="rv">はじめての方へ</h2>
+        <p>サウナに慣れていなくても大丈夫です。部屋に入る前に、使い方を2分ほどでご説明します。</p>
+      </div>
+      <div class="first">
+        <div><h3>手ぶらで来られます</h3><p>タオルもガウンもあります。持ってくるのは着替えの下着くらいです。</p></div>
+        <div><h3>予約はDMか電話で</h3><p>希望の日時と人数を送ってください。空きを見て、その日のうちにお返事します。</p></div>
+        <div><h3>温度は自分で決める</h3><p>ロウリュの量で体感が変わります。熱すぎると思ったら、水をかけずに座るだけで十分です。</p></div>
+        <div><h3>入れない方</h3><p>飲酒後の方、体調のすぐれない方はご遠慮ください。中学生以下は保護者の方とご一緒に。</p></div>
+      </div>
+      <div class="voice">
+        <blockquote><p>仕事帰りに90分。誰とも話さずに済むのが、いちばんありがたいです。</p><cite>M.T.さん 30代</cite></blockquote>
+        <blockquote><p>友人と二人で。水風呂の冷たさが毎回同じなのがいい。</p><cite>R.K.さん 40代</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ig-sec" aria-labelledby="ig-h">
+    <div class="wrap">
+      <div class="ig-top">
+        <h2 id="ig-h" class="rv" style="font-size:24px">インスタグラムの投稿から</h2>
+        <a class="ig-account" href="#ig" data-ig><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>@sugiri_sauna</a>
+      </div>
+      <div class="grid">
+        <a class="tile t1 rv" href="img/sauna_stones-1600.jpg" data-cap="ロウリュ前のストーブ"><img src="img/sauna_stones-800.jpg" alt="ストーブに積んだサウナストーン" width="800" height="800" loading="lazy"></a>
+        <a class="tile t2 rv" href="img/sauna_hero-1600.jpg" data-cap="二の部屋のサウナ室"><img src="img/sauna_hero-800.jpg" alt="杉板張りのサウナ室のベンチ" width="800" height="457" loading="lazy"></a>
+        <a class="tile t3 rv" href="img/sauna_cold-1600.jpg" data-cap="今朝の水風呂は16℃"><img src="img/sauna_cold-800.jpg" alt="石張りの水風呂" width="800" height="1400" loading="lazy"></a>
+        <a class="tile t4 rv" href="img/sauna_rest-1600.jpg" data-cap="外気浴の椅子"><img src="img/sauna_rest-800.jpg" alt="外気浴スペースの木の椅子" width="800" height="800" loading="lazy"></a>
+        <a class="tile t5 rv" href="img/sauna_hero-1600.jpg" data-cap="ストーブの横の木桶"><img src="img/sauna_hero-800.jpg" alt="サウナ室の木桶とひしゃく" width="800" height="457" loading="lazy"></a>
+        <a class="tile t6 rv" href="img/sauna_rest-1600.jpg" data-cap="夕方の外気浴"><img src="img/sauna_rest-800.jpg" alt="夕方の外気浴スペース" width="800" height="800" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="info" aria-labelledby="info-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="info-h" class="rv">場所と営業時間</h2>
+        <p>杉霧台公園の東の角、通りをはさんで小学校の斜め向かいです。店の前に3台分の駐車場があります。</p>
+      </div>
+      <div class="info">
+        <dl>
+          <div><dt>店名</dt><dd>個室サウナ <span class="en">SUGIRI</span></dd></div>
+          <div><dt>住所</dt><dd>福岡市 杉霧台2丁目0-0</dd></div>
+          <div><dt>電話</dt><dd><a href="tel:092-000-0000">092-000-0000</a></dd></div>
+          <div><dt>営業時間</dt><dd>10:00〜24:00<br>最終入室 22:30</dd></div>
+          <div><dt>定休日</dt><dd>毎週水曜</dd></div>
+          <div><dt>駐車場</dt><dd>3台(無料)</dd></div>
+          <div><dt>支払い</dt><dd>現金、クレジットカード、QR決済</dd></div>
+        </dl>
+        <figure class="map" style="margin:0">
+          <svg viewBox="0 0 400 300" role="img" aria-label="略図。杉霧台公園の東の角、通りをはさんで杉霧台小学校の斜め向かいに店があります">
+            <rect width="400" height="300" fill="var(--bg)"/>
+            <path d="M0 132H400" stroke="var(--line-strong)" stroke-width="10" fill="none"/>
+            <path d="M0 132H400" stroke="var(--bg)" stroke-width="7" fill="none"/>
+            <path d="M268 0V300" stroke="var(--line-strong)" stroke-width="10" fill="none"/>
+            <path d="M268 0V300" stroke="var(--bg)" stroke-width="7" fill="none"/>
+            <rect x="24" y="168" width="180" height="108" fill="var(--seg-rest)" stroke="var(--line-strong)" stroke-width="1"/>
+            <text x="114" y="228" text-anchor="middle" font-size="20" fill="var(--ink)" font-family="M PLUS 1, sans-serif">杉霧台公園</text>
+            <rect x="24" y="20" width="160" height="84" fill="none" stroke="var(--line-strong)" stroke-width="1"/>
+            <text x="104" y="68" text-anchor="middle" font-size="20" fill="var(--ink)" font-family="M PLUS 1, sans-serif">杉霧台小学校</text>
+            <rect x="216" y="148" width="36" height="36" fill="var(--accent)"/>
+            <text x="300" y="192" font-size="20" fill="var(--accent)" font-weight="600" letter-spacing="3" font-family="Josefin Sans, sans-serif">SUGIRI</text>
+            <path d="M252 166H292" stroke="var(--accent)" stroke-width="1.5"/>
+            <text x="292" y="30" font-size="18" fill="var(--muted)" font-family="M PLUS 1, sans-serif">北 ↑</text>
+          </svg>
+          <figcaption>略図です。縮尺は正確ではありません</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="last" aria-labelledby="last-h">
+    <div class="wrap">
+      <h2 id="last-h" class="rv">空いている時間を聞いてみる</h2>
+      <p>希望の日時と人数、部屋の希望があれば添えてください。</p>
+      <div class="cta">
+        <a class="btn primary" href="#ig" data-ig><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>InstagramのDMで予約</a>
+        <a class="btn" href="tel:092-000-0000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>電話する</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span class="en">SUGIRI</span>  個室サウナ スギリ(制作見本)</div>
+</footer>
+
+<nav class="fixbar" aria-label="予約">
+  <a href="#ig" data-ig><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>DMで予約</a>
+  <a href="tel:092-000-0000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>電話する</a>
+</nav>
+
+<dialog class="lb" id="lb" aria-label="写真を大きく見る">
+  <img id="lb-img" src="" alt="">
+  <div class="lb-bar"><span id="lb-cap"></span><button type="button" class="lb-close" id="lb-close">閉じる</button></div>
+</dialog>
+<p class="toast" id="toast" role="status" aria-live="polite"></p>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+
+  /* 見出しと写真をスクロールで1回だけ */
+  var rv=document.querySelectorAll('.rv');
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(still||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')});}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(e){io.observe(e)});
+  }
+
+  /* Instagramは見本のため */
+  var toast=document.getElementById('toast'),tm;
+  document.querySelectorAll('[data-ig]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      toast.textContent='見本のため実在のアカウントはありません';
+      toast.classList.add('show');clearTimeout(tm);
+      tm=setTimeout(function(){toast.classList.remove('show')},2800);
+    });
+  });
+
+  /* 写真を大きく */
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap');
+  if(lb.showModal){
+    document.querySelectorAll('.tile').forEach(function(t){
+      t.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var im=t.querySelector('img');
+        lbImg.src=t.getAttribute('href');lbImg.alt=im.alt;lbCap.textContent=t.dataset.cap||'';
+        lb.showModal();
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click',function(){lb.close()});
+    lb.addEventListener('click',function(ev){if(ev.target===lb)lb.close()});
+  }
+
+  /* ととのい時間割 */
+  var PLANS={
+    60:{price:3980,two:5960,prep:8,sets:3,s:8,w:1,r:6,end:7},
+    90:{price:5280,two:7760,prep:8,sets:4,s:9,w:2,r:7,end:10},
+    120:{price:6580,two:9460,prep:10,sets:5,s:10,w:2,r:8,end:10}
+  };
+  var chart=document.getElementById('p-chart');
+  var narrow=window.matchMedia('(max-width: 719px)');
+  function yen(n){return n.toLocaleString('ja-JP')}
+  function rect(x,y,w,h,fill,extra){return '<rect x="'+x.toFixed(1)+'" y="'+y+'" width="'+Math.max(w,0).toFixed(1)+'" height="'+h+'" fill="'+fill+'"'+(extra||'')+'/>'}
+  function txt(x,y,s,size,fill,anchor){return '<text x="'+x.toFixed(1)+'" y="'+y+'" font-size="'+size+'" fill="'+fill+'" text-anchor="'+(anchor||'start')+'" font-family="M PLUS 1, sans-serif">'+s+'</text>'}
+  var PREP='fill="var(--bg)" stroke="var(--line-strong)" stroke-dasharray="4 3"';
+
+  /* 横棒(タブレット以上): 120分を全幅として比べられるように */
+  function horiz(p,total){
+    var W=1000,u=W/120,y=48,h=56,x=0,o='';
+    o+='<rect x="0.5" y="'+(y+0.5)+'" width="'+(p.prep*u-1).toFixed(1)+'" height="'+(h-1)+'" '+PREP+'/>';
+    o+=txt(0,y-14,'準備',19,'var(--muted)');
+    x=p.prep*u;
+    for(var i=0;i<p.sets;i++){
+      o+=txt(x+4,y-14,(i+1)+'回目',19,'var(--ink)');
+      o+=rect(x,y,p.s*u,h,'var(--accent)');x+=p.s*u;
+      o+=rect(x,y,p.w*u,h,'var(--ink)');x+=p.w*u;
+      o+=rect(x,y,p.r*u,h,'var(--seg-rest)');x+=p.r*u;
+    }
+    o+='<rect x="'+(x+0.5).toFixed(1)+'" y="'+(y+0.5)+'" width="'+(p.end*u-1).toFixed(1)+'" height="'+(h-1)+'" '+PREP+'/>';
+    for(var m=0;m<=120;m+=30){
+      var tx=Math.min(m*u,W-1);
+      o+='<path d="M'+tx.toFixed(1)+' '+(y+h+6)+'V'+(y+h+16)+'" stroke="var(--line-strong)"/>';
+      o+=txt(tx,y+h+40,m+'分',19,m<=total?'var(--ink)':'var(--muted)',m===0?'start':(m===120?'end':'middle'));
+    }
+    o+='<path d="M'+(total*u-0.5).toFixed(1)+' '+(y-30)+'V'+(y+h+16)+'" stroke="var(--accent)" stroke-width="2"/>';
+    return '<svg viewBox="0 0 '+W+' '+(y+h+52)+'">'+o+'</svg>';
+  }
+
+  /* 縦に積む(スマホ): 1回ごとに1行 */
+  function vert(p){
+    var W=320,lx=0,bx=84,bw=232,u=bw/20,rh=36,gap=10,y=0,o='';
+    function row(label,segs){
+      o+=txt(lx,y+rh/2+5,label,15,'var(--ink)');
+      var x=bx;
+      segs.forEach(function(s){
+        var w=s.m*u;
+        if(s.k==='p'){o+='<rect x="'+(x+0.5).toFixed(1)+'" y="'+(y+0.5)+'" width="'+(w-1).toFixed(1)+'" height="'+(rh-1)+'" '+PREP+'/>';o+=txt(x+8,y+rh/2+5,s.m+'分',14,'var(--ink)');}
+        else{
+          o+=rect(x,y,w,rh,s.k==='s'?'var(--accent)':(s.k==='w'?'var(--ink)':'var(--seg-rest)'));
+          if(s.k==='s')o+=txt(x+8,y+rh/2+5,s.m+'分',14,'var(--on-accent)');
+          if(s.k==='r')o+=txt(x+w-6,y+rh/2+5,s.m+'分',14,'var(--ink)','end');
+        }
+        x+=w;
+      });
+      y+=rh+gap;
+    }
+    row('準備',[{k:'p',m:p.prep}]);
+    for(var i=0;i<p.sets;i++)row((i+1)+'回目',[{k:'s',m:p.s},{k:'w',m:p.w},{k:'r',m:p.r}]);
+    row('着替え',[{k:'p',m:p.end}]);
+    return '<svg viewBox="0 0 '+W+' '+(y-gap)+'">'+o+'</svg>';
+  }
+
+  function render(){
+    var v=(document.querySelector('input[name="plan"]:checked')||{}).value||'90';
+    var p=PLANS[v],total=+v,setMin=(p.s+p.w+p.r)*p.sets;
+    document.getElementById('p-sets').textContent=p.sets;
+    document.getElementById('p-price').textContent=yen(p.price);
+    document.getElementById('p-one').innerHTML='<span class="nw">サウナ'+p.s+'分、</span><span class="nw">水風呂'+p.w+'分、</span><span class="nw">外気浴'+p.r+'分</span>';
+    document.getElementById('p-two').textContent=yen(p.two)+'円(1部屋)';
+    document.getElementById('p-steps').innerHTML=
+      '<li><span>着替えとシャワー</span><span>'+p.prep+'分</span></li>'+
+      '<li><span>サウナ、水風呂、外気浴を'+p.sets+'回</span><span>'+setMin+'分</span></li>'+
+      '<li><span>シャワーと着替え</span><span>'+p.end+'分</span></li>';
+    chart.innerHTML=narrow.matches?vert(p):horiz(p,total);
+  }
+  document.querySelectorAll('input[name="plan"]').forEach(function(r){r.addEventListener('change',render)});
+  if(narrow.addEventListener)narrow.addEventListener('change',render);else if(narrow.addListener)narrow.addListener(render);
+  render();
+})();
+</script>
+</body>
+</html>
