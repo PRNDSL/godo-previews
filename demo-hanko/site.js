@@ -1,13 +1,11 @@
 (function(){
   var NS = "http://www.w3.org/2000/svg";
 
-  /* 印影: 入力した文字は text 要素の textContent でだけ入れる(innerHTML は使わない) */
   var svg = document.getElementById("inei");
   var moji = document.getElementById("moji");
   var input = document.getElementById("namae");
   if(svg && moji && input){
     var DEFAULT = "朝倉";
-    /* 字数ごとの置き方 [中心x, 中心y, 字の大きさ, 横の伸ばし, 縦の伸ばし]。4字は右の列から読む */
     var LAYOUT = {
       1:[[100,100,108,1,1]],
       2:[[100,63,64,1.05,1.12],[100,137,64,1.05,1.12]],
@@ -42,7 +40,6 @@
       setTimeout(function(){ svg.classList.remove("press"); }, 120);
     };
     input.addEventListener("input", draw);
-    /* 空のまま離れたら、入力欄も最初の名字に戻す */
     input.addEventListener("blur", function(){
       if(chars(input.value).length === 0){ input.value = DEFAULT; draw(); }
     });
@@ -58,7 +55,6 @@
     draw();
   }
 
-  /* 営業時間: 今日の曜日の行に朱の丸印を付ける */
   var row = document.querySelector('.hours tr[data-day="' + new Date().getDay() + '"]');
   if(row){
     row.classList.add("today");
@@ -83,7 +79,6 @@
     th.appendChild(sr);
   }
 
-  /* 上へ戻る: ページが画面3つ分より長い時だけ、1画面ぶん下がったら出す */
   var ue = document.createElement("button");
   ue.type = "button"; ue.className = "ue"; ue.hidden = true; ue.textContent = "上へ";
   ue.setAttribute("aria-label", "ページの上へ戻る");

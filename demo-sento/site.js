@@ -13,7 +13,6 @@
   each('[data-kyo-kou]',function(e){e.textContent=yu[d][1];});
   each('.hi[data-d="'+d+'"]',function(e){e.classList.add('kyo');});
 
-  // 上へ戻る: ページが画面3つ分より長い時だけ、1画面ぶん下がったら出す
   var ue=document.createElement('button');
   ue.type='button';ue.className='ue';ue.hidden=true;ue.textContent='上へ';
   ue.setAttribute('aria-label','ページの上へ戻る');

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>花束と値段|花と枝 つゆ草</title>
+<meta name="description" content="花と枝 つゆ草の花束は3,000円から。予算と用途と色を選ぶと、束の大きさの目安が見られます。包装代はかかりません。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hisashi">
+  <div class="tent" aria-hidden="true"></div>
+  <div class="tare">
+    <div class="haba tare-in">
+      <a class="yago" href="index.html"><span class="yago-ko">花と枝</span><span class="yago-na">つゆ草</span></a>
+    </div>
+  </div>
+  <nav class="kamikire" aria-label="ページの一覧">
+    <ul class="haba">
+      <li><a href="hanataba.html" aria-current="page">花束と値段</a></li>
+      <li><a href="chumon.html">注文と配達</a></li>
+      <li><a href="teire.html">花の手入れ</a></li>
+      <li><a href="mise.html">店のこと</a></li>
+      <li><a href="basho.html">場所と時間</a></li>
+    </ul>
+  </nav>
+</header>
+
+<header class="pagehead">
+  <div class="haba">
+    <p class="pan"><a href="index.html">花と枝 つゆ草</a> / 花束と値段</p>
+    <h1>花束と値段</h1>
+    <figure class="photo">
+      <img src="img/hanataba-1600.jpg" srcset="img/hanataba-800.jpg 800w, img/hanataba-1600.jpg 1600w"
+           sizes="(max-width: 892px) calc(100vw - 32px), 860px" width="1600" height="914"
+           alt="木の台に置いた、クラフト紙で包んで麻ひもで結んだ小さな花束" fetchpriority="high" decoding="async">
+    </figure>
+    <p class="lead">束は3,000円から、予算に合わせて組みます。値段は花の代金だけで、包む紙とリボンの代金はかかりません。</p>
+  </div>
+</header>
+
+<main>
+
+<section class="dan" aria-labelledby="shikake-h">
+  <div class="haba">
+    <h2 id="shikake-h"><span class="k">予算と用途を選ぶと、</span><span class="k">束の大きさが見られます</span></h2>
+    <div class="shikake" data-taba>
+      <div class="erabu-waku">
+        <fieldset>
+          <legend>予算</legend>
+          <div class="erabu">
+            <label><input type="radio" name="yosan" value="3000"><span>3,000円</span></label>
+            <label><input type="radio" name="yosan" value="5000" checked><span>5,000円</span></label>
+            <label><input type="radio" name="yosan" value="8000"><span>8,000円</span></label>
+            <label><input type="radio" name="yosan" value="10000"><span>10,000円</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>用途</legend>
+          <div class="erabu">
+            <label><input type="radio" name="yoto" value="tanjo" checked><span>誕生日</span></label>
+            <label><input type="radio" name="yoto" value="iwai"><span>お祝い</span></label>
+            <label><input type="radio" name="yoto" value="kuyo"><span>お供え</span></label>
+            <label><input type="radio" name="yoto" value="jitaku"><span>自宅用</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>色</legend>
+          <div class="erabu">
+            <label><input type="radio" name="iro" value="makase" checked><span>おまかせ</span></label>
+            <label><input type="radio" name="iro" value="shiro"><span>白と緑</span></label>
+            <label><input type="radio" name="iro" value="aka"><span>赤み</span></label>
+            <label><input type="radio" name="iro" value="ki"><span>黄み</span></label>
+          </div>
+        </fieldset>
+        <p class="usui">絵は大きさの目安です。主役の花は、その週に入った花から選ぶので、絵と同じ花になるとは限りません。</p>
+      </div>
+      <div>
+        <div class="taba-e">
+          <svg viewBox="0 0 320 392" role="img" aria-label="花束の絵" data-taba-e></svg>
+        </div>
+        <div aria-live="polite">
+          <p class="taba-kekka" data-kekka>この予算だと、主役の花5本と小花2種類と葉もので、持つとこのくらいの大きさです(高さ約45cm)。</p>
+          <p data-yoto-bun>誕生日の束: 丸く組みます。持って帰りやすく、そのまま花瓶に入れられる形です。</p>
+          <p data-iro-bun>色はおまかせ: その週に入った花から、誕生日に合う色で組みます。</p>
+          <p class="taba-chui" data-chui hidden></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dan" aria-labelledby="ookisa-h">
+  <div class="haba">
+    <h2 id="ookisa-h">いつもの大きさ</h2>
+    <p class="bun">電話で「5,000円で誕生日の束を」と言っていただければ、この表の中身で組みます。高さは持った手から上ではなく、茎の端から花の上までです。</p>
+    <div class="hyo-waku">
+      <table class="hyo ookisa tatami">
+        <thead><tr><th scope="col">予算</th><th scope="col">主役の花</th><th scope="col">ほかに入る物</th><th scope="col">高さの目安</th><th scope="col">よく頼まれる場面</th></tr></thead>
+        <tbody>
+          <tr data-yosan="3000"><th scope="row">3,000円</th><td data-midashi="主役の花" class="honsu">3本</td><td data-midashi="ほかに" class="naka">小花と葉もの</td><td data-midashi="高さ" class="takasa">約35cm</td><td data-midashi="場面">ちょっとしたお礼、自宅用</td></tr>
+          <tr data-yosan="5000"><th scope="row">5,000円</th><td data-midashi="主役の花" class="honsu">5本</td><td data-midashi="ほかに" class="naka">小花2種類と葉もの</td><td data-midashi="高さ" class="takasa">約45cm</td><td data-midashi="場面">誕生日、お見舞い</td></tr>
+          <tr data-yosan="8000"><th scope="row">8,000円</th><td data-midashi="主役の花" class="honsu">7本</td><td data-midashi="ほかに" class="naka">小花2種類と枝もの1本と葉もの</td><td data-midashi="高さ" class="takasa">約55cm</td><td data-midashi="場面">送別、発表会</td></tr>
+          <tr data-yosan="10000"><th scope="row">10,000円</th><td data-midashi="主役の花" class="honsu">9本</td><td data-midashi="ほかに" class="naka">小花3種類と枝もの2本と葉もの</td><td data-midashi="高さ" class="takasa">約60cm</td><td data-midashi="場面">開店、退職、長年のお祝い</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="dan" aria-labelledby="hoka-h">
+  <div class="haba ni-retsu">
+    <div>
+      <h2 id="hoka-h">束のほかに</h2>
+      <dl class="shiire">
+        <div><dt>かごの花</dt><dd>4,000円から。水を含ませたスポンジに挿すので、花瓶がいりません。お見舞いには病院の決まりを先に確かめてください。</dd></div>
+        <div><dt>スタンド花</dt><dd>15,000円から。開店や発表会の会場に置く、脚の付いた大きな花です。3日前までに注文してください。</dd></div>
+        <div><dt>店先の束</dt><dd>1,500円と2,000円。日よけの下の左端のバケツに、その日の花でいつも作り置きしています。お彼岸とお盆の前の週は、お供えの形の束を増やします。電話での取り置きもできます。</dd></div>
+      </dl>
+    </div>
+    <div>
+      <h2>値段のこと</h2>
+      <p>1本ずつ選んで束にすることもできます。店先のバケツの値段を足した分が代金で、包むのは無料です。</p>
+      <p>予算の端数は合わせられます。「4,000円で」「6,500円で」でも組みます。</p>
+      <p class="usui">支払いは店頭で現金かカード。配達の時は、届けた時に現金でお願いしています。</p>
+    </div>
+  </div>
+</section>
+
+<section class="tsugi-botan-dan">
+  <div class="haba tsugi-botan">
+    <a class="saki" href="chumon.html">注文と配達のしかた</a>
+    <a class="saki saki-2" href="teire.html">もらった後の手入れ</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="suso">
+  <div class="haba suso-in">
+    <div class="suso-mise">
+      <p class="suso-na">花と枝 つゆ草</p>
+      <p>綿ノ原三丁目2-8(八百屋の隣)</p>
+      <p>10時から19時(日曜と祝日は17時まで)水曜定休</p>
+      <p>電話 <a href="tel:000-000-0000">000-000-0000</a>(9時から。月曜と木曜は9時まで水揚げです)</p>
+    </div>
+    <ul class="suso-michi">
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="hanataba.html">花束と値段</a></li>
+      <li><a href="chumon.html">注文と配達</a></li>
+      <li><a href="teire.html">花の手入れ</a></li>
+      <li><a href="mise.html">店のこと</a></li>
+      <li><a href="basho.html">場所と時間</a></li>
+    </ul>
+  </div>
+  <p class="haba kakuu">このサイトは制作見本です。出てくる店名や町名、花の値段、配達料、店の人の話などは、すべて架空のものです。</p>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

@@ -1,5 +1,4 @@
 (function(){
-  // 証明写真の台紙(トップだけにある)。最初の表示(履歴書)はHTMLに直接書いてあるので、JSが無くても読める
   var box = document.querySelector('[data-id-info]');
   if(box){
     var info = {
@@ -26,8 +25,6 @@
     pick('rireki');
   }
 
-  // 今日の営業を1文で出す。開店前・営業中・閉店後で文を変える(固定の「営業中」は書かない)
-  // 祝日の判定はしていない(祝日の一覧を持たないため)。祝日は土日と同じ時間なので、平日の祝日だけ時刻がずれる
   var msgs = document.querySelectorAll('[data-today]');
   if(msgs.length){
     var hoursOf = function(d){
@@ -54,7 +51,6 @@
     }
     var state = h ? (mins < h[0] ? 'before' : (mins < h[1] ? 'open' : 'after')) : 'closed';
     msgs.forEach(function(msg){
-      // 1文ずつ折れない塊にして、文の途中で行が割れないようにする
       msg.textContent = '';
       text.split('|').forEach(function(s){
         var sp = document.createElement('span'); sp.className = 'k'; sp.textContent = s; msg.appendChild(sp);
@@ -64,7 +60,6 @@
     });
   }
 
-  // 上へ戻る: ページが画面3つ分より長い時だけ、1画面ぶん下がったら出す
   var ue = document.createElement('button');
   ue.type = 'button'; ue.className = 'ue'; ue.hidden = true; ue.textContent = '上へ';
   ue.setAttribute('aria-label','ページの上へ戻る');

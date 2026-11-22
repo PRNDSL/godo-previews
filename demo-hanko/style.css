@@ -1,18 +1,17 @@
-/* 配置の考え: ページの地は朱肉の朱一色。中身は白い紙のカードに墨で書く。
-   形は「円(印面)」と「紙の長方形」の2つだけ。影は付けない。差し色は足さない(朱・白・墨の3つ)。 */
+
 :root{
-  /* 色(コントラストは WCAG の式で計算済み) */
-  --shu:#c4361f;        /* 朱。上に --paper の文字で 5.20:1(#cf3a22 では 4.73:1 と余裕が薄いので少し濃くした) */
-  --paper:#fafbfc;      /* 紙。少し青みに寄せた白。朱の地の上の文字もこの色 */
-  --ink:#221d20;        /* 墨。紙の上で 16.03:1 */
-  --ink-2:#55505a;      /* 墨の補足。紙の上で 7.56:1 */
-  --line-paper:#d9dce0; /* 紙の上の罫線(文字には使わない) */
-  /* 書体 */
+  
+  --shu:#c4361f;        
+  --paper:#fafbfc;      
+  --ink:#221d20;        
+  --ink-2:#55505a;      
+  --line-paper:#d9dce0; 
+  
   --f-head:"Zen Antique","Hiragino Mincho ProN","Yu Mincho",serif;
   --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-  /* 余白 */
+  
   --s1:8px; --s2:16px; --s3:24px; --s4:40px; --s5:64px; --s6:96px;
-  /* 角丸: 紙は角を立てる。円は印面だけ */
+  
   --r:2px;
   --round:50%;
   --shadow:none;
@@ -39,11 +38,10 @@ svg{display:block;max-width:100%}
   padding-left:max(16px,env(safe-area-inset-left,0px));
   padding-right:max(16px,env(safe-area-inset-right,0px));
 }
-/* フォーカス: 朱の地では白、紙の上では墨(どちらも文字色と同じ色の輪) */
+
 a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid currentColor;outline-offset:3px}
 .paper{background:var(--paper);color:var(--ink);border-radius:var(--r)}
 
-/* ── 上の帯 ── */
 .top{border-bottom:1px solid var(--paper)}
 .top-in{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s1) var(--s3);padding-block:12px}
 .yago{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-head);font-size:22px;line-height:1.3;letter-spacing:.04em}
@@ -60,7 +58,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
   .top nav ul{gap:0 18px}
 }
 
-/* ── 一枚目: 印影が主役、屋号は紙の右端の表札 ── */
 .hero{padding-block:var(--s3) var(--s5)}
 .sheet{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s2);padding:var(--s3) var(--s2) var(--s3) var(--s3)}
 .hyosatsu{
@@ -78,7 +75,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
   .sheet{padding:var(--s5) var(--s4) var(--s5) var(--s5);gap:var(--s4)}
 }
 
-/* 紙の下の帯: 一言・値段・電話を朱の地に横に並べる */
 .band{
   display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s2);
   margin-top:var(--s3);padding-block:var(--s3);
@@ -111,7 +107,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .tel-big:hover small{color:var(--paper)}
 .tel-note{font-size:15px;line-height:1.6}
 
-/* 印影の見本 */
 .sample h2{font-family:var(--f-head);font-weight:400;font-size:clamp(20px,2.2vw,24px);line-height:1.4;letter-spacing:.02em}
 .inei-box{margin:var(--s2) auto 0;width:min(360px,100%)}
 @media (max-width:599px){.inei-box{width:min(250px,100%)}}
@@ -145,18 +140,16 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 #font2 span{font-family:"Yuji Syuku",serif}
 #font3 span{font-family:"Kaisei Tokumin",serif;font-weight:700}
 
-/* ── セクション共通 ── */
 .sec{padding-block:var(--s6) var(--s5);border-top:1px solid var(--paper)}
 .sec h2{font-family:var(--f-head);font-weight:400;font-size:clamp(30px,4.4vw,50px);line-height:1.3;letter-spacing:.02em}
 .sec .intro{margin-top:var(--s2);font-size:17px;max-width:36em}
 .sec-body{margin-top:var(--s4)}
 
-/* 用途と大きさ */
 .sizes{padding:var(--s4) var(--s3) var(--s3)}
 .size-list{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3);list-style:none}
 .size{display:grid;grid-template-columns:120px minmax(0,1fr);gap:0 var(--s2);align-items:center}
 .size > svg{width:120px;height:auto}
-/* スマホ: 円の右に名前と寸法、説明は下に全幅 */
+
 @media (max-width:899px){
   .size > div{display:contents}
   .size > svg{grid-column:1;grid-row:1 / 3}
@@ -183,7 +176,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .size p{margin-top:6px;line-height:1.8}
 .scale-note{margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid var(--line-paper);font-size:14px;color:var(--ink-2);line-height:1.7}
 
-/* 素材と値段 */
 .mats{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3);list-style:none}
 @media (min-width:1100px){.mats{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .mat{padding:var(--s3)}
@@ -202,7 +194,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .circle-shu{fill:var(--shu)} .circle-ink{fill:var(--ink)} .circle-paper{fill:var(--paper)}
 .ring-shu{fill:none;stroke:var(--shu)} .ring-ink{fill:none;stroke:var(--ink)}
 
-/* 納期と流れ */
 .nouki-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4)}
 @media (min-width:900px){.nouki-in{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start}}
 .days{list-style:none;border-top:1px solid var(--paper)}
@@ -223,7 +214,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .flow li b{display:block;font-size:17px;line-height:1.5}
 .flow li p{font-size:15px;line-height:1.8;margin-top:2px}
 
-/* 登録できない印鑑 */
 .chui-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3)}
 @media (min-width:900px){.chui-in{grid-template-columns:minmax(0,7fr) minmax(0,4fr);align-items:start}}
 .ng{padding:var(--s3)}
@@ -238,7 +228,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .chui-side h3{font-family:var(--f-head);font-weight:400;font-size:24px;line-height:1.4;color:var(--shu)}
 .chui-side p{margin-top:var(--s1);font-size:15px}
 
-/* 保証と小物 */
 .hosho-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3)}
 @media (min-width:900px){.hosho-in{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:stretch}}
 .promise{padding:var(--s4) var(--s3);display:flex;flex-direction:column;justify-content:center;gap:var(--s2)}
@@ -253,7 +242,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .goods .yen{font-weight:700;font-size:17px;white-space:nowrap;color:var(--shu)}
 .goods p{grid-column:1 / -1;font-size:15px;line-height:1.8}
 
-/* 店のこと */
 .mise-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4)}
 @media (min-width:900px){.mise-in{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:center}}
 .letter{display:flex;justify-content:center;padding:var(--s4) var(--s2)}
@@ -279,7 +267,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .facts b small{font-family:var(--f-body);font-size:16px;font-weight:700;margin-left:2px}
 .facts span{display:block;font-size:15px;line-height:1.6;margin-top:4px}
 
-/* 営業時間と場所 */
 .jikan-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4)}
 @media (min-width:900px){.jikan-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}}
 .hours{padding:var(--s3)}
@@ -305,20 +292,16 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .access .tel-big b{font-size:clamp(34px,4.4vw,48px)}
 @media (max-width:360px){.tel-big b,.access .tel-big b{font-size:26px;letter-spacing:0}.tel-big small{font-size:13px}}
 
-/* 下の帯 */
 .foot{border-top:1px solid var(--paper);padding-block:var(--s4) var(--s5)}
 
-/* ── ページの切り替え(全ページ共通の上の帯) ── */
 .top nav a{padding:6px 0}
 .top nav a[aria-current="page"]{border-color:var(--paper);font-weight:700}
 
-/* 印面の形の飾り(朱で押した印と、朱の地に白で押した印) */
 .seal .r{fill:none;stroke:var(--shu)}
 .seal text{fill:var(--shu)}
 .seal-w .r{fill:none;stroke:var(--paper)}
 .seal-w text{fill:var(--paper)}
 
-/* ── 下のページの頭 ── */
 .pagehead{padding-block:var(--s4) var(--s5)}
 .pan{font-size:14px;font-weight:500;line-height:1.6}
 .ph-in{display:flex;align-items:center;gap:var(--s2) var(--s3);margin-top:var(--s3)}
@@ -327,7 +310,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .pagehead .lead{margin-top:var(--s3);font-size:17px;max-width:36em}
 .pagehead + .sec{padding-top:var(--s5)}
 
-/* ── トップの入口: 印を押した紙 ── */
 .iri{list-style:none;display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s2)}
 .iri li{display:flex}
 .iri a{
@@ -348,11 +330,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 }
 @media (min-width:900px){.iri{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
-/* トップの場所と時間 */
 .mini-side{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2)}
 .mini-side .tel-big{margin-top:0}
 
-/* ── 次に見るページ ── */
 .tsugi-sec{padding-block:0 var(--s6)}
 .tsugi{display:flex;flex-wrap:wrap;gap:var(--s2)}
 .tsuzuki{
@@ -363,7 +343,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .tsuzuki:hover{background:var(--ink);color:var(--paper)}
 .tsuzuki:focus-visible{outline-color:var(--paper)}
 
-/* ── 下の帯(全ページ共通) ── */
 .foot-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3)}
 @media (min-width:900px){.foot-in{grid-template-columns:minmax(0,1fr) auto;align-items:start}}
 .foot .yago{font-size:20px;margin-bottom:var(--s1)}
@@ -373,7 +352,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid curre
 .foot-nav a{display:inline-block;padding:4px 0;font-weight:500;font-size:15px}
 .foot .kakuu{margin-top:var(--s3);padding-top:var(--s2);border-top:1px solid rgba(250,251,252,.45)}
 
-/* ── 上へ戻る(長いページでだけ出る。朱の印の形) ── */
 .ue{
   position:fixed;z-index:20;
   right:calc(16px + env(safe-area-inset-right,0px));

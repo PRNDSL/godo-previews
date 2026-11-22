@@ -1,22 +1,22 @@
 :root{
-  /* 色 */
+  
   --bg:#e2f0f7;
   --card:#ffffff;
   --ink:#14284a;
   --ink-2:#3d5573;
   --coral:#c22f4a;
   --line:#8fb3c9;
-  --pale:#c7e0ec;      /* 札の中の目盛りの空き(文字は載せない) */
-  /* 書体 */
+  --pale:#c7e0ec;      
+  
   --f-head:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;
   --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-  /* 余白 */
+  
   --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:40px; --s6:64px; --s7:96px;
-  /* 角丸(札) と 札の穴 */
+  
   --r:14px;
   --hole:7px;
   --hole-y:20px;
-  /* 影は使わない */
+  
   --shadow:none;
 }
 *{box-sizing:border-box;min-width:0;margin:0;padding:0}
@@ -43,7 +43,6 @@ svg{display:block;max-width:100%}
 a:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
 h1,h2,h3{font-family:var(--f-head);font-weight:900;letter-spacing:.02em;line-height:1.3}
 
-/* ── 預かり札(上に丸い穴) ── */
 .tag{
   position:relative;background:var(--card);border-radius:var(--r);
   padding:calc(var(--hole-y) + var(--hole) + 14px) var(--s4) var(--s4);
@@ -56,7 +55,6 @@ h1,h2,h3{font-family:var(--f-head);font-weight:900;letter-spacing:.02em;line-hei
   transform:translate(-50%,-50%);border:2px solid var(--coral);border-radius:50%;
 }
 
-/* ── 上の帯 ── */
 .top{border-bottom:2px dashed var(--line)}
 .top-in{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2) var(--s4);padding-block:12px}
 .yago{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-head);font-weight:900;font-size:19px;line-height:1.3}
@@ -80,7 +78,6 @@ h1,h2,h3{font-family:var(--f-head);font-weight:900;letter-spacing:.02em;line-hei
   .tel-s{margin-left:auto}
 }
 
-/* ── 一枚目 ── */
 .hero{padding-block:var(--s5) var(--s6)}
 .hero-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
 @media (min-width:900px){
@@ -107,7 +104,6 @@ h1,h2,h3{font-family:var(--f-head);font-weight:900;letter-spacing:.02em;line-hei
 .tel-l .t{font-size:14px;line-height:1.4}
 .tel-l .v{font-family:var(--f-head);font-weight:900;font-size:26px;line-height:1.3;white-space:nowrap}
 
-/* 仕上がりの札 */
 .finish{display:grid;grid-template-columns:minmax(0,1fr);text-align:center}
 .finish .label{font-weight:700;font-size:17px}
 .finish .date{
@@ -126,7 +122,7 @@ h1,h2,h3{font-family:var(--f-head);font-weight:900;letter-spacing:.02em;line-hei
 .finish .rule dt{color:var(--ink-2)}
 .finish .rule dd{font-weight:700}
 .finish-wrap{position:relative;margin-top:80px}
-/* 一枚目の札だけ、穴に紐を通す(穴が「札の穴」だと分かるように)。穴の中心 = 札の上から --hole-y */
+
 .string{position:absolute;left:50%;top:calc(var(--hole-y) - 70px);width:100px;height:80px;margin-left:-80px;pointer-events:none}
 .hanger{position:absolute;right:-6px;top:-96px;width:118px;transform-origin:62px 6px;animation:sway 7s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
@@ -139,13 +135,11 @@ h1,h2,h3{font-family:var(--f-head);font-weight:900;letter-spacing:.02em;line-hei
   .finish .rule div+div{margin-top:var(--s1)}
 }
 
-/* ── セクション共通 ── */
 section.sec{padding-block:var(--s6);border-top:2px dashed var(--line)}
 .sec h2{font-size:clamp(26px,3.6vw,38px)}
 .sec .intro{margin-top:var(--s3);max-width:38em;font-size:17px}
 .note{font-size:14px;color:var(--ink-2)}
 
-/* 値段の札 */
 .prices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);margin-top:var(--s5);list-style:none}
 @media (min-width:720px){.prices{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4)}}
 .prices .tag{text-align:center;padding-left:var(--s3);padding-right:var(--s3)}
@@ -156,7 +150,6 @@ section.sec{padding-block:var(--s6);border-top:2px dashed var(--line)}
 .prices .top-item .price{color:var(--coral)}
 .after-prices{margin-top:var(--s4)}
 
-/* 洗濯表示 */
 .marks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);margin-top:var(--s5);list-style:none}
 @media (min-width:900px){.marks{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4)}}
 .marks .tag{display:flex;flex-direction:column;align-items:center;text-align:center;padding-left:var(--s3);padding-right:var(--s3)}
@@ -177,7 +170,6 @@ section.sec{padding-block:var(--s6);border-top:2px dashed var(--line)}
 @media (min-width:900px){.mark-how{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .mark-how p{max-width:36em}
 
-/* しみ抜き */
 .stains{margin-top:var(--s5);display:grid;gap:var(--s4)}
 .stain{
   display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3) var(--s5);
@@ -198,7 +190,6 @@ section.sec{padding-block:var(--s6);border-top:2px dashed var(--line)}
 @media (min-width:900px){.stain .cost{text-align:right}}
 .stain-tip{margin-top:var(--s4);max-width:40em}
 
-/* 預けた後 */
 .after{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);margin-top:var(--s5)}
 @media (min-width:900px){.after{grid-template-columns:minmax(0,7fr) minmax(0,5fr);grid-template-rows:auto auto}
   .after .big{grid-row:span 2}}
@@ -217,7 +208,6 @@ section.sec{padding-block:var(--s6);border-top:2px dashed var(--line)}
 .months-key .k1::before{background:var(--coral)}
 .months-key .k2::before{background:var(--ink)}
 
-/* 困った時の決まり */
 .rules{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);margin-top:var(--s5)}
 @media (min-width:900px){.rules{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .rules .tag h3{font-size:22px}
@@ -225,7 +215,6 @@ section.sec{padding-block:var(--s6);border-top:2px dashed var(--line)}
 .rules li+li{margin-top:var(--s2)}
 .rules li::marker{font-family:var(--f-head);font-weight:900;color:var(--coral)}
 
-/* 店のこと */
 .shop{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);margin-top:var(--s5)}
 @media (min-width:900px){.shop{grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:start}}
 blockquote{
@@ -254,7 +243,6 @@ blockquote footer{margin-top:var(--s2);font-family:var(--f-body);font-weight:500
 }
 .big-tel:hover{color:var(--coral)}
 
-/* 一番下 */
 .foot{background:var(--ink);color:var(--bg);padding-block:var(--s5)}
 .foot .yago-f{font-family:var(--f-head);font-weight:900;font-size:19px}
 .foot p{font-size:14px}
@@ -265,19 +253,17 @@ blockquote footer{margin-top:var(--s2);font-family:var(--f-body);font-weight:500
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none !important;transition:none !important}
 }
-/* ── ページの切り替え(全ページ共通の帯) ── */
+
 .top nav a{padding:4px 8px;border-radius:8px 8px 0 0}
 .top nav a[aria-current="page"]{background:var(--card);border-color:var(--coral);font-weight:700}
 @media (max-width:899px){.top nav ul{gap:4px var(--s2)}}
 
-/* ── 下のページの頭 ── */
 .pagehead{padding-block:var(--s5) var(--s6)}
 .pan{font-size:14px;font-weight:500;color:var(--ink-2)}
 .pan a{color:var(--ink)}
 .pagehead h1{font-size:clamp(36px,6vw,60px);margin-top:var(--s2)}
 .pagehead h1::after{content:"";display:block;width:56px;height:6px;border-radius:3px;background:var(--coral);margin-top:var(--s3)}
 
-/* ── トップの入口(竿に掛けた預かり札) ── */
 .rack{--gx:var(--s3);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5) var(--gx);margin-top:var(--s5);list-style:none}
 @media (min-width:900px){.rack{--gx:var(--s4);grid-template-columns:repeat(4,minmax(0,1fr))}}
 .rack li{position:relative;padding-top:40px}
@@ -294,12 +280,10 @@ blockquote footer{margin-top:var(--s2);font-family:var(--f-body);font-weight:500
   .fuda span{font-size:14px}
 }
 
-/* ── トップの場所と時間 ── */
 .basho{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);margin-top:var(--s4)}
 @media (min-width:900px){.basho{grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:start}}
 .basho p{font-size:17px;max-width:32em}
 
-/* ── 次のページへ・ボタン ── */
 .btn{
   display:inline-block;text-decoration:none;font-family:var(--f-head);font-weight:900;font-size:17px;line-height:1.4;
   background:var(--ink);color:var(--bg);border-radius:var(--r);padding:12px 22px;transition:background-color .2s;
@@ -309,20 +293,20 @@ blockquote footer{margin-top:var(--s2);font-family:var(--f-body);font-weight:500
 .tsugi-sec{padding-block:var(--s5) var(--s6);border-top:2px dashed var(--line)}
 .tsugi{display:flex;flex-wrap:wrap;gap:var(--s3)}
 
-/* ── そのほかの値段 ── */
+.photo{margin-top:var(--s5);max-width:860px}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:7/4;object-fit:cover;border-radius:var(--r)}
+
 .hoka{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);margin-top:var(--s5)}
 @media (min-width:900px){.hoka{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .hoka .tag h3{font-size:22px}
 .hoka .more{display:inline-block;margin-top:var(--s3);font-weight:700}
 
-/* ── 一番下(全ページ共通) ── */
 .foot-in{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4)}
 @media (min-width:760px){.foot-in{grid-template-columns:minmax(0,3fr) minmax(0,2fr);align-items:start}}
 .foot-nav{list-style:none;display:grid;grid-template-columns:repeat(2,max-content);gap:var(--s1) var(--s5)}
 .foot-nav a{font-size:15px;font-weight:500}
 .foot .kakuu{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid rgba(226,240,247,.35);font-size:13px}
 
-/* ── 上へ戻る(長いページでだけ出る。預かり札の形) ── */
 .ue{
   position:fixed;z-index:20;
   right:calc(16px + env(safe-area-inset-right,0px));

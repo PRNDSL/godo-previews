@@ -1,7 +1,4 @@
-/* 色(コントラストは地 --bg に対して):
-   --text  #eef0e6  約11.2:1 / --muted #b9c4b3 約7.1:1 / --accent #e0a62e 約5.9:1
-   --surface #2b4334 の上: --text 約9.3:1 / --muted 約5.9:1 / --accent 約4.9:1
-   山吹の面に --on-accent #18261d の文字: 約7.2:1 */
+
 :root{
   --bg:#22362a;
   --bg-deep:#18261d;
@@ -12,7 +9,7 @@
   --accent:#e0a62e;
   --accent-hover:#ecb94f;
   --on-accent:#18261d;
-  /* 絵の中だけで使う色(文字には使わない) */
+  
   --leaf:#5f8a5a;
   --leaf-light:#7ea56f;
   --bark:#8a5a3c;
@@ -59,11 +56,9 @@ h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:var(--sp-3)}
 section{padding:var(--sp-6) 0}
 section + section{border-top:1px solid var(--line)}
 
-/* 見えない時は clip-path で隠す(はみ出しに数えられない) */
 .skip{position:absolute;left:16px;top:8px;width:1px;height:1px;overflow:hidden;white-space:nowrap;clip-path:inset(50%)}
 .skip:focus{width:auto;height:auto;clip-path:none;z-index:10;background:var(--accent);color:var(--on-accent);padding:var(--sp-2) var(--sp-3);border-radius:var(--radius)}
 
-/* ───── 上の帯 ───── */
 .top{background:var(--bg-deep);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-2) var(--sp-4);padding-top:var(--sp-3);padding-bottom:var(--sp-3)}
 .brand{font-family:var(--font-head);font-weight:800;font-size:clamp(22px,2.6vw,28px);text-decoration:none;letter-spacing:.04em;line-height:1.3}
@@ -77,11 +72,10 @@ section + section{border-top:1px solid var(--line)}
 }
 .nav a:hover{border-bottom-color:var(--accent);color:var(--accent)}
 
-/* ───── 一枚目(暦が主役。左に縦書きの看板) ───── */
 .hero{padding:var(--sp-4) 0 var(--sp-6)}
 .hero-grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--sp-3);align-items:start}
 .kanban-col{display:flex;flex-direction:column;align-items:center;gap:var(--sp-4)}
-/* 看板: 縦書き。右の列に屋号、左の列に町名 */
+
 .kanban{
   writing-mode:vertical-rl;
   background:var(--bg-deep);
@@ -97,7 +91,6 @@ section + section{border-top:1px solid var(--line)}
 .pine{display:none;width:100%}
 .hero-main{display:flex;flex-direction:column;gap:var(--sp-5);min-width:0}
 
-/* 今月の仕事の札(仕事と電話を1枚で) */
 .now{
   background:var(--surface);
   border:1px solid var(--line);
@@ -132,7 +125,6 @@ section + section{border-top:1px solid var(--line)}
 .pine .pad:nth-of-type(3){animation-duration:10s;animation-delay:-6s}
 @keyframes sway{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
 
-/* 剪定の暦 */
 .koyomi{margin-top:0}
 .koyomi-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--sp-1) var(--sp-4);margin-bottom:var(--sp-3)}
 .koyomi-head h2{margin-bottom:0}
@@ -157,7 +149,6 @@ section + section{border-top:1px solid var(--line)}
   padding:0 .4em;margin-left:.5em;vertical-align:.25em;line-height:1.5;
 }
 
-/* ───── 値段 ───── */
 .price-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-5);margin-top:var(--sp-4)}
 .menu{list-style:none;border-top:1px solid var(--line)}
 .menu li{display:flex;align-items:baseline;gap:var(--sp-2);padding:var(--sp-3) 0;border-bottom:1px solid var(--line)}
@@ -166,7 +157,7 @@ section + section{border-top:1px solid var(--line)}
 .menu .dots{flex:1 1 1em;min-width:1em;border-bottom:2px dotted var(--line);transform:translateY(-.3em)}
 .menu .yen{font-family:var(--font-head);font-weight:700;font-size:20px;white-space:nowrap;color:var(--accent)}
 .menu .yen small{font-size:.7em;color:var(--text);font-family:var(--font-body);font-weight:500}
-/* お品書きの幅が狭い時は点線が短くなって詰まるので、点線を消して値段を右に寄せる */
+
 .menu{container-type:inline-size}
 @container (max-width:460px){
   .menu .dots{display:none}
@@ -185,7 +176,6 @@ section + section{border-top:1px solid var(--line)}
 .tiers dd{font-family:var(--font-head);font-weight:700;font-size:19px;color:var(--accent)}
 .tiers dd small{font-family:var(--font-body);font-weight:500;font-size:14px;color:var(--muted);display:block;text-align:right}
 
-/* ───── 流れ ───── */
 .steps{list-style:none;display:grid;grid-template-columns:minmax(0,1fr);gap:0;margin-top:var(--sp-4);counter-reset:step}
 .step{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:0 var(--sp-3);padding-bottom:var(--sp-4)}
 .step::before{
@@ -201,9 +191,8 @@ section + section{border-top:1px solid var(--line)}
 .step h3 .free{font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--on-accent);background:var(--accent);border-radius:var(--radius);padding:0 .45em;margin-left:.4em;vertical-align:.2em}
 .step p{color:var(--muted);margin-top:var(--sp-1);grid-column:2}
 
-/* ───── 店のこと ───── */
 .shop-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-5);margin-top:var(--sp-4)}
-/* 親方の一言: 上が山形の板に書いた立て札と、下の杭 */
+
 .fuda{max-width:520px}
 .fuda-edge{
   background:var(--line);padding:2px;
@@ -227,7 +216,6 @@ section + section{border-top:1px solid var(--line)}
 .towns li::before{content:"";display:inline-block;width:.55em;height:.55em;border-radius:50%;background:var(--leaf-light);margin-right:.4em;vertical-align:.1em}
 .area > p{color:var(--muted);font-size:15px;margin-top:var(--sp-2)}
 
-/* ───── 連絡先 ───── */
 .contact{background:var(--bg-deep)}
 .contact-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-5);margin-top:var(--sp-4);align-items:start}
 .big-tel{
@@ -246,7 +234,6 @@ section + section{border-top:1px solid var(--line)}
 .info dt{color:var(--muted);font-size:15px;padding-top:.15em}
 .info dd small{display:block;color:var(--muted);font-size:14px;line-height:1.6}
 
-/* ───── 下の帯 ───── */
 .foot{background:var(--bg-deep);border-top:1px solid var(--line);padding:var(--sp-5) 0 var(--sp-4)}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-4)}
 .foot .brand{font-size:22px}
@@ -260,15 +247,13 @@ section + section{border-top:1px solid var(--line)}
 .height-svg{margin-inline:auto;width:100%;max-width:520px}
 .area-svg{margin-inline:auto;width:100%;max-width:480px}
 
-/* ───── 599px まで(スマホ) ───── */
 @media (max-width:599px){
   .nav ul{gap:var(--sp-1) 14px}
   .nav a{font-size:15px}
 }
 
-/* ───── 959px まで(暦は横書きの行) ───── */
 @media (max-width:959px){
-  /* 看板と今月の札を横に並べ、暦はその下に全幅で */
+  
   .hero-main{display:contents}
   .hero-main .koyomi{grid-column:1 / -1;margin-top:var(--sp-3)}
   .month{position:relative}
@@ -276,7 +261,6 @@ section + section{border-top:1px solid var(--line)}
   .month.is-now .now-mark{position:absolute;right:var(--sp-3);top:50%;transform:translateY(-50%);margin:0}
 }
 
-/* ───── 600px から ───── */
 @media (min-width:600px){
   .hero-grid{gap:var(--sp-4)}
   .now{padding:var(--sp-4)}
@@ -286,35 +270,33 @@ section + section{border-top:1px solid var(--line)}
   .tiers dd small{text-align:left}
 }
 
-/* ───── 760px から(値段・店・連絡先を2列に) ───── */
 @media (min-width:760px){
   .price-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
   .shop-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
   .contact-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  /* 2列の時は電話番号が隣の列にはみ出さない大きさにする */
+  
   .big-tel{font-size:clamp(40px,5.2vw,72px)}
   .tiers{grid-template-columns:minmax(0,1fr)}
   .tiers div{flex-direction:row;justify-content:space-between}
   .tiers dd small{text-align:right}
 }
 
-/* ───── 960px から(主な切り替え) ───── */
 @media (min-width:960px){
   section{padding:var(--sp-7) 0}
   .hero{padding:var(--sp-4) 0 var(--sp-7)}
   .hero-grid{grid-template-columns:150px minmax(0,1fr);gap:var(--sp-5)}
   .pine{display:block}
   .hero-main{gap:var(--sp-4)}
-  /* PC幅は暦を上、今月の札をその下に */
+  
   .hero-main .koyomi{order:-1;margin-top:0}
   .now{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--sp-5);padding:var(--sp-4) var(--sp-5)}
   .now-call{border-top:0;padding-top:0;border-left:1px dashed var(--line);padding-left:var(--sp-5);align-content:start}
 
-  /* 暦: 縦書きの12列 */
+  
   .months{grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
   .month{grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr;justify-items:center;align-items:start;gap:var(--sp-2);padding:var(--sp-3) 0 var(--sp-3)}
   .m{font-size:22px}
-  /* 1つの月は縦書き1列。仕事が2つある時は上から順に読み、間に短い横線を引く */
+  
   .tasks{
     display:flex;flex-direction:column;align-items:center;
     gap:0;
@@ -344,7 +326,6 @@ section + section{border-top:1px solid var(--line)}
   .contact-grid{gap:var(--sp-6)}
 }
 
-/* ───── 上の帯(全ページ共通): 屋号とページの一覧 ───── */
 .nav a[aria-current="page"]{border-bottom-color:var(--accent);color:var(--accent);font-weight:700}
 .nav a[aria-current="page"]::before{
   content:"";display:inline-block;width:.5em;height:.5em;
@@ -352,7 +333,6 @@ section + section{border-top:1px solid var(--line)}
   margin-right:.3em;vertical-align:.1em;
 }
 
-/* ───── 下のページの頭: 横に置いた看板 ───── */
 .pagehead{background:var(--bg-deep);border-bottom:1px solid var(--line);padding:var(--sp-4) 0 var(--sp-5)}
 .pan{font-size:14px;color:var(--muted);margin-bottom:var(--sp-3)}
 .pan a{color:var(--text)}
@@ -366,7 +346,6 @@ section + section{border-top:1px solid var(--line)}
 .pagehead .lead{margin-top:var(--sp-4)}
 .pagehead + .contact{background:var(--bg)}
 
-/* ───── トップの入口: 庭に立てた立て札 ───── */
 .iriguchi{
   list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-4) var(--sp-3);
   margin-top:var(--sp-4);
@@ -391,7 +370,6 @@ section + section{border-top:1px solid var(--line)}
 .tate:hover em{color:var(--accent-hover)}
 .tate-kui{display:block;width:14px;height:40px;margin-inline:auto;background:var(--bark);border-radius:2px 2px 0 0}
 
-/* ───── 次に見るページへのボタン ───── */
 .tsugi-sec{border-top:1px solid var(--line);padding:var(--sp-5) 0 var(--sp-6)}
 .tsugi{display:flex;flex-wrap:wrap;gap:var(--sp-3)}
 .btn{
@@ -407,7 +385,6 @@ section + section{border-top:1px solid var(--line)}
 .btn-sub:hover{color:var(--accent)}
 .annai-more{margin-top:var(--sp-4)}
 
-/* ───── よく聞かれること ───── */
 .toi{border-top:1px solid var(--line);margin-top:var(--sp-4);max-width:52em}
 .toi details{border-bottom:1px solid var(--line)}
 .toi summary{
@@ -420,7 +397,6 @@ section + section{border-top:1px solid var(--line)}
 .toi details[open] summary::after{content:"−"}
 .toi details p{color:var(--muted);padding:0 0 var(--sp-3)}
 
-/* ───── 上へ戻る(長いページでだけ出る) ───── */
 .ue{
   position:fixed;z-index:20;
   right:calc(16px + env(safe-area-inset-right,0px));
@@ -443,6 +419,10 @@ section + section{border-top:1px solid var(--line)}
 
 .hero + section{border-top:1px solid var(--line)}
 
+.photo img{display:block;width:100%;height:auto;border-radius:var(--radius)}
+.hero-photo{margin-bottom:var(--sp-4)}
+.pagehead .photo{max-width:860px;margin-top:var(--sp-4)}
+
 @media (max-width:599px){
   .nav{width:100%}
   .nav ul{justify-content:space-between;gap:var(--sp-1) 10px}
@@ -453,6 +433,8 @@ section + section{border-top:1px solid var(--line)}
   .foot-grid{grid-template-columns:minmax(0,1fr) auto;gap:var(--sp-5)}
 }
 @media (min-width:960px){
+  .hero-photo{margin-bottom:var(--sp-5)}
+  .hero-photo img{aspect-ratio:8/3;object-fit:cover;object-position:50% 30%}
   .iriguchi{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4)}
   .tsugi-sec{padding:var(--sp-6) 0 var(--sp-7)}
 }

@@ -92,8 +92,11 @@ p+p{margin-top:.8em}
 .ue:hover{background:var(--kabe)}
 .ue[hidden]{display:none}
 
-.ichimai{padding:var(--s4) 0 var(--s5)}
-.ichimai-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--s4);align-items:center}
+.photo{margin:var(--s2) 0 0;max-width:860px}
+.photo img{display:block;width:100%;height:auto;border-radius:var(--r);background:var(--kabe)}
+.photo-ichimai{margin:0;max-width:none}
+.ichimai{padding:var(--s3) 0 var(--s5)}
+.ichimai-in{margin-top:var(--s4);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--s4);align-items:center}
 .heya-zu{margin:0}
 .heya{width:100%;height:auto;max-width:560px}
 .heya .mat{fill:var(--aki);stroke:var(--aki-sen);stroke-width:1.5;stroke-dasharray:5 4;transition:fill .3s}
@@ -237,6 +240,9 @@ p+p{margin-top:.8em}
 .heya-naka div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--s2);padding:12px 0;border-bottom:1px dashed var(--sen)}
 .heya-naka dt{font-weight:700}
 
+@media (min-width:860px){
+  .photo-ichimai img{aspect-ratio:11/5;object-fit:cover;object-position:50% 75%}
+}
 @media (max-width:899px){
   .hyou{display:block;border-top:0}
   .hyou-jikan{display:none}
@@ -284,3 +290,5 @@ p+p{margin-top:.8em}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .maki:hover svg,.maki:focus-visible svg,.saki a:hover{transform:none}
 }
+.tel-auto{color:inherit;text-decoration:underline;text-underline-offset:.18em}
+.denwa-ban .tel-auto{text-decoration:none}

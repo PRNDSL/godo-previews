@@ -1,5 +1,4 @@
 (function(){
-  /* 月謝の切り替え(月謝のページだけ)。JSが動かない時は表だけで全部読める */
   var sw=document.getElementById('fee-switch');
   if(sw){
     var fees={30:[6700,8800],45:[9200,12100],60:[11700,15400]};
@@ -21,7 +20,6 @@
     set(30);
   }
 
-  /* 今日の曜日を開く。日曜と月曜は次のレッスン日の火曜を開く(時間割があるページだけ) */
   if(document.querySelector('.days')||document.querySelector('.tt')){
     var d=new Date().getDay();
     var isLessonDay=(d>=2&&d<=6);
@@ -40,7 +38,6 @@
     }
   }
 
-  /* 上へ戻る: ページが画面3つ分より長い時だけ、1画面ぶん下がったら出す */
   var ue=document.createElement('button');
   ue.type='button';ue.className='ue';ue.hidden=true;ue.textContent='上へ';
   ue.setAttribute('aria-label','ページの上へ戻る');

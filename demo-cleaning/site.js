@@ -5,15 +5,15 @@ function finishFor(now){
   var dow = now.getDay();
   var min = now.getHours()*60 + now.getMinutes();
   var kind, drop, add;
-  if (dow === 0) {                 // 日曜は定休日。月曜に出した時の計算
+  if (dow === 0) {
     kind = 'sunday'; drop = day(today, 1); add = 2;
-  } else if (min < OPEN) {         // 開店前。今日の8時以降に出した時の計算
+  } else if (min < OPEN) {
     kind = 'before'; drop = today; add = 2;
-  } else if (min <= CUT) {         // 17:00ちょうどまでは翌々日
+  } else if (min <= CUT) {
     kind = 'open'; drop = today; add = 2;
-  } else if (min <= CLOSE) {       // 17:01〜19:00 は3日後
+  } else if (min <= CLOSE) {
     kind = 'late'; drop = today; add = 3;
-  } else {                         // 19時を過ぎたら次の受付日の朝に出した時の計算
+  } else {
     kind = 'closed'; drop = day(today, 1);
     if (drop.getDay() === 0) drop = day(drop, 1);
     add = 2;

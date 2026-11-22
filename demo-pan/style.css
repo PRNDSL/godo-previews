@@ -134,6 +134,8 @@ p{margin:0}
 .michi a{color:var(--usu)}
 .tobira h1{font-size:32px}
 .tobira .mae{margin-top:var(--s2);max-width:40em;color:var(--usu)}
+.photo{margin:var(--s3) 0 var(--s3);max-width:860px}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:7/4;object-fit:cover;border-radius:var(--r)}
 
 .tsugi-sec{padding:var(--s5) 0 var(--s6)}
 .tsugi{display:flex;flex-wrap:wrap;gap:var(--s3)}

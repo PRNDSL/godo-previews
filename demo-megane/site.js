@@ -1,17 +1,14 @@
 (function(){
-  // 視力表のつまみ: 右へ動かすとぼやける(トップだけ)
   var p=document.getElementById('pinto'), h=document.getElementById('hyou');
   if(p&&h){
     h.style.setProperty('--b',p.value);
     p.addEventListener('input',function(){h.style.setProperty('--b',p.value);});
   }
 
-  // 曜日の表: 今日の曜日に印(休みの日は付けない)
   var d=new Date().getDay();
   var l=document.querySelectorAll('[data-youbi] [data-d="'+d+'"]');
   for(var i=0;i<l.length;i++){if(!l[i].classList.contains('yasumi'))l[i].classList.add('kyo');}
 
-  // 上へ戻る: ページが画面3つ分より長い時だけ、1画面ぶん下がったら出す
   var ue=document.createElement('button');
   ue.type='button';ue.className='ue';ue.hidden=true;
   ue.setAttribute('aria-label','ページの上へ戻る');

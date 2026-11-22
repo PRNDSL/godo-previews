@@ -1,30 +1,29 @@
-/* 配置の考え: 鍵盤の白と黒だけで組む。白い面と黒い面の切り替えは鍵盤の並びから。
-   差し色はペダルの真鍮1色で、線と小さな印にだけ使う。形は角の少しだけ丸い縦長の長方形。影は付けない。 */
+
 :root{
-  /* 色(コントラストは計算済み) */
+  
   --white:#ffffff;
-  --ink:#1a1c24;        /* 青みの黒。白地で17.0:1 */
-  --ink-2:#50535e;      /* 補足の文字。白地で7.66:1 / --key-down の上で6.45:1 */
-  --on-dark-2:#bfc1ca;  /* 黒い面の補足の文字。--ink の上で9.47:1 */
-  --brass:#b4913f;      /* ペダルの真鍮。線と印だけ。--ink の上の文字なら5.72:1 */
-  --brass-text:#8a6b26; /* 白地に真鍮の文字を置く時だけ。白地で4.99:1 */
-  --key-down:#ebebef;   /* 押した鍵と「満」の面 */
-  --black-key:#2a2c36;  /* 黒鍵(純黒は使わない) */
-  --line:#d4d5db;       /* 区切り線(文字には使わない) */
-  --night:#1a1c24;      /* 黒い面の地(--ink と同じ値。.flip で --ink を白に入れ替えても地が変わらないように分けた) */
-  --pencil:#6a6c75;     /* 鉛筆の書き込み。白地で5.23:1 */
-  --staff-on-dark:#6e717c;  /* 黒地の五線(飾りの線) */
-  --staff-on-white:#c4c6cd; /* 白地の五線(飾りの線) */
-  /* 書体 */
+  --ink:#1a1c24;        
+  --ink-2:#50535e;      
+  --on-dark-2:#bfc1ca;  
+  --brass:#b4913f;      
+  --brass-text:#8a6b26; 
+  --key-down:#ebebef;   
+  --black-key:#2a2c36;  
+  --line:#d4d5db;       
+  --night:#1a1c24;      
+  --pencil:#6a6c75;     
+  --staff-on-dark:#6e717c;  
+  --staff-on-white:#c4c6cd; 
+  
   --f-head:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
   --f-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-  /* 余白 */
+  
   --s1:8px; --s2:16px; --s3:24px; --s4:40px; --s5:64px; --s6:96px;
-  /* 角丸(鍵の角だけ少し丸い) */
+  
   --r:6px;
-  /* 影は使わない */
+  
   --shadow:none;
-  /* 動き */
+  
   --t:.18s;
 }
 *{box-sizing:border-box;min-width:0}
@@ -48,20 +47,19 @@ a{color:inherit}
   padding-left:max(16px,env(safe-area-inset-left,0px));
   padding-right:max(16px,env(safe-area-inset-right,0px));
 }
-/* フォーカス: 白地では黒、黒い面では白 */
+
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 .dark a:focus-visible,.dark button:focus-visible,.dark summary:focus-visible{outline-color:var(--white)}
 .dark{background:var(--night);color:var(--white)}
-/* 白い面用に組んだ節を黒い面に置く時: 文字と線の色だけ入れ替える */
+
 .flip{--ink:#ffffff;--ink-2:#bfc1ca;--line:rgba(255,255,255,.28);--brass-text:#b4913f}
 
-/* ── 見出し ── */
 h1,h2,h3{font-family:var(--f-head);letter-spacing:.02em;line-height:1.35}
 h2{
   font-weight:900;font-size:clamp(28px,4vw,40px);
   display:flex;align-items:flex-start;gap:14px;
 }
-/* 見出しの前の小さな鍵(真鍮の線) */
+
 h2::before{
   content:"";flex:none;width:12px;height:1.15em;margin-top:.12em;
   border:2px solid var(--brass);border-top:0;border-radius:0 0 var(--r) var(--r);
@@ -71,14 +69,12 @@ h2::before{
 .sec-lead{margin-top:var(--s2);max-width:36em;color:var(--ink-2)}
 .dark .sec-lead{color:var(--on-dark-2)}
 
-/* ── 一枚目 ── */
-/* 一枚目: 一番上に鍵盤、その下に譜面台の楽譜の表紙 */
 .cover{text-align:center;padding-top:var(--s3);padding-bottom:var(--s3)}
 @media (min-width:820px){.cover{padding-top:var(--s4);padding-bottom:var(--s4)}}
 .cover-title{font-weight:900;font-size:clamp(36px,6.2vw,76px);line-height:1.2}
 .cover-sub{margin-top:var(--s1);font-family:var(--f-head);font-weight:700;font-size:clamp(16px,5vw,24px);line-height:1.6}
 .cover-credit{margin-top:4px;text-align:right;font-size:14px;color:var(--on-dark-2)}
-/* 五線。ピアノの楽譜なので PC は2段(大譜表)、スマホは1段 */
+
 .staves{margin-top:var(--s2);display:grid;gap:24px;border-left:1px solid var(--staff-c);border-right:4px double var(--staff-c);--staff-c:var(--staff-on-dark)}
 .staff{
   height:41px;
@@ -87,7 +83,7 @@ h2::before{
 }
 .staves .staff + .staff{display:none}
 @media (min-width:820px){.staves .staff + .staff{display:block}}
-/* 楽譜の下の注記: 体験と電話。スマホは3行、PCは縦線で区切って1行 */
+
 .cover-note{margin-top:var(--s3);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:15px;color:var(--on-dark-2);line-height:1.6}
 .cover-note b{color:var(--white);font-weight:700;font-size:17px}
 .cover-note .tel{margin-top:0;color:var(--white);font-size:clamp(30px,3.4vw,36px)}
@@ -105,7 +101,6 @@ h2::before{
 .tel:hover{border-bottom-color:var(--brass)}
 .tel-note{font-size:14px;color:var(--on-dark-2);margin-top:4px}
 
-/* ── 鍵盤の案内 ── */
 .keys{border-top:3px solid var(--brass);overflow:hidden}
 .keys-hint{padding-top:12px;font-size:15px;color:var(--on-dark-2);text-align:center}
 .keys-in{
@@ -114,7 +109,7 @@ h2::before{
   position:relative;display:grid;grid-template-columns:repeat(var(--keys),minmax(0,1fr));gap:2px;
   height:var(--kh);padding-inline:2px;
 }
-/* 字の上端を8本で揃え、黒鍵の下端より下から始める */
+
 .keys a{
   display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
   padding-top:calc(var(--kh) * .52 + 14px);
@@ -137,7 +132,6 @@ h2::before{
   pointer-events:none;
 }
 
-/* ── レッスンの中身(行で並べる) ── */
 .rows{list-style:none;margin-top:var(--s4);border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s1);padding-block:var(--s3);border-bottom:1px solid var(--line)}
 @media (min-width:820px){.row{grid-template-columns:minmax(0,4fr) minmax(0,9fr);gap:var(--s4);padding-block:var(--s4)}}
@@ -148,7 +142,6 @@ h2::before{
 .row .book{font-size:15px;color:var(--ink-2)}
 .row .book b{color:var(--ink);font-weight:700}
 
-/* ── 月謝 ── */
 .fee-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);margin-top:var(--s4)}
 @media (min-width:820px){.fee-grid{grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:var(--s5)}}
 @media (min-width:820px){.fee-grid:has(#fee-switch[hidden]){grid-template-columns:minmax(0,1fr)}}
@@ -163,7 +156,7 @@ h2::before{
 .len-btns button:hover{background:var(--key-down);transform:translateY(3px)}
 .len-btns button[aria-pressed="true"]{background:var(--ink);color:var(--white);transform:translateY(3px)}
 .len-btns button:focus-visible{outline:3px solid var(--brass);outline-offset:-7px}
-/* 月謝袋 */
+
 .bag{
   margin-top:var(--s3);border:2px solid var(--ink);border-radius:0 0 var(--r) var(--r);
   position:relative;padding:var(--s3) var(--s3) var(--s3);
@@ -181,7 +174,7 @@ h2::before{
   flex:none;width:44px;height:44px;border:2px solid var(--brass);border-radius:50%;
   display:grid;place-items:center;font-family:var(--f-head);font-weight:900;font-size:17px;color:var(--brass-text);
 }
-/* 一覧の表 */
+
 .fee-table{width:100%;border-collapse:collapse;table-layout:fixed}
 .fee-table caption{text-align:left;font-weight:700;font-size:15px;padding-bottom:var(--s1)}
 .fee-table th,.fee-table td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:right}
@@ -206,7 +199,6 @@ h2::before{
 .other dt{font-weight:700}
 .tax{margin-top:var(--s2);font-size:14px;color:var(--ink-2)}
 
-/* ── 時間割 ── */
 .tt-note{margin-top:var(--s2);font-size:15px;color:var(--ink-2)}
 .legend{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);margin-top:var(--s2);font-size:15px;list-style:none}
 .legend li{display:flex;align-items:center;gap:8px}
@@ -245,7 +237,6 @@ h2::before{
   .days{display:none}
 }
 
-/* ── 発表会と家の練習(黒い面) ── */
 .two{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
 @media (min-width:820px){.two{grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:var(--s6)}}
 .two > div{max-width:40em}
@@ -256,10 +247,9 @@ h2::before{
 .body-text{margin-top:var(--s3)}
 .qa-q{margin-top:var(--s3);font-family:var(--f-head);font-weight:700;font-size:20px;line-height:1.6;border-left:3px solid var(--brass);padding-left:var(--s2)}
 
-/* ── 先生 ── */
 .teacher{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);margin-top:var(--s4)}
 @media (min-width:820px){.teacher{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s6);align-items:start}}
-/* 先生の一言: 楽譜の余白に鉛筆で書き込んだ注意書き */
+
 .pencil{padding-top:var(--s1)}
 .pencil-note{
   font-family:var(--f-head);font-weight:400;font-size:clamp(21px,2.6vw,28px);line-height:1.8;color:var(--pencil);
@@ -273,7 +263,6 @@ h2::before{
 .t-text p + p{margin-top:var(--s2)}
 .t-text .t-facts{font-weight:500;padding-top:var(--s2);border-top:1px solid var(--line)}
 
-/* ── 体験 ── */
 .trial-top{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);margin-top:var(--s4);padding-block:var(--s3);border-block:2px solid var(--ink)}
 .trial-top div{display:grid;gap:2px}
 .trial-top dt{font-size:14px;color:var(--ink-2)}
@@ -294,7 +283,6 @@ h2::before{
 .to-tel{margin-top:var(--s3)}
 .to-tel a{font-weight:700;text-underline-offset:4px;text-decoration-thickness:2px;text-decoration-color:var(--brass)}
 
-/* ── 場所 ── */
 .access{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s4);margin-top:var(--s4)}
 @media (min-width:820px){.access{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s5);align-items:start}}
 .big-tel .lbl{color:var(--on-dark-2);font-size:15px}
@@ -308,19 +296,15 @@ h2::before{
 .route .r-h{font-weight:700;font-size:18px}
 .route .r-h + p{margin-top:2px;color:var(--on-dark-2)}
 
-
-/* ── 屋号の帯(全ページ共通) ── */
 .bar-in{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding-top:10px;padding-bottom:10px}
 .bar-na{font-family:var(--f-head);font-weight:900;font-size:19px;line-height:1.3;text-decoration:none;white-space:nowrap;letter-spacing:.02em}
 .bar-na:hover{text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:5px}
 .bar-ji{font-size:14px;color:var(--on-dark-2);white-space:nowrap}
 @media (max-width:559px){.bar-ji{display:none}}
 
-/* ── 今いるページの鍵: 押し下がったまま、下に真鍮の印 ── */
 .keys a[aria-current="page"]{background:var(--key-down);transform:translateY(8px)}
 .keys a[aria-current="page"]::after{content:"";flex:none;width:16px;height:3px;background:var(--brass);margin-top:auto;margin-bottom:22px}
 
-/* ── 下のページの頭 ── */
 .pagehead{padding-top:var(--s4);padding-bottom:var(--s4)}
 .pan{font-size:14px;color:var(--on-dark-2)}
 .pan a{color:var(--white);text-underline-offset:4px;text-decoration-color:var(--brass)}
@@ -329,7 +313,6 @@ h2::before{
 .pagehead .staves{margin-top:var(--s4)}
 .pagehead + main > .dark:first-child{padding-top:var(--s4)}
 
-/* ── トップの入口: 発表会のプログラムの曲目のように並べる ── */
 .prog{list-style:none;margin-top:var(--s4);border-top:2px solid var(--ink)}
 .prog a{
   display:grid;grid-template-columns:auto minmax(24px,1fr) auto;align-items:center;column-gap:var(--s2);
@@ -344,7 +327,6 @@ h2::before{
 .prog .txt{grid-column:1 / -1;margin-top:4px;color:var(--ink-2)}
 .home-access .facts{margin-top:0}
 
-/* ── 次のページへ(白鍵の形のボタン) ── */
 .tsugi-sec{background:var(--white);padding-block:var(--s5)}
 .sec:not(.dark) + .tsugi-sec{padding-top:0}
 .tsugi{display:flex;flex-wrap:wrap;gap:var(--s2)}
@@ -360,7 +342,9 @@ h2::before{
 .home-access .kbtn{margin-top:var(--s3)}
 .trial-tel{margin-top:var(--s4)}
 
-/* ── 全ページ共通のフッター ── */
+.photo img{display:block;width:100%;height:auto;aspect-ratio:7/4;object-fit:cover;border-radius:0 0 var(--r) var(--r)}
+.home-access .photo + .facts{margin-top:var(--s3)}
+
 .foot{border-top:3px solid var(--brass);padding-block:var(--s5) var(--s4);font-size:15px}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3)}
 @media (min-width:820px){.foot-grid{grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:var(--s5)}}
@@ -372,7 +356,6 @@ h2::before{
 .foot-links a{font-weight:700;display:inline-block;padding-block:4px}
 .kakuu{margin-top:var(--s4);padding-top:var(--s2);border-top:1px solid rgba(255,255,255,.28);font-size:14px;color:var(--on-dark-2)}
 
-/* ── 上へ戻る(長いページでだけ出る。黒鍵の形) ── */
 .ue{
   position:fixed;z-index:20;
   right:calc(16px + env(safe-area-inset-right,0px));

@@ -1,0 +1,354 @@
+:root{
+  --tsukue:#e8eae5;
+  --kami:#f8f8f5;
+  --moji:#1f2735;
+  --kon:#1e2739;
+  --sumi:#151a24;
+  --tetsu:#4b525b;
+  --shu:#b5321a;
+  --shu-sen:#c23a1f;
+  --shu-akari:#f07a5c;
+  --sen:#c9cdc8;
+  --take:#cdb98f;
+  --fude:"Yuji Boku","BIZ UDPMincho",serif;
+  --hon:"BIZ UDPMincho","Yu Mincho",serif;
+  --aka:"Zen Kurenaido","BIZ UDPMincho",serif;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:40px;--s7:64px;
+  --kado:2px;
+  --kage:0 1px 2px rgba(20,26,38,.14),0 10px 28px rgba(20,26,38,.12);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--tsukue);color:var(--moji);
+  font-family:var(--hon);font-size:16px;line-height:1.9;
+  overflow-wrap:anywhere;line-break:strict;overflow-x:hidden;
+}
+@supports (word-break:auto-phrase){body{word-break:auto-phrase}}
+a{color:var(--kon);text-underline-offset:3px}
+a:hover{color:var(--shu)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--shu);outline-offset:3px}
+h1,h2,h3{margin:0;font-weight:400;letter-spacing:.02em;line-height:1.4}
+p{margin:0 0 var(--s4)}
+ul,ol,dl,dd,figure{margin:0;padding:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.k{display:inline-block}
+.wrap{
+  max-width:1120px;margin-inline:auto;
+  padding-left:calc(16px + env(safe-area-inset-left,0px));
+  padding-right:calc(16px + env(safe-area-inset-right,0px));
+}
+
+.kashira{background:var(--kami);border-bottom:1px solid var(--sen)}
+.kashira-in{display:flex;flex-direction:row-reverse;align-items:flex-start;gap:var(--s4);padding-top:var(--s3);padding-bottom:var(--s2)}
+.yago{writing-mode:vertical-rl;display:block;color:var(--kon);text-decoration:none;padding:6px 2px 4px}
+.yago-s{display:block;font-size:12px;line-height:1.5;letter-spacing:.12em;color:var(--tetsu)}
+.yago-n{display:block;font-family:var(--fude);font-size:24px;line-height:1.2;letter-spacing:.08em;margin-top:.5em}
+.menu{list-style:none;display:flex;flex-direction:row-reverse;gap:0}
+.menu a{
+  position:relative;display:block;writing-mode:vertical-rl;
+  min-width:40px;padding:20px 9px 8px;
+  font-size:15px;line-height:1.3;letter-spacing:.1em;color:var(--kon);text-decoration:none;
+  transition:color .2s;
+}
+.menu a:hover{color:var(--shu)}
+.menu a[aria-current="page"]::before{
+  content:"";position:absolute;top:6px;left:50%;width:8px;height:8px;margin-left:-4px;
+  border-radius:50%;background:var(--shu-sen);
+}
+
+.tsukue{padding:var(--s5) 0 var(--s6)}
+.tsukue-in{
+  display:grid;grid-template-columns:auto auto;justify-content:center;
+  grid-template-areas:"shita shita" "gak setsu";
+  gap:var(--s5) var(--s4);align-items:start;
+}
+.shitajiki{
+  grid-area:shita;justify-self:center;position:relative;
+  padding:28px 20px 30px;border-radius:var(--kado);
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 25%),
+    linear-gradient(160deg,#252f44,var(--kon) 60%,#19202f);
+  box-shadow:var(--kage);
+}
+.buchin{
+  position:absolute;z-index:2;top:31px;left:50%;width:min(76%,330px);height:14px;transform:translateX(-50%);
+  border-radius:3px;
+  background:linear-gradient(#7b828b,#4b525b 45%,#2e3339);
+  box-shadow:0 2px 3px rgba(0,0,0,.35);
+}
+.hanshi{
+  position:relative;container-type:inline-size;overflow:hidden;
+  width:max(208px,min(74vw,400px,calc((100svh - 300px) * .727)));
+  aspect-ratio:243/334;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(210,214,206,.35) 0 1px,transparent 2px),
+    radial-gradient(circle at 70% 60%,rgba(210,214,206,.3) 0 1px,transparent 2px),
+    #fbfbf8;
+  background-size:23px 29px,31px 37px,auto;
+  box-shadow:0 1px 2px rgba(0,0,0,.25);
+}
+.ji{
+  position:absolute;inset:8% 4% 7% 16%;
+  display:flex;flex-direction:row-reverse;justify-content:space-evenly;align-items:stretch;
+  font-family:var(--fude);color:var(--sumi);line-height:1;
+  font-size:min(calc(96cqw / var(--n,2)),calc(68cqw / var(--c,1)));
+}
+.gyo{display:flex;flex-direction:column;justify-content:space-around;align-items:center}
+.moji{position:relative;display:block;width:1em;height:1.06em;text-align:center;text-shadow:0 0 .5px rgba(21,26,36,.6)}
+.namae{
+  position:absolute;left:5%;bottom:6%;margin:0;
+  writing-mode:vertical-rl;font-family:var(--fude);font-size:5.4cqw;line-height:1;letter-spacing:.12em;color:#232a37;
+}
+.aka{position:absolute;pointer-events:none;color:var(--shu-sen)}
+svg.aka{overflow:visible}
+svg.aka path{
+  fill:none;stroke:var(--shu-sen);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset .3s ease-out;
+}
+.maru{width:.5em;height:.5em}
+.maru.p-ue{top:-.04em;left:.25em}
+.maru.p-naka{top:.28em;left:.25em}
+.maru.p-shita{bottom:-.02em;left:.25em}
+.maru.p-hidari{top:.28em;left:-.04em}
+.maru.p-migi{top:.28em;right:-.04em}
+.hane{width:.36em;height:.36em}
+.hane.p-migishita{bottom:-.02em;right:-.06em}
+.hane.p-shita{bottom:-.06em;left:.3em}
+.kaki{
+  writing-mode:vertical-rl;white-space:nowrap;
+  font-family:var(--aka);font-size:max(11px,.13em);line-height:1.1;letter-spacing:.04em;
+  transition:opacity .3s;
+}
+.kaki.p-ue{top:0}
+.kaki.p-naka{top:25%}
+.kaki.p-shita{bottom:0}
+.kaki.migi{left:100%;margin-left:.03em}
+.kaki.hidari{right:100%;margin-right:.03em}
+.hanshi.kakinaoshi svg.aka path{stroke-dashoffset:1}
+.hanshi.kakinaoshi .kaki{opacity:0}
+
+.gakunen{grid-area:gak;justify-self:start;border:0;margin:0;padding:0;min-width:0}
+.gakunen legend{padding:0 0 var(--s2);font-size:14px;color:var(--tetsu)}
+.gakunen label{display:block;cursor:pointer}
+.gakunen input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.gakunen span{
+  position:relative;display:block;min-height:44px;padding:9px 16px 9px 20px;
+  font-size:16px;line-height:26px;white-space:nowrap;transition:color .2s;
+}
+.gakunen label:hover span{color:var(--shu)}
+.gakunen input:checked+span{color:var(--shu);font-weight:700}
+.gakunen input:checked+span::before{
+  content:"";position:absolute;left:6px;top:11px;bottom:11px;width:3px;border-radius:2px;background:var(--shu-sen);
+}
+.gakunen input:focus-visible+span{outline:3px solid var(--shu);outline-offset:-2px}
+.setsumei{
+  grid-area:setsu;justify-self:start;writing-mode:vertical-rl;
+  height:15em;font-size:15px;line-height:1.85;padding-top:var(--s4);
+}
+.setsumei p{margin:0 0 0 .5em}
+.setsumei .tsuki{font-family:var(--fude);font-size:22px;line-height:1.3;color:var(--kon);margin-left:.4em}
+.setsumei .chu{font-size:16px;padding-top:2em}
+
+.chu{font-family:var(--aka);color:var(--shu);line-height:1.6}
+
+.dan{padding:var(--s6) 0;border-top:1px solid var(--sen)}
+.dan-in{display:grid;gap:var(--s4)}
+.dan h2{font-family:var(--fude);font-size:26px;color:var(--kon)}
+.hon{min-width:0;max-width:44em}
+.hon>p:last-child{margin-bottom:0}
+.chu-waku .chu{position:relative;margin:0;padding-left:1.4em;font-size:17px}
+.chu-waku .chu::before{
+  content:"";position:absolute;left:.1em;top:.8em;width:.9em;height:2px;border-radius:1px;
+  background:var(--shu-sen);transform:rotate(-24deg);
+}
+
+.pagehead{padding:var(--s4) 0 var(--s6);background:var(--kami);border-bottom:1px solid var(--sen)}
+.pan{font-size:14px;color:var(--tetsu);margin:0 0 var(--s5)}
+.pan a{color:var(--tetsu)}
+.midashi{display:flex;flex-direction:row-reverse;justify-content:center;align-items:flex-start;gap:var(--s5)}
+.midashi h1{writing-mode:vertical-rl;font-family:var(--fude);font-size:clamp(30px,7vw,46px);line-height:1.15;letter-spacing:.06em;color:var(--kon)}
+.mae{writing-mode:vertical-rl;height:15em;margin:0;padding-top:1.2em;font-size:16px;line-height:2}
+.chu-tate{writing-mode:vertical-rl;height:13em;margin:0;padding-top:2.5em;font-size:17px}
+
+.hyo-waku{overflow-x:auto;background:var(--kami);border:1px solid var(--sen);border-radius:var(--kado);margin-bottom:var(--s4)}
+.hyo{width:100%;border-collapse:collapse}
+.hyo th,.hyo td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--sen);line-height:1.6}
+.hyo thead th{font-weight:700;background:#eef0ec;font-size:15px}
+.hyo tbody th{font-weight:700;white-space:nowrap}
+.hyo td{font-variant-numeric:tabular-nums}
+.hyo .k{white-space:nowrap}
+.hyo small{display:block;font-weight:400;font-size:13px;color:var(--tetsu);white-space:normal}
+.hyo tr:last-child>*{border-bottom:0}
+.hyo .yasumi>*{color:var(--tetsu);background:#f0f1ee}
+.hyo-gessha td{white-space:nowrap;font-size:18px}
+.hyo-dogu tbody th{white-space:normal;min-width:6.5em}
+.hyo-dogu td:nth-child(2){white-space:nowrap}
+@media (max-width:559px){
+  .hyo th,.hyo td{padding:10px}
+  .hyo td{font-size:15px}
+  .hyo-dogu thead{display:none}
+  .hyo-dogu tr{display:grid;grid-template-columns:minmax(0,1fr) auto;border-bottom:1px solid var(--sen)}
+  .hyo-dogu tr:last-child{border-bottom:0}
+  .hyo-dogu tbody th,.hyo-dogu td{border-bottom:0}
+  .hyo-dogu tbody th{min-width:0}
+  .hyo-dogu td:nth-child(2){text-align:right}
+  .hyo-dogu td:nth-child(3){grid-column:1/-1;padding-top:0;color:var(--tetsu)}
+}
+
+.nagare{list-style:none;margin-bottom:var(--s4)}
+.nagare li{position:relative;padding:0 0 var(--s5) var(--s5);border-left:2px solid var(--sen);margin-left:6px}
+.nagare li:last-child{border-left-color:transparent;padding-bottom:0}
+.nagare li::before{
+  content:"";position:absolute;left:-8px;top:.55em;width:14px;height:14px;border-radius:50%;
+  border:2px solid var(--shu-sen);background:var(--tsukue);
+}
+.nagare b{display:block;font-size:17px;color:var(--kon)}
+
+.annai{display:grid;gap:var(--s3)}
+.annai>div{display:grid;grid-template-columns:5em minmax(0,1fr);gap:var(--s3);padding-bottom:var(--s3);border-bottom:1px solid var(--sen)}
+.annai>div:last-child{border-bottom:0;padding-bottom:0}
+.annai dt{font-weight:700;color:var(--kon)}
+.yoko-link{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);margin:var(--s5) 0 0}
+
+.shirase{list-style:none;display:grid;gap:var(--s3)}
+.shirase li{position:relative;padding-left:1.4em}
+.shirase li::before{content:"";position:absolute;left:.15em;top:.62em;width:.55em;height:.55em;border-radius:50%;border:2px solid var(--shu-sen)}
+
+.kake-mae{margin-bottom:var(--s5)}
+.kake{
+  position:relative;list-style:none;display:flex;flex-direction:row-reverse;justify-content:center;align-items:flex-start;
+  gap:clamp(10px,4vw,40px);max-width:600px;padding:22px var(--s4) 0;
+}
+.kake::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:10px;border-radius:5px;
+  background:linear-gradient(#80878f,#4b525b 50%,#33383e);box-shadow:0 2px 3px rgba(0,0,0,.25);
+}
+.kake li{display:block}
+.fude{
+  position:relative;display:flex;flex-direction:column;align-items:center;
+  text-decoration:none;color:var(--kon);transform-origin:50% -16px;transition:transform .25s ease;
+}
+.fude::before{
+  content:"";width:12px;height:24px;margin-top:-28px;margin-bottom:-2px;
+  border:2px solid var(--tetsu);border-radius:6px;
+}
+.fude:hover,.fude:focus-visible{transform:rotate(-4deg);color:var(--kon)}
+.fude:focus-visible{outline-offset:6px}
+.jiku{
+  writing-mode:vertical-rl;display:flex;justify-content:center;align-items:center;
+  width:var(--w);height:var(--jiku);border-radius:3px 3px 1px 1px;
+  font-size:15px;line-height:1;letter-spacing:.14em;color:var(--kon);
+  background:
+    linear-gradient(to bottom,transparent 16%,rgba(96,72,36,.45) 16%,rgba(96,72,36,.45) calc(16% + 2px),transparent 0),
+    linear-gradient(90deg,#b39d70,var(--take) 35%,#ddcca6 55%,#b8a274);
+}
+.fude.kuro .jiku{color:#f2f0ea;background:linear-gradient(90deg,#121722,#2e3648 45%,#3a4357 55%,#141a26)}
+.kuchi{display:block;width:calc(var(--w) + 2px);height:8px;background:linear-gradient(90deg,#3a3f46,#8b9299 45%,#454a51)}
+.ho{
+  display:block;width:calc(var(--w) * 1.04);height:var(--ho);
+  background:linear-gradient(#efe9dc 0%,#e2dac8 34%,#4a4f5c 58%,#181c26 100%);
+  clip-path:polygon(0 0,100% 0,100% 40%,96% 58%,86% 74%,70% 88%,50% 100%,30% 88%,14% 74%,4% 58%,0 40%);
+}
+
+.sumi-kurabe{display:grid;gap:var(--s4);margin-bottom:var(--s4)}
+.sumi{background:var(--kami);border:1px solid var(--sen);border-radius:var(--kado);padding:var(--s4) var(--s5)}
+.sumi h3{font-family:var(--fude);font-size:22px;color:var(--kon);margin-bottom:var(--s2)}
+.sumi p:last-child{margin-bottom:0}
+
+.kasane{
+  list-style:none;display:flex;align-items:flex-end;gap:clamp(8px,3vw,28px);
+  padding:var(--s5) var(--s4) var(--s4);margin-bottom:var(--s5);
+  background:var(--kami);border:1px solid var(--sen);border-radius:var(--kado);overflow-x:auto;
+}
+.kasane li{flex:1 1 0;min-width:58px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.koko{font-family:var(--aka);color:var(--shu);font-size:14px;line-height:1.3;margin-bottom:var(--s2)}
+.taba{
+  display:block;width:100%;max-width:130px;height:calc(var(--mai) * 13px);
+  background:repeating-linear-gradient(to top,#fdfdfb 0 11px,#c7cbc4 11px 13px);
+  border:1px solid #bfc3bc;box-shadow:3px -3px 0 #e6e8e3,5px -5px 0 #d9dcd5;
+}
+.kasane b{display:block;margin-top:var(--s2);font-size:15px;color:var(--kon);white-space:nowrap}
+.kyu-setsumei{display:grid;gap:var(--s3);margin-bottom:var(--s5)}
+.kyu-setsumei dt{font-weight:700;color:var(--kon)}
+
+.denwa{background:var(--kon);color:#eef0f4;border-radius:var(--kado);padding:var(--s5)}
+.denwa p{margin-bottom:var(--s3)}
+.denwa p:last-child{margin-bottom:0}
+.denwa-ban{font-size:clamp(26px,7vw,36px);font-weight:700;letter-spacing:.04em;line-height:1.3;white-space:nowrap}
+.tel{white-space:nowrap}
+.denwa-ban a{color:#fff;text-decoration-thickness:1px;text-underline-offset:6px}
+.denwa-ban a:focus-visible{outline-color:var(--shu-akari)}
+.denwa-toki{display:inline-block;padding:2px 10px;border:1px solid var(--shu-akari);color:var(--shu-akari);border-radius:var(--kado)}
+
+.chizu{margin-bottom:var(--s5);max-width:420px}
+.chizu svg{display:block;width:100%;height:auto;background:var(--kami);border:1px solid var(--sen);border-radius:var(--kado)}
+.chizu figcaption{font-size:14px;color:var(--tetsu);margin-top:var(--s2)}
+.c-t{font-family:var(--hon);font-size:17px;fill:var(--moji)}
+.c-s{font-family:var(--hon);font-size:15px;fill:var(--tetsu)}
+.c-b{font-family:var(--fude);font-size:19px;fill:var(--kon)}
+.michi{padding-left:1.4em;margin-bottom:var(--s4)}
+.michi li{margin-bottom:var(--s2)}
+
+.tsugi-oki{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s3);padding-top:var(--s6);padding-bottom:var(--s7);border-top:1px solid var(--sen)}
+.tsugi-btn{
+  display:inline-flex;align-items:center;min-height:48px;padding:10px 24px;
+  border:2px solid var(--kon);border-radius:var(--kado);background:var(--kami);color:var(--kon);
+  font-weight:700;text-decoration:none;transition:background .2s,color .2s,border-color .2s;
+}
+.tsugi-btn:hover{background:var(--kon);color:#fff}
+.tsugi-btn.omo{background:var(--kon);color:#fff}
+.tsugi-btn.omo:hover{background:var(--shu);border-color:var(--shu);color:#fff}
+
+.ashi{background:var(--kon);color:#e7eaf0;padding:var(--s6) 0 calc(var(--s5) + env(safe-area-inset-bottom,0px))}
+.ashi a{color:#fff}
+.ashi a:hover{color:var(--shu-akari)}
+.ashi a:focus-visible{outline-color:var(--shu-akari)}
+.ashi-in{display:grid;gap:var(--s5)}
+.ashi-na p{margin-bottom:var(--s2);font-size:15px}
+.ashi-yago{font-family:var(--fude);font-size:24px!important;letter-spacing:.06em}
+.ashi-ichiran{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s2) var(--s4);font-size:15px}
+.ashi-ichiran a{display:inline-block;padding:4px 0}
+.kakuu{margin:var(--s5) 0 0;padding-top:var(--s4);border-top:1px solid rgba(255,255,255,.18);font-size:13px;color:#c3c9d4}
+
+.ue{
+  position:fixed;z-index:20;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  padding:10px 16px;border:0;border-radius:var(--kado);background:var(--kon);color:#fff;
+  font:inherit;font-size:14px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+.ue:hover{background:var(--shu)}
+.ue[hidden]{display:none}
+
+@media (max-width:359px){
+  .hyo th,.hyo td{padding:8px}
+  .hyo td{font-size:14px}
+}
+@media (min-width:560px){
+  .sumi-kurabe{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hyo-dogu thead{display:table-header-group}
+  .kyu-setsumei>div{display:grid;grid-template-columns:7em minmax(0,1fr);gap:var(--s3)}
+}
+@media (min-width:900px){
+  .menu a{font-size:16px;padding-inline:11px;min-width:44px}
+  .yago-n{font-size:28px}
+  .tsukue{padding:var(--s6) 0 var(--s7)}
+  .tsukue-in{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"gak shita setsu";gap:var(--s6);align-items:center}
+  .gakunen{justify-self:end}
+  .setsumei{height:17em;font-size:16px}
+  .setsumei .tsuki{font-size:26px}
+  .dan{padding:var(--s7) 0}
+  .dan-in{grid-template-columns:10em minmax(0,44em) auto;grid-template-areas:"chu hon mi";justify-content:center;gap:var(--s6);align-items:start}
+  .dan h2{grid-area:mi;writing-mode:vertical-rl;font-size:32px;line-height:1.2;letter-spacing:.08em}
+  .hon{grid-area:hon;justify-self:end;width:100%}
+  .chu-waku{grid-area:chu;justify-self:end}
+  .chu-waku .chu{writing-mode:vertical-rl;max-height:16em;padding:1.4em 0 0;font-size:18px}
+  .chu-waku .chu::before{left:50%;top:.1em;width:2px;height:.9em;transform:rotate(24deg)}
+  .midashi{gap:var(--s6)}
+  .mae{height:17em;font-size:17px}
+  .ashi-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+  .ashi-ichiran{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+.tel-auto{color:inherit;text-decoration:underline;text-underline-offset:.18em}

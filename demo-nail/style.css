@@ -248,6 +248,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--hina);outline-offse
 .ashi ul a{display:inline-block;padding:4px 0}
 .kakuu{font-size:13px;color:var(--usu);margin-top:28px;padding-top:16px;border-top:1px solid var(--sen)}
 
+.photo{margin:0}
+.photo img{display:block;width:100%;height:auto;border-radius:6px}
+.ichimai>.wrap>h1{margin-bottom:12px}
+.hero{margin-bottom:24px}
+
 @media (min-width:560px){
   .oshirase li{grid-template-columns:7.5em minmax(0,1fr)}
   .nagare li{grid-template-columns:7em minmax(0,1fr)}
@@ -262,6 +267,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--hina);outline-offse
   .keisan{padding:28px}
   .futatsu{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
   .nobiru{padding:24px 20px 18px}
+  .hero img{aspect-ratio:12/5;object-fit:cover;object-position:50% 62%}
 }
 @media (min-width:860px){
   .wrap{padding-left:calc(32px + env(safe-area-inset-left,0px));padding-right:calc(32px + env(safe-area-inset-right,0px))}
@@ -296,3 +302,4 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--hina);outline-offse
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+.tel-auto{color:inherit;text-decoration:underline;text-underline-offset:.18em}

@@ -37,7 +37,6 @@ img,svg{display:block;max-width:100%}
   padding-right:max(16px,env(safe-area-inset-right,0px));
 }
 
-/* ───── のれん ───── */
 .noren{
   background:var(--sumi);
   padding-top:14px;
@@ -72,7 +71,6 @@ img,svg{display:block;max-width:100%}
 .noren li:nth-child(even) a:hover{transform:rotate(3deg) translateY(2px)}
 .noren a:focus-visible{outline:3px solid var(--ki);outline-offset:2px}
 
-/* ───── 一枚目 ───── */
 .hero{
   background:var(--sumi);
   padding:28px 0 0;
@@ -136,7 +134,6 @@ img,svg{display:block;max-width:100%}
   letter-spacing:0;
 }
 
-/* 今日の札 */
 .kyou{
   margin-top:28px;
   background:var(--ki);
@@ -158,7 +155,6 @@ img,svg{display:block;max-width:100%}
 .kyou small{font-size:13px;font-weight:700;letter-spacing:.08em;display:block;line-height:1.5}
 .kyou [data-state]{font-family:var(--disp);font-size:30px;line-height:1.1}
 
-/* ───── 共通の見出し ───── */
 section{padding:96px 0}
 .midashi{
   display:flex;align-items:flex-end;gap:18px;
@@ -175,7 +171,6 @@ section{padding:96px 0}
   background:var(--tile);padding:2px 0;
 }
 
-/* ───── 湯ぶね ───── */
 .yubune{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .fune{
   background:var(--kami);
@@ -201,7 +196,6 @@ section{padding:96px 0}
 .fune h3{font-family:var(--disp);font-weight:400;font-size:22px;line-height:1.3;margin-bottom:8px}
 .fune p{font-size:14.5px;line-height:1.8}
 
-/* ───── 薬湯 ───── */
 .kusuri{background:var(--ai);color:var(--kami)}
 
 .kusuri .midashi p{background:none;color:#dfe7fa}
@@ -232,7 +226,6 @@ section{padding:96px 0}
   white-space:nowrap;
 }
 
-/* ───── 料金 ───── */
 .ryokin{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
 .fudagumi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .gesoku{
@@ -259,7 +252,6 @@ section{padding:96px 0}
 .betsu dd{font-family:var(--disp);white-space:nowrap}
 .chu{font-size:14px;margin-top:16px;background:var(--tile);display:inline-block}
 
-/* ───── 入り方 ───── */
 .hairikata{background:var(--kami);border-top:4px solid var(--sumi);border-bottom:4px solid var(--sumi)}
 .jun{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:j}
 .jun li{
@@ -282,7 +274,6 @@ section{padding:96px 0}
 }
 .kimari span.ok{background:var(--ki)}
 
-/* ───── 湯上がり ───── */
 .agari{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .bin{
   background:var(--kami);border:3px solid var(--sumi);
@@ -310,7 +301,6 @@ section{padding:96px 0}
 .bin b{font-family:var(--disp);font-weight:400;color:var(--shu);font-size:17px}
 .bin p{font-size:14px;line-height:1.7;margin-top:6px}
 
-/* ───── お知らせ ───── */
 .harigami{
   background:var(--kami);border:3px solid var(--sumi);
   padding:10px 30px;
@@ -324,7 +314,6 @@ section{padding:96px 0}
 .harigami li:last-child{border-bottom:0}
 .harigami time{font-family:var(--disp);font-size:15px;color:var(--ai)}
 
-/* ───── 道順 ───── */
 .michi{background:var(--sumi);color:var(--kami)}
 
 .michi-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
@@ -355,7 +344,6 @@ footer .maru{
 footer p{font-size:14px}
 footer .kakuu{margin-top:18px;font-size:12.5px;color:#c9d5f4}
 
-/* ───── 幅 ───── */
 @media (max-width:980px){
   .yubune{grid-template-columns:repeat(3,1fr)}
   .ryokin{grid-template-columns:1fr}
@@ -406,7 +394,7 @@ footer .kakuu{margin-top:18px;font-size:12.5px;color:#c9d5f4}
   *{transition:none!important}
   html{scroll-behavior:auto}
 }
-/* ───── 屋号の帯(全ページ共通) ───── */
+
 .yago{background:var(--sumi);color:var(--kami)}
 .yago-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:10px;padding-bottom:10px}
 .yago-na{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--disp);font-size:20px;line-height:1.2;white-space:nowrap}
@@ -418,7 +406,6 @@ footer .kakuu{margin-top:18px;font-size:12.5px;color:#c9d5f4}
 .noren a[aria-current="page"]{background:var(--shu)}
 .noren a[aria-current="page"]:hover{background:#b8351f}
 
-/* ───── 下のページの頭 ───── */
 .pagehead{background:var(--sumi);color:var(--kami);padding:34px 0 48px}
 .pan{font-size:13.5px;font-weight:700;color:#cfd8da;margin-bottom:10px}
 .pan a{color:var(--ki)}
@@ -426,7 +413,6 @@ footer .kakuu{margin-top:18px;font-size:12.5px;color:#c9d5f4}
 .pagehead h1::after{content:"";display:block;width:72px;height:8px;background:var(--ki);margin-top:18px}
 .pagehead .lead{margin-top:18px;max-width:34em;color:#dfe8ea}
 
-/* ───── トップの入口(下足札) ───── */
 .iriguchi{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .fuda-link{
   display:block;text-decoration:none;padding:40px 16px 22px;
@@ -454,8 +440,9 @@ footer .kakuu{margin-top:18px;font-size:12.5px;color:#c9d5f4}
 .tsugi{display:flex;flex-wrap:wrap;gap:16px}
 .tsugi .tsuzuki{margin-top:0}
 .nen{font-family:var(--disp);font-size:22px;margin-bottom:18px}
+.photo{margin-top:48px;border:3px solid var(--sumi);background:var(--sumi)}
+.photo img{width:100%;height:auto;aspect-ratio:7/3;object-fit:cover}
 
-/* ───── よくある質問 ───── */
 .toi{background:var(--kami);border:3px solid var(--sumi)}
 .toi details{border-bottom:2px dotted var(--sumi);padding:0 24px}
 .toi details:last-child{border-bottom:0}
@@ -466,7 +453,6 @@ footer .kakuu{margin-top:18px;font-size:12.5px;color:#c9d5f4}
 .toi details[open] summary::after{content:"−"}
 .toi details p{padding:0 0 20px 2.2em;font-size:15.5px}
 
-/* ───── 営業時間の表 ───── */
 .jikan{width:100%;border-collapse:collapse;background:var(--kami);border:3px solid var(--sumi)}
 .jikan th,.jikan td{padding:14px 20px;text-align:left;border-bottom:2px dotted var(--sumi);vertical-align:top}
 .jikan tr:last-child th,.jikan tr:last-child td{border-bottom:0}
@@ -474,7 +460,6 @@ footer .kakuu{margin-top:18px;font-size:12.5px;color:#c9d5f4}
 .jikan td b{font-family:var(--disp);font-weight:400;font-size:20px;margin-right:10px;white-space:nowrap;display:inline-block}
 .pagehead + main > .michi:first-child{padding-top:20px}
 
-/* ───── フッター(全ページ共通) ───── */
 footer{text-align:left;padding:56px 0 36px}
 .foot{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:start}
 footer .maru{margin:0}
@@ -483,7 +468,6 @@ footer .maru{margin:0}
 .foot ul a{font-weight:700;font-size:15px}
 footer .kakuu{margin-top:32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.3)}
 
-/* ───── 上へ戻る(長いページでだけ出る) ───── */
 .ue{
   position:fixed;z-index:20;
   right:calc(16px + env(safe-area-inset-right,0px));
@@ -510,8 +494,11 @@ footer .kakuu{margin-top:32px;padding-top:18px;border-top:1px solid rgba(255,255
   .toi details{padding:0 16px}
   .jikan th,.jikan td{padding:12px 14px}
   .jikan th{width:7.5em}
+  .photo{margin-top:36px}
+  .photo img{aspect-ratio:7/4}
 }
 @media (max-width:560px){
   .yago-t{display:none}
 }
 @supports not (word-break:auto-phrase){body{word-break:normal;line-break:strict}}
+.tel-auto{color:inherit;text-decoration:underline;text-underline-offset:.18em}

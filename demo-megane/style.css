@@ -39,7 +39,6 @@ svg{display:block;max-width:100%}
 .c.r45{transform:rotate(45deg)}
 .c.r225{transform:rotate(225deg)}
 
-/* ── 上の帯 ── */
 .top{border-bottom:1px solid var(--sumi)}
 .top-in{display:flex;align-items:center;gap:28px;padding-block:16px}
 .yago{
@@ -57,7 +56,6 @@ svg{display:block;max-width:100%}
 .top .tel{font-family:var(--mono);font-size:15px;white-space:nowrap}
 a:focus-visible,input:focus-visible{outline:2px solid var(--midori);outline-offset:3px}
 
-/* ── 一枚目: 視力表 ── */
 .hero{padding-block:44px 72px}
 .hitokoto{font-family:var(--min);font-weight:700;font-size:clamp(18px,2.2vw,24px);line-height:1.6;margin-bottom:18px}
 .hyou{
@@ -115,7 +113,6 @@ a:focus-visible,input:focus-visible{outline:2px solid var(--midori);outline-offs
 .btn .c{width:18px;height:18px;transition:transform .25s}
 .btn:hover .c{transform:rotate(90deg)}
 
-/* ── 見出し ── */
 section{padding-block:88px}
 .h{
   display:grid;grid-template-columns:76px minmax(0,1fr);align-items:baseline;
@@ -125,7 +122,6 @@ section{padding-block:88px}
 .h h2{font-family:var(--min);font-weight:900;font-size:clamp(28px,4.2vw,46px);line-height:1.35;letter-spacing:.04em;text-wrap:balance}
 .h p{grid-column:2;margin-top:12px;max-width:36em;color:var(--hai)}
 
-/* ── 測り方 ── */
 .shaku{display:flex;height:14px;border:1px solid var(--sumi);background:var(--shiro)}
 .shaku i{display:block;border-right:1px solid var(--sumi)}
 .shaku i:last-child{border-right:0}
@@ -137,7 +133,6 @@ section{padding-block:88px}
 .dan p{font-size:14.5px;line-height:1.85}
 .dan .naga{max-width:30em}
 
-/* ── 枠 ── */
 .waku{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--sen);border-left:1px solid var(--sen)}
 .w{
   border-right:1px solid var(--sen);border-bottom:1px solid var(--sen);
@@ -151,7 +146,6 @@ section{padding-block:88px}
 .w p{font-size:14.5px;color:var(--hai);line-height:1.8;margin-top:6px}
 .w-chu{margin-top:18px;font-size:14px;color:var(--hai)}
 
-/* ── 値段 ── */
 .nedan{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:start}
 .ookii{font-family:var(--min);font-weight:900;font-size:clamp(46px,7.4vw,92px);line-height:1.1;white-space:nowrap}
 .ookii small{font-size:.28em;font-weight:700;margin-left:.3em}
@@ -162,7 +156,6 @@ section{padding-block:88px}
 .hyo2 dd{font-family:var(--mono);font-size:15px;white-space:nowrap}
 .hyo2 dd.zero{color:var(--midori);font-family:var(--goth);font-weight:700}
 
-/* ── 赤緑 ── */
 .akamidori{padding-block:0}
 .am-h{padding-block:0 28px}
 .am{display:grid;grid-template-columns:1fr 1fr}
@@ -174,7 +167,6 @@ section{padding-block:88px}
 .am h3{font-family:var(--min);font-weight:900;font-size:clamp(22px,2.8vw,32px);line-height:1.5}
 .am p{margin-top:10px;font-weight:500;max-width:25em}
 
-/* ── 店主 ── */
 .nushi{display:grid;grid-template-columns:76px minmax(0,1fr);}
 .nushi blockquote{
   font-family:var(--min);font-weight:700;
@@ -186,7 +178,6 @@ section{padding-block:88px}
 .kiku li{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:14px;padding:13px 0;border-bottom:1px solid var(--sen);align-items:baseline}
 .kiku b{font-family:var(--min);font-weight:700}
 
-/* ── 予約と場所 ── */
 .yoyaku{background:var(--sumi);color:var(--kami)}
 .yoyaku .h{border-color:var(--kami)}
 .yoyaku .h .v,.yoyaku .h p{color:#a9b0b5}
@@ -208,8 +199,6 @@ section{padding-block:88px}
 .basho dl{display:grid;grid-template-columns:5em minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid #3a4046}
 .basho dt{color:#a9b0b5;font-size:14px}
 
-
-/* ── 幅 ── */
 @media (max-width:900px){
   .nushi>div{grid-template-columns:1fr}
   .top-in{flex-wrap:wrap;gap:6px 20px}
@@ -248,11 +237,10 @@ section{padding-block:88px}
   *{transition:none!important}
   html{scroll-behavior:auto}
 }
-/* ───── ページの切り替え(全ページ共通) ───── */
+
 .top nav a[aria-current="page"]{border-color:var(--aka);font-weight:700}
 .yago:focus-visible{outline:2px solid var(--midori);outline-offset:3px}
 
-/* ───── 下のページの頭 ───── */
 .pagehead{padding-block:40px 8px}
 .pan{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--hai);margin-bottom:6px}
 .pan a{color:var(--sumi)}
@@ -265,7 +253,6 @@ section{padding-block:88px}
 .pagehead + main > section:first-child{padding-top:56px}
 .pagehead + main > .yoyaku:first-child{margin-top:44px;padding-top:88px}
 
-/* ───── トップの入口(視力表の続き) ───── */
 .iriguchi{background:var(--shiro);border:1px solid var(--sumi)}
 .iriguchi a{
   display:grid;grid-template-columns:76px minmax(0,1fr) auto;align-items:center;
@@ -283,7 +270,6 @@ section{padding-block:88px}
 .iriguchi span.s{font-size:15px;color:var(--hai);line-height:1.8}
 .iriguchi .ya{font-family:var(--mono);font-size:14px;padding-right:22px;white-space:nowrap}
 
-/* ───── 次に見るページ ───── */
 .tsugi-sec{padding-block:0 96px}
 .yoyaku + .tsugi-sec,.akamidori + .tsugi-sec{padding-top:56px}
 .tsugi{display:flex;flex-wrap:wrap;gap:14px;border-top:1px solid var(--sumi);padding-top:28px}
@@ -294,7 +280,6 @@ section{padding-block:88px}
 .yoyaku .btn:hover{background:var(--midori);border-color:var(--midori);color:var(--kami)}
 .yoyaku .btn:focus-visible{outline-color:var(--kami)}
 
-/* ───── フッター(全ページ共通) ───── */
 .shita{border-top:1px solid var(--sumi);padding-block:44px 40px;font-size:14px;color:var(--hai);line-height:1.85}
 .shita-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 56px;align-items:start}
 .shita .yago{font-size:19px;color:var(--sumi);margin-bottom:10px}
@@ -303,7 +288,6 @@ section{padding-block:88px}
 .shita ul a{color:var(--sumi);font-weight:500;font-size:14.5px}
 .shita .kakuu{margin-top:28px;padding-top:16px;border-top:1px solid var(--sen);font-size:13px}
 
-/* ───── 上へ戻る(長いページでだけ出る) ───── */
 .ue{
   position:fixed;z-index:20;
   right:calc(16px + env(safe-area-inset-right,0px));
@@ -319,9 +303,16 @@ section{padding-block:88px}
 .ue:focus-visible{outline:2px solid var(--midori);outline-offset:3px}
 .ue[hidden]{display:none}
 
+.photo{margin:0}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:7/4;object-fit:cover;background:var(--sen)}
+.waku-photo{margin-bottom:28px}
+.yo-photo{margin-top:56px}
+.yo-tel .tel-auto{text-decoration:none}
+
 @media (max-width:900px){
   .top nav a{padding-block:8px}
   .shita-in{grid-template-columns:1fr}
+  .yo-photo{margin-top:44px}
 }
 @media (max-width:640px){
   .pagehead{padding-block:28px 0}
@@ -334,3 +325,4 @@ section{padding-block:88px}
   .tsugi-sec{padding-bottom:72px}
 }
 @supports not (word-break:auto-phrase){body{word-break:normal;line-break:strict}}
+.tel-auto{color:inherit;text-decoration:underline;text-underline-offset:.18em}

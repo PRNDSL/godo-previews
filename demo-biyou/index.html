@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>髪を切る店 そよぎ|雲雀ヶ瀬の用水路沿いの美容室</title>
+<meta name="description" content="雲雀ヶ瀬のひばり用水沿いにある、席3つの美容室。何をするかと入る時刻を選ぶと、出られる時刻と料金が分かります。10時から19時、火曜は休み。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="kao">
+  <div class="haba kao-in">
+    <a class="yago" href="index.html" aria-current="page"><span class="yago-ko">髪を切る店</span><span class="yago-na">そよぎ</span></a>
+    <nav class="menu" aria-label="ページの一覧">
+      <ul>
+        <li><a href="menu.html"><span class="k">メニュー</span></a></li>
+        <li><a href="soudan.html"><span class="k">髪の</span><span class="k">相談</span></a></li>
+        <li><a href="hajimete.html"><span class="k">はじめて</span><span class="k">の方</span></a></li>
+        <li><a href="futari.html"><span class="k">2人の</span><span class="k">こと</span></a></li>
+        <li><a href="yoyaku.html"><span class="k">予約と</span><span class="k">場所</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="ichi">
+  <div class="haba">
+    <div class="ichi-in">
+      <div class="kushi" id="kushi" style="--a:0.3333;--b:0.2778;--s:0.7222">
+        <div class="kushi-e"><h1 class="kushi-na"><span class="k">髪を切る店</span><span class="k">そよぎ</span></h1></div>
+        <div class="kushi-mine">
+          <div class="kushi-jiku">
+            <div class="kushi-ha" aria-hidden="true"><i style="--i:0" class="ji"></i><i style="--i:1"></i><i style="--i:2" class="ji"></i><i style="--i:3"></i><i style="--i:4" class="ji"></i><i style="--i:5"></i><i style="--i:6" class="ji"></i><i style="--i:7"></i><i style="--i:8" class="ji"></i><i style="--i:9"></i><i style="--i:10" class="ji"></i><i style="--i:11"></i><i style="--i:12" class="ji"></i><i style="--i:13"></i><i style="--i:14" class="ji"></i><i style="--i:15"></i><i style="--i:16" class="ji"></i><i style="--i:17"></i><i style="--i:18" class="ji"></i></div>
+            <ol class="kushi-toki" aria-hidden="true"><li style="--i:0">10</li><li style="--i:2">11</li><li style="--i:4">12</li><li style="--i:6">13</li><li style="--i:8">14</li><li style="--i:10">15</li><li style="--i:12">16</li><li style="--i:14">17</li><li style="--i:16">18</li><li style="--i:18">19</li></ol>
+            <div class="kukan" id="kukan" aria-hidden="true"></div>
+            <div class="saigo" id="saigo" aria-hidden="true"><span>最終受付</span></div>
+          </div>
+        </div>
+      </div>
+      <form class="erabu" id="erabu" action="#" onsubmit="return false">
+        <p class="erabu-mae">何をするかと入る時刻を選ぶと、店にいる時間が櫛の上に出ます。</p>
+        <fieldset class="erabu-f">
+          <legend>何をするか</legend>
+          <div class="erabu-ms">
+            <label class="erabu-m"><input type="radio" name="m" value="cut"><span>カット</span></label>
+            <label class="erabu-m"><input type="radio" name="m" value="cc" checked><span>カットとカラー</span></label>
+            <label class="erabu-m"><input type="radio" name="m" value="cp"><span>カットとパーマ</span></label>
+            <label class="erabu-m"><input type="radio" name="m" value="co"><span>カラーだけ</span></label>
+            <label class="erabu-m"><input type="radio" name="m" value="ma"><span>前髪だけ</span></label>
+          </div>
+        </fieldset>
+        <div class="erabu-t">
+          <label for="iri">入る時刻</label>
+          <select id="iri" name="iri">
+            <option value="600">10:00</option>
+            <option value="630">10:30</option>
+            <option value="660">11:00</option>
+            <option value="690">11:30</option>
+            <option value="720">12:00</option>
+            <option value="750">12:30</option>
+            <option value="780" selected>13:00</option>
+            <option value="810">13:30</option>
+            <option value="840">14:00</option>
+            <option value="870">14:30</option>
+            <option value="900">15:00</option>
+            <option value="930">15:30</option>
+            <option value="960">16:00</option>
+            <option value="990">16:30</option>
+            <option value="1020">17:00</option>
+            <option value="1050">17:30</option>
+            <option value="1080">18:00</option>
+            <option value="1110">18:30</option>
+          </select>
+        </div>
+        <div class="kotae-waku">
+          <p class="kotae" id="kotae" aria-live="polite">13:00に入ると、15:30ごろ出られます。<b>11,000円</b></p>
+          <p class="kotae-saigo" id="kotae-saigo">カットとカラーの最終受付は16:30です。</p>
+          <p class="kotae-chu">時間と料金は肩くらいまでの長さの目安です。<a href="menu.html">料金の表を見る</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="iriguchi" aria-labelledby="ir-h">
+  <div class="haba">
+    <h2 id="ir-h"><span class="k">ワゴンの上の</span><span class="k">道具から</span></h2>
+    <p class="iriguchi-mae">席の横のワゴンには、毎朝この並びで道具を置いています。道具を押すと、そのページに移ります。</p>
+    <ul class="tray">
+      <li><a class="dougu" href="menu.html"><span class="dougu-e"><svg viewBox="0 0 60 200" width="60" height="200" aria-hidden="true" focusable="false"><path d="M25 118 L29 8 L31 8 L35 118 Z" fill="#cbd6da" stroke="#4b5d66" stroke-width="2" stroke-linejoin="round"/><path d="M30 12 L30 116" stroke="#4b5d66" stroke-width="1.4"/><path d="M27 122 L19 150 M33 122 L41 152" stroke="#4b5d66" stroke-width="5" stroke-linecap="round"/><circle cx="30" cy="119" r="3.5" fill="#fff" stroke="#4b5d66" stroke-width="2"/><circle cx="16" cy="166" r="14" fill="none" stroke="#4b5d66" stroke-width="5"/><circle cx="44" cy="168" r="12" fill="none" stroke="#4b5d66" stroke-width="5"/><path d="M7 178 L3 194" stroke="#4b5d66" stroke-width="4" stroke-linecap="round"/></svg></span><span class="dougu-na"><small>はさみ</small><b>メニューと料金</b><span class="dougu-sub">長さと料金の表</span></span></a></li>
+      <li><a class="dougu" href="soudan.html"><span class="dougu-e"><svg viewBox="0 0 60 200" width="60" height="200" aria-hidden="true" focusable="false"><path d="M25 118 L29 8 L31 8 L31 118 Z" fill="#cbd6da" stroke="#4b5d66" stroke-width="2" stroke-linejoin="round"/><path d="M31 8 L35 118" stroke="#4b5d66" stroke-width="2"/><path d="M31.3 16 L36.3 18 M31.5 22 L36.5 24 M31.7 28 L36.7 30 M31.9 34 L36.9 36 M32.2 40 L37.2 42 M32.4 46 L37.4 48 M32.6 52 L37.6 54 M32.8 58 L37.8 60 M33.0 64 L38.0 66 M33.3 70 L38.3 72 M33.5 76 L38.5 78 M33.7 82 L38.7 84 M33.9 88 L38.9 90 M34.1 94 L39.1 96 M34.3 100 L39.3 102 M34.6 106 L39.6 108 M34.8 112 L39.8 114" stroke="#4b5d66" stroke-width="1.6" stroke-linecap="round"/><path d="M27 122 L19 150 M33 122 L41 152" stroke="#4b5d66" stroke-width="5" stroke-linecap="round"/><circle cx="30" cy="119" r="3.5" fill="#fff" stroke="#4b5d66" stroke-width="2"/><circle cx="16" cy="166" r="14" fill="none" stroke="#4b5d66" stroke-width="5"/><circle cx="44" cy="168" r="12" fill="none" stroke="#4b5d66" stroke-width="5"/></svg></span><span class="dougu-na"><small>すきばさみ</small><b>髪の相談</b><span class="dougu-sub">広がる、白髪など5つ</span></span></a></li>
+      <li><a class="dougu" href="hajimete.html"><span class="dougu-e"><svg viewBox="0 0 60 200" width="60" height="200" aria-hidden="true" focusable="false"><rect x="36" y="8" width="11" height="184" rx="3" fill="#2f3f46"/><path d="M12 14 L36 14 M12 20 L36 20 M12 26 L36 26 M12 32 L36 32 M12 38 L36 38 M12 44 L36 44 M12 50 L36 50 M12 56 L36 56 M12 62 L36 62 M12 68 L36 68 M12 74 L36 74 M12 80 L36 80 M12 86 L36 86 M12 92 L36 92 M12 98 L36 98 M12 104 L36 104 M14 110 L36 110 M14 116 L36 116 M14 122 L36 122 M14 128 L36 128 M14 134 L36 134 M14 140 L36 140 M14 146 L36 146 M14 152 L36 152 M14 158 L36 158 M14 164 L36 164 M14 170 L36 170 M14 176 L36 176 M14 182 L36 182" stroke="#2f3f46" stroke-width="2.6" stroke-linecap="round"/></svg></span><span class="dougu-na"><small>コーム</small><b>はじめての方</b><span class="dougu-sub">当日の流れ</span></span></a></li>
+      <li><a class="dougu" href="futari.html"><span class="dougu-e"><svg viewBox="0 0 60 200" width="60" height="200" aria-hidden="true" focusable="false"><path d="M19 40 Q30 4 41 40 L33 192 Q30 197 27 192 Z" fill="#2c6e72" stroke="#1f4f52" stroke-width="2" stroke-linejoin="round"/><path d="M30 52 L30 188" stroke="#d5e6e6" stroke-width="1.6"/><circle cx="30" cy="34" r="7" fill="#d5e6e6" stroke="#1f4f52" stroke-width="2"/></svg></span><span class="dougu-na"><small>ダッカール</small><b>2人のこと</b><span class="dougu-sub">得意なことと道具</span></span></a></li>
+      <li><a class="dougu" href="yoyaku.html"><span class="dougu-e"><svg viewBox="0 0 60 200" width="60" height="200" aria-hidden="true" focusable="false"><circle cx="30" cy="140" r="27" fill="#d5e6e6" stroke="#4b5d66" stroke-width="2.4"/><circle cx="30" cy="140" r="11" fill="#fff" stroke="#4b5d66" stroke-width="2"/><rect x="21" y="66" width="18" height="70" rx="5" fill="#cbd6da" stroke="#4b5d66" stroke-width="2.2"/><rect x="25" y="46" width="10" height="22" rx="2" fill="#cbd6da" stroke="#4b5d66" stroke-width="2.2"/><rect x="24" y="92" width="12" height="26" rx="3" fill="#4b5d66"/><g class="kiri-tsubu" fill="#2c6e72"><circle cx="30" cy="34" r="2"/><circle cx="24" cy="24" r="1.8"/><circle cx="36" cy="22" r="1.8"/><circle cx="30" cy="12" r="1.5"/></g></svg></span><span class="dougu-na"><small>霧吹き</small><b>予約と場所</b><span class="dougu-sub">電話と道順</span></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="shirase-basho">
+  <div class="haba sb-in">
+    <div class="shirase">
+      <h2>お知らせ</h2>
+      <ul class="shirase-l">
+        <li><time datetime="2026-11-15">2026年11月15日</time><p>年末は12月30日の17:00まで切ります。年明けは1月4日からです。12月の土日は早めに埋まるので、決まっている方はお早めに電話をください。</p></li>
+        <li><time datetime="2026-11-02">2026年11月2日</time><p>ひばり用水の柵の工事で、12月中旬まで用水路側に自転車を置けません。かささぎ橋の手前の空き地に置いてください。</p></li>
+        <li><time datetime="2026-10-10">2026年10月10日</time><p>シャンプー台の椅子を替えました。背もたれが首まで届くので、首の後ろが楽になります。</p></li>
+      </ul>
+    </div>
+    <div class="basho">
+      <h2><span class="k">場所と</span><span class="k">時間</span></h2>
+      <svg class="chizu" viewBox="0 0 600 340" role="img" aria-label="店のまわりの地図。ひばり用水が斜めに流れ、かささぎ橋のたもと、用水路の北側に店があります。">
+<rect width="600" height="340" fill="#f7fafa"/>
+<path d="M0 214 L600 132 L600 196 L0 278 Z" fill="#cfe2e2"/>
+<g class="chizu-nami" stroke="#7fb0b2" stroke-width="2" fill="none" stroke-linecap="round">
+<path d="M-40 250 q15 -6 30 0 t30 0 M80 234 q15 -6 30 0 t30 0 M200 218 q15 -6 30 0 t30 0 M320 201 q15 -6 30 0 t30 0 M440 185 q15 -6 30 0 t30 0 M560 168 q15 -6 30 0 t30 0"/>
+<path d="M20 262 q15 -6 30 0 t30 0 M140 246 q15 -6 30 0 t30 0 M260 230 q15 -6 30 0 t30 0 M380 213 q15 -6 30 0 t30 0 M500 197 q15 -6 30 0 t30 0"/>
+</g>
+<path d="M0 196 L600 114" stroke="#b8c6ca" stroke-width="14"/>
+<path d="M300 0 L300 340" stroke="#b8c6ca" stroke-width="22"/>
+<rect x="282" y="146" width="36" height="92" fill="#e7edef" stroke="#6d7d85" stroke-width="2"/>
+<rect x="330" y="86" width="64" height="44" fill="#2c6e72"/>
+<text x="362" y="114" fill="#ffffff" font-size="20" text-anchor="middle" font-weight="600">そよぎ</text>
+<text x="236" y="300" fill="#1b2a30" font-size="19" text-anchor="end">かささぎ橋</text>
+<path d="M240 294 L282 220" stroke="#6d7d85" stroke-width="1.5"/>
+<text x="480" y="252" fill="#1f4f52" font-size="19" text-anchor="middle">ひばり用水</text>
+<text x="314" y="30" fill="#1b2a30" font-size="19">↑ 雲雀ヶ瀬駅 西口 歩いて8分</text>
+<rect x="160" y="70" width="14" height="14" fill="#a3472a"/>
+<text x="182" y="83" fill="#1b2a30" font-size="19">バス 水門前</text>
+<rect x="408" y="94" width="40" height="30" fill="none" stroke="#6d7d85" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="430" y="86" fill="#4a5a61" font-size="19" text-anchor="middle">車2台</text>
+</svg>
+      <dl class="basho-dl">
+        <div><dt>場所</dt><dd>雲雀ヶ瀬二丁目8-14<br>ひばり用水沿い、かささぎ橋のたもと</dd></div>
+        <div><dt>時間</dt><dd>10:00〜19:00(火曜は休み)</dd></div>
+        <div><dt>予約</dt><dd>電話で受けています。番号とかける時のお願いは<a href="yoyaku.html">予約と場所</a>に書いています。</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="ashi">
+  <div class="haba">
+    <div class="ashi-in">
+      <div class="ashi-mise">
+        <b>髪を切る店 そよぎ</b>
+        <p>雲雀ヶ瀬二丁目8-14(ひばり用水沿い、かささぎ橋のたもと)</p>
+        <p>10:00〜19:00(火曜は休み)</p>
+        <p>電話 <a href="tel:000-000-0000">000-000-0000</a>(切っている間は留守番電話です)</p>
+      </div>
+      <ul class="ashi-ichiran">
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="menu.html">メニューと料金</a></li>
+        <li><a href="soudan.html">髪の相談</a></li>
+        <li><a href="hajimete.html">はじめての方</a></li>
+        <li><a href="futari.html">2人のこと</a></li>
+        <li><a href="yoyaku.html">予約と場所</a></li>
+      </ul>
+    </div>
+    <p class="kakuu">このサイトは制作見本です。出てくる店名や町名、料金、人物、免許の表記などは、すべて架空のものです。</p>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

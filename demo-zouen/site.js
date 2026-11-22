@@ -1,5 +1,4 @@
 (function(){
-  // 剪定の暦: 今月の欄に印を付け、今月の仕事の札を書き替える(暦のあるページだけ)
   var m = new Date().getMonth() + 1;
   var cell = document.querySelector('.month[data-m="' + m + '"]');
   if(cell){
@@ -23,7 +22,6 @@
     if(ask) ask.textContent = 'この仕事を頼む';
   }
 
-  // 上へ戻る: ページが画面3つ分より長い時だけ、1画面ぶん下がったら出す
   var ue = document.createElement('button');
   ue.type = 'button'; ue.className = 'ue'; ue.hidden = true; ue.textContent = '上へ';
   ue.setAttribute('aria-label', 'ページの上へ戻る');

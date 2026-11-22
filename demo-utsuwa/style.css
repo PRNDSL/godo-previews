@@ -227,6 +227,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--ai);outline-offset:
 .nichiyo-l span{grid-column:1;font-size:14px;color:var(--sumi-usu)}
 .nichiyo-l em{grid-column:2;grid-row:1 / span 2;align-self:center;font-style:normal;font-family:var(--f-mi);font-size:19px}
 .jusho{font-family:var(--f-mi);font-size:24px;margin-bottom:var(--s2)}
+.photo{margin:var(--s4) 0 0}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:7/4;object-fit:cover;background:var(--kabe-koi);border:1px solid rgba(34,32,28,.25);border-radius:var(--r)}
+.photo-ph{margin:var(--s3) 0 0}
+.photo-sec{margin:var(--s3) 0 var(--s4)}
 .chizu{margin:0}
 .chizu svg{display:block;width:100%;height:auto;border:1px solid rgba(34,32,28,.25)}
 .chizu figcaption{font-size:13px;color:var(--sumi-usu);margin-top:6px}
@@ -262,6 +266,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--ai);outline-offset:
   .denwa-migi .denwa-bun:last-child{margin-bottom:0}
   .kyo-in{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:var(--s6)}
   .shibori{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,.8fr)}
+  .photo-ph img{aspect-ratio:2/1}
 }
 @media (min-width:900px){
   :root{--k:5px}
@@ -306,3 +311,5 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--ai);outline-offset:
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important}
 }
+.tel-auto{color:inherit;text-decoration:underline;text-underline-offset:.18em}
+.denwa-ban .tel-auto{text-decoration:none}
