@@ -118,6 +118,10 @@ h3{font-size:19px;font-weight:500}
 .pan a{color:var(--usu)}
 .pagehead h1{font-size:clamp(30px,6.4vw,50px);font-weight:300;letter-spacing:.05em;margin-bottom:var(--s2)}
 .lead{max-width:34em;margin:0}
+.photo{margin:0 0 var(--s3);max-width:860px}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:7/4;object-fit:cover;border-radius:var(--r);background:var(--sen)}
+.photo-atama{padding-top:var(--s4)}
+.photo-atama .photo{margin:0}
 
 .tana-mokuji{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
 .tana-mokuji a{display:block;padding:8px 14px;border:1px solid var(--sen);background:var(--shiro);border-radius:var(--r);color:var(--sumi);text-decoration:none;font-size:15px;transition:border-color .2s ease,background-color .2s ease}
