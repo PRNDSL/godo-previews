@@ -1,0 +1,251 @@
+:root{
+  --ki:#5a3d27;
+  --ki-koi:#3b281a;
+  --ki-mae:#7d5a3c;
+  --ki-naka:#a37b55;
+  --shinchu:#c99a2e;
+  --shinchu-hi:#e7c46a;
+  --shinchu-koi:#8a6410;
+  --kami:#f7f7f4;
+  --kami-2:#ecebe6;
+  --shiro:#ffffff;
+  --ai:#24476b;
+  --ai-koi:#183450;
+  --ai-usu:#e1e7ee;
+  --sumi:#2a2420;
+  --usu:#5b524a;
+  --sen:#d6d1c6;
+  --midashi:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --hon:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --s1:8px;
+  --s2:16px;
+  --s3:24px;
+  --s4:40px;
+  --s5:64px;
+  --r:3px;
+  --kage:0 1px 0 rgba(42,30,20,.06),0 10px 20px -12px rgba(42,30,20,.5);
+  --waku:min(1120px,100% - 32px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px));
+  --mokume:repeating-linear-gradient(180deg,rgba(255,255,255,.04) 0 2px,transparent 2px 7px),repeating-linear-gradient(180deg,rgba(0,0,0,.07) 0 1px,transparent 1px 19px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--kami);color:var(--sumi);font-family:var(--hon);font-size:16px;line-height:1.85;overflow-wrap:anywhere;line-break:strict}
+@supports (word-break:auto-phrase){body{word-break:auto-phrase}}
+h1,h2,h3{font-family:var(--midashi);line-height:1.35;letter-spacing:.03em;margin:0}
+p{margin:0 0 1em}
+a{color:var(--ai)}
+img,svg{max-width:100%}
+.k{display:inline-block}
+:focus-visible{outline:3px solid var(--ai);outline-offset:3px}
+.wrap{width:var(--waku);margin-inline:auto}
+
+.atama{background:var(--mokume),var(--ki-koi);color:#f4ece2;padding-top:env(safe-area-inset-top,0px)}
+.atama :focus-visible,.ashi :focus-visible{outline-color:var(--shinchu-hi)}
+.atama-in{width:var(--waku);margin-inline:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 24px;padding:10px 0}
+.yago{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:var(--midashi);font-weight:500;font-size:20px;letter-spacing:.08em;padding:4px 0}
+.yago svg{width:26px;height:26px;flex:none}
+.menu ul{list-style:none;margin:0 -10px;padding:0;display:flex;flex-wrap:wrap}
+.menu a{display:block;padding:8px 10px;color:#f4ece2;text-decoration:none;font-size:15px;line-height:1.5;border-bottom:2px solid transparent;transition:border-color .2s ease,color .2s ease}
+.menu a:hover{border-bottom-color:rgba(231,196,106,.7);color:#fff}
+.menu a[aria-current="page"]{border-bottom-color:var(--shinchu-hi);color:#fff}
+
+.mise-saki{padding:var(--s4) 0 var(--s5)}
+.mise-saki-in{display:grid;gap:var(--s4)}
+.saki-ko{color:var(--usu);font-size:15px;margin:0 0 var(--s1)}
+.mise-saki h1{font-size:clamp(36px,10vw,76px);font-weight:300;line-height:1.15;letter-spacing:.04em;margin:0 0 var(--s2)}
+.saki-bun{max-width:28em}
+.saki-jikan{display:inline-block;margin:var(--s1) 0 0;padding:6px 12px;border-left:4px solid var(--shinchu);background:var(--kami-2);font-size:15px}
+
+.tansu-oki{position:relative;padding-bottom:14px}
+.tansu-oki::before,.tansu-oki::after{content:"";position:absolute;bottom:0;width:28px;height:16px;background:var(--ki-koi);border-radius:0 0 2px 2px}
+.tansu-oki::before{left:18px}
+.tansu-oki::after{right:18px}
+.tansu{position:relative;display:grid;gap:10px;padding:14px;background:var(--mokume),var(--ki);border-radius:var(--r);box-shadow:var(--kage),inset 0 0 0 1px rgba(0,0,0,.3),inset 0 3px 0 rgba(255,255,255,.08)}
+.dan-mae{appearance:none;-webkit-appearance:none;border:0;margin:0;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;min-height:88px;padding:12px 14px;background:var(--mokume),var(--ki-mae);color:#fff7ea;font:inherit;line-height:1.4;text-align:left;border-radius:2px;cursor:pointer;box-shadow:inset 0 0 0 3px rgba(0,0,0,.14),inset 0 2px 0 rgba(255,255,255,.14),0 2px 0 rgba(0,0,0,.35);transition:transform .22s ease,box-shadow .22s ease}
+.dan-mae:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 3px rgba(0,0,0,.14),inset 0 2px 0 rgba(255,255,255,.14),0 4px 0 rgba(0,0,0,.35)}
+.dan-mae:focus-visible{outline-color:var(--shinchu-hi);outline-offset:2px}
+.dan-ban{font-size:13px;letter-spacing:.06em}
+.dan-mannaka{display:grid;justify-items:center}
+.dan-fuda{display:block;background:var(--shiro);color:var(--sumi);border:3px solid var(--shinchu);border-radius:2px;padding:2px 12px;font-family:var(--midashi);font-weight:500;font-size:15px;line-height:1.5;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.totte{position:relative;display:block;width:84px;height:12px;margin-top:10px;border-radius:6px;background:linear-gradient(180deg,var(--shinchu-hi),var(--shinchu) 55%,var(--shinchu-koi));box-shadow:0 2px 2px rgba(0,0,0,.4)}
+.totte::before,.totte::after{content:"";position:absolute;top:-3px;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--shinchu-hi),var(--shinchu) 60%,var(--shinchu-koi));box-shadow:0 1px 2px rgba(0,0,0,.4)}
+.totte::before{left:-6px}
+.totte::after{right:-6px}
+.dan-shiji{justify-self:end;font-size:13px;letter-spacing:.06em}
+.dan-mae .shimeru{display:none}
+.dan-mae[aria-expanded="true"] .akeru{display:none}
+.dan-mae[aria-expanded="true"] .shimeru{display:inline}
+.dan-mae[aria-expanded="true"]{transform:translateY(-2px);box-shadow:inset 0 0 0 3px rgba(0,0,0,.14),inset 0 2px 0 rgba(255,255,255,.14),0 6px 0 var(--ki-koi)}
+.dan-mae[aria-expanded="true"] .totte{background:linear-gradient(180deg,#f3dc95,var(--shinchu-hi) 50%,var(--shinchu))}
+.naka{margin:0 10px;padding:16px 14px 14px;background:linear-gradient(180deg,rgba(0,0,0,.32),rgba(0,0,0,0) 20px),var(--ki-naka);border-radius:0 0 2px 2px;animation:hiraku .26s ease}
+.naka[hidden]{display:none}
+@keyframes hiraku{from{transform:translateY(-8px)}to{transform:none}}
+.naka ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.naka li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;background:var(--shiro);border-radius:2px;padding:10px 12px;box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.naka svg{width:32px;height:32px;stroke:var(--ai);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.naka-na{font-size:14px;line-height:1.5}
+.naka-ne{font-size:14px;font-weight:700;white-space:nowrap}
+.naka-motto{display:inline-block;margin-top:12px;padding:6px 12px;background:var(--kami);color:var(--ai);border-radius:2px;font-size:14px;font-weight:700;text-decoration:none;transition:background-color .2s ease}
+.naka-motto:hover{background:var(--shiro)}
+
+section{padding:var(--s4) 0}
+.mise-saki+section{padding-top:0}
+h2{position:relative;font-size:clamp(22px,4.2vw,30px);font-weight:400;padding-left:30px;margin-bottom:var(--s2)}
+h2::before{content:"";position:absolute;left:0;top:.42em;width:18px;height:11px;border:2px solid var(--shinchu);border-radius:2px;background:var(--shiro)}
+h3{font-size:19px;font-weight:500}
+.mae-bun{color:var(--usu);max-width:36em}
+
+.annai-list{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--sen)}
+.annai-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;align-items:center;padding:16px 8px;border-top:1px solid var(--sen);color:var(--sumi);text-decoration:none;transition:background-color .2s ease}
+.annai-list a:hover{background:var(--kami-2)}
+.annai-na{font-family:var(--midashi);font-size:22px;font-weight:400;line-height:1.4}
+.annai-setsu{grid-column:1;color:var(--usu);font-size:15px;line-height:1.6}
+.annai-ya{grid-column:2;grid-row:1/3;color:var(--ai);font-size:20px;transition:transform .2s ease}
+.annai-list a:hover .annai-ya{transform:translateX(4px)}
+
+.futatsu{display:grid;gap:var(--s4)}
+.oshirase{background:var(--shiro);border:1px solid var(--sen);border-top:6px solid var(--ai);border-radius:var(--r);padding:var(--s3)}
+.oshirase ul{margin:0 0 var(--s2);padding-left:1.2em}
+.oshirase li{margin-bottom:6px}
+.basho-hyo{margin:0 0 var(--s2);display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px}
+.basho-hyo dt{color:var(--usu);font-size:15px}
+.basho-hyo dd{margin:0}
+.yaji{font-weight:700;text-decoration:none;border-bottom:2px solid currentColor;padding-bottom:1px}
+.yaji:hover{color:var(--ai-koi)}
+
+.pagehead{padding:var(--s4) 0 var(--s3);border-bottom:1px solid var(--sen);background:linear-gradient(180deg,var(--kami-2),var(--kami))}
+.pan{font-size:14px;color:var(--usu);margin-bottom:var(--s1)}
+.pan a{color:var(--usu)}
+.pagehead h1{font-size:clamp(30px,6.4vw,50px);font-weight:300;letter-spacing:.05em;margin-bottom:var(--s2)}
+.lead{max-width:34em;margin:0}
+
+.tana-mokuji{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.tana-mokuji a{display:block;padding:8px 14px;border:1px solid var(--sen);background:var(--shiro);border-radius:var(--r);color:var(--sumi);text-decoration:none;font-size:15px;transition:border-color .2s ease,background-color .2s ease}
+.tana-mokuji a:hover{border-color:var(--ai);background:var(--ai-usu)}
+.tana{scroll-margin-top:16px}
+.tana+.tana{border-top:1px solid var(--sen)}
+.shina-list{list-style:none;margin:0;padding:0;display:grid;gap:var(--s2)}
+.shina{position:relative;background:var(--shiro);border:1px solid var(--sen);border-radius:var(--r);padding:var(--s2)}
+.shina-ue{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 16px;margin-bottom:6px}
+.shina h3{font-size:18px}
+.nefuda{margin:0;font-weight:700;font-size:18px;white-space:nowrap}
+.nefuda small{font-weight:400;font-size:12px;color:var(--usu);margin-left:4px}
+.shina-setsu{font-size:15px;margin-bottom:10px}
+.hitokoto{margin:0;padding:8px 0 2px 12px;border-left:3px solid var(--ai);font-size:15px;color:var(--usu);line-height:1.75}
+.hitokoto b{display:block;color:var(--ai);font-size:13px;font-weight:700}
+
+.kongetsu-list{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--sen)}
+.kongetsu-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:var(--s2) 4px;border-bottom:1px solid var(--sen)}
+.kongetsu-list h3{font-size:18px}
+.kongetsu-list .nefuda{grid-column:2;grid-row:1}
+.kongetsu-list p{grid-column:1/3;margin:0;font-size:15px}
+.shirushi{display:inline-block;margin-left:8px;padding:0 8px;border:1px solid currentColor;border-radius:2px;font-family:var(--hon);font-size:12px;font-weight:700;line-height:1.7;vertical-align:3px}
+.shirushi.kagiri{color:var(--shinchu-koi)}
+.shirushi.zutto{color:var(--ai)}
+.kime{display:grid;gap:var(--s2);counter-reset:none}
+.kime-dan{background:var(--shiro);border:1px solid var(--sen);border-left:6px solid var(--ki-mae);border-radius:var(--r);padding:var(--s2) var(--s3)}
+.kime-dan h3{font-size:17px;margin-bottom:4px}
+.kime-dan p{margin:0;font-size:15px}
+
+.kami-list{list-style:none;margin:0;padding:0;display:grid;gap:var(--s2)}
+.kami-list li{display:grid;grid-template-columns:88px minmax(0,1fr);gap:var(--s2);align-items:start;background:var(--shiro);border:1px solid var(--sen);border-radius:var(--r);padding:var(--s2)}
+.kami-list h3{font-size:18px;margin-bottom:4px}
+.kami-list p{margin:0;font-size:15px}
+.mihon{display:block;width:88px;height:88px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.mihon-shiro{box-shadow:inset 0 0 0 1px rgba(0,0,0,.22);background:repeating-linear-gradient(115deg,rgba(0,0,0,.025) 0 2px,transparent 2px 6px),#fbfbf9}
+.mihon-cha{background:repeating-linear-gradient(100deg,rgba(255,255,255,.06) 0 1px,transparent 1px 4px),repeating-linear-gradient(10deg,rgba(0,0,0,.05) 0 1px,transparent 1px 5px),#b08a5e}
+.mihon-ai{background:radial-gradient(circle at 50% 50%,#e9eef4 0 3px,transparent 3.5px) 0 0/16px 16px,radial-gradient(circle at 50% 50%,#c7d3e0 0 2px,transparent 2.5px) 8px 8px/16px 16px,#2a4e74}
+.himo{display:block;width:88px;height:88px;border-radius:2px;background:var(--kami-2);box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.himo svg{display:block;width:88px;height:88px;fill:none;stroke-width:4;stroke-linecap:round}
+.noshi{display:grid;gap:var(--s2)}
+.noshi-dan{background:var(--shiro);border:1px solid var(--sen);border-radius:var(--r);padding:var(--s2) var(--s3)}
+.noshi-dan h3{font-size:18px;margin-bottom:4px}
+.noshi-dan p{margin:0;font-size:15px}
+.omotegaki{list-style:none;margin:0 0 var(--s2);padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.omotegaki li{padding:6px 14px;border:1px solid var(--sen);background:var(--shiro);border-radius:2px;font-family:var(--midashi);font-weight:500;letter-spacing:.2em}
+.hyo-hako{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ryokin-hyo{width:100%;max-width:640px;border-collapse:collapse;background:var(--shiro);font-size:15px}
+.ryokin-hyo th,.ryokin-hyo td{padding:10px 14px;border-bottom:1px solid var(--sen);text-align:left;vertical-align:top}
+.ryokin-hyo td:last-child{text-align:right;white-space:nowrap;font-weight:700}
+.ryokin-hyo thead th{background:var(--kami-2);font-weight:700;font-size:14px}
+.chui{font-size:14px;color:var(--usu);margin-top:var(--s1)}
+.denwa-hako{background:var(--shiro);border:1px solid var(--sen);border-top:6px solid var(--ki-mae);border-radius:var(--r);padding:var(--s3)}
+.denwa-hako p{max-width:36em}
+.denwa-hako .chui{margin-bottom:0}
+.denwa-botan{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;background:var(--ai);color:#fff;border-radius:var(--r);font-size:19px;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:background-color .2s ease}
+.denwa-botan:hover{background:var(--ai-koi)}
+.denwa-botan svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.kobo{display:grid;gap:var(--s3);padding:var(--s3) 0;border-top:1px solid var(--sen)}
+.kobo:last-of-type{border-bottom:1px solid var(--sen)}
+.kobo-mei{display:grid;grid-template-columns:64px minmax(0,1fr);gap:4px 16px;align-content:start}
+.kobo-shirushi{grid-row:1/4;width:64px;height:64px;border-radius:var(--r);background:var(--ai-usu);display:grid;place-items:center}
+.kobo-shirushi svg{width:40px;height:40px;fill:none;stroke:var(--ai);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.kobo-shu{margin:0;font-size:14px;color:var(--usu)}
+.kobo h2{margin:0;padding-left:0;font-size:24px}
+.kobo h2::before{content:none}
+.kobo-hito{margin:0;font-size:14px;color:var(--usu)}
+.kobo-oku{grid-column:1/3;margin:var(--s1) 0 0;padding:10px 14px;background:var(--kami-2);border-radius:var(--r);font-size:15px}
+.kobo-oku b{display:block;font-size:13px;color:var(--usu)}
+.kobo-bun p:last-child{margin-bottom:0}
+.hoka{background:var(--kami-2);border-radius:var(--r);padding:var(--s3)}
+.hoka p{max-width:40em}
+
+.jikan-hyo{width:100%;max-width:420px;border-collapse:collapse;background:var(--shiro);font-size:15px;margin-bottom:var(--s2)}
+.jikan-hyo th,.jikan-hyo td{padding:8px 14px;border-bottom:1px solid var(--sen);text-align:left}
+.jikan-hyo th{font-weight:700;width:5em}
+.jikan-hyo .yasumi td{color:var(--usu)}
+.chizu{background:var(--shiro);border:1px solid var(--sen);border-radius:var(--r);padding:var(--s1)}
+.chizu svg{display:block;width:100%;height:auto}
+.chizu figcaption{font-size:14px;color:var(--usu);padding:var(--s1) var(--s1) 0}
+.yurai{max-width:38em}
+.yurai p:last-child{margin-bottom:0}
+
+.saigo-botan{display:flex;flex-wrap:wrap;gap:12px}
+.saigo-botan a{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:2px solid var(--ai);border-radius:var(--r);color:var(--ai);background:var(--shiro);font-weight:700;text-decoration:none;transition:background-color .2s ease,color .2s ease}
+.saigo-botan a:first-child{background:var(--ai);color:#fff}
+.saigo-botan a:hover{background:var(--ai-koi);border-color:var(--ai-koi);color:#fff}
+
+.ashi{margin-top:var(--s4);background:var(--mokume),var(--ki-koi);color:#efe6da;padding:var(--s4) 0 calc(var(--s3) + env(safe-area-inset-bottom,0px));font-size:15px}
+.ashi a{color:#fff}
+.ashi-in{display:grid;gap:var(--s3)}
+.ashi-yago{font-family:var(--midashi);font-size:22px;font-weight:500;letter-spacing:.08em;color:#fff;margin:0 0 var(--s1)}
+.ashi-mise p{margin:0 0 4px}
+.ashi ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 20px}
+.ashi ul a{display:inline-block;padding:4px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+.ashi ul a:hover{border-bottom-color:var(--shinchu-hi)}
+.kotowari{margin:var(--s3) 0 0;padding-top:var(--s2);border-top:1px solid rgba(255,255,255,.18);font-size:13px;color:#e2d6c6}
+
+.ue{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5;padding:10px 14px;border:2px solid var(--ki-koi);border-radius:var(--r);background:var(--shiro);color:var(--ki-koi);font:inherit;font-size:14px;font-weight:700;cursor:pointer;box-shadow:var(--kage);transition:transform .2s ease}
+.ue:hover{transform:translateY(-2px)}
+.ue[hidden]{display:none}
+
+@media (min-width:520px){
+  .naka ul{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .naka li{grid-template-columns:minmax(0,1fr);justify-items:start;gap:6px;align-content:start}
+  .annai-list a{grid-template-columns:11em minmax(0,1fr) auto;padding:18px 12px}
+  .annai-setsu{grid-column:2;grid-row:1}
+  .annai-ya{grid-column:3;grid-row:1}
+}
+@media (min-width:700px){
+  .shina-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kime{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .noshi{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:860px){
+  .mise-saki{padding:var(--s5) 0}
+  .mise-saki-in{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:center;gap:56px}
+  .futatsu{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start}
+  .kami-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .kami-list li{grid-template-columns:minmax(0,1fr)}
+  .mihon,.himo{width:100%;height:96px}
+  .himo svg{width:100%;height:96px}
+  .kobo{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:var(--s4);padding:var(--s4) 0}
+  .basho-futatsu{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4);align-items:start}
+  .ashi-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .dan-mae[aria-expanded="true"],.dan-mae:hover{transform:none}
+}
+.tel-auto{color:inherit;text-decoration:underline;text-underline-offset:.18em}
